@@ -8,7 +8,6 @@ import { BiBody } from "react-icons/bi";
 import { GiSofa } from "react-icons/gi";
 import DatePicker from "react-datepicker";
 
-import location from "../../assets/img/location.PNG";
 import { useContext } from "react";
 import { SearchContext } from "../../contexts/SearchContext";
 import { useNavigate } from "react-router-dom";
