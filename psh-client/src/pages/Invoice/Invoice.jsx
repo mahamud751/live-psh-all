@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import right from "../../assets/img/Right.png";
 import logo from "../../assets/img/logo.png";
-import "./Invoice.css";
+import "./invoice.css";
 import ReactToPrint from "react-to-print";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
