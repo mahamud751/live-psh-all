@@ -1,0 +1,13 @@
+.export_btn_main {
+    display: flex;
+    justify-content: end;
+}
+
+.export_btn {
+    width: 180px;
+}
+
+.card_div {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    padding-bottom: 20px;
+}
