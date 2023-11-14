@@ -1,6 +1,4 @@
-/* info panel */
 .inner-circle {
-  /* background: green; */
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -9,11 +7,13 @@
   justify-content: center;
   align-items: center;
 }
+
 .profile-close {
   position: absolute;
   top: 0;
   right: 0;
 }
+
 .circle {
   width: 80px;
   height: 80px;
@@ -62,6 +62,7 @@
 .profile-left {
   background-color: white !important;
 }
+
 .inset-0 {
   color: #35b0a7 !important;
   background-color: transparent !important;
@@ -70,6 +71,7 @@
 .profileTab {
   border-bottom: 0.5px solid #d4cdcd;
 }
+
 .smProfileTab {
   border-bottom: none;
 }
@@ -79,5 +81,3 @@
 
   line-height: 35px;
 }
-
-/* booking panel */

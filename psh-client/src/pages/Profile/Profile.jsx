@@ -1,4 +1,3 @@
-"use client";
 import React, { useContext, useEffect } from "react";
 import {
   Tabs,
@@ -8,7 +7,7 @@ import {
   TabPanel,
   Avatar,
 } from "@material-tailwind/react";
-import "./profile.css";
+import "./Profile.css";
 import Booking from "../../components/profile/Booking";
 import Ticket from "../../components/profile/Ticket";
 import { AuthContext } from "../../contexts/UserProvider";
