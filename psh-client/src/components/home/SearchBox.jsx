@@ -337,9 +337,9 @@ const SearchBox = () => {
             /> */}
             <div className="location-icon ">
               <img
-                src={location}
+                src="https://i.ibb.co/z8kf0jf/location.png"
                 style={{ color: "#00bbb4", width: "20px", height: "20px" }}
-                alt=""
+                alt="location"
               />
             </div>
 

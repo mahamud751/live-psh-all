@@ -4,21 +4,17 @@ import {
   Dialog,
   DialogHeader,
   DialogBody,
-  DialogFooter,
 } from "@material-tailwind/react";
 
-import { BsArrowRight } from "react-icons/bs";
 import { FaBed } from "react-icons/fa";
 import { BiBody } from "react-icons/bi";
 
 import { GiSofa } from "react-icons/gi";
 import DatePicker from "react-datepicker";
 
-import location from "../../assets/img/location.PNG";
 import { useContext } from "react";
 import { SearchContext } from "../../contexts/SearchContext";
 import { useNavigate } from "react-router-dom";
-import Autosuggest from "react-autosuggest";
 
 import { useDispatch, useSelector } from "react-redux";
 import { leftDate, rightDate, toTalRent } from "../../redux/reducers/dateSlice";
@@ -243,14 +239,14 @@ const SearchBoxSm = () => {
               <div className="input-filed-area mb-6" ref={inputRef}>
                 <div className="location-icon">
                   <img
-                    src={location}
+                    src="https://i.ibb.co/z8kf0jf/location.png"
                     style={{
                       color: "#00bbb4",
                       width: "20px",
                       height: "20px",
                       marginTop: "2px",
                     }}
-                    alt=""
+                    alt="location"
                   />
                 </div>
                 <input
