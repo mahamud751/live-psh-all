@@ -8,8 +8,6 @@ import "./Header.css";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../contexts/SearchContext";
 
-import location from "../../assets/img/location.PNG";
-
 import SearchBox from "./SearchBox";
 
 function Header({ type }) {
