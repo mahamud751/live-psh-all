@@ -93,7 +93,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(5002, () => {
+app.listen(process.env.PORT, () => {
   connect();
   console.log("connect with backend");
 });
