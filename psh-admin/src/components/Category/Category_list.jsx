@@ -146,26 +146,11 @@ const Category_list = () => {
         });
     }
   };
-  const handleDownloadPDF = () => {
-    const doc = new jsPDF();
-    const columns = [
-      { title: "No", dataKey: "no" },
-      { title: "Category", dataKey: "category" },
-    ];
-    const tableData = data.map((item, index) => ({
-      no: index + 1,
-      category: item.name,
-    }));
-    doc.autoTable(columns, tableData, { startY: 20 });
-
-    // Save the PDF file
-    doc.save("category_list.pdf");
-  };
 
   return (
     <div className="wrapper">
       <div className="content-wrapper" style={{ background: "unset" }}>
-        <section className="content">
+        <section className="content customize_list">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-7">
@@ -182,12 +167,6 @@ const Category_list = () => {
                       </Link>
                     </div>
                   </div>
-                  <button
-                    className="export_btn mt-2 p-3"
-                    onClick={handleDownloadPDF}
-                  >
-                    Export to PDF
-                  </button>
                 </div>
               </div>
             </div>

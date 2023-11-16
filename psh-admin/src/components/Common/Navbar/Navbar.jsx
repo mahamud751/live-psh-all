@@ -1,34 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import img3 from "../../../img/home/Ellipse 116.png";
-import img6 from "../../../img/home/noun-stream-4701152.png";
-import img7 from "../../../img/home/noun-stream-play-5240252.png";
-
-import img9 from "../../../img/home/Group 1329.png";
-import img13 from "../../../img/home/log.png";
-
 import { UilSearch } from "@iconscout/react-unicons";
-import "./Navbar.css";
+import { BiSolidChevronDown } from "react-icons/bi";
 import { useContext } from "react";
-
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import useAdmin from "../../../hooks/useAdmin";
+
+import img3 from "../../../img/home/Ellipse 116.png";
 import { AuthContext } from "../../../contexts/UserProvider";
+import "./Navbar.css";
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
-  const { admin } = useAdmin();
-
   const location = useLocation();
   const navigate = useNavigate();
-
-  console.log(user);
+  const [isActive1, setIsActive1] = useState(false);
+  const [isActive2, setIsActive2] = useState(false);
+  const [isActive3, setIsActive3] = useState(false);
+  const [isActive4, setIsActive4] = useState(false);
+  const [isActive5, setIsActive5] = useState(false);
+  const [isActive6, setIsActive6] = useState(false);
+  const [isActive7, setIsActive7] = useState(false);
 
   const handleLogOut = () => {
     logoutUser();
-
     navigate("/signup");
   };
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -47,7 +43,7 @@ const Navbar = () => {
       <div className="wrapper">
         <nav className="main-header navbar navbar-expand">
           {/* Left navbar links */}
-          <div className="nav_design ms-3">
+          <div className="nav_design">
             <ul className="navbar-nav" style={{ marginTop: -6 }}>
               <div className="navbar_bar">
                 <li className="nav-link">
@@ -109,7 +105,7 @@ const Navbar = () => {
         </nav>
 
         <aside
-          className="main-sidebar sidebar-dark-primary elevation-4 side_menubar"
+          className="main-sidebar sidebar-dark-primary elevation-4 side_menubar "
           style={{
             position: "fixed",
           }}
@@ -123,11 +119,28 @@ const Navbar = () => {
 
             <nav className="mt-2" style={{ width: "1000px" }}>
               <ul
-                className="nav nav-pills nav-sidebar flex-column myDIV"
+                className="nav nav-pills nav-sidebar flex-column "
                 data-widget="treeview"
                 role="menu"
                 data-accordion="false"
               >
+                <div className="navbar_bar bar_menu_sm">
+                  <li className="nav-link">
+                    <a
+                      className="nav-link"
+                      data-widget="pushmenu"
+                      href="..."
+                      role="button"
+                      style={{ display: "flex", justifyContent: "end" }}
+                    >
+                      <i
+                        className="fa-solid fa-circle-xmark "
+                        style={{ fontSize: 36 }}
+                      ></i>
+                    </a>
+                  </li>
+                </div>
+
                 <Link to={"/"}>
                   <li className="main_nav-link">
                     <a href="/" className="nav-link">
@@ -141,95 +154,147 @@ const Navbar = () => {
                   <>
                     <Link to={"/order"}>
                       <li className="main_nav-link">
-                        <a href="/order" className="nav-link">
+                        <span className="nav-link">
                           <div className="menu_flex">
-                            <span className="span_text">Order</span>
+                            <span className="span_text">Bookings</span>
                           </div>
-                        </a>
+                        </span>
                       </li>
                     </Link>
                     <Link to={"/issue"}>
                       <li className="main_nav-link">
-                        <a href="/issue" className="nav-link">
+                        <span className="nav-link">
                           <div className="menu_flex">
                             <span className="span_text">Issue</span>
                           </div>
-                        </a>
+                        </span>
                       </li>
                     </Link>
                   </>
                 ) : (
                   ""
                 )}
-                {user && user.role === "admin" ? (
+
+                {(user && user.role === "SuperAdmin") ||
+                user.role === "admin" ? (
                   <>
-                    <li className="nav-item">
-                      <a href="#" className="nav-link">
+                    <li className={`nav-item`}>
+                      <span
+                        className="nav-link "
+                        onClick={() => {
+                          setIsActive1(!isActive1);
+                          setIsActive2(false);
+                          setIsActive3(false);
+                          setIsActive4(false);
+                          setIsActive5(false);
+                          setIsActive6(false);
+                          setIsActive7(false);
+                        }}
+                      >
                         <p className="span_text">
                           Manager
-                          <i className="fas fa-angle-left right" />
+                          <i
+                            className={`fas fa-angle-left right ${
+                              isActive1 ? "d-none" : "d-block"
+                            }`}
+                          />
                           <span className="badge badge-info right">2</span>
+                          <BiSolidChevronDown
+                            style={{ width: "23px", height: "23px" }}
+                            className={`down-arrow ${
+                              isActive1 ? "d-block" : "d-none"
+                            }`}
+                          />
                         </p>
-                      </a>
-                      <ul className="nav nav-treeview">
+                      </span>
+                      <ul
+                        className={` custom-drop ${
+                          isActive1 ? "custom-drop-show" : ""
+                        }`}
+                      >
                         <Link to={"/add_manager"}>
                           <li className="main_nav-link">
-                            <a href="/add_manager" className="nav-link">
+                            <span className="nav-link">
                               <div className="menu_flex">
                                 <span className="span_text">
                                   Add Manager & Partner
                                 </span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                         <Link to={"/manager_list"}>
                           <li className="main_nav-link">
-                            <a href="/manager_list" className="nav-link">
+                            <span className="nav-link">
                               {/* <img style={{ width: 16 }} src={img6} alt="" /> */}
                               <div className="menu_flex">
                                 <span className="span_text">Manager List</span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                         <Link to={"/partner_list"}>
                           <li className="main_nav-link">
-                            <a href="/partner_list" className="nav-link">
+                            <span className="nav-link">
                               {/* <img style={{ width: 16 }} src={img6} alt="" /> */}
                               <div className="menu_flex">
                                 <span className="span_text">Partner List</span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                       </ul>
                     </li>
                     <li className="nav-item">
-                      <a href="#" className="nav-link">
+                      <span
+                        className="nav-link"
+                        onClick={() => {
+                          setIsActive1(false);
+                          setIsActive2(!isActive2);
+                          setIsActive3(false);
+                          setIsActive4(false);
+                          setIsActive5(false);
+                          setIsActive6(false);
+                          setIsActive7(false);
+                        }}
+                      >
                         <p className="span_text">
                           Branch
-                          <i className="fas fa-angle-left right" />
+                          <i
+                            className={`fas fa-angle-left right ${
+                              isActive2 ? "d-none" : "d-block"
+                            }`}
+                          />
                           <span className="badge badge-info right">2</span>
+                          <BiSolidChevronDown
+                            style={{ width: "23px", height: "23px" }}
+                            className={`down-arrow ${
+                              isActive2 ? "d-block" : "d-none"
+                            }`}
+                          />
                         </p>
-                      </a>
-                      <ul className="nav nav-treeview">
+                      </span>
+                      <ul
+                        className={` custom-drop ${
+                          isActive2 ? "custom-drop-show" : ""
+                        }`}
+                      >
                         <Link to={"/add_branch"}>
                           <li className="main_nav-link">
-                            <a href="/add_branch" className="nav-link">
+                            <span className="nav-link">
                               <div className="menu_flex">
                                 <span className="span_text">Add Branch</span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                         <Link to={"/branch_list"}>
                           <li className="main_nav-link">
-                            <a href="/branch_list" className="nav-link">
+                            <span className="nav-link">
                               <div className="menu_flex">
                                 <span className="span_text">Branch List</span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                       </ul>
@@ -239,39 +304,65 @@ const Navbar = () => {
                   ""
                 )}
                 <li className="nav-item">
-                  <a href="#" className="nav-link">
+                  <span
+                    className="nav-link"
+                    onClick={() => {
+                      setIsActive1(false);
+                      setIsActive2(false);
+                      setIsActive3(!isActive3);
+                      setIsActive4(false);
+                      setIsActive5(false);
+                      setIsActive6(false);
+                      setIsActive7(false);
+                    }}
+                  >
                     <p className="span_text">
                       Property
-                      <i className="fas fa-angle-left right" />
+                      <i
+                        className={`fas fa-angle-left right ${
+                          isActive3 ? "d-none" : "d-block"
+                        }`}
+                      />
                       <span className="badge badge-info right">2</span>
+                      <BiSolidChevronDown
+                        style={{ width: "23px", height: "23px" }}
+                        className={`down-arrow ${
+                          isActive3 ? "d-block" : "d-none"
+                        }`}
+                      />
                     </p>
-                  </a>
-                  <ul className="nav nav-treeview">
-                    {(user && user.role === "admin") ||
+                  </span>
+                  <ul
+                    className={` custom-drop ${
+                      isActive3 ? "custom-drop-show" : ""
+                    }`}
+                  >
+                    {(user && user.role === "SuperAdmin") ||
                     user.role === "manager" ||
                     user.role === "partner" ? (
                       <>
                         <Link to={"/add_property"}>
                           <li className="main_nav-link">
-                            <a href="/add_property" className="nav-link">
+                            <span className="nav-link">
                               <div className="menu_flex">
                                 <span className="span_text">Add Property</span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                       </>
                     ) : (
                       ""
                     )}
-                    {user && user.role === "admin" ? (
+                    {(user && user.role === "SuperAdmin") ||
+                    user.role === "admin" ? (
                       <Link to={"/property_list"}>
                         <li className="main_nav-link">
-                          <a href="/property_list" className="nav-link">
+                          <span className="nav-link">
                             <div className="menu_flex">
                               <span className="span_text">Property List</span>
                             </div>
-                          </a>
+                          </span>
                         </li>
                       </Link>
                     ) : (
@@ -280,11 +371,11 @@ const Navbar = () => {
                     {user && user.role === "manager" ? (
                       <Link to={"/property_list_m"}>
                         <li className="main_nav-link">
-                          <a href="/property_list_m" className="nav-link">
+                          <span className="nav-link">
                             <div className="menu_flex">
                               <span className="span_text">Property List</span>
                             </div>
-                          </a>
+                          </span>
                         </li>
                       </Link>
                     ) : (
@@ -293,11 +384,11 @@ const Navbar = () => {
                     {user && user.role === "partner" ? (
                       <Link to={"/property_list_p"}>
                         <li className="main_nav-link">
-                          <a href="/property_list_p" className="nav-link">
+                          <span className="nav-link">
                             <div className="menu_flex">
                               <span className="span_text">Property List</span>
                             </div>
-                          </a>
+                          </span>
                         </li>
                       </Link>
                     ) : (
@@ -306,189 +397,285 @@ const Navbar = () => {
                   </ul>
                 </li>
 
-                {(user && user.role === "admin") || user.role === "manager" ? (
+                {(user && user.role === "SuperAdmin") ||
+                user.role === "manager" ? (
                   <>
                     <li className="nav-item">
-                      <a href="#" className="nav-link">
+                      <span
+                        className="nav-link"
+                        onClick={() => {
+                          setIsActive1(false);
+                          setIsActive2(false);
+                          setIsActive3(false);
+                          setIsActive4(!isActive4);
+                          setIsActive5(false);
+                          setIsActive6(false);
+                          setIsActive7(false);
+                        }}
+                      >
                         <p className="span_text">
                           Category
-                          <i className="fas fa-angle-left right" />
+                          <i
+                            className={`fas fa-angle-left right ${
+                              isActive4 ? "d-none" : "d-block"
+                            }`}
+                          />
                           <span className="badge badge-info right">2</span>
+                          <BiSolidChevronDown
+                            style={{ width: "23px", height: "23px" }}
+                            className={`down-arrow ${
+                              isActive4 ? "d-block" : "d-none"
+                            }`}
+                          />
                         </p>
-                      </a>
-                      <ul className="nav nav-treeview">
+                      </span>
+                      <ul
+                        className={` custom-drop ${
+                          isActive4 ? "custom-drop-show" : ""
+                        }`}
+                      >
                         <Link to={"/add_category"}>
                           <li className="main_nav-link">
-                            <a href="/add_category" className="nav-link">
-                              {/* <i class="fa-sharp fa-solid fa-building-columns span_text2"></i> */}
+                            <span className="nav-link">
+                              {/* <i className="fa-sharp fa-solid fa-building-columns span_text2"></i> */}
                               <div className="menu_flex">
                                 <span className="span_text">Add Category</span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                         <Link to={"/category_list"}>
                           <li className="main_nav-link">
-                            <a href="/category_list" className="nav-link">
+                            <span className="nav-link">
                               {/* <img style={{ width: 16 }} src={img6} alt="" /> */}
                               <div className="menu_flex">
                                 <span className="span_text">Category List</span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                       </ul>
                     </li>
                     <li className="nav-item">
-                      <a href="#" className="nav-link">
+                      <span
+                        className="nav-link"
+                        onClick={() => {
+                          setIsActive1(false);
+                          setIsActive2(false);
+                          setIsActive3(false);
+                          setIsActive4(false);
+                          setIsActive5(!isActive5);
+                          setIsActive6(false);
+                          setIsActive7(false);
+                        }}
+                      >
                         <p className="span_text">
                           Facility
-                          <i className="fas fa-angle-left right" />
+                          <i
+                            className={`fas fa-angle-left right ${
+                              isActive5 ? "d-none" : "d-block"
+                            }`}
+                          />
                           <span className="badge badge-info right">4</span>
+                          <BiSolidChevronDown
+                            style={{ width: "23px", height: "23px" }}
+                            className={`down-arrow ${
+                              isActive5 ? "d-block" : "d-none"
+                            }`}
+                          />
                         </p>
-                      </a>
-                      <ul className="nav nav-treeview">
+                      </span>
+                      <ul
+                        className={` custom-drop ${
+                          isActive5 ? "custom-drop-show" : ""
+                        }`}
+                      >
                         <Link to={"/add_facility_category"}>
                           <li className="main_nav-link">
-                            <a
-                              href="/add_facility_category"
-                              className="nav-link"
-                            >
-                              {/* <i class="fa-sharp fa-solid fa-building-columns span_text2"></i> */}
+                            <span className="nav-link">
+                              {/* <i className="fa-sharp fa-solid fa-building-columns span_text2"></i> */}
                               <div className="menu_flex">
                                 <span className="span_text">
-                                  Add Facility Category
+                                  Add Room Category
                                 </span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                         <Link to={"/facility_category_list"}>
                           <li className="main_nav-link">
-                            <a
-                              href="/facility_category_list"
-                              className="nav-link"
-                            >
+                            <span className="nav-link">
                               {/* <img style={{ width: 16 }} src={img6} alt="" /> */}
                               <div className="menu_flex">
                                 <span className="span_text">
                                   Facility Category List
                                 </span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                         <Link to={"/add_facility"}>
-                          <li className="main_nav-link">
-                            <a href="/add_facility" className="nav-link">
-                              {/* <i class="fa-sharp fa-solid fa-building-columns span_text2"></i> */}
-                              <div className="menu_flex">
-                                <span className="span_text">Add Facility</span>
-                              </div>
-                            </a>
+                          <li className="main_nav-link nav-link">
+                            {/* <i className="fa-sharp fa-solid fa-building-columns span_text2"></i> */}
+                            <div className="menu_flex">
+                              <span className="span_text">Add Facility</span>
+                            </div>
                           </li>
                         </Link>
+
                         <Link to={"/facility_list"}>
                           <li className="main_nav-link">
-                            <a href="/facility_list" className="nav-link">
+                            <span className="nav-link">
                               {/* <img style={{ width: 16 }} src={img6} alt="" /> */}
                               <div className="menu_flex">
                                 <span className="span_text">Facility List</span>
                               </div>
-                            </a>
+                            </span>
+                          </li>
+                        </Link>
+                        <Link to={"/add_commonfacility"}>
+                          <li className="main_nav-link">
+                            <span className="nav-link">
+                              {/* <i className="fa-sharp fa-solid fa-building-columns span_text2"></i> */}
+                              <div className="menu_flex">
+                                <span className="span_text">
+                                  Add Common Facility
+                                </span>
+                              </div>
+                            </span>
+                          </li>
+                        </Link>
+                        <Link to={"/commonfacility_list"}>
+                          <li className="main_nav-link">
+                            <span className="nav-link">
+                              {/* <img style={{ width: 16 }} src={img6} alt="" /> */}
+                              <div className="menu_flex">
+                                <span className="span_text">
+                                  Common Facility List
+                                </span>
+                              </div>
+                            </span>
                           </li>
                         </Link>
                       </ul>
                     </li>
 
                     <li className="nav-item">
-                      <a href="#" className="nav-link">
+                      <span
+                        className="nav-link"
+                        onClick={() => {
+                          setIsActive1(false);
+                          setIsActive2(false);
+                          setIsActive3(false);
+                          setIsActive4(false);
+                          setIsActive5(false);
+                          setIsActive6(!isActive6);
+                          setIsActive7(false);
+                        }}
+                      >
                         <p className="span_text">
                           Banner
-                          <i className="fas fa-angle-left right" />
+                          <i
+                            className={`fas fa-angle-left right ${
+                              isActive6 ? "d-none" : "d-block"
+                            }`}
+                          />
                           <span className="badge badge-info right">2</span>
+                          <BiSolidChevronDown
+                            style={{ width: "23px", height: "23px" }}
+                            className={`down-arrow ${
+                              isActive6 ? "d-block" : "d-none"
+                            }`}
+                          />
                         </p>
-                      </a>
-                      <ul className="nav nav-treeview">
+                      </span>
+                      <ul
+                        className={` custom-drop ${
+                          isActive6 ? "custom-drop-show" : ""
+                        }`}
+                      >
                         <Link to={"/add_banner"}>
                           <li className="main_nav-link">
-                            <a href="/add_banner" className="nav-link">
+                            <span className="nav-link">
                               {/* <img style={{ width: 16 }} src={img7} alt="" /> */}
                               <div className="menu_flex">
                                 <span className="span_text">Add Banner</span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                         <Link to={"/banner_list"}>
                           <li className="main_nav-link">
-                            <a href="/banner_list" className="nav-link">
-                              {/* <i class="fa-solid fa-grip-lines span_text2"></i> */}
+                            <span className="nav-link">
+                              {/* <i className="fa-solid fa-grip-lines span_text2"></i> */}
                               <div className="menu_flex">
                                 <span className="span_text">Banner List</span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                       </ul>
                     </li>
 
                     <li className="nav-item">
-                      <a href="#" className="nav-link">
+                      <span
+                        className="nav-link"
+                        onClick={() => {
+                          setIsActive1(false);
+                          setIsActive2(false);
+                          setIsActive3(false);
+                          setIsActive4(false);
+                          setIsActive5(false);
+                          setIsActive6(false);
+                          setIsActive7(!isActive7);
+                        }}
+                      >
                         <p className="span_text">
                           Promo
-                          <i className="fas fa-angle-left right" />
+                          <i
+                            className={`fas fa-angle-left right ${
+                              isActive7 ? "d-none" : "d-block"
+                            }`}
+                          />
                           <span className="badge badge-info right">2</span>
+                          <BiSolidChevronDown
+                            style={{ width: "23px", height: "23px" }}
+                            className={`down-arrow ${
+                              isActive7 ? "d-block" : "d-none"
+                            }`}
+                          />
                         </p>
-                      </a>
-                      <ul className="nav nav-treeview">
+                      </span>
+                      <ul
+                        className={` custom-drop ${
+                          isActive7 ? "custom-drop-show" : ""
+                        }`}
+                      >
                         <Link to={"/add_promo"}>
                           <li className="main_nav-link">
-                            <a href="/add_promo" className="nav-link">
+                            <span className="nav-link">
                               {/* <img style={{ width: 16 }} src={img7} alt="" /> */}
                               <div className="menu_flex">
                                 <span className="span_text">Add Promo</span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                         <Link to={"/promo_list"}>
                           <li className="main_nav-link">
-                            <a href="/promo_list" className="nav-link">
-                              {/* <i class="fa-solid fa-grip-lines span_text2"></i> */}
+                            <span className="nav-link">
+                              {/* <i className="fa-solid fa-grip-lines span_text2"></i> */}
                               <div className="menu_flex">
                                 <span className="span_text">Promo List</span>
                               </div>
-                            </a>
+                            </span>
                           </li>
                         </Link>
                       </ul>
                     </li>
-
-                    {/* <Link to={"/add_recommended"}>
-                      <li className="main_nav-link">
-                        <a href="/add_recommended" className="nav-link">
-                          <img style={{ width: 16 }} src={img7} alt="" />
-                          <div className="menu_flex">
-                            <span className="span_text">Add Recommended</span>
-                          </div>
-                        </a>
-                      </li>
-                    </Link>
-                    <Link to={"/recommended_list"}>
-                      <li className="main_nav-link">
-                        <a href="/recommended_list" className="nav-link">
-                          <i class="fa-solid fa-grip-lines span_text2"></i>
-                          <div className="menu_flex">
-                            <span className="span_text">Recommended List</span>
-                          </div>
-                        </a>
-                      </li>
-                    </Link> */}
-
                     <Link to={"/review"}>
                       <li className="main_nav-link">
-                        <a href="/review" className="nav-link">
+                        <a className="nav-link">
                           <div className="menu_flex">
                             <span className="span_text">Review</span>
                           </div>
@@ -499,20 +686,12 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-                {user && user.role === "admin" ? (
+                {(user && user.role === "SuperAdmin") ||
+                user.role === "admin" ? (
                   <>
-                    {/* <Link to={"/seat_list"}>
-                      <li className="main_nav-link">
-                        <a href="/seat_list" className="nav-link">
-                          <div className="menu_flex">
-                            <span className="span_text">Seat List</span>
-                          </div>
-                        </a>
-                      </li>
-                    </Link> */}
                     <Link to={"/issues"}>
                       <li className="main_nav-link">
-                        <a href="/issues" className="nav-link">
+                        <a className="nav-link">
                           <div className="menu_flex">
                             <span className="span_text">Issues</span>
                           </div>
@@ -521,7 +700,7 @@ const Navbar = () => {
                     </Link>
                     <Link to={"/orders"}>
                       <li className="main_nav-link">
-                        <a href="/orders" className="nav-link">
+                        <a className="nav-link">
                           <div className="menu_flex">
                             <span className="span_text">Bookings</span>
                           </div>
@@ -534,27 +713,9 @@ const Navbar = () => {
                 )}
                 {user && user.role === "manager" ? (
                   <>
-                    {/* <Link to={"/add_seat"}>
-                      <li className="main_nav-link">
-                        <a href="/add_seat" className="nav-link">
-                          <div className="menu_flex">
-                            <span className="span_text">Add Seat</span>
-                          </div>
-                        </a>
-                      </li>
-                    </Link>
-                    <Link to={"/seat_list_m"}>
-                      <li className="main_nav-link">
-                        <a href="/seat_list_m" className="nav-link">
-                          <div className="menu_flex">
-                            <span className="span_text">Seat List</span>
-                          </div>
-                        </a>
-                      </li>
-                    </Link> */}
                     <Link to={"/issues_m"}>
                       <li className="main_nav-link">
-                        <a href="/issues_m" className="nav-link">
+                        <a className="nav-link">
                           <div className="menu_flex">
                             <span className="span_text">Issues</span>
                           </div>
@@ -563,22 +724,30 @@ const Navbar = () => {
                     </Link>
                     <Link to={"/orders_m"}>
                       <li className="main_nav-link">
-                        <a href="/orders_m" className="nav-link">
+                        <a className="nav-link">
                           <div className="menu_flex">
-                            <span className="span_text">Orders</span>
+                            <span className="span_text">Bookings</span>
                           </div>
                         </a>
+                      </li>
+                    </Link>
+                    <Link to={"/transaction-m"}>
+                      <li className="main_nav-link">
+                        <div className="menu_flex nav-link">
+                          <span className="span_text">Transaction</span>
+                        </div>
                       </li>
                     </Link>
                   </>
                 ) : (
                   ""
                 )}
-                {user && user.role === "admin" ? (
+                {(user && user.role === "SuperAdmin") ||
+                user.role === "admin" ? (
                   <>
                     <Link to={"/leaseProperty"}>
                       <li className="main_nav-link">
-                        <a href="/leaseProperty" className="nav-link">
+                        <a className="nav-link">
                           <div className="menu_flex">
                             <span className="span_text">Lease Property</span>
                           </div>
@@ -589,11 +758,12 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-                {user && user.role === "admin" ? (
+                {(user && user.role === "SuperAdmin") ||
+                user.role === "admin" ? (
                   <>
                     <Link to={"/extraCharge"}>
                       <li className="main_nav-link">
-                        <a href="/extraCharge" className="nav-link">
+                        <a className="nav-link">
                           <div className="menu_flex">
                             <span className="span_text">Extra Charge</span>
                           </div>
@@ -604,7 +774,50 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-
+                {(user && user.role === "SuperAdmin") ||
+                user.role === "admin" ? (
+                  <>
+                    <Link to={"/transaction"}>
+                      <li className="main_nav-link">
+                        <div className="menu_flex nav-link">
+                          <span className="span_text">Transaction</span>
+                        </div>
+                      </li>
+                    </Link>
+                  </>
+                ) : (
+                  ""
+                )}
+                {(user && user.role === "SuperAdmin") ||
+                user.role === "admin" ? (
+                  <>
+                    <Link to={"/user-manage"}>
+                      <li className="main_nav-link">
+                        <div className="menu_flex nav-link">
+                          <span className="span_text">User Manage</span>
+                        </div>
+                      </li>
+                    </Link>
+                  </>
+                ) : (
+                  ""
+                )}
+                {(user && user.role === "SuperAdmin") ||
+                user.role === "admin" ? (
+                  <>
+                    <Link to={"/pages"}>
+                      <li className="main_nav-link">
+                        <a className="nav-link">
+                          <div className="menu_flex">
+                            <span className="span_text">Pages</span>
+                          </div>
+                        </a>
+                      </li>
+                    </Link>
+                  </>
+                ) : (
+                  ""
+                )}
                 <li className="main_nav-link password_sm">
                   <a className="nav-link" onClick={handleLogOut}>
                     <div className="menu_flex">

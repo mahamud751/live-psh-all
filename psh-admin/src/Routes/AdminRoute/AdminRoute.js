@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Navigate, useLocation, useOutlet } from "react-router-dom";
+import { Navigate, useOutlet } from "react-router-dom";
 
 import useAdmin from "../../hooks/useAdmin";
 import { AuthContext } from "../../contexts/UserProvider";

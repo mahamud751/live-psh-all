@@ -27,7 +27,7 @@ const MyExportCSV = (props) => {
 const Issue_list = () => {
   const MySwal = withReactContent(Swal);
   const { user } = useContext(AuthContext);
-  const userBranch = user.branch.name;
+  const userBranch = user.branch?.name;
   //sub stream
   const [data, setData] = useState([]);
   const [branch, setBranch] = useState({});
@@ -74,46 +74,46 @@ const Issue_list = () => {
     },
     { dataField: "branch.name", text: "Branch" },
     { dataField: "status", text: "Status" },
-    // {
-    //   text: "Action",
-    //   formatter: (cellContent, row) => {
-    //     return (
-    //       <>
-    //         {" "}
-    //         <div className="d-flex justify-content-center">
-    //           <img
-    //             src={img3}
-    //             alt=""
-    //             data-toggle="modal"
-    //             data-target={`#loginModal${row._id}`}
-    //           />
-    //           <img
-    //             src={img}
-    //             alt=""
-    //             className="ms-3"
-    //             onClick={() => handleCategory(row._id)}
-    //           />
-    //         </div>
-    //         <div
-    //           className="modal fade"
-    //           id={`loginModal${row._id}`}
-    //           tabIndex="{-1}"
-    //           role="dialog"
-    //           aria-labelledby="loginModal"
-    //           aria-hidden="true"
-    //         >
-    //           <div className="modal-dialog modal-dialog-centered">
-    //             <div className="modal-content" style={{ width: 700 }}>
-    //               <div className="modal-body">
-    //                 <Issue data={row} />
-    //               </div>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </>
-    //     );
-    //   },
-    // },
+    {
+      text: "Action",
+      formatter: (cellContent, row) => {
+        return (
+          <>
+            {" "}
+            <div className="d-flex justify-content-center">
+              <img
+                src={img3}
+                alt=""
+                data-toggle="modal"
+                data-target={`#loginModal${row._id}`}
+              />
+              <img
+                src={img}
+                alt=""
+                className="ms-3"
+                onClick={() => handleCategory(row._id)}
+              />
+            </div>
+            <div
+              className="modal fade"
+              id={`loginModal${row._id}`}
+              tabIndex="{-1}"
+              role="dialog"
+              aria-labelledby="loginModal"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content" style={{ width: 700 }}>
+                  <div className="modal-body">
+                    <Issue data={row} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        );
+      },
+    },
   ];
   const pagination = paginationFactory({
     page: 1,
@@ -147,7 +147,7 @@ const Issue_list = () => {
     };
     getData();
   }, []);
-  const main = data.filter((pd) => pd.branch.name === userBranch);
+  const main = data.filter((pd) => pd.branch?.name === userBranch);
   //delete
   const [products, setProducts] = useState(data);
   const handleCategory = async (id) => {
@@ -171,7 +171,7 @@ const Issue_list = () => {
   return (
     <div className="wrapper">
       <div className="content-wrapper" style={{ background: "unset" }}>
-        <section className="content">
+        <section className="content customize_list">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-7">

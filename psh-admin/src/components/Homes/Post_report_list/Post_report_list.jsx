@@ -48,13 +48,13 @@ const Post_report_list = () => {
         return (
           <div id="summary">
             <p
-              class="collapse"
+              className="collapse"
               id={`collapseSummary${row.news_feed_reports.id}`}
             >
               {row.news_feed_reports.comment}
             </p>
             <a
-              class="collapsed"
+              className="collapsed"
               data-toggle="collapse"
               href={`#collapseSummary${row.news_feed_reports.id}`}
               aria-expanded="false"

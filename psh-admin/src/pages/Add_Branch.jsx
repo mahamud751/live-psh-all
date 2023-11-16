@@ -12,6 +12,11 @@ const Add_Branch = () => {
     const formData = new FormData(event.target);
     const data2 = {
       name: formData.get("name"),
+      locationLink: formData.get("locationLink"),
+      // nearLocation: formData.get("nearLocation"),
+      branchEmail: formData.get("branchEmail"),
+      branchAddress: formData.get("branchAddress"),
+      branchMobileNumber: formData.get("branchMobileNumber"),
     };
     try {
       const list = await Promise.all(
@@ -44,15 +49,15 @@ const Add_Branch = () => {
   return (
     <div className="wrapper">
       <div className="content-wrapper" style={{ background: "unset" }}>
-        <div className="registration_div card">
+        <div className="customize registration_div card">
           <form ref={formRef} onSubmit={handleSubmit}>
             <div className="row p-3">
-              <div className="col-md-12 form_sub_stream">
+              <div className="col-md-6 form_sub_stream">
                 <label
                   htmlFor="inputState"
                   className="form-label profile_label3 "
                 >
-                  Name
+                  Branch Name
                 </label>
 
                 <input
@@ -60,6 +65,89 @@ const Add_Branch = () => {
                   className="main_form w-100"
                   name="name"
                   placeholder="Branch Name"
+                  required
+                />
+              </div>
+              <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  Location (Google Location Link)
+                </label>
+
+                <input
+                  type="text"
+                  className="main_form w-100"
+                  name="locationLink"
+                  placeholder="Google Location Link"
+                  required
+                />
+              </div>
+              {/* <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  Near Location
+                </label>
+
+                <input
+                  type="text"
+                  className="main_form w-100"
+                  name="nearLocation"
+                  placeholder="Near Location"
+                />
+              </div> */}
+
+              <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  Phone Number
+                </label>
+
+                <input
+                  type="text"
+                  className="main_form w-100"
+                  name="branchMobileNumber"
+                  placeholder="Mobile Number"
+                  required
+                />
+              </div>
+              <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  Email
+                </label>
+
+                <input
+                  type="text"
+                  className="main_form w-100"
+                  name="branchEmail"
+                  placeholder="Branch Email"
+                  required
+                />
+              </div>
+
+              <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  Address
+                </label>
+
+                <textarea
+                  cols="50"
+                  rows="3"
+                  className=" w-100 px-2"
+                  name="branchAddress"
+                  placeholder="Deatails Address"
+                  required
                 />
               </div>
               <div className="col-md-12 form_sub_stream">
@@ -76,6 +164,7 @@ const Add_Branch = () => {
                   name="img"
                   onChange={(e) => setFiles(e.target.files)}
                   multiple
+                  required
                 />
               </div>
             </div>

@@ -4,24 +4,13 @@ import img3 from "../../img/college/Icon feather-edit.png";
 import axios from "axios";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
-import ToolkitProvider, {
-  CSVExport,
-} from "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min";
+import ToolkitProvider from "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
-import Review from "../../pages/edit/Review";
-const MyExportCSV = (props) => {
-  const handleClick = () => {
-    props.onExport();
-  };
-  return (
-    <div>
-      <button className="college_btn  mb-2 p-3" onClick={handleClick}>
-        Export to CSV
-      </button>
-    </div>
-  );
-};
+
+import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
+import SeeLeasePropropery from "./SeeLeasePropropery";
+
 const LeasePropertyList = () => {
   const MySwal = withReactContent(Swal);
 
@@ -51,18 +40,25 @@ const LeasePropertyList = () => {
       text: "Email",
     },
     {
-      dataField: "propertySize",
       text: "Property Size",
+      formatter: (cellContent, row, index) => {
+        return (
+          <>
+            {" "}
+            <p>{row?.propertySize} Sq.ft</p>
+          </>
+        );
+      },
     },
     {
       dataField: "propertyType",
       text: "Property Type",
     },
-    {
-      dataField: "status",
-      text: "Status",
-    },
-    // { dataField: "branch.name", text: "Branch" },
+    // {
+    //   dataField: "status",
+    //   text: "Status",
+    // },
+
     {
       text: "Action",
       formatter: (cellContent, row) => {
@@ -70,34 +66,26 @@ const LeasePropertyList = () => {
           <>
             {" "}
             <div className="d-flex justify-content-center">
-              <img
-                src={img3}
-                alt=""
-                data-toggle="modal"
-                data-target={`#loginModal${row._id}`}
-              />
-              <img
-                src={img}
-                alt=""
-                className="ms-3"
-                onClick={() => handleCategory(row._id)}
-              />
-            </div>
-            <div
-              className="modal fade"
-              id={`loginModal${row._id}`}
-              tabIndex="{-1}"
-              role="dialog"
-              aria-labelledby="loginModal"
-              aria-hidden="true"
-            >
-              <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content" style={{ width: 700 }}>
-                  <div className="modal-body">
-                    <Review data={row} />
-                  </div>
-                </div>
+              <div>
+                <button
+                  type="button"
+                  className="bg-white"
+                  data-bs-toggle="modal"
+                  data-bs-target={`#details${row._id}`}
+                >
+                  <span>
+                    <AiOutlineEye style={{ width: "30px", height: "30px" }} />
+                  </span>
+                </button>
+
+                {/* Modal Order Details */}
+                <SeeLeasePropropery data={row} />
               </div>
+
+              <AiOutlineDelete
+                onClick={() => handleDelete(row._id)}
+                style={{ width: "30px", height: "30px", marginTop: "10px" }}
+              />
             </div>
           </>
         );
@@ -141,7 +129,7 @@ const LeasePropertyList = () => {
   }, []);
   //delete
   const [products, setProducts] = useState(data);
-  const handleCategory = async (id) => {
+  const handleDelete = async (id) => {
     const confirmation = window.confirm("Are you Sure?");
     if (confirmation) {
       const url = `https://api.psh.com.bd/api/leaseProperty/${id}`;
@@ -162,7 +150,7 @@ const LeasePropertyList = () => {
   return (
     <div className="wrapper">
       <div className="content-wrapper" style={{ background: "unset" }}>
-        <section className="content">
+        <section className="content customize_list">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-7">

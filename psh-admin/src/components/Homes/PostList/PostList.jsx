@@ -54,11 +54,11 @@ const PostList = () => {
       formatter: (cellContent, row) => {
         return (
           <div id="summary">
-            <p class="collapse" id={`collapseSummary${row.news_feeds.id}`}>
+            <p className="collapse" id={`collapseSummary${row.news_feeds.id}`}>
               {row.news_feeds.caption}
             </p>
             <a
-              class="collapsed"
+              className="collapsed"
               data-toggle="collapse"
               href={`#collapseSummary${row.news_feeds.id}`}
               aria-expanded="false"

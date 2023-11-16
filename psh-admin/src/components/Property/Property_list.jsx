@@ -11,13 +11,13 @@ import { Link } from "react-router-dom";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import "./Property.css";
-import Property from "../../pages/edit/Property";
+import Property from "../../pages/edit/PropertyUpdate";
 import { AuthContext } from "../../contexts/UserProvider";
 
 const Property_list = (props) => {
   const MySwal = withReactContent(Swal);
   const { user } = useContext(AuthContext);
-  const userBranch = user.branch.name;
+  const userBranch = user?.branch?._id;
 
   //sub stream
   const [data, setData] = useState([]);
@@ -98,24 +98,7 @@ const Property_list = (props) => {
     },
     { dataField: "category.name", text: "Category" },
     { dataField: "branch.name", text: "Branch" },
-    // {
-    //   text: "Type",
-    //   formatter: (cellContent, row) => {
-    //     const categoryName =
-    //       categories[row.category ? row.category.id : ""] || "";
-    //     return <p>{categoryName}</p>;
-    //   },
-    // },
-    // {
-    //   text: "Category",
-    //   formatter: (cellContent, row) => {
-    //     return <p>{row.category ? (row.category.id == id[value] ? name : "") : ""}</p>;
-    //   },
-    // },
-    // {
-    //   dataField: "type",
-    //   text: "Type",
-    // },
+
     {
       dataField: "desc",
       text: "Description",
@@ -216,8 +199,10 @@ const Property_list = (props) => {
     };
     getData();
   }, []);
-  const main = data.filter((pd) => pd.branch.name === userBranch);
-  const mainData = user?.user?.role === "manager" ? main : [];
+  const main = data.filter((pd) => pd?.branch?._id === userBranch);
+
+  // const mainData = user?.user?.role === "manager" ? main : [];
+  // console.log(mainData);
   //delete
   const [products, setProducts] = useState(data);
   const handleCategory = async (id) => {
@@ -238,46 +223,11 @@ const Property_list = (props) => {
         });
     }
   };
-  const handleDownloadPDF = () => {
-    const doc = new jsPDF();
 
-    // Define the table columns
-    const columns = [
-      { title: "No", dataKey: "no" },
-      { title: "Type", dataKey: "type" },
-      { title: "Description", dataKey: "desc" },
-      { title: "Availble", dataKey: "availble" },
-      { title: "Address", dataKey: "address" },
-      { title: "Per Day", dataKey: "perDay" },
-      { title: "Per Month", dataKey: "perMonth" },
-      { title: "Per Year", dataKey: "perYear" },
-    ];
-
-    // Map the data array to match the table columns
-    const tableData = data.map((item, index) => {
-      return [
-        index + 1,
-
-        item.type,
-        item.desc,
-        item.availble,
-        item.address,
-        item.perDay,
-        item.perMonth,
-        item.perYear,
-      ];
-    });
-
-    // Set the table content using autotable plugin
-    doc.autoTable(columns, tableData, { startY: 20 });
-
-    // Save the PDF file
-    doc.save("hotel_list.pdf");
-  };
   return (
     <div className="wrapper">
       <div className="content-wrapper" style={{ background: "unset" }}>
-        <section className="content">
+        <section className="content customize_list">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-7">
@@ -294,12 +244,6 @@ const Property_list = (props) => {
                       </Link>
                     </div>
                   </div>
-                  <button
-                    className="export_btn mt-2 p-3"
-                    onClick={handleDownloadPDF}
-                  >
-                    Export to PDF
-                  </button>
                 </div>
               </div>
             </div>
@@ -311,7 +255,7 @@ const Property_list = (props) => {
                     bootstrap4
                     keyField="_id"
                     columns={columns}
-                    data={mainData}
+                    data={main}
                     pagination={pagination}
                     exportCSV
                   >
@@ -321,7 +265,7 @@ const Property_list = (props) => {
                           bootstrap4
                           keyField="_id"
                           columns={columns}
-                          data={mainData}
+                          data={main}
                           pagination={pagination}
                           {...props.baseProps}
                         />

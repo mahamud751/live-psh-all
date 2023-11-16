@@ -3,27 +3,11 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import { Modal } from "react-bootstrap";
 
 const OrderStatusUpdate = ({ data, refetch, setStatusShow, statusShow }) => {
   const { _id, name, seatNumber, desc, status } = data;
 
   const [user, setUser] = useState(data);
-  const [files, setFiles] = useState("");
-  const [orders, setOrders] = useState([]);
-  const handleClose = () => setStatusShow(false);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://api.psh.com.bd/api/order");
-        setOrders(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const MySwal = withReactContent(Swal);
 
@@ -40,26 +24,24 @@ const OrderStatusUpdate = ({ data, refetch, setStatusShow, statusShow }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (status === user?.status) {
       return MySwal.fire(`Sorry Already ${user?.status}`);
     }
 
-    const formData = new FormData(e.target);
-
-    // const data2 = {
-    //   branchId: formData.get("branch"),
-    // };
     const newPost = {
       ...user,
-      // ...data2,
     };
     try {
-      const product = {
+      const updatedStatus = {
         ...newPost,
       };
 
-      await axios.patch(`https://api.psh.com.bd/api/order/${_id}`, product);
-      MySwal.fire("Good job!", "successfully edited", "success");
+      await axios.patch(
+        `https://api.psh.com.bd/api/order/${_id}`,
+        updatedStatus
+      );
+      MySwal.fire("Updated", "success");
       refetch();
     } catch (err) {
       console.log(err);
@@ -69,28 +51,28 @@ const OrderStatusUpdate = ({ data, refetch, setStatusShow, statusShow }) => {
   return (
     <div className="container">
       <div
-        class="modal fade"
+        className="modal fade"
         id={`status${data._id}`}
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="staticBackdropLabel">
                 Status Update
               </h1>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <div>
                 <form onSubmit={handleSubmit}>
                   <div className="row">

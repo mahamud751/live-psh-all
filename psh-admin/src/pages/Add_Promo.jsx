@@ -51,14 +51,11 @@ const Add_Promo = () => {
   return (
     <div className="wrapper">
       <div className="content-wrapper" style={{ background: "unset" }}>
-        <div className="registration_div card">
+        <div className="customize registration_div card">
           <form onSubmit={handleSubmit}>
             <div className="row p-3">
-              <div className="col-md-12 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
+              <div className="col-md-4 form_sub_stream">
+                <label htmlFor="inputState" className="form-label ">
                   Promo Name
                 </label>
 
@@ -69,11 +66,8 @@ const Add_Promo = () => {
                   placeholder="Promo Name"
                 />
               </div>
-              <div className="col-md-12 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
+              <div className="col-md-4 form_sub_stream">
+                <label htmlFor="inputState" className="form-label ">
                   Promo Code
                 </label>
 
@@ -84,11 +78,8 @@ const Add_Promo = () => {
                   placeholder="Promo Code"
                 />
               </div>
-              <div className="col-md-12 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
+              <div className="col-md-4 form_sub_stream">
+                <label htmlFor="inputState" className="form-label  ">
                   Total Duration (input Total Days)
                 </label>
 
@@ -99,11 +90,8 @@ const Add_Promo = () => {
                   placeholder="Total Duration (input Total Days)"
                 />
               </div>
-              <div className="col-md-12 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
+              <div className="col-md-4 form_sub_stream">
+                <label htmlFor="inputState" className="form-label  ">
                   Promo Start Date
                 </label>
 
@@ -114,11 +102,8 @@ const Add_Promo = () => {
                   placeholder="Promo Start Date"
                 />
               </div>
-              <div className="col-md-12 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
+              <div className="col-md-4 form_sub_stream">
+                <label htmlFor="inputState" className="form-label  ">
                   Promo End Date
                 </label>
 
@@ -129,12 +114,9 @@ const Add_Promo = () => {
                   placeholder="Promo Code"
                 />
               </div>
-              <div className="col-md-12 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Discount
+              <div className="col-md-4 form_sub_stream">
+                <label htmlFor="inputState" className="form-label  ">
+                  Discount (Input as percentages )
                 </label>
 
                 <input
@@ -144,26 +126,9 @@ const Add_Promo = () => {
                   placeholder="Discount"
                 />
               </div>
-              <div className="col-md-12 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Promo Details
-                </label>
 
-                <textarea
-                  className="main_form w-100"
-                  style={{ height: "100px" }}
-                  name="promoDetails"
-                  placeholder="Promo Code Details"
-                />
-              </div>
-              <div className="col-md-12 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
+              <div className="col-md-4 form_sub_stream">
+                <label htmlFor="inputState" className="form-label  ">
                   Image upload
                 </label>
 
@@ -173,6 +138,18 @@ const Add_Promo = () => {
                   name="img"
                   onChange={(e) => setFiles(e.target.files)}
                   multiple
+                />
+              </div>
+              <div className="col-md-4 form_sub_stream">
+                <label htmlFor="inputState" className="form-label  ">
+                  Promo Details
+                </label>
+
+                <textarea
+                  className="main_form w-100 px-2"
+                  style={{ height: "100px" }}
+                  name="promoDetails"
+                  placeholder="Promo Code Details"
                 />
               </div>
             </div>

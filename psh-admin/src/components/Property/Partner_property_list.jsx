@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import "./Property.css";
-import Property from "../../pages/edit/Property";
+import Property from "../../pages/edit/PropertyUpdate";
 import { AuthContext } from "../../contexts/UserProvider";
 
 const Partner_property_list = (props) => {
@@ -240,46 +240,11 @@ const Partner_property_list = (props) => {
         });
     }
   };
-  const handleDownloadPDF = () => {
-    const doc = new jsPDF();
 
-    // Define the table columns
-    const columns = [
-      { title: "No", dataKey: "no" },
-      { title: "Type", dataKey: "type" },
-      { title: "Description", dataKey: "desc" },
-      { title: "Availble", dataKey: "availble" },
-      { title: "Address", dataKey: "address" },
-      { title: "Per Day", dataKey: "perDay" },
-      { title: "Per Month", dataKey: "perMonth" },
-      { title: "Per Year", dataKey: "perYear" },
-    ];
-
-    // Map the data array to match the table columns
-    const tableData = data.map((item, index) => {
-      return [
-        index + 1,
-
-        item.type,
-        item.desc,
-        item.availble,
-        item.address,
-        item.perDay,
-        item.perMonth,
-        item.perYear,
-      ];
-    });
-
-    // Set the table content using autotable plugin
-    doc.autoTable(columns, tableData, { startY: 20 });
-
-    // Save the PDF file
-    doc.save("hotel_list.pdf");
-  };
   return (
     <div className="wrapper">
       <div className="content-wrapper" style={{ background: "unset" }}>
-        <section className="content">
+        <section className="content customize_list">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-7">
@@ -296,12 +261,6 @@ const Partner_property_list = (props) => {
                       </Link>
                     </div>
                   </div>
-                  <button
-                    className="export_btn mt-2 p-3"
-                    onClick={handleDownloadPDF}
-                  >
-                    Export to PDF
-                  </button>
                 </div>
               </div>
             </div>

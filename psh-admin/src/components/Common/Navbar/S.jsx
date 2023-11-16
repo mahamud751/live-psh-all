@@ -70,13 +70,13 @@ const PostList = () => {
                     <td>{data.news_feeds.title}</td>
                     <td id="summary">
                       <p
-                        class="collapse"
+                        className="collapse"
                         id={`collapseSummary${data.news_feeds.id}`}
                       >
                         {data.news_feeds.caption}
                       </p>
                       <a
-                        class="collapsed"
+                        className="collapsed"
                         data-toggle="collapse"
                         href={`#collapseSummary${data.news_feeds.id}`}
                         aria-expanded="false"

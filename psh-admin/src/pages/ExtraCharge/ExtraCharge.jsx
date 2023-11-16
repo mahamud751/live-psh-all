@@ -4,18 +4,18 @@ import { Table } from "react-bootstrap";
 import { BiSolidEdit } from "react-icons/bi";
 import ExtraChargeEditModal from "./ExtraChargeEditModal";
 import useExtraCharge from "../../hooks/useExtraCharge";
-import { ToastContainer } from "react-toastify";
+
 import { Toaster } from "react-hot-toast";
 const ExtraCharge = () => {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
 
   const [extraCharge, refetch] = useExtraCharge();
-  console.log(extraCharge);
+
   return (
     <div className="wrapper">
       <div className="content-wrapper">
-        <section className="content">
+        <section className="content customize_list">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-7">
@@ -26,9 +26,13 @@ const ExtraCharge = () => {
           <Table striped bordered responsive>
             <thead>
               <tr>
-                <th>Vat & Tax</th>
-                <th>Admission Fee</th>
-                <th>Security Fee</th>
+                <th>Vat</th>
+                <th>Admission Fee for 2 Months & Upto</th>
+                <th>Security Fee for 2 Months & Upto</th>
+                <th>Admission Fee for 6 Months & Upto</th>
+                <th>Security Fee for 6 Months & Upto</th>
+                <th>Admission Fee for 1 Year</th>
+                <th>Security Fee for 1 Year</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -39,11 +43,19 @@ const ExtraCharge = () => {
                     <td>{charge?.vatTax}%</td>
                     <td> Tk {charge?.admissionFee}</td>
                     <td> TK {charge?.securityFee}</td>
+                    <td> Tk {charge?.upto6MonthsAdmissionFee}</td>
+                    <td> TK {charge?.upto6MonthsSecurityFee}</td>
+                    <td> Tk {charge?.for1YearAdmissionFee}</td>
+                    <td> TK {charge?.for1YearSecurityFee}</td>
                     <td>
                       {" "}
                       <span onClick={handleShow}>
                         <BiSolidEdit
-                          style={{ width: "30px", height: "30px" }}
+                          style={{
+                            width: "30px",
+                            height: "30px",
+                            cursor: "pointer",
+                          }}
                         />
                       </span>
                     </td>

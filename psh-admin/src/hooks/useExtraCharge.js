@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
 
-const useExtraCharge = (email) => {
+const useExtraCharge = () => {
   const [extraCharge, setExtraCharge] = useState([]);
   const { isLoading, refetch } = useQuery([], () =>
     fetch(`https://api.psh.com.bd/api/extraCharge`, {
