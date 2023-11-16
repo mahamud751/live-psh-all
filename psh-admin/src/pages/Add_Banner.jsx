@@ -34,7 +34,7 @@ const Add_Banner = () => {
         photos: list,
       };
 
-      await axios.post("https://psh-server.onrender.com/api/banner", product);
+      await axios.post("https://api.psh.com.bd/api/banner", product);
       MySwal.fire("Good job!", "successfully added", "success");
     } catch (err) {
       MySwal.fire("Something Error Found.", "warning");

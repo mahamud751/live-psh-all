@@ -16,9 +16,7 @@ const UseFetch = (path) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(
-          `https://psh-server.onrender.com/api/${path}`
-        );
+        const res = await axios.get(`https://api.psh.com.bd/api/${path}`);
         setRoom(res.data);
       } catch (err) {
         setError(err);
@@ -31,9 +29,7 @@ const UseFetch = (path) => {
   const reFetch = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(
-        `https://psh-server.onrender.com/api/${path}`
-      );
+      const res = await axios.get(`https://api.psh.com.bd/api/${path}`);
       setRoom(res.data);
     } catch (err) {
       setError(err);
@@ -44,9 +40,7 @@ const UseFetch = (path) => {
     const fetchData2 = async () => {
       setLoading2(true);
       try {
-        const res = await axios.get(
-          `https://psh-server.onrender.com/api/${path}`
-        );
+        const res = await axios.get(`https://api.psh.com.bd/api/${path}`);
         setData2(res.data);
       } catch (err) {
         setError2(err);
@@ -59,9 +53,7 @@ const UseFetch = (path) => {
   const reFetch2 = async () => {
     setLoading2(true);
     try {
-      const res = await axios.get(
-        `https://psh-server.onrender.com/api/${path}`
-      );
+      const res = await axios.get(`https://api.psh.com.bd/api/${path}`);
       setData2(res.data);
     } catch (err) {
       setError2(err);
@@ -72,9 +64,7 @@ const UseFetch = (path) => {
     const fetchData3 = async () => {
       setLoading3(true);
       try {
-        const res = await axios.get(
-          `https://psh-server.onrender.com/api/${path}`
-        );
+        const res = await axios.get(`https://api.psh.com.bd/api/${path}`);
         setData3(res.data);
       } catch (err) {
         setError3(err);
@@ -87,9 +77,7 @@ const UseFetch = (path) => {
   const reFetch3 = async () => {
     setLoading3(true);
     try {
-      const res = await axios.get(
-        `https://psh-server.onrender.com/api/${path}`
-      );
+      const res = await axios.get(`https://api.psh.com.bd/api/${path}`);
       setData3(res.data);
     } catch (err) {
       setError(err);

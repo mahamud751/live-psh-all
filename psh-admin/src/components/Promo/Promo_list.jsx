@@ -132,7 +132,7 @@ const Promo_list = () => {
   });
   // Get All Promo
   const { isLoading, refetch } = useQuery([], () =>
-    fetch(`https://psh-server.onrender.com/api/promo`, {
+    fetch(`https://api.psh.com.bd/api/promo`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -146,7 +146,7 @@ const Promo_list = () => {
   const handleCategory = async (id) => {
     const confirmation = window.confirm("Are you Sure?");
     if (confirmation) {
-      const url = `https://psh-server.onrender.com/api/promo/${id}`;
+      const url = `https://api.psh.com.bd/api/promo/${id}`;
       fetch(url, {
         method: "DELETE",
       })

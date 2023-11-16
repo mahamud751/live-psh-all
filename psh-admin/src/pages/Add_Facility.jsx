@@ -13,7 +13,7 @@ const Add_Facility = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://psh-server.onrender.com/api/facilityCategory"
+          "https://api.psh.com.bd/api/facilityCategory"
         );
         setCategories(response.data);
       } catch (error) {
@@ -52,7 +52,7 @@ const Add_Facility = () => {
         photos: list,
       };
 
-      await axios.post("https://psh-server.onrender.com/api/facility", product);
+      await axios.post("https://api.psh.com.bd/api/facility", product);
       MySwal.fire("Good job!", "successfully added", "success");
       formRef.current.reset();
     } catch (err) {

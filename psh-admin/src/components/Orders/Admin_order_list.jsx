@@ -38,7 +38,7 @@ const Admin_Orders_list = () => {
   const [data, setData] = useState([]);
 
   const { isLoading, refetch } = useQuery([data], () =>
-    fetch(`https://psh-server.onrender.com/api/order`, {
+    fetch(`https://api.psh.com.bd/api/order`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -251,7 +251,7 @@ const Admin_Orders_list = () => {
   const handleCategory = async (id) => {
     const confirmation = window.confirm("Are you Sure?");
     if (confirmation) {
-      const url = `https://psh-server.onrender.com/api/order/${id}`;
+      const url = `https://api.psh.com.bd/api/order/${id}`;
       fetch(url, {
         method: "DELETE",
       })

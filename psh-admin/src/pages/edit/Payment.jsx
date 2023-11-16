@@ -50,7 +50,7 @@ const Payment = ({ paymentShow, setPaymentShow, data, refetch }) => {
 
     try {
       await axios.patch(
-        `https://psh-server.onrender.com/api/order/${data?._id}`,
+        `https://api.psh.com.bd/api/order/${data?._id}`,
         receivedPayment,
         {
           headers: {
@@ -93,7 +93,7 @@ const Payment = ({ paymentShow, setPaymentShow, data, refetch }) => {
 
     try {
       await axios.patch(
-        `https://psh-server.onrender.com/api/order/${data._id}`,
+        `https://api.psh.com.bd/api/order/${data._id}`,
         reducePayment,
         {
           headers: {

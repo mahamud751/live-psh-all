@@ -226,7 +226,7 @@ const BookingDateUpdate = ({
       if (showMiniumPayment) {
         try {
           const response = await axios.patch(
-            `https://psh-server.onrender.com/api/order/${data._id}`,
+            `https://api.psh.com.bd/api/order/${data._id}`,
             bookingDataUpdate,
             {
               headers: {
@@ -243,7 +243,7 @@ const BookingDateUpdate = ({
       } else {
         try {
           const response = await axios.patch(
-            `https://psh-server.onrender.com/api/order/${data._id}`,
+            `https://api.psh.com.bd/api/order/${data._id}`,
             bookingData,
             {
               headers: {

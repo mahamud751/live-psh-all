@@ -14,7 +14,7 @@ const AdminOrderList = () => {
   const [allOrder, setAllOrder] = useState([]);
 
   const { isLoading, refetch } = useQuery([page, pageCount], () =>
-    fetch(`https://psh-server.onrender.com/api/order?page=${page}&size=${10}`, {
+    fetch(`https://api.psh.com.bd/api/order?page=${page}&size=${10}`, {
       method: "GET",
     })
       .then((res) => res.json())

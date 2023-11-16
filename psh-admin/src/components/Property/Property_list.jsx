@@ -29,7 +29,7 @@ const Property_list = (props) => {
     const fetchCategories = async () => {
       try {
         const { data } = await axios.get(
-          "https://psh-server.onrender.com/api/category",
+          "https://api.psh.com.bd/api/category",
           {
             mode: "cors",
           }
@@ -50,12 +50,9 @@ const Property_list = (props) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(
-          "https://psh-server.onrender.com/api/branch",
-          {
-            mode: "cors",
-          }
-        );
+        const { data } = await axios.get("https://api.psh.com.bd/api/branch", {
+          mode: "cors",
+        });
         const categoryMap = {};
         data.forEach((category) => {
           categoryMap[category._id] = category.name;
@@ -207,7 +204,7 @@ const Property_list = (props) => {
     const getData = async () => {
       try {
         const { data } = await axios.get(
-          `https://psh-server.onrender.com/api/property`,
+          `https://api.psh.com.bd/api/property`,
           {
             mode: "cors",
           }
@@ -226,7 +223,7 @@ const Property_list = (props) => {
   const handleCategory = async (id) => {
     const confirmation = window.confirm("Are you Sure?");
     if (confirmation) {
-      const url = `https://psh-server.onrender.com/api/property/${id}`;
+      const url = `https://api.psh.com.bd/api/property/${id}`;
       fetch(url, {
         method: "DELETE",
       })
