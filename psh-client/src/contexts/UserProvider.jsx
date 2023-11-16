@@ -20,7 +20,7 @@ export const UserProvider = ({ children }) => {
   const loginUser = async (email, password) => {
     try {
       const response = await axios.post(
-        "https://psh-server.onrender.com/api/users/login",
+        "https://api.psh.com.bd/api/users/login",
         { email, password }
       );
 
@@ -68,16 +68,13 @@ export const UserProvider = ({ children }) => {
     role
   ) => {
     try {
-      const response = await axios.post(
-        "https://psh-server.onrender.com/api/users",
-        {
-          firstName,
-          email,
-          phone,
-          password,
-          refferCode,
-        }
-      );
+      const response = await axios.post("https://api.psh.com.bd/api/users", {
+        firstName,
+        email,
+        phone,
+        password,
+        refferCode,
+      });
 
       if (response.status === 200) {
         const { data } = response;

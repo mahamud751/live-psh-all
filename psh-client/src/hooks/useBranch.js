@@ -4,7 +4,7 @@ import { useState } from "react";
 const useBranch = (id) => {
   const [allBranch, setAllBranch] = useState([]);
   useEffect(() => {
-    fetch("https://psh-server.onrender.com/api/branch")
+    fetch("https://api.psh.com.bd/api/branch")
       .then((res) => res.json())
       .then((data) => {
         setAllBranch(data);

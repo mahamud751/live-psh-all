@@ -6,7 +6,7 @@ const usePromos = () => {
   const [promos, setPromos] = useState([]);
 
   useEffect(() => {
-    fetch(`https://psh-server.onrender.com/api/promo`)
+    fetch(`https://api.psh.com.bd/api/promo`)
       .then((res) => res.json())
       .then((data) => setPromos(data));
   }, []);

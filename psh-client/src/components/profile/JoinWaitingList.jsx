@@ -24,9 +24,7 @@ const JoinWaitingList = () => {
       setEndOrder(lastOrder);
       const fetchData = async () => {
         try {
-          const response = await axios.get(
-            "https://psh-server.onrender.com/api/branch"
-          );
+          const response = await axios.get("https://api.psh.com.bd/api/branch");
           SetBranch(response.data);
         } catch (error) {
           console.log(error);

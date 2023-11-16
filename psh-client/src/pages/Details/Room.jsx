@@ -50,7 +50,7 @@ const Room = () => {
   const [data, setData] = useState([]);
   const [allBranch] = useBranch(id);
   useEffect(() => {
-    fetch(`https://psh-server.onrender.com/api/property/${id}`)
+    fetch(`https://api.psh.com.bd/api/property/${id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [id]);
@@ -106,7 +106,7 @@ const Room = () => {
         propertyId,
         email,
       };
-      await axios.post("https://psh-server.onrender.com/api/wishlist", product);
+      await axios.post("https://api.psh.com.bd/api/wishlist", product);
       MySwal.fire("Thanks ! wishlisted");
       wishlistRefetch();
     } catch (err) {

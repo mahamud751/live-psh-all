@@ -9,9 +9,7 @@ const UseFetch = (path) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(
-          `https://psh-server.onrender.com/api/${path}`
-        );
+        const res = await axios.get(`https://api.psh.com.bd/api/${path}`);
         setData(res.data);
       } catch (err) {
         setError(err);
@@ -24,9 +22,7 @@ const UseFetch = (path) => {
   const reFetch = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(
-        `https://psh-server.onrender.com/api/${path}`
-      );
+      const res = await axios.get(`https://api.psh.com.bd/api/${path}`);
       setData(res.data);
     } catch (err) {
       setError(err);

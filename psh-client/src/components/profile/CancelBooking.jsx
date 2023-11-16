@@ -51,7 +51,7 @@ export function CancelBooking({
 
     try {
       await axios.patch(
-        `https://psh-server.onrender.com/api/order/${endOrder?._id}`,
+        `https://api.psh.com.bd/api/order/${endOrder?._id}`,
         cancelData
       );
       toast.success(" Requested ! I will contact You very Soon");

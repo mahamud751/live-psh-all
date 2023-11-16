@@ -81,7 +81,7 @@ function Header({ type }) {
   const onSuggestionsFetchRequested = async ({ value }) => {
     try {
       const response = await fetch(
-        `https://psh-server.onrender.com/api/property?query=${value}`
+        `https://api.psh.com.bd/api/property?query=${value}`
       );
       const data = await response.json();
 
