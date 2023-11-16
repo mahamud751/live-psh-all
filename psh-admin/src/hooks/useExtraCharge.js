@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 const useExtraCharge = (email) => {
   const [extraCharge, setExtraCharge] = useState([]);
   const { isLoading, refetch } = useQuery([], () =>
-    fetch(`https://psh-server.onrender.com/api/extraCharge`, {
+    fetch(`https://api.psh.com.bd/api/extraCharge`, {
       method: "GET",
     })
       .then((res) => res.json())

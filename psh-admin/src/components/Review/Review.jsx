@@ -32,12 +32,9 @@ const Review_list = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(
-          "https://psh-server.onrender.com/api/branch",
-          {
-            mode: "cors",
-          }
-        );
+        const { data } = await axios.get("https://api.psh.com.bd/api/branch", {
+          mode: "cors",
+        });
         const categoryMap = {};
         data.forEach((category) => {
           categoryMap[category._id] = category.name;
@@ -140,12 +137,9 @@ const Review_list = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await axios.get(
-          `https://psh-server.onrender.com/api/review`,
-          {
-            mode: "cors",
-          }
-        );
+        const { data } = await axios.get(`https://api.psh.com.bd/api/review`, {
+          mode: "cors",
+        });
         setData(data);
       } catch (error) {
         console.log(error);
@@ -158,7 +152,7 @@ const Review_list = () => {
   const handleCategory = async (id) => {
     const confirmation = window.confirm("Are you Sure?");
     if (confirmation) {
-      const url = `https://psh-server.onrender.com/api/review/${id}`;
+      const url = `https://api.psh.com.bd/api/review/${id}`;
       fetch(url, {
         method: "DELETE",
       })

@@ -15,9 +15,7 @@ const OrderStatusUpdate = ({ data, refetch, setStatusShow, statusShow }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://psh-server.onrender.com/api/order"
-        );
+        const response = await axios.get("https://api.psh.com.bd/api/order");
         setOrders(response.data);
       } catch (error) {
         console.log(error);
@@ -60,10 +58,7 @@ const OrderStatusUpdate = ({ data, refetch, setStatusShow, statusShow }) => {
         ...newPost,
       };
 
-      await axios.patch(
-        `https://psh-server.onrender.com/api/order/${_id}`,
-        product
-      );
+      await axios.patch(`https://api.psh.com.bd/api/order/${_id}`, product);
       MySwal.fire("Good job!", "successfully edited", "success");
       refetch();
     } catch (err) {

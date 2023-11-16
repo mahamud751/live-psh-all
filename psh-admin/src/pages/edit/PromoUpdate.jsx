@@ -44,10 +44,7 @@ const Promo = ({ data, refetch }) => {
         photos: list,
       };
 
-      await axios.put(
-        `https://psh-server.onrender.com/api/promo/${data._id}`,
-        product
-      );
+      await axios.put(`https://api.psh.com.bd/api/promo/${data._id}`, product);
       MySwal.fire("Good job!", "successfully Updated", "success");
       refetch();
     } catch (err) {

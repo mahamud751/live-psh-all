@@ -27,7 +27,7 @@ const Seat_list = () => {
     const fetchCategories = async () => {
       try {
         const { data } = await axios.get(
-          "https://psh-server.onrender.com/api/property",
+          "https://api.psh.com.bd/api/property",
           {
             mode: "cors",
           }
@@ -146,12 +146,9 @@ const Seat_list = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await axios.get(
-          `https://psh-server.onrender.com/api/seat`,
-          {
-            mode: "cors",
-          }
-        );
+        const { data } = await axios.get(`https://api.psh.com.bd/api/seat`, {
+          mode: "cors",
+        });
         setData(data);
       } catch (error) {
         console.log(error);
@@ -165,7 +162,7 @@ const Seat_list = () => {
   const handleSeat = async (id) => {
     const confirmation = window.confirm("Are you Sure?");
     if (confirmation) {
-      const url = `https://psh-server.onrender.com/api/seat/${id}`;
+      const url = `https://api.psh.com.bd/api/seat/${id}`;
       fetch(url, {
         method: "DELETE",
       })

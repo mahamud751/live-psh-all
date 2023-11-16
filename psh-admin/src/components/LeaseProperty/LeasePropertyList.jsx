@@ -127,7 +127,7 @@ const LeasePropertyList = () => {
     const getData = async () => {
       try {
         const { data } = await axios.get(
-          `https://psh-server.onrender.com/api/leaseproperty`,
+          `https://api.psh.com.bd/api/leaseproperty`,
           {
             mode: "cors",
           }
@@ -144,7 +144,7 @@ const LeasePropertyList = () => {
   const handleCategory = async (id) => {
     const confirmation = window.confirm("Are you Sure?");
     if (confirmation) {
-      const url = `https://psh-server.onrender.com/api/leaseProperty/${id}`;
+      const url = `https://api.psh.com.bd/api/leaseProperty/${id}`;
       fetch(url, {
         method: "DELETE",
       })

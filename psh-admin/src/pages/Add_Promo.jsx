@@ -41,7 +41,7 @@ const Add_Promo = () => {
         photos: list,
       };
 
-      await axios.post("https://psh-server.onrender.com/api/promo", product);
+      await axios.post("https://api.psh.com.bd/api/promo", product);
       MySwal.fire("Good job!", "successfully added", "success");
     } catch (err) {
       MySwal.fire("Something Error Found.", "warning");
