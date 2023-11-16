@@ -231,7 +231,7 @@ const PersonalInfo = () => {
 
     // save order information to the database
     try {
-      await axios.post("http://localhost:5001/api/order", formData);
+      await axios.post("https://api.psh.com.bd/api/order", formData);
       MySwal.fire({
         icon: "success",
         title: "Order successfully done",
