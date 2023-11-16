@@ -4,26 +4,13 @@ import img3 from "../../img/college/Icon feather-edit.png";
 import axios from "axios";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
-import ToolkitProvider, {
-  CSVExport,
-} from "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min";
+import ToolkitProvider from "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
 import Issue from "../../pages/edit/Issue";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/UserProvider";
-const MyExportCSV = (props) => {
-  const handleClick = () => {
-    props.onExport();
-  };
-  return (
-    <div>
-      <button className="college_btn  mb-2 p-3" onClick={handleClick}>
-        Export to CSV
-      </button>
-    </div>
-  );
-};
+
 const Admin_issue_list = () => {
   const MySwal = withReactContent(Swal);
   //sub stream
@@ -168,7 +155,7 @@ const Admin_issue_list = () => {
   return (
     <div className="wrapper">
       <div className="content-wrapper" style={{ background: "unset" }}>
-        <section className="content">
+        <section className="content customize_list">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-7">

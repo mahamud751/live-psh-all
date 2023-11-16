@@ -86,11 +86,11 @@ const Add_Manager = () => {
     }
   };
 
-  const roles = ["admin", "user", "manager", "partner"];
+  const roles = ["admin", "SuperAdmin", "user", "manager", "partner"];
   return (
     <div className="wrapper">
-      <div className="content-wrapper" style={{ background: "unset" }}>
-        <div className="registration_div card">
+      <div className="content-wrapper " style={{ background: "unset" }}>
+        <div className="customize registration_div card">
           <form onSubmit={handleSubmit(onSubmitRegister)}>
             <div className="row p-3">
               <div className="col-md-12 form_sub_stream">

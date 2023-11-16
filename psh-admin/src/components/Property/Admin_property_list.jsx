@@ -11,8 +11,13 @@ import { Link } from "react-router-dom";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import "./Property.css";
-import Property from "../../pages/edit/Property";
+import Property from "../../pages/edit/PropertyUpdate";
 import { AuthContext } from "../../contexts/UserProvider";
+import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
+import { BiSolidEdit } from "react-icons/bi";
+import PropertyUpdate from "../../pages/edit/PropertyUpdate";
+import SeeOrderDetails from "../Orders/SeeOrderDetails";
+import PropertyDetails from "./PropertyDetails";
 
 const Admin_property_list = (props) => {
   const MySwal = withReactContent(Swal);
@@ -96,32 +101,7 @@ const Admin_property_list = (props) => {
     },
     { dataField: "category.name", text: "Category" },
     { dataField: "branch.name", text: "Branch" },
-    // {
-    //   text: "Type",
-    //   formatter: (cellContent, row) => {
-    //     const categoryName =
-    //       categories[row.category ? row.category.id : ""] || "";
-    //     return <p>{categoryName}</p>;
-    //   },
-    // },
-    // {
-    //   text: "Category",
-    //   formatter: (cellContent, row) => {
-    //     return <p>{row.category ? (row.category.id == id[value] ? name : "") : ""}</p>;
-    //   },
-    // },
-    // {
-    //   dataField: "type",
-    //   text: "Type",
-    // },
-    {
-      dataField: "desc",
-      text: "Description",
-    },
-    {
-      dataField: "availble",
-      text: "Availble",
-    },
+
     {
       dataField: "city",
       text: "City",
@@ -145,34 +125,40 @@ const Admin_property_list = (props) => {
           <>
             {" "}
             <div className="d-flex justify-content-center">
-              <img
-                src={img3}
-                alt=""
-                data-toggle="modal"
-                data-target={`#loginModal${row._id}`}
-              />
-              <img
-                src={img}
-                alt=""
-                className="ms-3"
-                onClick={() => handleCategory(row._id)}
-              />
-            </div>
-            <div
-              className="modal fade"
-              id={`loginModal${row._id}`}
-              tabIndex="{-1}"
-              role="dialog"
-              aria-labelledby="loginModal"
-              aria-hidden="true"
-            >
-              <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content" style={{ width: 700 }}>
-                  <div className="modal-body">
-                    <Property data={row} />
-                  </div>
-                </div>
+              <div>
+                <button
+                  type="button"
+                  className="bg-white"
+                  data-bs-toggle="modal"
+                  data-bs-target={`#update${row._id}`}
+                >
+                  <span>
+                    <BiSolidEdit style={{ width: "30px", height: "30px" }} />
+                  </span>
+                </button>
+
+                <PropertyUpdate data={row} />
               </div>
+              <div>
+                <button
+                  type="button"
+                  className="bg-white"
+                  data-bs-toggle="modal"
+                  data-bs-target={`#propertyDetails${row._id}`}
+                >
+                  <span>
+                    <AiOutlineEye style={{ width: "30px", height: "30px" }} />
+                  </span>
+                </button>
+
+                {/* Modal Order Details */}
+                <PropertyDetails data={row} />
+              </div>
+
+              <AiOutlineDelete
+                onClick={() => handleDelete(row._id)}
+                style={{ width: "30px", height: "30px", marginTop: "10px" }}
+              />
             </div>
           </>
         );
@@ -217,7 +203,7 @@ const Admin_property_list = (props) => {
 
   //delete
   const [products, setProducts] = useState(data);
-  const handleCategory = async (id) => {
+  const handleDelete = async (id) => {
     const confirmation = window.confirm("Are you Sure?");
     if (confirmation) {
       const url = `https://api.psh.com.bd/api/property/${id}`;
@@ -235,46 +221,11 @@ const Admin_property_list = (props) => {
         });
     }
   };
-  const handleDownloadPDF = () => {
-    const doc = new jsPDF();
 
-    // Define the table columns
-    const columns = [
-      { title: "No", dataKey: "no" },
-      { title: "Type", dataKey: "type" },
-      { title: "Description", dataKey: "desc" },
-      { title: "Availble", dataKey: "availble" },
-      { title: "Address", dataKey: "address" },
-      { title: "Per Day", dataKey: "perDay" },
-      { title: "Per Month", dataKey: "perMonth" },
-      { title: "Per Year", dataKey: "perYear" },
-    ];
-
-    // Map the data array to match the table columns
-    const tableData = data.map((item, index) => {
-      return [
-        index + 1,
-
-        item.type,
-        item.desc,
-        item.availble,
-        item.address,
-        item.perDay,
-        item.perMonth,
-        item.perYear,
-      ];
-    });
-
-    // Set the table content using autotable plugin
-    doc.autoTable(columns, tableData, { startY: 20 });
-
-    // Save the PDF file
-    doc.save("hotel_list.pdf");
-  };
   return (
     <div className="wrapper">
       <div className="content-wrapper" style={{ background: "unset" }}>
-        <section className="content">
+        <section className="content customize_list">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-7">
@@ -284,19 +235,13 @@ const Admin_property_list = (props) => {
                 <div>
                   <div className="">
                     <div className="corporate_addNew_btn">
-                      <Link to={"/add_hotel"}>
+                      <Link to={"/add_property"}>
                         <button className="college_btn2 ms-4 p-3">
                           Add New
                         </button>
                       </Link>
                     </div>
                   </div>
-                  <button
-                    className="export_btn mt-2 p-3"
-                    onClick={handleDownloadPDF}
-                  >
-                    Export to PDF
-                  </button>
                 </div>
               </div>
             </div>

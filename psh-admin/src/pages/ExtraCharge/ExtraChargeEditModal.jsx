@@ -13,6 +13,10 @@ const ExtraChargeEditModal = ({ setShow, show, charge, refetch }) => {
       vatTax: e.target.vatTax.value,
       admissionFee: e.target.admissionFee.value,
       securityFee: e.target.securityFee.value,
+      upto6MonthsAdmissionFee: e.target.upto6MonthsAdmissionFee.value,
+      upto6MonthsSecurityFee: e.target.upto6MonthsSecurityFee.value,
+      for1YearAdmissionFee: e.target.for1YearAdmissionFee.value,
+      for1YearSecurityFee: e.target.for1YearSecurityFee.value,
     };
 
     try {
@@ -45,40 +49,95 @@ const ExtraChargeEditModal = ({ setShow, show, charge, refetch }) => {
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleExtraCharge}>
-            <div className="d-flex ">
+            <div className=" ">
               <label htmlFor="">Vat & Tax :</label>
+              <br />
 
               <input
                 type="text"
                 name="vatTax"
                 placeholder="How much percent VAT & Tax would you like to charge?"
-                style={{ width: "300px", height: "30px", marginLeft: "45px" }}
+                style={{ width: "65%", height: "30px" }}
                 defaultValue={charge?.vatTax}
               />
             </div>
 
-            <div className="d-flex mt-2">
-              <label htmlFor="">Admission Fee :</label>
+            <div className=" mt-2">
+              <label htmlFor="">Admission Fee for 2 months & Upto:</label>
+              <br />
 
               <input
                 type="number"
                 placeholder="Admission Fee"
                 name="admissionFee"
-                className="ml-2"
-                style={{ width: "300px", height: "30px" }}
+                className=""
+                style={{ width: "65%", height: "30px" }}
                 defaultValue={charge?.admissionFee}
               />
             </div>
-            <div className="d-flex mt-2">
-              <label htmlFor="">Security Fee :</label>
+            <div className=" mt-2">
+              <label htmlFor="">Security Fee for 2 months & Upto:</label>
+              <br />
 
               <input
                 type="number"
                 placeholder="Security Fee"
                 name="securityFee"
-                className="ml-4"
-                style={{ width: "300px", height: "30px" }}
+                className=""
+                style={{ width: "65%", height: "30px" }}
                 defaultValue={charge?.securityFee}
+              />
+            </div>
+            <div className=" mt-2">
+              <label htmlFor="">Admission Fee for 6 months & Upto:</label>
+              <br />
+
+              <input
+                type="number"
+                placeholder="Admission Fee"
+                name="upto6MonthsAdmissionFee"
+                className=""
+                style={{ width: "65%", height: "30px" }}
+                defaultValue={charge?.upto6MonthsAdmissionFee}
+              />
+            </div>
+            <div className=" mt-2">
+              <label htmlFor="">Security Fee for 6 months & Upto:</label>
+              <br />
+
+              <input
+                type="number"
+                placeholder="Security Fee"
+                name="upto6MonthsSecurityFee"
+                className=" "
+                style={{ width: "65%", height: "30px" }}
+                defaultValue={charge?.upto6MonthsSecurityFee}
+              />
+            </div>
+            <div className=" mt-2">
+              <label htmlFor="">Admission Fee for 1 Year:</label>
+              <br />
+
+              <input
+                type="number"
+                placeholder="Admission Fee"
+                name="for1YearAdmissionFee"
+                className=""
+                style={{ width: "65%", height: "30px" }}
+                defaultValue={charge?.for1YearAdmissionFee}
+              />
+            </div>
+            <div className=" mt-2">
+              <label htmlFor="">Security Fee for 1 Year:</label>
+              <br />
+
+              <input
+                type="number"
+                placeholder="Security Fee"
+                name="for1YearSecurityFee"
+                className=" "
+                style={{ width: "65%", height: "30px" }}
+                defaultValue={charge?.for1YearSecurityFee}
               />
             </div>
             <input

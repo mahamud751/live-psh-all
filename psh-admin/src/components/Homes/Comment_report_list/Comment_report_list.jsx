@@ -43,11 +43,11 @@ const Comment_list = () => {
       formatter: (cellContent, row) => {
         return (
           <div id="summary">
-            <p class="collapse" id={`collapseSummary${row.id}`}>
+            <p className="collapse" id={`collapseSummary${row.id}`}>
               {row.title}
             </p>
             <a
-              class="collapsed"
+              className="collapsed"
               data-toggle="collapse"
               href={`#collapseSummary${row.id}`}
               aria-expanded="false"
@@ -62,11 +62,11 @@ const Comment_list = () => {
       formatter: (cellContent, row) => {
         return (
           <div id="summary" style={{ width: 220 }}>
-            <p class="collapse" id={`collapseSummary${row.id}`}>
+            <p className="collapse" id={`collapseSummary${row.id}`}>
               {row.comment}
             </p>
             <a
-              class="collapsed"
+              className="collapsed"
               data-toggle="collapse"
               href={`#collapseSummary${row.id}`}
               aria-expanded="false"

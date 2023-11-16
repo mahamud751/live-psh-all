@@ -13,19 +13,31 @@ const Add_property = () => {
   const [branch, setBranch] = useState([]);
   const [seatPhotos, setSeatPhotos] = useState("");
   const [facilities, setFacilities] = useState([]);
+  const [commonFacilities, setCommonaFacilities] = useState([]);
   const [categoryName, setCategoryName] = useState("");
-  const [seatOptions, setSeatOptions] = useState([
-    {
-      name: "",
-      description: "",
-      seatNumber: "",
-      perDay: "",
-      perMonth: "",
-      perYear: "",
-      photos: [],
-    },
-  ]);
+  const [seatOptions, setSeatOptions] = useState([]);
 
+  // Update seatOptions whenever categoryName changes
+  useEffect(() => {
+    if (categoryName === "Shared Room") {
+      setSeatOptions([
+        {
+          name: "",
+          description: "",
+          seatNumber: "",
+          seatType: "",
+          perDay: "",
+          perMonth: "",
+          perYear: "",
+          photos: [],
+        },
+      ]);
+    } else {
+      setSeatOptions([]);
+    }
+  }, [categoryName]);
+
+  console.log("seatOptions", seatOptions);
   const formRef = useRef(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -52,6 +64,7 @@ const Add_property = () => {
     );
     setCategoryName(selectedCategory?.name || "");
   };
+  console.log(categoryName);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,6 +92,20 @@ const Add_property = () => {
 
     fetchData();
   }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.psh.com.bd/api/commonfacility"
+        );
+        setCommonaFacilities(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const handleAddSeatOption = () => {
     setSeatOptions([
       ...seatOptions,
@@ -86,6 +113,7 @@ const Add_property = () => {
         name: "",
         description: "",
         seatNumber: "",
+        seatType: "",
         perDay: "",
         perMonth: "",
         perYear: "",
@@ -93,14 +121,18 @@ const Add_property = () => {
       },
     ]);
   };
+  const handleSeatPhotosChange = (e, index) => {
+    const updatedOptions = [...seatOptions];
+    updatedOptions[index].photos = e.target.files;
+    setSeatOptions(updatedOptions);
+  };
 
   const handleRemoveSeatOption = (index) => {
     if (seatOptions.length === 1) {
-      MySwal.fire("You must be need to select one seat.", "warning");
+      MySwal.fire("You must need to select one seat.", "warning");
       return;
     }
-    const updatedOptions = [...seatOptions];
-    updatedOptions.splice(index, 1);
+    const updatedOptions = seatOptions.filter((_, idx) => idx !== index);
     setSeatOptions(updatedOptions);
   };
 
@@ -121,15 +153,19 @@ const Add_property = () => {
     //   });
     // });
     const selectedFacilities = formData.getAll("facility[]");
-    const selectedSeatOptions = seatOptions.filter(
+    const selectedCommonFacilities = formData.getAll("commonfacility[]");
+    const selectedSeatOptions = seatOptions?.filter(
       (option) =>
         option.name &&
         option.description &&
         option.seatNumber &&
+        option.seatType &&
         option.perDay &&
         option.perMonth &&
+        option.photos &&
         option.perYear
     );
+
     const data2 = {
       name: formData.get("name"),
       type: formData.get("type"),
@@ -155,14 +191,23 @@ const Add_property = () => {
       categoryId: formData.get("category"),
       branchId: formData.get("branch"),
       recommended: formData.get("recommended"),
-      // bedType: formData.get("bedType"),
+      bedType: formData.get("bedType"),
       furnitured: formData.get("furnitured"),
       CCTV: formData.get("CCTV"),
       WiFi: formData.get("WiFi"),
       balcony: formData.get("balcony"),
       meal: formData.get("meal"),
+      rules: formData.get("rules"),
+      //apartment
+      roomCategory: formData.get("roomCategory"),
+      additionalFacility: formData.get("additionalFacility"),
+      apartmentRent: formData.get("apartmentRent"),
+      serviceCharge: formData.get("service"),
+      security: formData.get("security"),
+      faltPolicy: formData.get("faltPolicy"),
       occupanct: formData.get("occupanct"),
       facility: selectedFacilities,
+      commonfacility: selectedCommonFacilities,
       seats: selectedSeatOptions,
     };
 
@@ -182,24 +227,30 @@ const Add_property = () => {
         })
       );
       const seatPhotoList = await Promise.all(
-        Object.values(seatPhotos).map(async (file) => {
-          const data = new FormData();
-          data.append("file", file);
-          data.append("upload_preset", "upload");
-          const uploadRes = await axios.post(
-            "https://api.cloudinary.com/v1_1/dtpvtjiry/image/upload",
-            data
-          );
+        seatOptions.map(async (option) => {
+          const photos = option.photos;
+          const photoUrls = await Promise.all(
+            Object.values(photos).map(async (file) => {
+              const data = new FormData();
+              data.append("file", file);
+              data.append("upload_preset", "upload");
+              const uploadRes = await axios.post(
+                "https://api.cloudinary.com/v1_1/dtpvtjiry/image/upload",
+                data
+              );
 
-          const { url } = uploadRes.data;
-          return url;
+              const { url } = uploadRes.data;
+              return url;
+            })
+          );
+          return photoUrls;
         })
       );
 
       const product = {
         ...data2,
         photos: list,
-        seats: selectedSeatOptions.map((option, index) => ({
+        seats: seatOptions?.map((option, index) => ({
           ...option,
           photos: seatPhotoList[index],
         })),
@@ -216,7 +267,7 @@ const Add_property = () => {
   return (
     <div className="wrapper">
       <div className="content-wrapper" style={{ background: "unset" }}>
-        <div className="registration_div card p-3">
+        <div className="customize registration_div card">
           <form ref={formRef} onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-md-6 form_sub_stream ">
@@ -237,7 +288,7 @@ const Add_property = () => {
                   ))}
                 </select>
               </div>
-              {user && user.role === "admin" ? (
+              {(user && user.role === "SuperAdmin") || user.role === "admin" ? (
                 <div className="col-md-6 form_sub_stream ">
                   <label htmlFor="inputState" className="profile_label3">
                     Branch
@@ -278,13 +329,14 @@ const Add_property = () => {
                   htmlFor="inputState"
                   className="form-label profile_label3 "
                 >
-                  Floor
+                  Floor Number
                 </label>
                 <input
                   type="text"
                   className="main_form w-100"
                   name="floor"
                   placeholder="Name"
+                  required
                 />
               </div>
               {categoryName !== "Private Room" &&
@@ -301,42 +353,262 @@ const Add_property = () => {
                       className="main_form w-100"
                       name="totalRoom"
                       placeholder="  Total Room"
+                      // required
                     />
                   </div>
                 )}
-
-              <div className="col-md-3 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Total Person
-                </label>
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="totalPerson"
-                  placeholder="  Total Room"
-                />
-              </div>
-
               <div className="col-md-3 form_sub_stream mb-5">
                 <label htmlFor="inputState" className="profile_label3">
                   Gender Type
                 </label>
-                <select name="type" className="main_form w-100">
+                <select
+                  name="type"
+                  className="main_form w-100"
+                  defaultValue={"female"}
+                  required
+                >
                   <option value="male">Male</option>
                   <option value="female">Female</option>
-                  <option value="both">Others</option>
                 </select>
               </div>
-              {categoryName === "Private Room" ||
-              categoryName === "Shared Room" ? (
-                <>
+              <h2 className="profile_label3 profile_bg">Sort Details</h2>
+              <div className="col-md-6 form_sub_stream ">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  Room Name
+                </label>
+                <input
+                  type="text"
+                  className="main_form w-100"
+                  name="name"
+                  placeholder="Room Name"
+                  required
+                />
+              </div>
+              <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  Room Area
+                </label>
+                <input
+                  type="text"
+                  className="main_form w-100"
+                  name="area"
+                  placeholder="Please Type in Sqft"
+                  required
+                />
+              </div>
+              {categoryName === "Shared Room" ? (
+                ""
+              ) : (
+                <div className="col-md-6 form_sub_stream">
+                  <label htmlFor="inputState" className="profile_label3">
+                    Total Bedroom
+                  </label>
+                  <input
+                    type="number"
+                    className="main_form w-100"
+                    name="bedroom"
+                    placeholder="Total Bed Room"
+                    required
+                  />
+                </div>
+              )}
+
+              <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  Total Bathroom
+                </label>
+
+                <input
+                  type="number"
+                  className="main_form w-100"
+                  name="bathroom"
+                  placeholder="bathroom"
+                  required
+                />
+              </div>
+              <h2 className="profile_label3 profile_bg mt-5">Key Details</h2>
+              <div className="col-md-12 form_sub_stream">
+                <div className="row p-4">
+                  <div className="col-md-4 form_sub_stream mt-3">
+                    <label htmlFor="inputState" className="profile_label3">
+                      Balcony
+                    </label>
+                    <select
+                      name="balcony"
+                      id="furnitured"
+                      className="main_form w-100"
+                      required
+                    >
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                  <div className="col-md-4 form_sub_stream mt-3">
+                    <label
+                      htmlFor="inputState"
+                      className="form-label profile_label3 "
+                    >
+                      Bed Type
+                    </label>
+                    <input
+                      type="text"
+                      className="main_form w-100"
+                      name="bedType"
+                      placeholder="Bed Type"
+                      required
+                    />
+                  </div>
+                  <div className="col-md-4 form_sub_stream mt-3">
+                    <label htmlFor="inputState" className="profile_label3">
+                      Recommended
+                    </label>
+                    <select
+                      name="recommended"
+                      id="inputState"
+                      className="main_form w-100"
+                      required
+                    >
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                  <div className="col-md-4 form_sub_stream">
+                    <label htmlFor="inputState" className="profile_label3">
+                      Furnitured
+                    </label>
+                    <select
+                      name="furnitured"
+                      id="furnitured"
+                      className="main_form w-100"
+                      required
+                    >
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                  <div className="col-md-4 form_sub_stream">
+                    <label htmlFor="inputState" className="profile_label3">
+                      CCTV
+                    </label>
+                    <select
+                      name="CCTV"
+                      id="inputState"
+                      className="main_form w-100"
+                      required
+                    >
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                  <div className="col-md-4 form_sub_stream">
+                    <label htmlFor="inputState" className="profile_label3">
+                      WiFi
+                    </label>
+                    <select
+                      name="WiFi"
+                      id="furnitured"
+                      className="main_form w-100"
+                      required
+                    >
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <h2 className="profile_label3 profile_bg mt-4">Facility</h2>
+                <div className="p-4">
                   <div className="row">
+                    <h2 className="profile_label3  mt-4">Regular</h2>
+                    <div>
+                      {commonFacilities.map((facility) => (
+                        <>
+                          <input
+                            type="checkbox"
+                            id={facility._id}
+                            name="commonfacility[]"
+                            value={facility._id}
+                            multiple
+                            key={facility._id}
+                            className="me-1"
+                          />
+                          <label className="ms-2 mt-1" htmlFor={facility._id}>
+                            {facility.name ? facility.name : ""}
+                          </label>
+                          <img
+                            src={facility.photos ? facility.photos[0] : ""}
+                            alt=""
+                            style={{ width: 20 }}
+                            className="mx-3"
+                          />
+                        </>
+                      ))}
+                    </div>
+                  </div>
+
+                  {categoryName === "Private Room" ||
+                  categoryName === "Shared Room" ? (
+                    <>
+                      <div className="row">
+                        {facilities.map((facility) => (
+                          <>
+                            {facility.name === "Common" ? ( // Add this condition to check the facility name
+                              <>
+                                <h2 className="profile_label3">
+                                  {facility.name}
+                                </h2>
+
+                                <div>
+                                  {facility.facility.map((pd) => (
+                                    <>
+                                      <input
+                                        type="checkbox"
+                                        id={pd._id}
+                                        name="facility[]"
+                                        value={pd._id}
+                                        multiple
+                                        key={pd._id}
+                                        className="me-1"
+                                      />
+
+                                      <label
+                                        className="ms-2 mt-1"
+                                        htmlFor={pd._id}
+                                      >
+                                        {pd.name ? pd.name : ""}
+                                      </label>
+                                      <img
+                                        src={pd.photos ? pd.photos[0] : ""}
+                                        alt=""
+                                        style={{ width: 20 }}
+                                        className="mx-3"
+                                      />
+                                    </>
+                                  ))}
+                                </div>
+                              </>
+                            ) : null}
+                          </>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    ""
+                  )}
+                  <div className="row mt-2">
                     {facilities.map((facility) => (
                       <>
-                        {facility.name === "Common" ? ( // Add this condition to check the facility name
+                        {facility.name !== "Common" ? ( // Add this condition to check the facility name
                           <>
                             <h2 className="profile_label3">{facility.name}</h2>
 
@@ -370,47 +642,68 @@ const Add_property = () => {
                       </>
                     ))}
                   </div>
-                </>
-              ) : (
-                <div className="row">
-                  {facilities.map((facility) => (
-                    <>
-                      {facility.name !== "Common" ? ( // Add this condition to check the facility name
-                        <>
-                          <h2 className="profile_label3">{facility.name}</h2>
-
-                          <div>
-                            {facility.facility.map((pd) => (
-                              <>
-                                <input
-                                  type="checkbox"
-                                  id={pd._id}
-                                  name="facility[]"
-                                  value={pd._id}
-                                  multiple
-                                  key={pd._id}
-                                  className="me-1"
-                                />
-
-                                <label className="ms-2 mt-1" htmlFor={pd._id}>
-                                  {pd.name ? pd.name : ""}
-                                </label>
-                                <img
-                                  src={pd.photos ? pd.photos[0] : ""}
-                                  alt=""
-                                  style={{ width: 20 }}
-                                  className="mx-3"
-                                />
-                              </>
-                            ))}
-                          </div>
-                        </>
-                      ) : null}
-                    </>
-                  ))}
                 </div>
-              )}
+              </div>
 
+              {categoryName !== "Shared Room" && (
+                <>
+                  <h2 className="profile_label3 profile_bg mt-5 mb-4">
+                    Rent Details
+                  </h2>
+                  <div className="col-md-12 form_sub_stream">
+                    <div className="row p-4">
+                      <div className="col-md-4 form_sub_stream">
+                        <label
+                          htmlFor="inputState"
+                          className="form-label profile_label3 "
+                        >
+                          Per Day
+                        </label>
+
+                        <input
+                          type="text"
+                          className="main_form w-100"
+                          name="perDay"
+                          placeholder="Per Day"
+                          required
+                        />
+                      </div>
+                      <div className="col-md-4 form_sub_stream">
+                        <label
+                          htmlFor="inputState"
+                          className="form-label profile_label3 "
+                        >
+                          Per Month
+                        </label>
+
+                        <input
+                          type="text"
+                          className="main_form w-100"
+                          name="perMonth"
+                          placeholder="Per Month"
+                          required
+                        />
+                      </div>
+                      <div className="col-md-4 form_sub_stream">
+                        <label
+                          htmlFor="inputState"
+                          className="form-label profile_label3 "
+                        >
+                          Per Year
+                        </label>
+
+                        <input
+                          type="text"
+                          className="main_form w-100"
+                          name="perYear"
+                          placeholder="Per Year"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
               {(categoryName === "Private Room" ||
                 categoryName === "Shared Room") && (
                 <>
@@ -430,13 +723,15 @@ const Add_property = () => {
 
               {categoryName === "Shared Room" && (
                 <>
-                  <div className="row card_div">
-                    <p className="profile_label3 p-3">Seat Options</p>
-
+                  <h2 className="profile_label3 profile_bg">Seat Details</h2>
+                  <div className="row card_div p-4">
                     {seatOptions.map((option, index) => (
                       <>
-                        <div className="col-md-2 form_sub_stream" key={index}>
-                          <label className="profile_label3">Name</label>
+                        <h2 className="profile_label3 profile_bg">
+                          Seat No{index + 1}
+                        </h2>
+                        <div className="col-md-6 form_sub_stream" key={index}>
+                          <label className="profile_label3">Seat Name</label>
                           <input
                             type="text"
                             className="main_form w-100"
@@ -446,9 +741,97 @@ const Add_property = () => {
                               updatedOptions[index].name = e.target.value;
                               setSeatOptions(updatedOptions);
                             }}
+                            placeholder="Seat Name"
+                            required
                           />
                         </div>
-                        <div className="col-md-2 form_sub_stream">
+
+                        <div className="col-md-6 form_sub_stream">
+                          <label className="profile_label3">Seat Number</label>
+                          <input
+                            type="text"
+                            className="main_form w-100"
+                            value={option.seatNumber}
+                            onChange={(e) => {
+                              const updatedOptions = [...seatOptions];
+                              updatedOptions[index].seatNumber = e.target.value;
+                              setSeatOptions(updatedOptions);
+                            }}
+                            placeholder="Seat Number"
+                            required
+                          />
+                        </div>
+                        <div className="col-md-3 form_sub_stream">
+                          <label className="profile_label3">Seat Type</label>
+                          {/* <input
+                            type="text"
+                            className="main_form w-100"
+                            value={option.seatNumber}
+                          /> */}
+
+                          <select
+                            name="WiFi"
+                            id="furnitured"
+                            className="main_form w-100"
+                            required
+                            value={option.seatType}
+                            onChange={(e) => {
+                              const updatedOptions = [...seatOptions];
+                              updatedOptions[index].seatType = e.target.value;
+                              setSeatOptions(updatedOptions);
+                            }}
+                          >
+                            <option value="Upper Bed">Upper Bed</option>
+                            <option value="Lower Bed">Lower Bed</option>
+                          </select>
+                        </div>
+
+                        <div className="col-md-3 form_sub_stream">
+                          <label className="profile_label3">Per Day</label>
+                          <input
+                            type="text"
+                            className="main_form w-100"
+                            value={option.perDay}
+                            onChange={(e) => {
+                              const updatedOptions = [...seatOptions];
+                              updatedOptions[index].perDay = e.target.value;
+                              setSeatOptions(updatedOptions);
+                            }}
+                            placeholder="Per Day Price"
+                            required
+                          />
+                        </div>
+                        <div className="col-md-3 form_sub_stream">
+                          <label className="profile_label3">Per Month</label>
+                          <input
+                            type="text"
+                            className="main_form w-100"
+                            value={option.perMonth}
+                            onChange={(e) => {
+                              const updatedOptions = [...seatOptions];
+                              updatedOptions[index].perMonth = e.target.value;
+                              setSeatOptions(updatedOptions);
+                            }}
+                            placeholder="Per Month Price"
+                            required
+                          />
+                        </div>
+                        <div className="col-md-3 form_sub_stream">
+                          <label className="profile_label3">Per Year</label>
+                          <input
+                            type="text"
+                            className="main_form w-100"
+                            value={option.perYear}
+                            onChange={(e) => {
+                              const updatedOptions = [...seatOptions];
+                              updatedOptions[index].perYear = e.target.value;
+                              setSeatOptions(updatedOptions);
+                            }}
+                            placeholder="Per Year Price"
+                            required
+                          />
+                        </div>
+                        {/* <div className="col-md-4 form_sub_stream">
                           <label className="profile_label3">Description</label>
                           <input
                             type="text"
@@ -461,74 +844,22 @@ const Add_property = () => {
                               setSeatOptions(updatedOptions);
                             }}
                           />
-                        </div>
-
-                        <div className="col-md-2 form_sub_stream">
-                          <label className="profile_label3">Seat Number</label>
-                          <input
-                            type="text"
-                            className="main_form w-100"
-                            value={option.seatNumber}
-                            onChange={(e) => {
-                              const updatedOptions = [...seatOptions];
-                              updatedOptions[index].seatNumber = e.target.value;
-                              setSeatOptions(updatedOptions);
-                            }}
-                          />
-                        </div>
-                        <div className="col-md-2 form_sub_stream">
-                          <label className="profile_label3">Per Day</label>
-                          <input
-                            type="text"
-                            className="main_form w-100"
-                            value={option.perDay}
-                            onChange={(e) => {
-                              const updatedOptions = [...seatOptions];
-                              updatedOptions[index].perDay = e.target.value;
-                              setSeatOptions(updatedOptions);
-                            }}
-                          />
-                        </div>
-                        <div className="col-md-2 form_sub_stream">
-                          <label className="profile_label3">Per Month</label>
-                          <input
-                            type="text"
-                            className="main_form w-100"
-                            value={option.perMonth}
-                            onChange={(e) => {
-                              const updatedOptions = [...seatOptions];
-                              updatedOptions[index].perMonth = e.target.value;
-                              setSeatOptions(updatedOptions);
-                            }}
-                          />
-                        </div>
-                        <div className="col-md-2 form_sub_stream">
-                          <label className="profile_label3">Per Year</label>
-                          <input
-                            type="text"
-                            className="main_form w-100"
-                            value={option.perYear}
-                            onChange={(e) => {
-                              const updatedOptions = [...seatOptions];
-                              updatedOptions[index].perYear = e.target.value;
-                              setSeatOptions(updatedOptions);
-                            }}
-                          />
-                        </div>
-                        <div className="col-md-2 form_sub_stream">
+                        </div> */}
+                        <div className="col-md-4 form_sub_stream" key={index}>
                           <label
-                            htmlFor="inputState"
-                            className="form-label profile_label3 "
+                            htmlFor={`seatPhotos-${index}`}
+                            className="form-label profile_label3"
                           >
                             Seat Photos
                           </label>
                           <input
                             type="file"
-                            id="seatPhotos"
+                            id={`seatPhotos-${index}`}
                             className="main_form w-100 p-0"
-                            name="seatPhotos"
-                            onChange={(e) => setSeatPhotos(e.target.files)}
+                            name={`seatPhotos-${index}`}
+                            onChange={(e) => handleSeatPhotosChange(e, index)}
                             multiple
+                            required
                           />
                         </div>
 
@@ -551,345 +882,151 @@ const Add_property = () => {
                 </>
               )}
 
-              <div className="col-md-6 form_sub_stream mt-3">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="name"
-                  placeholder="Name"
-                />
-              </div>
+              {categoryName === "Apartment" && (
+                <>
+                  <h2 className="profile_label3 profile_bg mt-5 mb-4">
+                    Rent Policy
+                  </h2>
+                  <div className="col-md-12 form_sub_stream">
+                    <div className="row p-4">
+                      <div className="col-md-4 form_sub_stream">
+                        <label
+                          htmlFor="inputState"
+                          className="form-label profile_label3 "
+                        >
+                          Rent Per Month
+                        </label>
 
-              <div className="col-md-6 form_sub_stream mt-3">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  City
-                </label>
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="city"
-                  placeholder="city"
-                />
-              </div>
+                        <input
+                          type="text"
+                          className="main_form w-100"
+                          name="apartmentRent"
+                          placeholder="Rent Per Month"
+                          required
+                        />
+                      </div>
+                      <div className="col-md-4 form_sub_stream">
+                        <label
+                          htmlFor="inputState"
+                          className="form-label profile_label3 "
+                        >
+                          Service Charge
+                        </label>
 
-              <div className="col-md-6 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Area
-                </label>
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="area"
-                  placeholder="Area"
-                />
-              </div>
-              <div className="col-md-6 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Build Year
-                </label>
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="builtYear"
-                  placeholder=" Build Year"
-                />
-              </div>
-              <div className="col-md-6 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Short Description
-                </label>
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="desc"
-                  placeholder="Short Description"
-                />
-              </div>
-              <div className="col-md-6 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Full Description
-                </label>
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="fulldesc"
-                  placeholder="Full Description"
-                />
-              </div>
-              {/* <div className="col-md-6 form_sub_stream mt-5">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Bed Type
-                </label>
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="bedType"
-                  placeholder="Full Description"
-                />
-              </div> */}
-              <div className="col-md-6 form_sub_stream mt-5">
-                <label htmlFor="inputState" className="profile_label3">
-                  Recommended
-                </label>
-                <select
-                  name="recommended"
-                  id="inputState"
-                  className="main_form w-100"
-                  required
-                >
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-              </div>
-              <div className="col-md-6 form_sub_stream">
-                <label htmlFor="inputState" className="profile_label3">
-                  Furnitured
-                </label>
-                <select
-                  name="furnitured"
-                  id="furnitured"
-                  className="main_form w-100"
-                  required
-                >
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-              </div>
-              <div className="col-md-6 form_sub_stream">
-                <label htmlFor="inputState" className="profile_label3">
-                  CCTV
-                </label>
-                <select
-                  name="CCTV"
-                  id="inputState"
-                  className="main_form w-100"
-                  required
-                >
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-              </div>
-              <div className="col-md-6 form_sub_stream">
-                <label htmlFor="inputState" className="profile_label3">
-                  WiFi
-                </label>
-                <select
-                  name="WiFi"
-                  id="furnitured"
-                  className="main_form w-100"
-                  required
-                >
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-              </div>
-              <div className="col-md-6 form_sub_stream">
-                <label htmlFor="inputState" className="profile_label3">
-                  balcony
-                </label>
-                <select
-                  name="balcony"
-                  id="furnitured"
-                  className="main_form w-100"
-                  required
-                >
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-              </div>
-              <div className="col-md-6 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Available
-                </label>
+                        <input
+                          type="text"
+                          className="main_form w-100"
+                          name="serviceCharge"
+                          placeholder="Service Charge"
+                        />
+                      </div>
+                      <div className="col-md-4 form_sub_stream">
+                        <label
+                          htmlFor="inputState"
+                          className="form-label profile_label3 "
+                        >
+                          Security Deposit
+                        </label>
 
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="available"
-                  placeholder="Available"
-                />
-              </div>
-              <div className="col-md-6 form_sub_stream">
+                        <input
+                          type="text"
+                          className="main_form w-100"
+                          name="security"
+                          defaultValue="2 month’s rent"
+                        />
+                      </div>
+                      <div className="col-md-4 form_sub_stream">
+                        <label
+                          htmlFor="inputState"
+                          className="form-label profile_label3 "
+                        >
+                          Flat Release Policy
+                        </label>
+
+                        <input
+                          type="text"
+                          className="main_form w-100"
+                          name="faltPolicy"
+                          defaultValue="2 months earlier notice required"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <h2 className="profile_label3 profile_bg">Details</h2>
+                  <div className="row p-4">
+                    <div className="row">
+                      <div className="col-md-6 form_sub_stream">
+                        <label
+                          htmlFor="inputState"
+                          className="form-label profile_label3 "
+                        >
+                          Build Year
+                        </label>
+                        <input
+                          type="text"
+                          className="main_form w-100"
+                          name="builtYear"
+                          placeholder=" Build Year"
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-12 form_sub_stream">
+                      <label
+                        htmlFor="inputState"
+                        className="form-label profile_label3 "
+                      >
+                        Room Category
+                      </label>
+                      <textarea
+                        className="form-control"
+                        name="roomCategory"
+                        rows="2"
+                        defaultValue={`Example : 3 Large Bed rooms with 3 Balcony, Spacious Drawing Room, Dining & Family Living Room, Highly Decorated Kitchen with a Store Room and Servant room with Attached Toilet.`}
+                      ></textarea>
+                    </div>
+
+                    <div className="col-md-12 form_sub_stream">
+                      <label
+                        htmlFor="inputState"
+                        className="form-label profile_label3 "
+                      >
+                        Additional Facilities
+                      </label>
+                      <textarea
+                        className="form-control"
+                        name="additionalFacility"
+                        rows="6"
+                        defaultValue={`Example :  
+                      1. Electricity with full time Generator Service.
+                      2. Available 24/7 Gas. 
+                      3. Car Parking with 1 Driver’s Accommodation.
+                      4. Roof TOp Beautified Garden and Grassy Ground.
+                      5. Full Building Covered by CCTV.`}
+                      ></textarea>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              <h2 className="profile_label3 profile_bg mt-5 mb-4">
+                Room Rules
+              </h2>
+              <div className="col-md-12 form_sub_stream">
                 <label
                   htmlFor="inputState"
                   className="form-label profile_label3 "
                 >
-                  Rating
+                  Room Rules
                 </label>
-
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="rating"
-                  placeholder="Rating"
-                />
-              </div>
-              <div className="col-md-6 form_sub_stream">
-                <label className="profile_label3">Occupancy</label>
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="occupanct"
-                  placeholder="Occupancy"
-                />
-              </div>
-              <div className="col-md-6 form_sub_stream">
-                <label className="profile_label3">Meal</label>
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="meal"
-                  placeholder="Meal"
-                />
-              </div>
-              <div className="col-md-4 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Car
-                </label>
-
-                <input
-                  type="number"
-                  className="main_form w-100"
-                  name="car"
-                  placeholder="car"
-                />
-              </div>
-              <div className="col-md-6 form_sub_stream">
-                <label htmlFor="inputState" className="profile_label3">
-                  Bedroom
-                </label>
-                <select
-                  name="bedroom"
-                  id="inputState"
-                  className="main_form w-100"
-                >
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="Bunker">Bunker</option>
-                </select>
-              </div>
-
-              <div className="col-md-6 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Bathroom
-                </label>
-
-                <input
-                  type="number"
-                  className="main_form w-100"
-                  name="bathroom"
-                  placeholder="bathroom"
-                />
-              </div>
-
-              <div className="col-md-4 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Bike
-                </label>
-
-                <input
-                  type="number"
-                  className="main_form w-100"
-                  name="bike"
-                  placeholder="bike"
-                />
-              </div>
-              <div className="col-md-4 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Pet
-                </label>
-
-                <input
-                  type="number"
-                  className="main_form w-100"
-                  name="pet"
-                  placeholder="pet"
-                />
-              </div>
-              <div className="col-md-4 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Per Day
-                </label>
-
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="perDay"
-                  placeholder="Per Day"
-                />
-              </div>
-              <div className="col-md-4 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Per Month
-                </label>
-
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="perMonth"
-                  placeholder="Per Month"
-                />
-              </div>
-              <div className="col-md-4 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Per Year
-                </label>
-
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="perYear"
-                  placeholder="Per Year"
-                />
+                <textarea
+                  className="form-control"
+                  name="rules"
+                  rows="6"
+                  defaultValue={`Example :  
+                      1. Keep your living space, common areas, and bathrooms clean and organized..
+                      2. Engage in hostel activities, meetings, and events. Active participation can enhance your social experience and create a sense of community. 
+                    `}
+                ></textarea>
               </div>
 
               <div className="col-md-12 form_sub_stream">
@@ -906,6 +1043,7 @@ const Add_property = () => {
                   name="photos"
                   onChange={(e) => setFiles(e.target.files)}
                   multiple
+                  required
                 />
               </div>
             </div>

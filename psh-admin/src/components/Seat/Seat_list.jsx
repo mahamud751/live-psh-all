@@ -196,7 +196,7 @@ const Seat_list = () => {
   return (
     <div className="wrapper">
       <div className="content-wrapper" style={{ background: "unset" }}>
-        <section className="content">
+        <section className="content customize_list">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-7">

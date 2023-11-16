@@ -57,27 +57,27 @@ const Promo = ({ data, refetch }) => {
       <div className="">
         <div
           className="modal fade"
-          id={`promo${data._id}`}
+          id={`promo${data?._id}`}
           data-bs-backdrop="static"
           data-bs-keyboard="false"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="staticBackdropLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog" style={{ maxWidth: "750px" }}>
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          <div className="modal-dialog" style={{ maxWidth: "750px" }}>
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="staticBackdropLabel">
                   Promo Update
                 </h1>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <form onSubmit={handleSubmit}>
                   <div className="p-3">
                     <div className="form_sub_stream d-flex flex-column">
@@ -93,7 +93,7 @@ const Promo = ({ data, refetch }) => {
                         className="main_form "
                         name="promoName"
                         placeholder="Promo Name"
-                        defaultValue={data.promoName}
+                        defaultValue={data?.promoName}
                         required
                       />
                     </div>
@@ -110,7 +110,7 @@ const Promo = ({ data, refetch }) => {
                         className="main_form "
                         name="promoCode"
                         placeholder="Promo Code"
-                        defaultValue={data.promoCode}
+                        defaultValue={data?.promoCode}
                         required
                       />
                     </div>
@@ -127,7 +127,7 @@ const Promo = ({ data, refetch }) => {
                         className="main_form "
                         name="minimumDays"
                         placeholder="Total Duration (input Total Days)"
-                        defaultValue={data.minimumDays}
+                        defaultValue={data?.minimumDays}
                         required
                       />
                     </div>
@@ -144,7 +144,7 @@ const Promo = ({ data, refetch }) => {
                         className="main_form "
                         name="promoStart"
                         placeholder="Promo Start Date"
-                        defaultValue={data.promoStart}
+                        defaultValue={data?.promoStart}
                         required
                       />
                     </div>
@@ -161,7 +161,7 @@ const Promo = ({ data, refetch }) => {
                         className="main_form"
                         name="promoEnd"
                         placeholder="Promo Code"
-                        defaultValue={data.promoEnd}
+                        defaultValue={data?.promoEnd}
                         required
                       />
                     </div>
@@ -178,7 +178,7 @@ const Promo = ({ data, refetch }) => {
                         className="main_form"
                         name="promoDiscount"
                         placeholder="Discount"
-                        defaultValue={data.promoEnd}
+                        defaultValue={data?.promoEnd}
                         required
                       />
                     </div>
@@ -195,13 +195,17 @@ const Promo = ({ data, refetch }) => {
                         style={{ height: "100px" }}
                         name="promoDetails"
                         placeholder="Promo Code Details"
-                        defaultValue={data.promoDetails}
+                        defaultValue={data?.promoDetails}
                         required
                       />
                     </div>
 
                     <div>
-                      <img src={data.photos[0] && data.photos[0]} alt="" />
+                      <img
+                        src={data?.photos[0] && data?.photos[0]}
+                        style={{ width: "300px", height: "200px" }}
+                        alt=""
+                      />
                     </div>
                     <div className="d-flex flex-column form_sub_stream">
                       <label

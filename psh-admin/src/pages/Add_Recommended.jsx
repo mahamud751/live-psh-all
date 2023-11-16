@@ -43,7 +43,7 @@ const Add_Recommended = () => {
   return (
     <div className="wrapper">
       <div className="content-wrapper" style={{ background: "unset" }}>
-        <div className="registration_div card">
+        <div className="customize registration_div card">
           <form onSubmit={handleSubmit}>
             <div className="row p-3">
               <div className="col-md-12 form_sub_stream">

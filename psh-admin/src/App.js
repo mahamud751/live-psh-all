@@ -1,6 +1,5 @@
 import "bootstrap-4-react";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
 import Add_Category from "./pages/Add_Category";
@@ -14,7 +13,7 @@ import Add_Recommended from "./pages/Add_Recommended";
 import Recommended from "./pages/Recommended";
 import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
 import AdminRoute from "./Routes/AdminRoute/AdminRoute";
-import Order from "./pages/Order";
+
 import Add_Manager from "./pages/Add_manager";
 import Manager from "./pages/Manager";
 import Add_Branch from "./pages/Add_Branch";
@@ -25,7 +24,7 @@ import Add_Seat from "./pages/Add_Seat";
 import Seat from "./pages/Seat";
 import Issue from "./pages/issue";
 import Admin_property from "./pages/Admin_property";
-import Admin_orders from "./pages/Admin_orders";
+import AdminOrders from "./pages/AdminOrders";
 import Review from "./pages/Review";
 import Issues from "./pages/Issues";
 import Admin_issue from "./pages/Admin_issue";
@@ -38,8 +37,23 @@ import Banner from "./pages/Banner";
 import LeasePropertyList from "./components/LeaseProperty/LeasePropertyList";
 import Partner_list from "./components/Manager/Partner_list";
 import Partner_property_list from "./components/Property/Partner_property_list";
-import AdminOrderList from "./components/Orders/AdminOrderList";
+
 import ExtraCharge from "./pages/ExtraCharge/ExtraCharge";
+import TransactionAdmin from "./pages/Transaction/TransactionAdmin";
+import UserManage from "./pages/UserMange/UserManage";
+import TransactionManager from "./pages/Transaction/TransactionManager";
+import Add_CommonFacility from "./pages/Add_CommonFacility";
+import CommonFacility from "./pages/CommonFacility";
+import Add_Privacy from "./components/Pages/Add_Privacy";
+
+import "./App.css";
+import Pages from "./pages/Pages";
+import Terms_list from "./components/Pages/Terms_list";
+import Add_Terms from "./components/Pages/Add_Terms";
+import Privacy_list from "./components/Pages/Privacy_list";
+import Update_Terms from "./components/Pages/Update_Terms";
+import Update_Privacy from "./components/Pages/Update_Privacy";
+
 function App() {
   return (
     <div className="">
@@ -50,7 +64,6 @@ function App() {
 
         <Route path="/" element={<PrivateRoute />}>
           <Route path="/" element={<Home />} />
-          <Route path="order" element={<Order />} />
         </Route>
         <Route path="/" element={<AdminRoute />}>
           <Route path="/" element={<Home />} />
@@ -73,6 +86,8 @@ function App() {
           />
           <Route path="add_facility" element={<Add_Facility />} />
           <Route path="facility_list" element={<Facility />} />
+          <Route path="add_commonfacility" element={<Add_CommonFacility />} />
+          <Route path="commonfacility_list" element={<CommonFacility />} />
           <Route path="add_seat" element={<Add_Seat />} />
           <Route path="seat_list_m" element={<Seat />} />
           <Route path="seat_list" element={<Admin_seat />} />
@@ -87,8 +102,11 @@ function App() {
           <Route path="add_recommended" element={<Add_Recommended />} />
           <Route path="recommended_list" element={<Recommended />} />
           <Route path="orders_m" element={<Orders />} />
-          <Route path="orders" element={<Admin_orders />} />
-          {/* <Route path="orders" element={<AdminOrderList />} /> */}
+          <Route path="orders" element={<AdminOrders />} />
+          <Route path="transaction" element={<TransactionAdmin />} />
+          <Route path="transaction-m" element={<TransactionManager />} />
+          <Route path="user-manage" element={<UserManage />} />
+
           <Route path="issue" element={<Issue />} />
           <Route path="issues_m" element={<Issues />} />
           <Route path="issues" element={<Admin_issue />} />
@@ -96,6 +114,14 @@ function App() {
           <Route path="leaseProperty" element={<LeasePropertyList />} />
           <Route path="extraCharge" element={<ExtraCharge />} />
           <Route path="invoice/:id" element={<Invoice />} />
+
+          <Route path="pages" element={<Pages />} />
+          <Route path="add_privacy" element={<Add_Privacy />} />
+          <Route path="privacy_list" element={<Privacy_list />} />
+          <Route path="add_terms" element={<Add_Terms />} />
+          <Route path="terms_list" element={<Terms_list />} />
+          <Route path="update_terms/:id" element={<Update_Terms />} />
+          <Route path="update_privacy/:id" element={<Update_Privacy />} />
         </Route>
       </Routes>
     </div>

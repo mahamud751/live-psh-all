@@ -24,10 +24,3 @@
   background-color: #35b0a7;
   color: white;
 }
-
-.react-datepicker__view-calendar-icon input {
-  padding: 0 !important;
-  padding-left: 10px !important;
-  padding-top: 5px !important;
-  padding-bottom: 5px !important;
-}

@@ -8,7 +8,7 @@ import ToolkitProvider from "react-bootstrap-table2-toolkit/dist/react-bootstrap
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
 import { Link } from "react-router-dom";
-import PropertyEdit from "../../pages/edit/Property";
+import PropertyEdit from "../../pages/edit/PropertyUpdate";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
