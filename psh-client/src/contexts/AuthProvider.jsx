@@ -33,7 +33,6 @@ const AuthProvider = ({ children }) => {
   const verifyEmail = () => {
     sendEmailVerification(auth.currentUser).then(() => {
       // Email verification sent!
-      // ...
     });
   };
   const signInWithGoogle = () => {
