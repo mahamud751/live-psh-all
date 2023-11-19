@@ -3,8 +3,6 @@ import { Carousel, IconButton } from "@material-tailwind/react";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import Header from "./Header";
-import cover1 from "../../assets/img/cover1.jpg";
-import cover2 from "../../assets/img/cover2.jpg";
 import PopUp from "./PopUp";
 import UseFetch from "../../hooks/useFetch";
 import Slider from "react-slick";
