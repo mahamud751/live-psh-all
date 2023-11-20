@@ -7,11 +7,11 @@ function App() {
         <meta charset="UTF-8" />
         <meta
           name="description"
-          content="Find your dream home with Project Second Home - Your trusted partner in real estate. We are working for ensuring female safety, accomodation, security, dormitory with 33+ facilities!"
+          content="Find your dream home with Project Second Home - Your trusted partner in real estate. We are working to ensure female safety, accommodation, security, dormitory with 33+ facilities!"
         />
         <meta
           name="keywords"
-          content="real estate, properties, homes, houses, Project Second Home"
+          content="real estate, hostel, booking, properties, homes, houses, Project Second Home"
         />
         <meta name="author" content="Project Second Home" />
         <link rel="icon" type="image/svg+xml" href="/project-second-home.png" />

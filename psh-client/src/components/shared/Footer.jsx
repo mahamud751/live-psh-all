@@ -201,7 +201,7 @@ const Footer = () => {
               background: "linear-gradient(to right, #020304, #071e37)",
             }}
           >
-            Copyright © 2023 psh.com.bd. All rights reserved
+            Copyright © 2023 Project Second Home. All rights reserved
           </div>
         </div>
       </div>
