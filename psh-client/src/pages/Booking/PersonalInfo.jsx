@@ -376,6 +376,7 @@ const PersonalInfo = () => {
                   placeholder="Date of Birth *"
                   className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   name="birthDate"
+                  required
                   style={{
                     height: "45px",
                     padding: "0px 10px",
@@ -392,7 +393,7 @@ const PersonalInfo = () => {
                     height: "45px",
                     padding: "0px 10px",
                   }}
-                  // required
+                  required
                 />
               </div>
 

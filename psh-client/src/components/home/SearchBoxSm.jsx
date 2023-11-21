@@ -258,7 +258,6 @@ const SearchBoxSm = () => {
                   style={{
                     background: "none",
                     outline: "none",
-                    color: "darkgrey",
                     width: "100%",
                     height: "40px",
                     paddingLeft: "40px",

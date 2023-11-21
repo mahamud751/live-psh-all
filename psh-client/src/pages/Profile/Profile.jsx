@@ -196,38 +196,38 @@ export default function Profile() {
                       </div>
                     </div>
                   </div>
-
-                  {endOrder?.paymentStatus ? (
-                    <span
-                      className="mt-3  text-center  mb-3 text-sm py-4 font-medium"
-                      style={{
-                        backgroundColor: "rgba(53, 176, 167, 0.20)",
-                      }}
-                    >
-                      Payment Status:
+                  <div className="text-center my-5">
+                    {endOrder?.paymentStatus ? (
                       <span
-                        className=" text-sm text-white px-3 rounded py-1 ml-2"
+                        className="mt-3 mb-3 text-sm py-4 font-medium text-center"
                         style={{
-                          backgroundColor:
-                            endOrder?.paymentStatus === "Unpaid"
-                              ? "#e34234"
-                              : "#35B0A7",
+                          backgroundColor: "rgba(53, 176, 167, 0.20)",
                         }}
                       >
-                        {endOrder?.paymentStatus}
+                        Payment Status:
+                        <span
+                          className=" text-sm text-white px-3 rounded py-1 ml-2"
+                          style={{
+                            backgroundColor:
+                              endOrder?.paymentStatus === "Unpaid"
+                                ? "#e34234"
+                                : "#35B0A7",
+                          }}
+                        >
+                          {endOrder?.paymentStatus}
+                        </span>
                       </span>
-                    </span>
-                  ) : (
-                    <span
-                      className="mt-3  text-center  mb-3 text-sm py-1 font-medium"
-                      style={{
-                        backgroundColor: "rgba(53, 176, 167, 0.20)",
-                      }}
-                    >
-                      {" "}
-                    </span>
-                  )}
-
+                    ) : (
+                      <span
+                        className="mt-3  text-center  mb-3 text-sm py-1 font-medium"
+                        style={{
+                          backgroundColor: "rgba(53, 176, 167, 0.20)",
+                        }}
+                      >
+                        {" "}
+                      </span>
+                    )}
+                  </div>
                   {data2.map((tab, idx) => (
                     <span onClick={tab.label === "Log-out" ? handleLogOut : ""}>
                       <Tab
