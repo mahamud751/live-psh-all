@@ -82,7 +82,7 @@ const SearchBox = () => {
   const [furnituredDisplay, setFurnituredDisplay] = useState("");
   const [furnituredQuery, setFurnituredQuery] = useState("");
   const [furnituredValue, setFurnituredValue] = useState(0);
-  const furnitures = ["All", "Furnitured", "Unurnitured"];
+  const furnitures = ["All", "Furnitured", "UnFurnitured"];
 
   const [genderDisplay, setGenderDisplay] = useState("");
   const [genderQuery, setGenderQuery] = useState("female");

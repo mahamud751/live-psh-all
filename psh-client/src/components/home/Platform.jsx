@@ -7,7 +7,7 @@ const Platform = () => {
         Why this platform better then others?
       </h2>
       <div className="grid grid-cols-12 gap-x-8 md:gap-y-16 sm:gap-y-8 mt-5">
-        <div className=" space-y-3 sm:col-span-12 lg:col-span-3 ">
+        <div className=" space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6 ">
           <Card className="max-w-[24rem] overflow-hidden">
             <CardHeader
               floated={false}
@@ -30,7 +30,7 @@ const Platform = () => {
             </CardBody>
           </Card>
         </div>
-        <div className=" space-y-3 sm:col-span-12 lg:col-span-3 ">
+        <div className=" space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6 ">
           <Card className="max-w-[24rem] overflow-hidden">
             <CardHeader
               floated={false}
@@ -54,7 +54,7 @@ const Platform = () => {
             </CardBody>
           </Card>
         </div>
-        <div className=" space-y-3 sm:col-span-12 lg:col-span-3">
+        <div className=" space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6">
           <Card className="max-w-[24rem] overflow-hidden">
             <CardHeader
               floated={false}
@@ -78,7 +78,7 @@ const Platform = () => {
             </CardBody>
           </Card>
         </div>
-        <div className="space-y-3 sm:col-span-12 lg:col-span-3">
+        <div className="space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6">
           <Card className="max-w-[24rem] overflow-hidden">
             <CardHeader
               floated={false}
@@ -105,7 +105,7 @@ const Platform = () => {
       </div>
       <div className="mt-24">
         <div className="grid grid-cols-12 gap-x-8 gap-y-16">
-          <div className=" text-center space-y-3 sm:col-span-12 lg:col-span-4">
+          <div className=" text-center space-y-3 sm:col-span-12 lg:col-span-4 md:col-span-4">
             <div className="flex">
               <img src="/images/Frame 3727.png" alt="" />
               <div style={{ marginLeft: 40, marginTop: 120 }}>
@@ -120,7 +120,7 @@ const Platform = () => {
               feature, ensuring convenience and proximity to your desired area.
             </p>
           </div>
-          <div className=" text-center space-y-3 sm:col-span-12 lg:col-span-4">
+          <div className=" text-center space-y-3 sm:col-span-12 lg:col-span-4 md:col-span-4">
             <div className="flex">
               <img src="/images/Group.png" alt="" />
               <div style={{ marginLeft: 40, marginTop: 120 }}>
@@ -135,7 +135,7 @@ const Platform = () => {
               feature, ensuring convenience and proximity to your desired area.
             </p>
           </div>
-          <div className=" text-center col-span-12 space-y-3 sm:col-span-12 lg:col-span-4">
+          <div className=" text-center col-span-12 space-y-3 sm:col-span-12 lg:col-span-4 md:col-span-4">
             <div className="flex">
               <img src="/images/Frame 3726.png" alt="" />
             </div>

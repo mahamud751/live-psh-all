@@ -110,14 +110,14 @@ function HotelsList({ item }) {
                   </p>
                 </div>
 
-                <div className="flex mt-2">
+                <div className="lg:flex mt-2">
                   <div className="flex items-center">
                     <CiLocationOn />
                     <p className="text-start ms-2">{item?.branch?.name}</p>
                   </div>
 
                   <div className="grid grid-cols-12">
-                    <div className="flex flex-col items-start right-side lg:col-span-4">
+                    <div className="flex flex-col items-start right-side lg:col-span-4 md:col-span-4">
                       <span
                         className=" text-[10px] border px-1 py-1 font-medium rounded-sm ml-2"
                         style={{ borderColor: "rgba(53, 176, 167, 0.50" }}
@@ -125,7 +125,7 @@ function HotelsList({ item }) {
                         Near New Market Dhaka
                       </span>
                     </div>
-                    <div className="flex flex-col items-start  lg:col-span-4">
+                    <div className="flex flex-col items-start right-side lg:col-span-4 md:col-span-4">
                       <span
                         className=" text-[10px] border px-1 py-1 font-medium rounded-sm ml-2"
                         style={{ borderColor: "rgba(53, 176, 167, 0.50" }}
@@ -133,7 +133,7 @@ function HotelsList({ item }) {
                         Near Dhaka City College
                       </span>
                     </div>
-                    <div className="flex flex-col items-start lg:col-span-4">
+                    <div className="flex flex-col items-start lg:col-span-4 md:col-span-4">
                       <span
                         className="font-medium  px-1 py-1 rounded-sm text-[10px] border ml-2"
                         style={{ borderColor: "rgba(53, 176, 167, 0.50" }}
