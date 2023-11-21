@@ -1,24 +1,19 @@
 import React from "react";
-import { Carousel, IconButton } from "@material-tailwind/react";
-
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
-import Header from "./Header";
-import PopUp from "./PopUp";
 import UseFetch from "../../hooks/useFetch";
 import Slider from "react-slick";
 
 const Banner = () => {
-  const { data, loading, error, reFetch } = UseFetch(`banner`);
+  const { data } = UseFetch(`banner`);
 
   const settings = {
     dots: false,
-
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: true,
     autoplay: true,
     autoplaySpeed: 3000,
+    arrows: true,
 
     responsive: [
       {
@@ -29,7 +24,8 @@ const Banner = () => {
           infinite: true,
           autoplay: true,
           autoplaySpeed: 3000,
-          arrows: false,
+          arrows: true,
+          padding: 20,
         },
       },
     ],
@@ -38,7 +34,7 @@ const Banner = () => {
   return (
     <>
       <div style={{ zIndex: "000" }}>
-        <div>
+        <div className="md:p-10 lg:p-0">
           <Slider {...settings}>
             {data?.map((pd, i) => (
               <div>
