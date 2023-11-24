@@ -126,18 +126,28 @@ const Admin_property_list = (props) => {
             {" "}
             <div className="d-flex justify-content-center">
               <div>
-                <button
-                  type="button"
-                  className="bg-white"
-                  data-bs-toggle="modal"
-                  data-bs-target={`#update${row._id}`}
-                >
-                  <span>
-                    <BiSolidEdit style={{ width: "30px", height: "30px" }} />
-                  </span>
-                </button>
-
-                <PropertyUpdate data={row} />
+                <img
+                  src={img3}
+                  alt=""
+                  data-toggle="modal"
+                  data-target={`#loginModal${row._id}`}
+                />
+              </div>
+              <div
+                className="modal fade"
+                id={`loginModal${row._id}`}
+                tabIndex="{-1}"
+                role="dialog"
+                aria-labelledby="loginModal"
+                aria-hidden="true"
+              >
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content" style={{ width: 700 }}>
+                    <div className="modal-body">
+                      <PropertyUpdate data={row} />
+                    </div>
+                  </div>
+                </div>
               </div>
               <div>
                 <button

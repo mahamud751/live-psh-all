@@ -45,9 +45,12 @@ export default function Categories() {
     localStorage.removeItem("seatItem");
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get("https://api.psh.com.bd/api/category", {
-          mode: "cors",
-        });
+        const { data } = await axios.get(
+          "https://api.psh.com.bd/api/category",
+          {
+            mode: "cors",
+          }
+        );
 
         const categoryMap = {};
 

@@ -20,9 +20,9 @@ const SignUp = () => {
   const { registerUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const onSubmitRegister = async (data) => {
-    const { firstName, email, phone, password, refferCode } = data;
+    const { firstName, email, phone, password, refferCode, photos } = data;
 
-    await registerUser(firstName, email, phone, password, refferCode);
+    await registerUser(firstName, email, phone, password, refferCode, photos);
     navigate("/");
   };
   // const onSubmitLogin = async (data) => {

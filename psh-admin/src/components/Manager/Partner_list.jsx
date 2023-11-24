@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../contexts/UserProvider";
 import { useContext } from "react";
+import Managers from "../../pages/edit/Managers";
 
 const Partner_list = () => {
   const MySwal = withReactContent(Swal);
@@ -40,6 +41,7 @@ const Partner_list = () => {
 
     fetchCategories();
   }, []);
+
   const columns = [
     {
       text: "No",
@@ -58,12 +60,8 @@ const Partner_list = () => {
       text: "First Name",
     },
 
-    {
-      dataField: "lastName",
-      text: "Last Name",
-    },
     { dataField: "branch.name", text: "Branch" },
-
+    { dataField: "userStatus", text: "Status" },
     {
       text: "Action",
       formatter: (cellContent, row) => {
@@ -95,7 +93,7 @@ const Partner_list = () => {
               <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content" style={{ width: 700 }}>
                   <div className="modal-body">
-                    <Category data={row} />
+                    <Managers data={row} />
                   </div>
                 </div>
               </div>

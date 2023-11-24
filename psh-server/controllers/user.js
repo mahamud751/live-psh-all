@@ -11,6 +11,7 @@ export const createUser = async (req, res) => {
       phone,
       role,
       refferCode,
+      photos,
       branch: branchId,
     } = req.body;
     const existingUser = await User.findOne({ email });
@@ -30,6 +31,7 @@ export const createUser = async (req, res) => {
       phone,
       role,
       refferCode,
+      photos,
       password: hashedPassword,
       branch: branchId,
     });
@@ -102,6 +104,7 @@ export const loginUser = async (req, res) => {
       address: user.address,
       role: user.role,
       branch: user.branch,
+      photos: user.photos,
     };
 
     // Generate a JWT token
@@ -144,6 +147,7 @@ export const updateUser = async (req, res) => {
         phone: req.body?.phone,
         userName: req.body?.userName,
         userId: req.body?.userId,
+        photos: req.body?.photos,
         dateOfBirth: req.body?.dateOfBirth,
         gender: req.body?.gender,
         nationalId: req.body?.nationalId,

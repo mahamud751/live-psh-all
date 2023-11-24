@@ -3,11 +3,9 @@ const BranchSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
     },
     locationLink: {
       type: String,
-      required: true,
     },
     // nearLocation: {
     //   type: String,
@@ -15,15 +13,12 @@ const BranchSchema = new mongoose.Schema(
     // },
     branchAddress: {
       type: String,
-      required: true,
     },
     branchMobileNumber: {
       type: String,
-      required: true,
     },
     branchEmail: {
       type: String,
-      required: true,
     },
     photos: {
       type: [String],
