@@ -59,7 +59,7 @@ const Add_Category = () => {
                   type="text"
                   className="main_form w-100"
                   name="name"
-                  placeholder="Product Name"
+                  placeholder="Category Name"
                 />
               </div>
               <div className="col-md-12 form_sub_stream">

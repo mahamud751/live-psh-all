@@ -13,6 +13,7 @@ import "jspdf-autotable";
 import "./Property.css";
 import Property from "../../pages/edit/PropertyUpdate";
 import { AuthContext } from "../../contexts/UserProvider";
+import PropertyUpdate from "../../pages/edit/PropertyUpdate";
 
 const Property_list = (props) => {
   const MySwal = withReactContent(Swal);
@@ -154,7 +155,7 @@ const Property_list = (props) => {
               <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content" style={{ width: 700 }}>
                   <div className="modal-body">
-                    <Property data={row} />
+                    <PropertyUpdate data={row} />
                   </div>
                 </div>
               </div>

@@ -20,22 +20,18 @@ import { AiFillStar } from "react-icons/ai";
 import { useState } from "react";
 import "../../components/shared/Custom.css";
 import Map from "./Map";
-import Slider from "react-slick";
-import { settings } from "../../slider/Slider";
 import SingleCard from "../../components/home/SingleCard";
 
 import { Toaster } from "react-hot-toast";
 import BookingTotalBox from "../Booking/BookingTotalBox";
 import { useEffect } from "react";
 import Seats from "./Seats";
-import { useSelector } from "react-redux";
 import BookingSeatTotal from "../Booking/BookingSeatTotal";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { ReviewAll } from "./ReviewAll";
 import useBranch from "../../hooks/useBranch";
-import { useQuery } from "react-query";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import useExtraCharge from "../../hooks/useExtraCharge";
 
@@ -56,6 +52,7 @@ const Room = () => {
   }, [id]);
 
   const { data2 } = UseFetch(`review`);
+
   const { data: facality } = UseFetch("facilityCategory");
   const branch = allBranch?.find((branch) => branch._id === data?.branch);
   // Recomended Data
@@ -98,6 +95,7 @@ const Room = () => {
   const propertyId = data?._id;
   const MySwal = withReactContent(Swal);
   const { data: wishlist, reFetch: wishlistRefetch } = UseFetch(`wishlist`);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -114,9 +112,33 @@ const Room = () => {
     }
   };
 
+  const exactWishList = wishlist?.filter(
+    (wishList) => wishList?.property?._id == id
+  );
+  const userWishList = exactWishList?.find(
+    (wishList) => wishList?.email === email
+  );
+
   const checkWishLists = wishlist?.filter((pd) => pd?.email === email);
   const checkWishListIds = checkWishLists?.map((item) => item?.property?._id);
-
+  const handleRemoveSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const product = {
+        userName,
+        propertyId,
+        email,
+      };
+      await axios.delete(
+        `https://api.psh.com.bd/api/wishlist/${userWishList._id}`,
+        product
+      );
+      MySwal.fire("Successfullt Remove ! wishlisted");
+      wishlistRefetch();
+    } catch (err) {
+      MySwal.fire("Wrong!");
+    }
+  };
   const [detailsShow, setDetailsShow] = useState(false);
   const handleDetailsShow = () => setDetailsShow(!detailsShow);
 
@@ -310,6 +332,7 @@ const Room = () => {
                         {checkWishListIds?.some((item) => item === id) ? (
                           <AiFillHeart
                             className={`w-[24px] h-[30px] cursor-pointer text-red-600`}
+                            onClick={handleRemoveSubmit}
                           />
                         ) : (
                           <AiFillHeart

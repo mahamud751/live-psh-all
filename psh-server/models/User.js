@@ -112,9 +112,9 @@ const UserSchema = new mongoose.Schema(
       relation: {
         type: String,
       },
-      phoneNumber: {
-        type: String,
-      },
+    },
+    photos: {
+      type: [String],
     },
   },
   { timestamps: true }

@@ -7,12 +7,33 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
-// icon
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
+import axios from "axios";
+import { AiFillHeart } from "react-icons/ai";
 
 import whislistIcon from "../../assets/img/Wishlist.png";
+import whislistIcon2 from "../../assets/img/heart.png";
 import locationIcon from "../../assets/img/branchLocationIcon.png";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/UserProvider";
+import { useState } from "react";
+import { useEffect } from "react";
+import UseFetch from "../../hooks/useFetch";
 const SingleCard = ({ item }) => {
+  const { user } = useContext(AuthContext);
+  console.log("item", item);
+  const userName = user?.firstName;
+  const email = user?.email;
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://api.psh.com.bd/api/property/${item._id}`)
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, [item?._id]);
+  console.log(data);
   // Checking Booking Dates for privet room and apartment
   const currentDate = new Date().toISOString().split("T")[0];
   // Check if the target date falls within any of the date ranges
@@ -37,7 +58,52 @@ const SingleCard = ({ item }) => {
       }
     }
   }
+  const propertyId = data?._id;
+  const MySwal = withReactContent(Swal);
+  const { data: wishlist, reFetch: wishlistRefetch } = UseFetch(`wishlist`);
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const product = {
+        userName,
+        propertyId,
+        email,
+      };
+      await axios.post("https://api.psh.com.bd/api/wishlist", product);
+      MySwal.fire("Thanks ! wishlisted");
+      wishlistRefetch();
+    } catch (err) {
+      MySwal.fire("Already Added!");
+    }
+  };
+
+  const exactWishList = wishlist?.filter(
+    (wishList) => wishList?.property?._id == data?._id
+  );
+  const userWishList = exactWishList?.find(
+    (wishList) => wishList?.email === email
+  );
+  const checkWishLists = wishlist?.filter((pd) => pd?.email === email);
+  const checkWishListIds = checkWishLists?.map((item) => item?.property?._id);
+  const handleRemoveSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const product = {
+        userName,
+        propertyId,
+        email,
+      };
+      await axios.delete(
+        `https://api.psh.com.bd/api/wishlist/${userWishList._id}`,
+        product
+      );
+      MySwal.fire("Successfullt Remove ! wishlisted");
+      wishlistRefetch();
+    } catch (err) {
+      MySwal.fire("Wrong!");
+    }
+  };
   return (
     <>
       <Link to={`/room/${item._id}`} className="single-card ">
@@ -61,7 +127,15 @@ const SingleCard = ({ item }) => {
               alt="No Found Image"
             />
             <div className="absolute top-2 right-2">
-              <img src={whislistIcon} alt="" />
+              {checkWishListIds?.some((item) => item === data?._id) ? (
+                <img
+                  src={whislistIcon2}
+                  alt="wishlist"
+                  onClick={handleRemoveSubmit}
+                />
+              ) : (
+                <img src={whislistIcon} alt="wishlist" onClick={handleSubmit} />
+              )}
             </div>
             {isIntoDate ? (
               <div className="absolute bottom-0 right-0 bg-[#27B3B1] text-white rounded-sm text-sm font-[600] px-1 py-1">
@@ -100,15 +174,7 @@ const SingleCard = ({ item }) => {
                   {item?.category?.name}({item.type.toUpperCase()})
                 </span>
               </Typography>
-              <Typography variant="div" className="flex ">
-                {/* <span className="text-sm">4.8</span>
-                <img
-                  className="ml-1 "
-                  style={{ width: "18px", height: "18px" }}
-                  src={startIcon}
-                  alt=""
-                /> */}
-              </Typography>
+              <Typography variant="div" className="flex "></Typography>
             </div>
             <div className="flex itmes-center">
               <img
@@ -132,25 +198,6 @@ const SingleCard = ({ item }) => {
           </CardBody>
 
           <CardFooter className="p-0">
-            {/* <div className="flex items-center">
-              <div className="flex"></div>
-              <div className="flex ml-1 ">
-                <div>
-                  <img src={doubleBedIcon} alt="" />
-                </div>
-                <div className=" text-[12px]">
-                  <span>{item.bedroom} Beds </span>
-                </div>
-              </div>
-              <div className="flex ml-1">
-                <div>
-                  <img src={bathroomIcon} alt="" />
-                </div>
-                <div className=" text-[12px]">
-                  <span>{item.bathroom} Bathrooms </span>
-                </div>
-              </div>
-            </div> */}
             <div className="card-price flex gap-x-3 px-2 mb-2">
               {item?.category?.name === "Shared Room" ? (
                 <>

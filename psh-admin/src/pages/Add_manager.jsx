@@ -32,7 +32,6 @@ const Add_Manager = () => {
   const onSubmitRegister = async (data) => {
     const {
       firstName,
-      lastName,
       address,
       email,
       phone,
@@ -44,7 +43,6 @@ const Add_Manager = () => {
     try {
       const response = await axios.post("https://api.psh.com.bd/api/users", {
         firstName,
-        lastName,
         address,
         email,
         phone,
@@ -109,22 +107,7 @@ const Add_Manager = () => {
                   })}
                 />
               </div>
-              <div className="col-md-12 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  placeholder="lastName"
-                  {...register("lastName", {
-                    required: "lastName is Required",
-                  })}
-                />
-              </div>
+
               <div className="col-md-12 form_sub_stream">
                 <label
                   htmlFor="inputState"

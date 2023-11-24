@@ -10,8 +10,10 @@ import { Toaster, toast } from "react-hot-toast";
 import MenuList from "./MenuList";
 function EditProfile() {
   const { user } = useContext(AuthContext);
+  console.log("user", user);
   const MySwal = withReactContent(Swal);
   const [image, setImage] = useState([]);
+  const [files, setFiles] = useState("");
 
   const handleUserUpdate = async (e) => {
     e.preventDefault();
@@ -139,9 +141,27 @@ function EditProfile() {
     } else {
       // save User Update information without card picture to the database
       try {
+        const list = await Promise.all(
+          Object.values(files).map(async (file) => {
+            const data = new FormData();
+            data.append("file", file);
+            data.append("upload_preset", "upload");
+            const uploadRes = await axios.post(
+              "https://api.cloudinary.com/v1_1/dtpvtjiry/image/upload",
+              data
+            );
+
+            const { url } = uploadRes.data;
+            return url;
+          })
+        );
+        const product = {
+          ...userUpdate,
+          photos: list,
+        };
         await axios.patch(
           `https://api.psh.com.bd/api/users/${user?._id}`,
-          userUpdate
+          product
         );
 
         MySwal.fire({
@@ -515,6 +535,26 @@ function EditProfile() {
               />
             </div>
           </div>
+          <div className="border-b pb-3">
+            <div className="mt-7 font-bold text-xl">
+              <span>Profile Picture</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-x-5 mt-5">
+            <label htmlFor="inputState" className="form-label profile_label3 ">
+              Image upload
+            </label>
+
+            <input
+              type="file"
+              className="main_form w-100 p-0"
+              name="img"
+              onChange={(e) => setFiles(e.target.files)}
+              multiple
+            />
+          </div>
+
           <div className="flex justify-center mt-12 ">
             <input
               type="submit"

@@ -40,6 +40,7 @@ const Manager = ({ data }) => {
 
     const data2 = {
       branchId: formData.get("branch"),
+      categoryId: formData.get("category"),
     };
     const newPost = {
       ...user,

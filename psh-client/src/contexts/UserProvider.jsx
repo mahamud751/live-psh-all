@@ -26,7 +26,7 @@ export const UserProvider = ({ children }) => {
 
       if (response.status === 200) {
         const { data } = response;
-
+        console.log("mainData", data);
         setUser(data.user);
         setToken(data.token);
 
@@ -65,6 +65,7 @@ export const UserProvider = ({ children }) => {
     phone,
     password,
     refferCode,
+    photos,
     role
   ) => {
     try {
@@ -74,6 +75,7 @@ export const UserProvider = ({ children }) => {
         phone,
         password,
         refferCode,
+        photos,
       });
 
       if (response.status === 200) {

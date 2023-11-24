@@ -363,57 +363,57 @@ export const updatePropertys = async (req, res, next) => {
       seats,
     } = req.body;
 
-    // Check if the category ID has changed
-    if (categoryId !== String(property.category)) {
-      // Find the new category
-      const newCategory = await Category.findById(categoryId);
-      if (!newCategory) {
-        return res.status(404).json({ error: "New category not found" });
-      }
+    // // Check if the category ID has changed
+    // if (categoryId !== String(property.category)) {
+    //   // Find the new category
+    //   const newCategory = await Category.findById(categoryId);
+    //   if (!newCategory) {
+    //     return res.status(404).json({ error: "New category not found" });
+    //   }
 
-      // Find the previous category
-      const previousCategory = await Category.findById(property.category);
-      if (!previousCategory) {
-        return res.status(404).json({ error: "Previous category not found" });
-      }
+    //   // Find the previous category
+    //   const previousCategory = await Category.findById(property.category);
+    //   if (!previousCategory) {
+    //     return res.status(404).json({ error: "Previous category not found" });
+    //   }
 
-      // Remove the property from the previous category's property array
-      previousCategory.property.pull(propertyId);
-      await previousCategory.save();
+    //   // Remove the property from the previous category's property array
+    //   previousCategory.property.pull(propertyId);
+    //   await previousCategory.save();
 
-      // Assign the property to the new category
-      property.category = newCategory._id;
+    //   // Assign the property to the new category
+    //   property.category = newCategory._id;
 
-      // Add the property to the new category's property array
-      newCategory.property.push(propertyId);
-      await newCategory.save();
-    }
+    //   // Add the property to the new category's property array
+    //   newCategory.property.push(propertyId);
+    //   await newCategory.save();
+    // }
 
-    // Check if the branch ID has changed
-    if (branchId !== String(property.branch)) {
-      // Find the new branch
-      const newBranch = await Branch.findById(branchId);
-      if (!newBranch) {
-        return res.status(404).json({ error: "New branch not found" });
-      }
+    // // Check if the branch ID has changed
+    // if (branchId !== String(property.branch)) {
+    //   // Find the new branch
+    //   const newBranch = await Branch.findById(branchId);
+    //   if (!newBranch) {
+    //     return res.status(404).json({ error: "New branch not found" });
+    //   }
 
-      // Find the previous branch
-      const previousBranch = await Branch.findById(property.branch);
-      if (!previousBranch) {
-        return res.status(404).json({ error: "Previous branch not found" });
-      }
+    //   // Find the previous branch
+    //   const previousBranch = await Branch.findById(property.branch);
+    //   if (!previousBranch) {
+    //     return res.status(404).json({ error: "Previous branch not found" });
+    //   }
 
-      // Remove the property from the previous branch's property array
-      previousBranch.property.pull(propertyId);
-      await previousBranch.save();
+    //   // Remove the property from the previous branch's property array
+    //   previousBranch.property.pull(propertyId);
+    //   await previousBranch.save();
 
-      // Assign the property to the new branch
-      property.branch = newBranch._id;
+    //   // Assign the property to the new branch
+    //   property.branch = newBranch._id;
 
-      // Add the property to the new branch's property array
-      newBranch.property.push(propertyId);
-      await newBranch.save();
-    }
+    //   // Add the property to the new branch's property array
+    //   newBranch.property.push(propertyId);
+    //   await newBranch.save();
+    // }
 
     // Update the property fields
     property.name = name;

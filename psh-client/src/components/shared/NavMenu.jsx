@@ -18,16 +18,7 @@ import {
   Card,
   Collapse,
 } from "@material-tailwind/react";
-import {
-  CubeTransparentIcon,
-  UserCircleIcon,
-  CodeBracketSquareIcon,
-  Square3Stack3DIcon,
-  ChevronDownIcon,
-  RocketLaunchIcon,
-  Bars2Icon,
-} from "@heroicons/react/24/outline";
-import { Switch } from "@material-tailwind/react";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/UserProvider";
 import line from "../../assets/img/Line 127.png";
@@ -42,8 +33,10 @@ import { BsGift, BsTelephonePlus } from "react-icons/bs";
 import { FaHandsHelping } from "react-icons/fa";
 import { MdOutlineAddLocationAlt, MdOutlineMapsHomeWork } from "react-icons/md";
 import { AiOutlineFileUnknown, AiOutlineHome } from "react-icons/ai";
+import UseFetch from "../../hooks/useFetch";
 
-function ProfileMenu() {
+function ProfileMenu(id) {
+  const { data } = UseFetch(`users/${id}`);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const closeMenu = () => setIsMenuOpen(false);
   const { user, logoutUser } = useContext(AuthContext);
@@ -68,8 +61,9 @@ function ProfileMenu() {
                 size="sm"
                 alt="candice wu"
                 className="border border-blue-500 p-0.5"
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                src={user?.photos}
               />
+
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`h-3 w-3 transition-transform ${

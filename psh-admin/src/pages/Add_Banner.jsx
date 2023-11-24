@@ -58,7 +58,7 @@ const Add_Banner = () => {
                   type="text"
                   className="main_form w-100"
                   name="name"
-                  placeholder="Product Name"
+                  placeholder="Banner Name"
                 />
               </div>
               <div className="col-md-12 form_sub_stream">
