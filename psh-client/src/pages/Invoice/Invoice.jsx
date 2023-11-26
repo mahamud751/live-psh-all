@@ -7,7 +7,6 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 import html2canvas from "html2canvas";
 import { useLocation } from "react-router-dom";
-import useBranch from "../../hooks/useBranch";
 import { useEffect } from "react";
 
 import { useState } from "react";

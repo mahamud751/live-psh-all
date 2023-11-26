@@ -11,7 +11,6 @@ import DatePicker from "react-datepicker";
 import { useContext } from "react";
 import { SearchContext } from "../../contexts/SearchContext";
 import { useNavigate } from "react-router-dom";
-import Autosuggest from "react-autosuggest";
 
 import { useDispatch, useSelector } from "react-redux";
 import { leftDate, rightDate, toTalRent } from "../../redux/reducers/dateSlice";
