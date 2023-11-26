@@ -2,11 +2,9 @@ import React, { useContext, useState } from "react";
 import "./PersonalInfo.css";
 
 import cashImg from "../../assets/img/Cash-1.png";
-
 import brachLocationIcon from "../../assets/img/branchLocationIcon.png";
 import promoIcon from "../../assets/img/coupon.png";
 import { useNavigate } from "react-router";
-
 import withReactContent from "sweetalert2-react-content";
 
 import { AuthContext } from "../../contexts/UserProvider";
@@ -37,7 +35,6 @@ const PersonalInfo = () => {
   //cart
   const { user } = useContext(AuthContext);
   const MySwal = withReactContent(Swal);
-  // Payment option manage
 
   const [showMobile, setShowMobile] = useState(true);
   const [showPaymentArrive, setShowPaymentArrive] = useState(false);
