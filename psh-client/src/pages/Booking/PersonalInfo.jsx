@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import "./PersonalInfo.css";
 
 import cashImg from "../../assets/img/Cash-1.png";
-
 import brachLocationIcon from "../../assets/img/branchLocationIcon.png";
 import promoIcon from "../../assets/img/coupon.png";
 import { useNavigate } from "react-router-dom";
@@ -37,7 +36,6 @@ const PersonalInfo = () => {
   //cart
   const { user } = useContext(AuthContext);
   const MySwal = withReactContent(Swal);
-  // Payment option manage
 
   const [showMobile, setShowMobile] = useState(true);
   const [showPaymentArrive, setShowPaymentArrive] = useState(false);
@@ -231,7 +229,7 @@ const PersonalInfo = () => {
 
     // save order information to the database
     try {
-      await axios.post("https://api.psh.com.bd/api/order", formData);
+      await axios.post("http://localhost:5001/api/order", formData);
       MySwal.fire({
         icon: "success",
         title: "Order successfully done",
@@ -376,7 +374,6 @@ const PersonalInfo = () => {
                   placeholder="Date of Birth *"
                   className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   name="birthDate"
-                  required
                   style={{
                     height: "45px",
                     padding: "0px 10px",
@@ -393,7 +390,7 @@ const PersonalInfo = () => {
                     height: "45px",
                     padding: "0px 10px",
                   }}
-                  required
+                  // required
                 />
               </div>
 
