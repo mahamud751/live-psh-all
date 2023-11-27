@@ -15,6 +15,7 @@ router.get("/", getPropertys);
 router.get("/:id", getSinglePropertys);
 router.delete("/:id", deletePropertys);
 router.put("/:id", updatePropertys);
+
 router.get("/properties/recommended", getRecommendedPropertys);
 
 export default router;

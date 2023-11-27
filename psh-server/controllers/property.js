@@ -48,6 +48,7 @@ export const CreatePropertys = async (req, res, next) => {
       security,
       faltPolicy,
       seats, // Add the "options" field for seat options
+      isPublished,
     } = req.body;
 
     // Find the category by ID
@@ -107,6 +108,7 @@ export const CreatePropertys = async (req, res, next) => {
       category: category._id,
       branch: branch._id,
       seats: seats, // Set the seat options
+      isPublished,
     });
     await product.save();
 
@@ -313,6 +315,15 @@ export const updatePropertys = async (req, res, next) => {
   try {
     const propertyId = req.params.id;
 
+    // Status Update
+
+    if (req.body?.isPublished) {
+      await Property.findByIdAndUpdate(
+        req.params.id,
+        { $set: { isPublished: req.body.isPublished } },
+        { new: true }
+      );
+    }
     // Find the property by ID
     const property = await Property.findById(propertyId);
     if (!property) {
