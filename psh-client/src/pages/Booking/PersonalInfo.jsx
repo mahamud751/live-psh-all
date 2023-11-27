@@ -1,16 +1,12 @@
 import React, { useContext, useState } from "react";
 import "./PersonalInfo.css";
-
 import cashImg from "../../assets/img/Cash-1.png";
 import brachLocationIcon from "../../assets/img/branchLocationIcon.png";
 import promoIcon from "../../assets/img/coupon.png";
 import { useNavigate } from "react-router-dom";
-
 import withReactContent from "sweetalert2-react-content";
-
 import { AuthContext } from "../../contexts/UserProvider";
 import Swal from "sweetalert2";
-
 import "../Payment/PaymentToggle.css";
 import MobileBanking from "../Payment/MobileBanking";
 import CashOn from "../Payment/CashOn";
@@ -23,7 +19,6 @@ import useBranch from "../../hooks/useBranch";
 
 const PersonalInfo = () => {
   const [bookingItem, setBookingItem] = useState({});
-
   // get month Last Day
   function getLastDayOfMonth() {
     const today = new Date(bookingItem?.rentDate?.bookStartDate);
@@ -229,7 +224,7 @@ const PersonalInfo = () => {
 
     // save order information to the database
     try {
-      await axios.post("http://localhost:5001/api/order", formData);
+      await axios.post("https://api.psh.com.bd/api/order", formData);
       MySwal.fire({
         icon: "success",
         title: "Order successfully done",
