@@ -6,7 +6,7 @@ import "@splidejs/react-splide/css/sea-green";
 import "@splidejs/react-splide/css/core";
 import { format } from "date-fns";
 import "./Room.css";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import UseFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../contexts/UserProvider";
 import DetailsModal from "./DetailsModal";
@@ -58,6 +58,11 @@ const Room = () => {
   // Recomended Data
 
   const { data: recomended } = UseFetch(`property/properties/recommended`);
+
+  // find Published Recommended Property
+  const publishedRecomended = recomended?.filter(
+    (property) => property?.isPublished === "Published"
+  );
 
   const main = data2?.filter((pd) => pd.property === id);
 
@@ -142,13 +147,20 @@ const Room = () => {
   const [detailsShow, setDetailsShow] = useState(false);
   const handleDetailsShow = () => setDetailsShow(!detailsShow);
 
-  // For Recomended House
-  const scrollToTop = () => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-  };
+  // Page location top to path dependency
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  // // For Recomended House
+  // const scrollToTop = () => {
+  //   window.scrollTo(0, 0); // Scroll to the top of the page
+  // };
 
   return (
-    <div>
+    <div className="custom-container">
       <div>
         <div className="  mt-2">
           <div className=" ">
@@ -175,7 +187,7 @@ const Room = () => {
                         <img
                           src={photo}
                           alt=""
-                          className="rounded w-[100%] xl:h-[245px] lg:h-[245px] md:h-[134px] sm:h-[110px]"
+                          className="rounded w-[100%] lg:h-[245px] md:h-[134px] sm:h-[110px]"
                         />
                       </div>
                     ))}
@@ -373,45 +385,45 @@ const Room = () => {
                       </h2>
                     </div>
                     <div className="grid grid-cols-12 gap-x-4 md:gap-y-16 sm:gap-y-4 py-5">
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 xl:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold">Type</p>
                         <p>{data.category?.name}</p>
                       </div>
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 xl:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold">Bed Type</p>
                         <p>{data.bedType} Bed</p>
                       </div>
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 xl:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold">Floor</p>
                         <p>{data.floor}th Floor</p>
                       </div>
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 xl:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold">Room Size</p>
                         <p>{data.area} SQ Feet</p>
                       </div>
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 xl:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold">Furnishing</p>
                         {data.furnitured === "yes" ? <p>Yes</p> : <p>No</p>}
                       </div>
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 xl:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold">Balcony</p>
                         <p>{data.balcony}</p>
                       </div>
                     </div>
                     <div className="grid grid-cols-12 gap-x-4 md:gap-y-16 sm:gap-y-4 md:py-5">
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 xl:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold">Bedroom</p>
                         <p>{data.bedroom} Bedroom</p>
                       </div>
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 xl:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold"> Wi-Fi</p>
                         {data.WiFi === "yes" ? <p>Yes</p> : <p>No</p>}
                       </div>
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 xl:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold"> CCTV</p>
                         {data.CCTV === "yes" ? <p>Yes</p> : <p>No</p>}
                       </div>
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 xl:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold">Meal</p>
                         <p>{data.meal} Times a day</p>
                       </div>
@@ -436,7 +448,7 @@ const Room = () => {
                               )
                               .map((item) => (
                                 <React.Fragment key={item._id}>
-                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 xl:col-span-2">
+                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
                                     <div>
                                       <div className="flex md:justify-center sm:justify-start">
                                         <img
@@ -811,9 +823,9 @@ const Room = () => {
                 },
               }}
             >
-              {recomended?.map((item, index) => (
+              {publishedRecomended?.map((item, index) => (
                 <SplideSlide>
-                  <div onClick={scrollToTop}>
+                  <div>
                     <SingleCard item={item} key={index} />
                   </div>
                 </SplideSlide>

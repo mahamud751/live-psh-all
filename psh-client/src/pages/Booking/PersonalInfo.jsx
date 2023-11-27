@@ -6,7 +6,7 @@ import cashImg from "../../assets/img/Cash-1.png";
 import brachLocationIcon from "../../assets/img/branchLocationIcon.png";
 import promoIcon from "../../assets/img/coupon.png";
 import { useNavigate } from "react-router";
-
+import { useLocation } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
 
 import { AuthContext } from "../../contexts/UserProvider";
@@ -271,6 +271,13 @@ const PersonalInfo = () => {
   //     handleImageUpload(file);
   //   }
   // };
+
+  // Page location top to path dependency
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <form onSubmit={bookingOrder}>

@@ -41,6 +41,11 @@ export default function Categories() {
     setRandomIndex([...shuffledData]);
   };
 
+  // find Published Property
+  const publishRandomProperty = randomIndex.filter(
+    (property) => property?.isPublished === "Published"
+  );
+
   useEffect(() => {
     localStorage.removeItem("seatItem");
     const fetchCategories = async () => {
@@ -95,17 +100,20 @@ export default function Categories() {
     new Set(data.map((item) => item?.category?._id))
   );
 
-  const filteredData = data.filter((item) => item.category?._id === activeTab);
+  const filteredData = data.filter(
+    (item) =>
+      item.category?._id === activeTab && item?.isPublished === "Published"
+  );
   // console.log(filteredData);
 
   return (
     <div className="category-item">
       <Header />
 
-      <div className=" text-left mt-14">
+      <div className=" text-left mt-5">
         <Tabs value="All" className=" ">
           <TabsHeader
-            className="rounded-none border-b bg-transparent p-0 gap-x-14 sm:gap-x-4"
+            className="rounded-none border-b bg-transparent p-0 md:gap-x-14 sm:gap-x-4 "
             indicatorProps={{
               className:
                 "bg-transparent border-b-2 border-[#00BBB4] shadow-none rounded-none ",
@@ -117,7 +125,7 @@ export default function Categories() {
                 getRandomData();
                 setActiveTab("All");
               }}
-              className="w-fit  md:text-[20px] sm:text-[14px]"
+              className="w-fit  md:text-[20px] sm:text-[14px] category-type px-0"
             >
               All
             </Tab>
@@ -133,7 +141,7 @@ export default function Categories() {
                   value={type}
                   onClick={() => setActiveTab(type)}
                   style={{ display: "unset" }}
-                  className="w-fit md:text-[20px] sm:text-[13px] "
+                  className="w-fit md:text-[20px] sm:text-[12px] category-type px-0"
                 >
                   {categoryName}
                 </Tab>
@@ -154,17 +162,17 @@ export default function Categories() {
             autoplay: true,
             gap: "1rem",
             perPage: 5,
-            height: "32rem",
+            height: "28rem",
             pagination: false,
             breakpoints: {
               1200: { arrows: true, perPage: 4 },
               800: { arrows: true, perPage: 2 },
-              640: { arrows: true, perPage: 1, height: "30rem" },
+              640: { arrows: true, perPage: 1.4, height: "22rem" },
             },
           }}
         >
           {activeTab === "All"
-            ? randomIndex?.map((item) => (
+            ? publishRandomProperty?.map((item) => (
                 <SplideSlide>
                   <SingleCard item={item} />{" "}
                 </SplideSlide>

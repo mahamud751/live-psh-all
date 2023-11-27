@@ -5,6 +5,7 @@ import Slider from "react-slider";
 import "./ListFilter.css";
 import UseFetch from "../../hooks/useFetch";
 import { useEffect } from "react";
+import ReactSlider from "react-slider";
 
 const ListFilter = ({
   handleFacilityFilterChange,
@@ -42,6 +43,7 @@ const ListFilter = ({
   useEffect(() => {
     setValues([min, max]);
   }, [min, max]);
+  console.log("min", MIN, MAX);
   return (
     <div className="left-filter md:pb-20">
       <div
@@ -80,7 +82,7 @@ const ListFilter = ({
           </div>
           <div className="mt-5">
             <Slider
-              className={"Slider"}
+              className={"Slider "}
               value={values}
               min={MIN}
               max={MAX}

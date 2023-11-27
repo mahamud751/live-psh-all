@@ -65,7 +65,7 @@ const Invoice = () => {
       pdf.save("invoice.pdf");
     });
   };
-  console.log(userEndOrder);
+
   return (
     <div className="md:flex justify-center">
       <div className=" ">
@@ -402,7 +402,7 @@ const Invoice = () => {
               </div>
             </div>
             {/* Invoice Footer */}
-            <div className="flex justify-between bg-[#35B0A7] px-10 py-2 text-white invoice-footer">
+            <div className="flex justify-between bg-[#35B0A7] px-10 py-2 text-white invoice-footer ">
               <p>Head Office : House-23, Road-03, Dhanmondi, Dhaka</p>
               <p>Mobile: +880123456789</p>
               <p>www.psh.com.bd</p>

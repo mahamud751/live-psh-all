@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 const Platform = () => {
   return (
-    <div className="mt-16">
+    <div className="md:mt-32 sm:mt-5">
       <h2 className="text-2xl font-bold">
         Why this platform better then others?
       </h2>
@@ -103,7 +103,7 @@ const Platform = () => {
           </Card>
         </div>
       </div>
-      <div className="mt-24">
+      <div className="mt-12">
         <div className="grid grid-cols-12 gap-x-8 gap-y-16">
           <div className=" text-center space-y-3 sm:col-span-12 lg:col-span-4 md:col-span-4">
             <div className="flex">

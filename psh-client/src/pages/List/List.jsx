@@ -64,7 +64,7 @@ function List({ type }) {
 
   const url = `property?branch=${encodeURIComponent(
     destination
-  )}&furnitured=${encodeURIComponent(furnitured)}&type=${encodeURIComponent(
+  )}&Furnished=${encodeURIComponent(furnitured)}&type=${encodeURIComponent(
     gender
   )}&category=${encodeURIComponent(category)}&min=${encodeURIComponent(
     min
@@ -139,6 +139,7 @@ function List({ type }) {
     ) {
       return false;
     }
+
     // Check facility filters
 
     if (facilityFilters.length > 0) {
@@ -181,11 +182,15 @@ function List({ type }) {
   const [size, setSize] = React.useState(null);
   const handleOpen = (value) => setSize(value);
 
+  // find Published Property
+  const publishRandomProperty = filteredData.filter(
+    (property) => property?.isPublished === "Published"
+  );
   return (
-    <div>
+    <div className="custom-container">
       <div className="mt-3 flex justify-between">
-        <p>{filteredData.length} Results Found</p>
-        <p className="md:mr-[650px]">
+        <p>{publishRandomProperty?.length} Results Found</p>
+        <p className="md:mr-[420px]">
           Search Number{" "}
           <select
             className="border border-black rounded ml-2"
@@ -274,9 +279,9 @@ function List({ type }) {
           <div className="flex flex-col items-start col-span-12  sm:col-span-12 lg:col-span-8">
             {loading ? (
               "Loading"
-            ) : filteredData?.length > 0 ? (
+            ) : publishRandomProperty?.length > 0 ? (
               <>
-                {filteredData.map((item) => (
+                {publishRandomProperty?.map((item) => (
                   <HotelsList key={item._id} item={item} />
                 ))}
               </>

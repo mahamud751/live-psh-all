@@ -13,44 +13,51 @@ const Recommended = () => {
   const { data, loading, error, reFetch } = UseFetch(
     `property/properties/recommended`
   );
-
+  // find Published Recommended Property
+  const publishedData = data.filter(
+    (property) => property?.isPublished === "Published"
+  );
   return (
-    <div className="mt-24">
+    <div className="md:mt-28 sm:mt-2">
       <h2 className="text-3xl font-bold text-gray-900 mb-2">
         Our Best Recommend
       </h2>
       <span className="text-[1rem]">Our best rooms available for you</span>
-      <div className="all_recommended mt-4">
-        <Splide
-          options={{
-            // type: "loop",
-            arrows: true,
-            rewind: true,
-            drag: "free",
-            autoplay: true,
-            gap: "1rem",
-            perPage: 5,
-            height: "26rem",
-            pagination: false,
-            breakpoints: {
-              1200: { arrows: true, perPage: 4 },
-              800: { arrows: true, perPage: 2 },
-              640: { arrows: true, perPage: 1 },
-            },
-          }}
-        >
-          {data.map((item, i) => (
-            <SplideSlide>
-              <SingleCard item={item} />
-            </SplideSlide>
-          ))}
-        </Splide>
-        {/* <Slider {...settings}>
-                  {data?.map((item) => (
-                    <SingleCard item={item} />
-                  ))}
-                </Slider> */}
-      </div>
+      {publishedData?.length > 0 ? (
+        <div className="all_recommended mt-4">
+          <Splide
+            options={{
+              // type: "loop",
+              arrows: true,
+              rewind: true,
+              drag: "free",
+              autoplay: true,
+              gap: "1rem",
+              perPage: 5,
+              height: "26rem",
+              pagination: false,
+              breakpoints: {
+                1200: { arrows: true, perPage: 4 },
+                800: { arrows: true, perPage: 2 },
+                640: { arrows: true, perPage: 1 },
+              },
+            }}
+          >
+            {publishedData.map((item, i) => (
+              <SplideSlide>
+                <SingleCard item={item} />
+              </SplideSlide>
+            ))}
+          </Splide>
+          {/* <Slider {...settings}>
+              {data?.map((item) => (
+                <SingleCard item={item} />
+              ))}
+            </Slider> */}
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

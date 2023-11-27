@@ -106,6 +106,13 @@
   }
 }
 
+.category-type {
+  font-family: "Poppins", sans-serif !important;
+  font-style: normal;
+  font-weight: 600;
+  column-gap: 0 !important;
+}
+
 /* .for-mobile-nav {
   height: 100vh !important;
 } */
