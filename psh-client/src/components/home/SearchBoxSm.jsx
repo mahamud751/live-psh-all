@@ -553,14 +553,7 @@ const SearchBoxSm = () => {
           </div>
         </DialogBody>
         {/* <DialogFooter>
-          <Button
-            variant="text"
-            color="red"
-            onClick={() => handleOpen(null)}
-            className="mr-1"
-          >
-            <span>Cancel</span>
-          </Button>
+        
           <Button
             variant="gradient"
             color="green"
