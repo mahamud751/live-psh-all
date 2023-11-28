@@ -197,7 +197,7 @@ const SearchBox = () => {
     const payload = {
       destination,
       bedrooms: bedrooms.length > 0 ? bedrooms : "Any",
-      Furnished: FurnishedQuery,
+      furnitured: FurnishedQuery,
       gender: genderQuery,
       category: categoryQuery,
     };
