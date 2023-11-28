@@ -33,7 +33,7 @@ const Footer = () => {
 
                 <li className=" col-span-1">
                   <div className="md:flex">
-                    <div className="sm:flex sm:justify-center sm:mb-2">
+                    <div className="sm:flex sm:justify-center sm:mb-2 sm:mr-20 md:mr-0">
                       <i className="fa-solid fa-phone text-white md:text-2xl"></i>
                     </div>
                     <div className="text-start ms-3">
@@ -47,7 +47,7 @@ const Footer = () => {
                   </div>
                 </li>
 
-                <li className="col-span-1">
+                <li className="col-span-1 md:block sm:hidden">
                   <div className="md:flex sm:mr-4">
                     <div className="sm:flex sm:justify-center sm:mb-2">
                       <i className="fa-brands fa-whatsapp md:text-3xl text-white "></i>

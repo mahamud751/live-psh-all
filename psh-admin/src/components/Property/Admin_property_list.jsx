@@ -18,6 +18,8 @@ import { BiSolidEdit } from "react-icons/bi";
 import PropertyUpdate from "../../pages/edit/PropertyUpdate";
 import SeeOrderDetails from "../Orders/SeeOrderDetails";
 import PropertyDetails from "./PropertyDetails";
+import PropertyStatusUpdate from "../../pages/edit/PropertyStatusUpdate";
+import { useQuery } from "react-query";
 
 const Admin_property_list = (props) => {
   const MySwal = withReactContent(Swal);
@@ -69,6 +71,18 @@ const Admin_property_list = (props) => {
     fetchCategories();
   }, []);
 
+  // Get Propertys
+
+  const { isLoading, refetch } = useQuery([data, branch], () =>
+    fetch(`https://api.psh.com.bd/api/property`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      })
+  );
+
   const columns = [
     {
       text: "No",
@@ -116,7 +130,41 @@ const Admin_property_list = (props) => {
     },
     {
       dataField: "perYear",
-      text: "Per Month",
+      text: "Per Year",
+    },
+
+    {
+      text: "Status",
+      formatter: (cellContent, row) => {
+        return (
+          <>
+            <div className=" d-flex ">
+              <div>
+                <p
+                  className="fw-bold"
+                  style={{
+                    color: row?.isPublished === "Published" ? "#27b3b1" : "red",
+                  }}
+                >
+                  {row?.isPublished}
+                </p>
+              </div>
+              <button
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target={`#status${row._id}`}
+                className="d-flex  bg-white p-0"
+              >
+                <BiSolidEdit style={{ width: "24px", height: "24px" }} />
+              </button>
+              {/* Modal Order Status Update */}
+            </div>
+            <div>
+              <PropertyStatusUpdate data={row} refetch={refetch} />
+            </div>
+          </>
+        );
+      },
     },
     {
       text: "Action",
@@ -194,22 +242,22 @@ const Admin_property_list = (props) => {
       console.log("sizePerPage", sizePerPage);
     },
   });
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://api.psh.com.bd/api/property`,
-          {
-            mode: "cors",
-          }
-        );
-        setData(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       const { data } = await axios.get(
+  //         `https://api.psh.com.bd/api/property`,
+  //         {
+  //           mode: "cors",
+  //         }
+  //       );
+  //       setData(data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   getData();
+  // }, []);
 
   //delete
   const [products, setProducts] = useState(data);

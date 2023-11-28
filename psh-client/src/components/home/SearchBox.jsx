@@ -79,10 +79,10 @@ const SearchBox = () => {
 
   const [bedrooms, setBedrooms] = useState([]);
 
-  const [furnituredDisplay, setFurnituredDisplay] = useState("");
-  const [furnituredQuery, setFurnituredQuery] = useState("");
-  const [furnituredValue, setFurnituredValue] = useState(0);
-  const furnitures = ["All", "Furnitured", "UnFurnitured"];
+  const [FurnishedDisplay, setFurnishedDisplay] = useState("");
+  const [FurnishedQuery, setFurnishedQuery] = useState("");
+  const [FurnishedValue, setFurnishedValue] = useState(0);
+  const furnitures = ["All", "Furnished", "Unfurnished"];
 
   const [genderDisplay, setGenderDisplay] = useState("");
   const [genderQuery, setGenderQuery] = useState("female");
@@ -98,15 +98,15 @@ const SearchBox = () => {
   const [bedValue, setBedValue] = useState(0);
 
   const handleFurnitureSelection = (index) => {
-    setFurnituredValue(index);
+    setFurnishedValue(index);
     const selectedFurniture = furnitures[index];
-    setFurnituredDisplay(selectedFurniture);
+    setFurnishedDisplay(selectedFurniture);
 
     // Map furnitures values to query values
-    if (selectedFurniture === "Furnitured") {
-      setFurnituredQuery("yes");
-    } else if (selectedFurniture === "UnFurnitured") {
-      setFurnituredQuery("no");
+    if (selectedFurniture === "Furnished") {
+      setFurnishedQuery("yes");
+    } else if (selectedFurniture === "Unfurnished") {
+      setFurnishedQuery("no");
     }
   };
 
@@ -192,11 +192,12 @@ const SearchBox = () => {
 
   const { dispatch } = useContext(SearchContext);
   const navigate = useNavigate();
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     const payload = {
       destination,
       bedrooms: bedrooms.length > 0 ? bedrooms : "Any",
-      furnitured: furnituredQuery,
+      Furnished: FurnishedQuery,
       gender: genderQuery,
       category: categoryQuery,
     };
@@ -206,7 +207,7 @@ const SearchBox = () => {
   };
 
   return (
-    <div className="searchBox">
+    <form className="searchBox" onSubmit={handleSearch}>
       <div className="flex justify-center mt-3 ">
         <div className="search-filed">
           <ul className="flex main-search mt-5">
@@ -291,6 +292,7 @@ const SearchBox = () => {
               }}
               onChange={(e) => setQuery(e.target.value)}
               onClick={() => setInputActive(true)}
+              required
             />
             {inputActive && (
               <ul className="p-2 absolute bg-white border border-[#00bbb4] rounded">
@@ -474,7 +476,7 @@ const SearchBox = () => {
                   <span
                     onClick={() => handleFurnitureSelection(index)}
                     className={`${
-                      furnituredValue === index ? "bedActive" : "bedNonActive"
+                      FurnishedValue === index ? "bedActive" : "bedNonActive"
                     }`}
                   >
                     {furniture}
@@ -509,8 +511,9 @@ const SearchBox = () => {
             </ul>
 
             <div>
-              <button
-                onClick={handleSearch}
+              <input
+                type="submit"
+                value="Find Accommodation"
                 style={{
                   backgroundColor: "#00bbb4",
                   border: "none",
@@ -519,15 +522,14 @@ const SearchBox = () => {
                   borderRadius: "5px",
                   marginTop: "12px",
                   width: 260,
+                  cursor: "pointer",
                 }}
-              >
-                Find Accommodation
-              </button>
+              />
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

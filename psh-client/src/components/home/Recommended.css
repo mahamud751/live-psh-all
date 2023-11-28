@@ -22,25 +22,27 @@
 /* Customize the left arrow button position */
 
 .all_recommended .splide__arrow--prev {
-  left: 650px;
+  left: 635px;
   top: 380px !important;
 }
 
 /* Customize the right arrow button position */
 
 .all_recommended .splide__arrow--next {
-  right: 630px;
+  right: 635px;
   top: 380px !important;
 }
 
 @media screen and (max-width: 600px) {
   .all_recommended .splide__arrow--prev {
-    left: 210px;
-    top: 410px !important;
+    /* left: 210px;
+    top: 410px !important; */
+    display: none !important;
   }
 
   .all_recommended .splide__arrow--next {
-    right: 200px !important;
-    top: 410px !important;
+    /* right: 200px !important;
+    top: 410px !important; */
+    display: none !important;
   }
 }

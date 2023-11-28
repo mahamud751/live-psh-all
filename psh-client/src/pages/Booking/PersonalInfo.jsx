@@ -265,6 +265,13 @@ const PersonalInfo = () => {
   //   }
   // };
 
+  // Page location top to path dependency
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <form onSubmit={bookingOrder}>
       <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  custom-container mb-20">

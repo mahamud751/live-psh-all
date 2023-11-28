@@ -204,6 +204,11 @@ const PropertySchema = new mongoose.Schema(
     faltPolicy: {
       type: String,
     },
+    isPublished: {
+      type: String,
+      enum: ["Unpublished", "Published"],
+      default: "Unpublished",
+    },
     rentDate: [rentDateSchema],
 
     seats: [SeatSchema],

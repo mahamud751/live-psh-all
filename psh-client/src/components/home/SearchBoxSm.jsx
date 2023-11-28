@@ -21,6 +21,8 @@ import { leftDate, rightDate, toTalRent } from "../../redux/reducers/dateSlice";
 import { addDays, addMonths, addYears, subDays } from "date-fns";
 import UseFetch from "../../hooks/useFetch";
 import { useRef } from "react";
+import { BsArrowRight } from "react-icons/bs";
+import durationImg from "../../assets/img/clock-01.png";
 
 const SearchBoxSm = () => {
   const reduxDispatch = useDispatch();
@@ -82,10 +84,10 @@ const SearchBoxSm = () => {
 
   const [bedrooms, setBedrooms] = useState([]);
 
-  const [furnituredDisplay, setFurnituredDisplay] = useState("");
-  const [furnituredQuery, setFurnituredQuery] = useState("");
-  const [furnituredValue, setFurnituredValue] = useState(0);
-  const furnitures = ["All", "Furnitured", "UnFurnitured"];
+  const [FurnishedDisplay, setFurnishedDisplay] = useState("");
+  const [FurnishedQuery, setFurnishedQuery] = useState("");
+  const [FurnishedValue, setFurnishedValue] = useState(0);
+  const furnitures = ["Furnished", "Unfurnished"];
 
   const [genderDisplay, setGenderDisplay] = useState("");
   const [genderQuery, setGenderQuery] = useState("female");
@@ -101,15 +103,15 @@ const SearchBoxSm = () => {
   const [bedValue, setBedValue] = useState(0);
 
   const handleFurnitureSelection = (index) => {
-    setFurnituredValue(index);
+    setFurnishedValue(index);
     const selectedFurniture = furnitures[index];
-    setFurnituredDisplay(selectedFurniture);
+    setFurnishedDisplay(selectedFurniture);
 
     // Map furnitures values to query values
-    if (selectedFurniture === "Furnitured") {
-      setFurnituredQuery("yes");
-    } else if (selectedFurniture === "UnFurnitured") {
-      setFurnituredQuery("no");
+    if (selectedFurniture === "Furnished") {
+      setFurnishedQuery("yes");
+    } else if (selectedFurniture === "Unfurnished") {
+      setFurnishedQuery("no");
     }
   };
 
@@ -195,11 +197,12 @@ const SearchBoxSm = () => {
 
   const { dispatch } = useContext(SearchContext);
   const navigate = useNavigate();
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     const payload = {
       destination,
       bedrooms: bedrooms.length > 0 ? bedrooms : "Any",
-      furnitured: furnituredQuery,
+      Furnished: FurnishedQuery,
       gender: genderQuery,
       category: categoryQuery,
     };
@@ -212,9 +215,9 @@ const SearchBoxSm = () => {
 
   const handleOpen = (value) => setSize(value);
   return (
-    <div className="searchBoxSm">
+    <div className="searchBoxSm mt-5">
       <div className="searchButton" onClick={() => handleOpen("xxl")}>
-        <h6 className="text-black text-3xl "> Find Your Accommodation</h6>
+        <h5 className="text-black text-xl "> Find Your Accommodation</h5>
 
         <i className="fa fa-search mt-2" />
       </div>
@@ -227,56 +230,17 @@ const SearchBoxSm = () => {
             className="mr-1"
           >
             <i
-              className="fa-solid fa-arrow-left text-3xl"
+              className="fa-solid fa-arrow-left text-2xl"
               style={{ color: "#00bbb4" }}
             ></i>
           </Button>
         </div>
         <DialogHeader> </DialogHeader>
         <DialogBody>
-          <div>
+          <form onSubmit={handleSearch}>
             <div>
-              <div className="input-filed-area mb-6" ref={inputRef}>
-                <div className="location-icon">
-                  <img
-                    src="https://i.ibb.co/z8kf0jf/location.png"
-                    style={{
-                      color: "#00bbb4",
-                      width: "20px",
-                      height: "20px",
-                      marginTop: "2px",
-                    }}
-                    alt="location"
-                  />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  value={query}
-                  className="input_main"
-                  ref={inputRef}
-                  style={{
-                    background: "none",
-                    outline: "none",
-                    width: "100%",
-                    height: "40px",
-                    paddingLeft: "40px",
-                  }}
-                  onChange={(e) => setQuery(e.target.value)}
-                  onClick={() => setInputActive(true)}
-                />
-                {inputActive && (
-                  <ul className="p-3">
-                    {filteredData.map((item, index) => (
-                      <li key={item._id} onClick={() => handleItemClick(item)}>
-                        {item.name}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
               <div className="search-filed2">
-                <ul className="flex justify-center main-search">
+                <ul className="flex justify-center main-search text-[12px]">
                   <li className="list-none py-1">
                     <span
                       onClick={() =>
@@ -325,10 +289,79 @@ const SearchBoxSm = () => {
                   </li>
                 </ul>
 
-                <div className="flex mt-5 p-5">
-                  <div className="flex">
+                <hr style={{ margin: "5px 0" }} />
+                <ul className="flex " style={{ marginTop: "23px" }}>
+                  <li className="sm:text-[12px] ">
+                    <span
+                      className={`tab ${categoryValue === 0 ? "selected" : ""}`}
+                      onClick={() => handleCategorySelection(0)}
+                    >
+                      All
+                    </span>
+                  </li>
+                  {data.map((rent, index) => (
+                    <li key={index + 1} className="sm:text-[12px]">
+                      <span
+                        className={`tab ${
+                          categoryValue === index + 1 ? "selected" : ""
+                        }`}
+                        onClick={() => handleCategorySelection(index + 1)}
+                      >
+                        {rent?.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                {/* Search filed */}
+                <div className="input-filed-area mb-6" ref={inputRef}>
+                  <div className="location-icon">
+                    <img
+                      src="https://i.ibb.co/z8kf0jf/location.png"
+                      style={{
+                        color: "#00bbb4",
+                        width: "20px",
+                        height: "20px",
+                        marginTop: "2px",
+                      }}
+                      alt="location"
+                    />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    required
+                    value={query}
+                    className="input_main rounded"
+                    ref={inputRef}
+                    style={{
+                      background: "none",
+                      outline: "none",
+                      width: "100%",
+                      height: "40px",
+                      paddingLeft: "40px",
+                    }}
+                    onChange={(e) => setQuery(e.target.value)}
+                    onClick={() => setInputActive(true)}
+                  />
+                  {inputActive && (
+                    <ul className="p-2 absolute bg-white border border-[#00bbb4] rounded w-full z-10">
+                      {filteredData.map((item, index) => (
+                        <li
+                          key={item._id}
+                          onClick={() => handleItemClick(item)}
+                          className="hover:bg-[#00bbb4] hover:text-white cursor-pointer px-2 rounded w-full"
+                        >
+                          {item.name}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+                {/* Date Picker */}
+                <div className="flex mt-5 px-2 py-1 border border-[#00bbb4] rounded ">
+                  <div className="flex sm-date">
                     <i
-                      className="fa-solid fa-calendar-days me-2"
+                      className="fa-solid fa-calendar-days me-2 mt-1"
                       style={{ color: "#00bbb4" }}
                     ></i>
                     <DatePicker
@@ -338,9 +371,12 @@ const SearchBoxSm = () => {
                       minDate={subDays(new Date(), 0)}
                     />
                   </div>
-                  <div className="flex">
+                  <div className="arrow-icon-sm">
+                    <BsArrowRight />
+                  </div>
+                  <div className="flex sm-date ml-[-28px]">
                     <i
-                      className="fa-solid fa-calendar-days me-2"
+                      className="fa-solid fa-calendar-days me-2 mt-1"
                       style={{ color: "#00bbb4" }}
                     ></i>
                     <DatePicker
@@ -355,80 +391,126 @@ const SearchBoxSm = () => {
                     />
                   </div>
                 </div>
-                <div className="final-rent2">
-                  <span className="final-rent2_text">
-                    {`${
-                      customerRent?.daysDifference >= 0
-                        ? `${customerRent?.daysDifference} days`
-                        : ""
-                    }`}
-                    {`${
-                      customerRent?.months &&
-                      customerRent?.days >= 0 &&
-                      !customerRent?.years
-                        ? `${customerRent?.months} months, ${customerRent?.days} days`
-                        : ""
-                    }`}
-                    {`${
-                      customerRent?.years &&
-                      customerRent?.months >= 0 &&
-                      customerRent?.days >= 0
-                        ? `${customerRent?.years} year`
-                        : ""
-                    }`}
-                  </span>
-                </div>
-                <hr style={{ margin: "5px 0" }} />
-                <ul
-                  className="flex title-search category_sm "
-                  style={{ marginTop: "23px" }}
-                >
-                  <li className="sm:text-[10px]">
-                    <span
-                      className={`tab ${categoryValue === 0 ? "selected" : ""}`}
-                      onClick={() => handleCategorySelection(0)}
-                    >
-                      All
-                    </span>
-                  </li>
-                  {data.map((rent, index) => (
-                    <li key={index + 1} className="sm:text-[10px]">
-                      <span
-                        className={`tab ${
-                          categoryValue === index + 1 ? "selected" : ""
+                {/* Date Count and Gender */}
+                <div className="flex items-center mt-2 w-full gap-x-5">
+                  <div className="flex items-center rounded gap-x-1 border border-[#00bbb4] py-0.5 w-[50%] pl-1">
+                    <div>
+                      <img src={durationImg} alt="" />
+                    </div>
+                    <div className="text-[12px]">
+                      <span className="">
+                        {`${
+                          customerRent?.daysDifference >= 0
+                            ? `${customerRent?.daysDifference} days`
+                            : ""
                         }`}
-                        onClick={() => handleCategorySelection(index + 1)}
-                      >
-                        {rent?.name}
+                        {`${
+                          customerRent?.months &&
+                          customerRent?.days >= 0 &&
+                          !customerRent?.years
+                            ? `${customerRent?.months} months, ${customerRent?.days} days`
+                            : ""
+                        }`}
+                        {`${
+                          customerRent?.years &&
+                          customerRent?.months >= 0 &&
+                          customerRent?.days >= 0
+                            ? `${customerRent?.years} year`
+                            : ""
+                        }`}
                       </span>
-                    </li>
-                  ))}
-                </ul>
+                    </div>
+                  </div>
+                  <div className=" w-[50%] border border-[#00bbb4] rounded">
+                    <select
+                      className=" pl-5 py-1 gender-sm text-[14px]"
+                      name=""
+                      id=""
+                    >
+                      {gender?.map((gender, index) => (
+                        <option
+                          key={index}
+                          onClick={() => handleGenderSelection(index)}
+                        >
+                          {gender}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                {/* Bed type and furnished or Unfurnished */}
+                <div className="flex items-center mt-2 w-full gap-x-5">
+                  <div className="flex items-center rounded gap-x-1 border border-[#00bbb4] py-0.5 w-[50%] pl-1">
+                    <select
+                      className=" pl-5 py-1 gender-sm text-[14px]"
+                      name=""
+                      id=""
+                    >
+                      <option disabled>Bed Type</option>
+                      {beds.map((bed, index) => {
+                        if (
+                          (categoryValue === 1 && bed !== "Bunk Bed") ||
+                          (categoryValue === 2 &&
+                            bed !== "1 BR" &&
+                            bed !== "2 BR") ||
+                          (categoryValue === 3 &&
+                            bed !== "All" &&
+                            bed !== "1 BR" &&
+                            bed !== "2 BR" &&
+                            bed !== "3 BR")
+                        ) {
+                          return null; // Skip rendering
+                        }
+
+                        return (
+                          <option key={index} className="my-4">
+                            <span
+                              onClick={() => handleBedSelection(index)}
+                              className={`${
+                                bedValue === index
+                                  ? "bedActive"
+                                  : "bedNonActive"
+                              } `}
+                            >
+                              {bed}
+                            </span>
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                  <div className=" w-[50%] border border-[#00bbb4] rounded">
+                    <select
+                      className=" pl-5 py-1 gender-sm text-[14px]"
+                      name=""
+                      id=""
+                    >
+                      {furnitures.map((furniture, index) => (
+                        <option key={index} className="my-4">
+                          <span
+                            onClick={() => handleFurnitureSelection(index)}
+                            className={`${
+                              FurnishedValue === index
+                                ? "bedActive"
+                                : "bedNonActive"
+                            }`}
+                          >
+                            {furniture}
+                          </span>
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
 
                 {/* Rent Styled Searching */}
-                <div className="flex justify-between">
+                {/* <div className="flex justify-between">
                   <div>
-                    <div className="flex justify-center ">
-                      <FaBed
-                        style={{
-                          color: "#339999",
-                          height: "24px",
-                          width: "24px",
-                          marginTop: "25px",
-                          marginRight: "12px",
-                        }}
-                      />
-                    </div>
-
                     <div>
-                      <ul
-                        className={` styled-search-2 mt-3 ${
-                          categoryValue === 2 ? "hide-search-options" : ""
-                        }`}
-                      >
+                      <ul className={` styled-search-2 mt-3 `}>
                         {beds.map((bed, index) => {
                           if (
-                            (categoryValue === 1 && bed !== "Bunker") ||
+                            (categoryValue === 1 && bed !== "Bunk Bed") ||
                             (categoryValue === 2 &&
                               bed !== "1 BR" &&
                               bed !== "2 BR") ||
@@ -461,23 +543,12 @@ const SearchBoxSm = () => {
                   </div>
                   <div>
                     <ul className=" styled-search-2 mt-6">
-                      <li className="flex justify-center">
-                        <GiSofa
-                          style={{
-                            color: "#339999",
-                            height: "24px",
-                            width: "24px",
-                            marginTop: "2px",
-                            marginRight: "12px",
-                          }}
-                        />
-                      </li>
                       {furnitures.map((furniture, index) => (
                         <li key={index} className="my-4">
                           <span
                             onClick={() => handleFurnitureSelection(index)}
                             className={`${
-                              furnituredValue === index
+                              FurnishedValue === index
                                 ? "bedActive"
                                 : "bedNonActive"
                             }`}
@@ -490,17 +561,6 @@ const SearchBoxSm = () => {
                   </div>
                   <div>
                     <ul className="styled-search-2 mt-6">
-                      <li className="flex justify-center">
-                        <BiBody
-                          style={{
-                            color: "#339999",
-                            height: "24px",
-                            width: "24px",
-                            marginTop: "2px",
-                            marginRight: "12px",
-                          }}
-                        />
-                      </li>
                       {gender.map((gender, index) => (
                         <li key={index} className="my-4">
                           <span
@@ -517,40 +577,33 @@ const SearchBoxSm = () => {
                       ))}
                     </ul>
                   </div>
-                </div>
-                <div
-                  className="mt-7 fixed bottom-0"
-                  style={{ width: "87%", marginLeft: "10px" }}
-                >
-                  <hr style={{ margin: "20px 0" }} />
+                </div> */}
+                <div className="mt-7 w-full">
                   <div
-                    className=""
+                    className="w-full"
                     style={{
                       display: "flex",
                       justifyContent: "center",
-                      marginTop: 20,
-                      marginBottom: 20,
                     }}
                   >
-                    <button
-                      onClick={handleSearch}
+                    <input
+                      type="submit"
+                      value="Find Accomodation"
                       style={{
-                        width: "100%",
                         backgroundColor: "#00bbb4",
                         border: "none",
+                        width: "100%",
                         color: "white",
                         padding: "15px 10px",
                         borderRadius: "5px",
-                        marginTop: "12px",
+                        // marginTop: "12px",
                       }}
-                    >
-                      Find Accomodation
-                    </button>
+                    />
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </DialogBody>
         {/* <DialogFooter>
           <Button

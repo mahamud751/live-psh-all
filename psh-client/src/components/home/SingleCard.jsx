@@ -14,6 +14,7 @@ import { AiFillHeart } from "react-icons/ai";
 
 import whislistIcon from "../../assets/img/Wishlist.png";
 import whislistIcon2 from "../../assets/img/heart.png";
+import heart2 from "../../assets/img/Heart2.png";
 import locationIcon from "../../assets/img/branchLocationIcon.png";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -21,6 +22,8 @@ import { AuthContext } from "../../contexts/UserProvider";
 import { useState } from "react";
 import { useEffect } from "react";
 import UseFetch from "../../hooks/useFetch";
+
+import { FaHeart } from "react-icons/fa";
 const SingleCard = ({ item }) => {
   const { user } = useContext(AuthContext);
   console.log("item", item);
@@ -71,7 +74,7 @@ const SingleCard = ({ item }) => {
         email,
       };
       await axios.post("https://api.psh.com.bd/api/wishlist", product);
-      MySwal.fire("Thanks ! wishlisted");
+      // MySwal.fire("Thanks ! wishlisted");
       wishlistRefetch();
     } catch (err) {
       MySwal.fire("Already Added!");
@@ -98,7 +101,7 @@ const SingleCard = ({ item }) => {
         `https://api.psh.com.bd/api/wishlist/${userWishList._id}`,
         product
       );
-      MySwal.fire("Successfullt Remove ! wishlisted");
+      // MySwal.fire("Successfullt Remove ! wishlisted");
       wishlistRefetch();
     } catch (err) {
       MySwal.fire("Wrong!");
@@ -128,12 +131,11 @@ const SingleCard = ({ item }) => {
             />
             <div className="absolute top-2 right-2">
               {checkWishListIds?.some((item) => item === data?._id) ? (
-                <img
-                  src={whislistIcon2}
-                  alt="wishlist"
-                  onClick={handleRemoveSubmit}
-                />
+                <img src={heart2} alt="wishlist" onClick={handleRemoveSubmit} />
               ) : (
+                // <span>
+                //   <FaHeart style={{ color: "red" }} />
+                // </span>
                 <img src={whislistIcon} alt="wishlist" onClick={handleSubmit} />
               )}
             </div>

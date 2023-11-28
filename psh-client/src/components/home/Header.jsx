@@ -17,7 +17,7 @@ function Header({ type }) {
     setFurnituredDisplay(selectedFurniture);
 
     // Map furnitures values to query values
-    if (selectedFurniture === "Furnitured") {
+    if (selectedFurniture === "Furnished") {
       setFurnituredQuery("yes");
     } else if (selectedFurniture === "No Furnitured") {
       setFurnituredQuery("no");

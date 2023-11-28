@@ -27,8 +27,15 @@ const BookNow = () => {
   const getInvoice = () => {
     navigate("/invoice", { state: endOrder });
   };
+
+  // Page location top to path dependency
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
-    <div className=" xl:mx-96 lg:mx-96 py-20 text-black sm:p-10">
+    <div className=" custom-container  py-20 text-black sm:p-10">
       {/* Personal Info */}
       <h2 className="flex justify-left font-bold mb-5 text-3xl">
         Your Information :

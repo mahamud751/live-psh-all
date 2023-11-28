@@ -15,7 +15,7 @@ const AllBranch = () => {
     <div>
       <div>
         <div className=" ">
-          <div className="py-12">
+          <div className="mt-5">
             <h2 className="text-2xl font-bold ">
               Looking For Best Place To Stay{" "}
             </h2>

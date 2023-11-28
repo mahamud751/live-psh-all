@@ -11,9 +11,9 @@ const PromoOffer = () => {
     <div>
       <div className="mt-5">
         <div className="">
-          <div className="lg:py-2">
+          <div className="">
             <h2 className="text-2xl font-bold text-gray-900">Promo Offers</h2>
-            <p className="">Our best Discount Offers for you</p>
+            <p className="mb-2">Our best Discount Offers for you</p>
             <div className="all_promo">
               <Splide
                 options={{

@@ -126,10 +126,10 @@ const SignIn = () => {
                     </form>
                   </div>
                 </div>
-                <div className="mt-5">
+                {/* <div className="mt-5">
                   <p>username: mama@gmail.com</p>
                   <p>password: 123456Pt!1</p>
-                </div>
+                </div> */}
               </div>
 
               {/* /.card-body */}

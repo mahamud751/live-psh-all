@@ -6,7 +6,7 @@
   margin: 20px;
 }
 
-.module>header {
+.module > header {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -17,7 +17,7 @@
   overflow: hidden;
 }
 
-.module>header::before {
+.module > header::before {
   content: "";
   position: absolute;
   top: -20px;
@@ -30,7 +30,7 @@
   filter: blur(4px);
 }
 
-.module>header::after {
+.module > header::after {
   content: "";
   position: absolute;
   top: 0;
@@ -40,7 +40,7 @@
   background: rgba(0, 0, 0, 0.25);
 }
 
-.module>header>i {
+.module > header > i {
   margin: 0;
 
   color: white;
@@ -48,7 +48,7 @@
   z-index: 1;
 }
 
-.module>header>p {
+.module > header > p {
   margin: 0;
   margin-left: 10px;
   color: white;
@@ -107,29 +107,28 @@
 
 /* Customize the left arrow button position */
 
-
 .all_branch .splide__arrow--prev {
-  left: 650px;
-  top: 320px !important;
+  left: 635px;
+  top: 290px !important;
 }
 
 /* Customize the right arrow button position */
 
-
 .all_branch .splide__arrow--next {
-  right: 640px;
-  top: 320px !important;
+  right: 635px;
+  top: 290px !important;
 }
 
 @media screen and (max-width: 600px) {
   .all_branch .splide__arrow--prev {
-    left: 210px !important;
-    top: 280px !important;
+    /* left: 280px !important;
+    top: 280px !important; */
+    display: none !important;
   }
 
   .all_branch .splide__arrow--next {
-    right: 200px !important;
-    top: 280px !important;
+    /* right: 215px !important;
+    top: 280px !important; */
+    display: none !important;
   }
-
 }

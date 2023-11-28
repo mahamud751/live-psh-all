@@ -53,7 +53,7 @@ const Review = () => {
 
   return (
     <div>
-      <div className=" my-20">
+      <div className=" my-14">
         <Slider {...settings}>
           <div>
             <div className="flex items-center gap-x-7">
