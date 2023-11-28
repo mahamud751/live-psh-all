@@ -490,10 +490,10 @@ const Navbar = () => {
                           isActive5 ? "custom-drop-show" : ""
                         }`}
                       >
-                        <Link to={"/add_facility_category"}>
+                        {/* <Link to={"/add_facility_category"}>
                           <li className="main_nav-link">
                             <span className="nav-link">
-                              {/* <i className="fa-sharp fa-solid fa-building-columns span_text2"></i> */}
+                       
                               <div className="menu_flex">
                                 <span className="span_text">
                                   Add Room Category
@@ -501,11 +501,12 @@ const Navbar = () => {
                               </div>
                             </span>
                           </li>
-                        </Link>
-                        <Link to={"/facility_category_list"}>
+                        </Link> */}
+
+                        {/* <Link to={"/facility_category_list"}>
                           <li className="main_nav-link">
                             <span className="nav-link">
-                              {/* <img style={{ width: 16 }} src={img6} alt="" /> */}
+           
                               <div className="menu_flex">
                                 <span className="span_text">
                                   Facility Category List
@@ -513,7 +514,9 @@ const Navbar = () => {
                               </div>
                             </span>
                           </li>
-                        </Link>
+
+
+                        </Link> */}
                         <Link to={"/add_facility"}>
                           <li className="main_nav-link nav-link">
                             {/* <i className="fa-sharp fa-solid fa-building-columns span_text2"></i> */}
@@ -539,7 +542,7 @@ const Navbar = () => {
                               {/* <i className="fa-sharp fa-solid fa-building-columns span_text2"></i> */}
                               <div className="menu_flex">
                                 <span className="span_text">
-                                  Add Common Facility
+                                  Add Regular Facility
                                 </span>
                               </div>
                             </span>
@@ -551,7 +554,7 @@ const Navbar = () => {
                               {/* <img style={{ width: 16 }} src={img6} alt="" /> */}
                               <div className="menu_flex">
                                 <span className="span_text">
-                                  Common Facility List
+                                  Regular Facility List
                                 </span>
                               </div>
                             </span>

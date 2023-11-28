@@ -470,6 +470,31 @@ const Room = () => {
                       </div>
                     </div>
                   ))}
+
+                  {data?.category?.name !== "Apartment" ? (
+                    <div className="w-full">
+                      <h2
+                        id="apartmentDetails"
+                        className="text-2xl font-bold text-gray-900 mb-5 facility_h1 p-2 mt-5"
+                      >
+                        Facilities
+                      </h2>
+                      <div className="leading-8">
+                        <p>1. 24hours Emergency Service and Medical Support.</p>
+                        <p> 2. Daily Housekeeping.</p>
+                        <p>
+                          3. Customized or Specials Diet Meal Plan (On Request)
+                        </p>
+                        <p>4. Meeting Room Facilities (On Request)</p>
+                        <p>5. Tuition Facilities (Students)</p>
+                        <p>6. Mental Healthcare</p>
+                        <p>7. Proper Guideline for new comes in Dhaka.</p>
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+
                   {/* Price Deatils */}
                   {data?.category?.name === "Apartment" ? (
                     <div className="w-full">

@@ -32,6 +32,7 @@ const ListFilter = ({
   const handleSliderChange = (newValues) => {
     setValues(newValues);
   };
+
   const applyPriceFilter = () => {
     handlePriceFilterChange(values[0], values[1]);
   };
@@ -40,10 +41,11 @@ const ListFilter = ({
   const roommatesToDisplay = showAllRoommates
     ? data
     : data.slice(0, initialItemsToShow);
+
   useEffect(() => {
     setValues([min, max]);
   }, [min, max]);
-  console.log("min", MIN, MAX);
+  // console.log("min", MIN, MAX);
   return (
     <div className="left-filter md:pb-20">
       <div
