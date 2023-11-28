@@ -156,40 +156,6 @@ const Partner_property_list = (props) => {
     },
 
     {
-      text: "Status",
-      formatter: (cellContent, row) => {
-        return (
-          <>
-            <div className=" d-flex ">
-              <div>
-                <p
-                  className="fw-bold"
-                  style={{
-                    color: row?.status === "Approved" ? "#27b3b1" : "",
-                  }}
-                >
-                  {row?.isPublished}
-                </p>
-              </div>
-              <button
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target={`#status${row._id}`}
-                className="d-flex  bg-white p-0"
-              >
-                <BiSolidEdit style={{ width: "24px", height: "24px" }} />
-              </button>
-              {/* Modal Order Status Update */}
-            </div>
-            <div>
-              <PropertyStatusUpdate data={row} refetch={refetch} />
-            </div>
-          </>
-        );
-      },
-    },
-
-    {
       text: "Action",
       formatter: (cellContent, row) => {
         return (
