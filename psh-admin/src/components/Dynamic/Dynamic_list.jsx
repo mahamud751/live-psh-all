@@ -31,20 +31,7 @@ const Dynamic_list = (props) => {
         );
       },
     },
-    {
-      text: "Picture",
-      formatter: (cellContent, row) => {
-        return (
-          <div>
-            <img
-              src={row.photos[0]}
-              alt=""
-              style={{ width: 120, height: 120 }}
-            />
-          </div>
-        );
-      },
-    },
+
     {
       dataField: "name",
       text: "Name",
