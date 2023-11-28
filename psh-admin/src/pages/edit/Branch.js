@@ -43,7 +43,7 @@ const Branch = ({ data }) => {
         photos: list,
       };
 
-      await axios.put(`http://localhost:8000/api/branch/${_id}`, branch);
+      await axios.put(`https://api.psh.com.bd/api/branch/${_id}`, branch);
       MySwal.fire("Good job!", "successfully added", "success");
       formRef.current.reset();
     } catch (err) {

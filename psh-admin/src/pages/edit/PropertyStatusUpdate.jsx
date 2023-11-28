@@ -34,7 +34,7 @@ const PropertyStatusUpdate = ({ data, refetch, setStatusShow, statusShow }) => {
       };
 
       await axios.put(
-        `http://localhost:8000/api/property/${_id}`,
+        `https://api.psh.com.bd/api/property/${_id}`,
         updatedStatus
       );
       MySwal.fire("Updated", "success");

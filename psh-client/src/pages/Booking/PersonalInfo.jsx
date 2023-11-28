@@ -3,12 +3,7 @@ import "./PersonalInfo.css";
 import cashImg from "../../assets/img/Cash-1.png";
 import brachLocationIcon from "../../assets/img/branchLocationIcon.png";
 import promoIcon from "../../assets/img/coupon.png";
-<<<<<<< HEAD
-import { useNavigate } from "react-router";
-import { useLocation } from "react-router-dom";
-=======
 import { useNavigate } from "react-router-dom";
->>>>>>> cb4e4d6b47adb7ccbacf60e07f897c4ce1944b43
 import withReactContent from "sweetalert2-react-content";
 import { AuthContext } from "../../contexts/UserProvider";
 import Swal from "sweetalert2";

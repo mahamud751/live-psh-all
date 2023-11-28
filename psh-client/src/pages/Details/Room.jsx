@@ -110,7 +110,7 @@ const Room = () => {
         email,
       };
       await axios.post("https://api.psh.com.bd/api/wishlist", product);
-      MySwal.fire("Thanks ! wishlisted");
+      // MySwal.fire("Thanks ! wishlisted");
       wishlistRefetch();
     } catch (err) {
       MySwal.fire("Already Added!");
@@ -138,7 +138,7 @@ const Room = () => {
         `https://api.psh.com.bd/api/wishlist/${userWishList._id}`,
         product
       );
-      MySwal.fire("Successfullt Remove ! wishlisted");
+      // MySwal.fire("Successfullt Remove ! wishlisted");
       wishlistRefetch();
     } catch (err) {
       MySwal.fire("Wrong!");
