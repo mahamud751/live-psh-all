@@ -1,17 +1,17 @@
 import React, { useContext, useState } from "react";
 import "./PersonalInfo.css";
-
 import cashImg from "../../assets/img/Cash-1.png";
-
 import brachLocationIcon from "../../assets/img/branchLocationIcon.png";
 import promoIcon from "../../assets/img/coupon.png";
+<<<<<<< HEAD
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router-dom";
+=======
+import { useNavigate } from "react-router-dom";
+>>>>>>> cb4e4d6b47adb7ccbacf60e07f897c4ce1944b43
 import withReactContent from "sweetalert2-react-content";
-
 import { AuthContext } from "../../contexts/UserProvider";
 import Swal from "sweetalert2";
-
 import "../Payment/PaymentToggle.css";
 import MobileBanking from "../Payment/MobileBanking";
 import CashOn from "../Payment/CashOn";
@@ -24,7 +24,6 @@ import useBranch from "../../hooks/useBranch";
 
 const PersonalInfo = () => {
   const [bookingItem, setBookingItem] = useState({});
-
   // get month Last Day
   function getLastDayOfMonth() {
     const today = new Date(bookingItem?.rentDate?.bookStartDate);
@@ -37,7 +36,6 @@ const PersonalInfo = () => {
   //cart
   const { user } = useContext(AuthContext);
   const MySwal = withReactContent(Swal);
-  // Payment option manage
 
   const [showMobile, setShowMobile] = useState(true);
   const [showPaymentArrive, setShowPaymentArrive] = useState(false);
@@ -383,7 +381,6 @@ const PersonalInfo = () => {
                   placeholder="Date of Birth *"
                   className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   name="birthDate"
-                  required
                   style={{
                     height: "45px",
                     padding: "0px 10px",
@@ -400,7 +397,7 @@ const PersonalInfo = () => {
                     height: "45px",
                     padding: "0px 10px",
                   }}
-                  required
+                  // required
                 />
               </div>
 
