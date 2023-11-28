@@ -7,19 +7,18 @@ import withReactContent from "sweetalert2-react-content";
 
 const Add_Dynamic = () => {
   const [details, setDetails] = useState("");
-  const [name, setName] = useState("");
-  const [section, setSection] = useState("");
-  const [link, setLink] = useState("");
+
   const MySwal = withReactContent(Swal);
   const formRef = useRef(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const formData = new FormData(event.target);
     const data2 = {
+      name: formData.get("name"),
+      section: formData.get("section"),
+      link: formData.get("link"),
       desc: details,
-      name: name,
-      section: section,
-      link: link,
     };
 
     try {
@@ -48,9 +47,7 @@ const Add_Dynamic = () => {
                   type="text"
                   className="main_form w-100"
                   name="name"
-                  value={name}
                   placeholder="Dynamic Name"
-                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="col-md-12 form_sub_stream">
@@ -65,9 +62,7 @@ const Add_Dynamic = () => {
                   type="text"
                   className="main_form w-100"
                   name="link"
-                  value={link}
                   placeholder="Dynamic Link"
-                  onChange={(e) => setLink(e.target.value)}
                 />
               </div>
               <div className="col-md-12 form_sub_stream">
@@ -78,7 +73,6 @@ const Add_Dynamic = () => {
                   name="section"
                   id="section"
                   className="main_form w-100"
-                  onChange={(e) => setSection(e.target.value)}
                   required
                 >
                   <option value="footer1">Footer 1</option>
