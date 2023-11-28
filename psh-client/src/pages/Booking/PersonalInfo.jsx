@@ -15,6 +15,7 @@ import BankTransfer from "../Payment/BankTransfer";
 import axios from "axios";
 import { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useLocation } from "react-router-dom";
 import useBranch from "../../hooks/useBranch";
 
 const PersonalInfo = () => {
