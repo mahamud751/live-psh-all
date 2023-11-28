@@ -5,6 +5,9 @@ const Dynamic = new mongoose.Schema(
     name: {
       type: String,
     },
+    link: {
+      type: String,
+    },
     section: {
       type: String,
       enum: ["footer1", "footer2", "footer3"],

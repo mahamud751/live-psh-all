@@ -53,6 +53,8 @@ import Add_Terms from "./components/Pages/Add_Terms";
 import Privacy_list from "./components/Pages/Privacy_list";
 import Update_Terms from "./components/Pages/Update_Terms";
 import Update_Privacy from "./components/Pages/Update_Privacy";
+import Add_Dynamic from "./pages/Add_Dynamic";
+import Dynamic from "./pages/Dynamic";
 
 function App() {
   return (
@@ -76,6 +78,8 @@ function App() {
           <Route path="category_list" element={<Category />} />
           <Route path="add_branch" element={<Add_Branch />} />
           <Route path="branch_list" element={<Branch />} />
+          <Route path="add_dynamic" element={<Add_Dynamic />} />
+          <Route path="dynamic_list" element={<Dynamic />} />
           <Route
             path="add_facility_category"
             element={<Add_Facility_Category />}
