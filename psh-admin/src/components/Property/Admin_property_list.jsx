@@ -173,7 +173,7 @@ const Admin_property_list = (props) => {
         return (
           <>
             <div className="d-flex justify-content-center">
-              <div>
+              {/* <div>
                 <button
                   type="button"
                   className="bg-white"
@@ -185,11 +185,11 @@ const Admin_property_list = (props) => {
                   </span>
                 </button>
 
-                {/* Modal Order Details */}
+             
                 <PropertyUpdate2 data={row} />
-              </div>
+              </div> */}
 
-              {/* <div
+              <div
                 className="modal fade"
                 id={`loginModal${row._id}`}
                 tabIndex="{-1}"
@@ -204,7 +204,7 @@ const Admin_property_list = (props) => {
                     </div>
                   </div>
                 </div>
-              </div> */}
+              </div>
               <div>
                 <button
                   type="button"
