@@ -91,10 +91,10 @@ const navListMenuItems = [
     icon: UserCircleIcon,
     href: "/leas-property",
   },
-  {
-    title: "Popular Area",
-    icon: CubeTransparentIcon,
-  },
+  // {
+  //   title: "Popular Area",
+  //   icon: CubeTransparentIcon,
+  // },
   {
     title: "About us",
     icon: CodeBracketSquareIcon,
@@ -235,10 +235,10 @@ const navListItems = [
     icon: UserCircleIcon,
     href: "/leas-property",
   },
-  {
-    label: "Popular Area",
-    icon: CubeTransparentIcon,
-  },
+  // {
+  //   label: "Popular Area",
+  //   icon: CubeTransparentIcon,
+  // },
   {
     label: "About us",
     icon: CodeBracketSquareIcon,
@@ -292,11 +292,11 @@ export default function Navmenu() {
           Lease Your Property
         </Link>
       </Typography>
-      <Typography as="li" className="p-1 font-normal">
+      {/* <Typography as="li" className="p-1 font-normal">
         <Link to={"/"} className="flex items-center">
           Popular Area
         </Link>
-      </Typography>
+      </Typography> */}
       <Typography as="li" className="p-1 font-normal">
         <Link to={"/about"} className="flex items-center">
           About us
@@ -307,11 +307,11 @@ export default function Navmenu() {
           Contact
         </Link>
       </Typography>
-      <Typography as="li" className="p-1 font-normal">
+      {/* <Typography as="li" className="p-1 font-normal">
         <Link to={"/"} className="flex items-center">
           PSH for Business
         </Link>
-      </Typography>
+      </Typography> */}
       <Typography as="li" className="p-1 font-normal">
         <Link to={"/promo"} className="flex items-center">
           Promo
