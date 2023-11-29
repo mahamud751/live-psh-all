@@ -2,7 +2,11 @@ import React from "react";
 import "./Custom.css";
 import MessengerCustomerChat from "react-messenger-customer-chat";
 import { Link } from "react-router-dom";
+import UseFetch from "../../hooks/useFetch";
+
 const Footer = () => {
+  const { data } = UseFetch(`dynamic`);
+  console.log("ssss", data);
   return (
     <div>
       <div>
@@ -83,8 +87,17 @@ const Footer = () => {
                     <h2 className="text-white dark:text-gray-200 text-md mb-4">
                       About PSH
                     </h2>
+
                     <ul className="footer_li">
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                      {data
+                        ?.filter((item) => item?.section === "footer1")
+                        .map((item) => (
+                          <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                            <Link to={`${item?.link}`}> {item?.name}</Link>
+                          </li>
+                        ))}
+
+                      {/* <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Our Story</a>
                       </li>
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
@@ -100,7 +113,7 @@ const Footer = () => {
                         <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                           <a>Terms & Conditions</a>
                         </li>
-                      </Link>
+                      </Link> */}
                     </ul>
                   </div>
                 </li>

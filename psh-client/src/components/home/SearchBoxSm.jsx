@@ -202,7 +202,7 @@ const SearchBoxSm = () => {
     const payload = {
       destination,
       bedrooms: bedrooms.length > 0 ? bedrooms : "Any",
-      Furnished: FurnishedQuery,
+      furnitured: FurnishedQuery,
       gender: genderQuery,
       category: categoryQuery,
     };
@@ -421,17 +421,14 @@ const SearchBoxSm = () => {
                       </span>
                     </div>
                   </div>
-                  <div className=" w-[50%] border border-[#00bbb4] rounded">
+                  <div className="w-[50%] border border-[#00bbb4] rounded">
                     <select
-                      className=" pl-5 py-1 gender-sm text-[14px]"
-                      name=""
-                      id=""
+                      className="pl-5 py-1 gender-sm text-[14px]"
+                      value={genderValue}
+                      onChange={(e) => handleGenderSelection(e.target.value)}
                     >
-                      {gender?.map((gender, index) => (
-                        <option
-                          key={index}
-                          onClick={() => handleGenderSelection(index)}
-                        >
+                      {gender.map((gender, index) => (
+                        <option key={index} value={index}>
                           {gender}
                         </option>
                       ))}
@@ -479,24 +476,15 @@ const SearchBoxSm = () => {
                       })}
                     </select>
                   </div>
-                  <div className=" w-[50%] border border-[#00bbb4] rounded">
+                  <div className="w-[50%] border border-[#00bbb4] rounded">
                     <select
-                      className=" pl-5 py-1 gender-sm text-[14px]"
-                      name=""
-                      id=""
+                      className="pl-5 py-1 gender-sm text-[14px]"
+                      value={FurnishedValue}
+                      onChange={(e) => handleFurnitureSelection(e.target.value)}
                     >
                       {furnitures.map((furniture, index) => (
-                        <option key={index} className="my-4">
-                          <span
-                            onClick={() => handleFurnitureSelection(index)}
-                            className={`${
-                              FurnishedValue === index
-                                ? "bedActive"
-                                : "bedNonActive"
-                            }`}
-                          >
-                            {furniture}
-                          </span>
+                        <option key={index} value={index}>
+                          {furniture}
                         </option>
                       ))}
                     </select>

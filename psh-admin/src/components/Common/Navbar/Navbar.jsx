@@ -22,6 +22,7 @@ const Navbar = () => {
   const [isActive5, setIsActive5] = useState(false);
   const [isActive6, setIsActive6] = useState(false);
   const [isActive7, setIsActive7] = useState(false);
+  const [isActive8, setIsActive8] = useState(false);
 
   const handleLogOut = () => {
     logoutUser();
@@ -189,6 +190,7 @@ const Navbar = () => {
                           setIsActive5(false);
                           setIsActive6(false);
                           setIsActive7(false);
+                          setIsActive8(false);
                         }}
                       >
                         <p className="span_text">
@@ -256,6 +258,7 @@ const Navbar = () => {
                           setIsActive5(false);
                           setIsActive6(false);
                           setIsActive7(false);
+                          setIsActive8(false);
                         }}
                       >
                         <p className="span_text">
@@ -314,6 +317,7 @@ const Navbar = () => {
                       setIsActive5(false);
                       setIsActive6(false);
                       setIsActive7(false);
+                      setIsActive8(false);
                     }}
                   >
                     <p className="span_text">
@@ -411,6 +415,7 @@ const Navbar = () => {
                           setIsActive5(false);
                           setIsActive6(false);
                           setIsActive7(false);
+                          setIsActive8(false);
                         }}
                       >
                         <p className="span_text">
@@ -467,6 +472,7 @@ const Navbar = () => {
                           setIsActive5(!isActive5);
                           setIsActive6(false);
                           setIsActive7(false);
+                          setIsActive8(false);
                         }}
                       >
                         <p className="span_text">
@@ -574,6 +580,7 @@ const Navbar = () => {
                           setIsActive5(false);
                           setIsActive6(!isActive6);
                           setIsActive7(false);
+                          setIsActive8(false);
                         }}
                       >
                         <p className="span_text">
@@ -631,6 +638,7 @@ const Navbar = () => {
                           setIsActive5(false);
                           setIsActive6(false);
                           setIsActive7(!isActive7);
+                          setIsActive8(false);
                         }}
                       >
                         <p className="span_text">
@@ -670,6 +678,67 @@ const Navbar = () => {
                               {/* <i className="fa-solid fa-grip-lines span_text2"></i> */}
                               <div className="menu_flex">
                                 <span className="span_text">Promo List</span>
+                              </div>
+                            </span>
+                          </li>
+                        </Link>
+                      </ul>
+                    </li>
+                    <li className="nav-item">
+                      <span
+                        className="nav-link"
+                        onClick={() => {
+                          setIsActive1(false);
+                          setIsActive2(false);
+                          setIsActive3(false);
+                          setIsActive4(false);
+                          setIsActive5(false);
+                          setIsActive6(false);
+                          setIsActive7(false);
+                          setIsActive8(!isActive8);
+                        }}
+                      >
+                        <p className="span_text">
+                          Dynamic
+                          <i
+                            className={`fas fa-angle-left right ${
+                              isActive8 ? "d-none" : "d-block"
+                            }`}
+                          />
+                          <span className="badge badge-info right">2</span>
+                          <BiSolidChevronDown
+                            style={{ width: "23px", height: "23px" }}
+                            className={`down-arrow ${
+                              isActive8 ? "d-block" : "d-none"
+                            }`}
+                          />
+                        </p>
+                      </span>
+                      <ul
+                        className={` custom-drop ${
+                          isActive8 ? "custom-drop-show" : ""
+                        }`}
+                      >
+                        <Link to={"/add_dynamic"}>
+                          <li className="main_nav-link">
+                            <span className="nav-link">
+                              {/* <img style={{ width: 16 }} src={img7} alt="" /> */}
+                              <div className="menu_flex">
+                                <span className="span_text">
+                                  Add Dynamic Page
+                                </span>
+                              </div>
+                            </span>
+                          </li>
+                        </Link>
+                        <Link to={"/dynamic_list"}>
+                          <li className="main_nav-link">
+                            <span className="nav-link">
+                              {/* <i className="fa-solid fa-grip-lines span_text2"></i> */}
+                              <div className="menu_flex">
+                                <span className="span_text">
+                                  Dynamic page List
+                                </span>
                               </div>
                             </span>
                           </li>

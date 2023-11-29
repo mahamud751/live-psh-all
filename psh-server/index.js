@@ -7,6 +7,7 @@ import orderRoute from "./routes/order.js";
 import categoryRoute from "./routes/category.js";
 import termsRoute from "./routes/terms.js";
 import privacyRoute from "./routes/privacy.js";
+import dynamicRoute from "./routes/dynamic.js";
 import facilityCategoryRoute from "./routes/facilityCategory.js";
 import recommendedRoute from "./routes/recommended.js";
 import facilityRoute from "./routes/facility.js";
@@ -14,6 +15,7 @@ import commonfacilityRoute from "./routes/commonfacility.js";
 import branchRoute from "./routes/branch.js";
 import seatRoute from "./routes/seat.js";
 import propertyRoute from "./routes/property.js";
+
 import promoRoute from "./routes/promo.js";
 import bannerRoute from "./routes/banner.js";
 import IssueRouter from "./routes/issue.js";
@@ -80,6 +82,7 @@ app.use("/api/wishlist", wishlistRouter);
 app.use("/api/leaseProperty", leasePropertyRouter);
 app.use("/api/extraCharge", extraCharge);
 app.use("/api/transaction", transaction);
+app.use("/api/dynamic", dynamicRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
