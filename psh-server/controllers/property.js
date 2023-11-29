@@ -32,7 +32,7 @@ export const CreatePropertys = async (req, res, next) => {
       commonfacility,
       photos,
       meal,
-      // bedType,
+      bedType,
       CCTV,
       WiFi,
       balcony,
@@ -90,7 +90,7 @@ export const CreatePropertys = async (req, res, next) => {
       area,
       totalRoom,
       photos,
-      // bedType,
+      bedType,
       meal,
       CCTV,
       WiFi,
@@ -357,7 +357,7 @@ export const updatePropertys = async (req, res, next) => {
       totalRoom,
       photos,
       meal,
-      // bedType,
+      bedType,
       type,
       CCTV,
       WiFi,
@@ -450,7 +450,7 @@ export const updatePropertys = async (req, res, next) => {
     property.floor = floor;
     property.builtYear = builtYear;
     property.area = area;
-    // property.bedType = bedType;
+    property?.bedType = bedType;
     property.totalRoom = totalRoom;
     property.totalPerson = totalPerson;
     property.CCTV = CCTV;

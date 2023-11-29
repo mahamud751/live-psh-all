@@ -391,7 +391,7 @@ const Room = () => {
                       </div>
                       <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold">Bed Type</p>
-                        <p>{data.bedType} Bed</p>
+                        <p>{data?.bedType} </p>
                       </div>
                       <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold">Floor</p>
@@ -411,10 +411,10 @@ const Room = () => {
                       </div>
                     </div>
                     <div className="grid grid-cols-12 gap-x-4 md:gap-y-16 sm:gap-y-4 md:py-5">
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                      {/* <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold">Bedroom</p>
                         <p>{data.bedroom} Bedroom</p>
-                      </div>
+                      </div> */}
                       <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold"> Wi-Fi</p>
                         {data.WiFi === "yes" ? <p>Yes</p> : <p>No</p>}
@@ -425,7 +425,11 @@ const Room = () => {
                       </div>
                       <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                         <p className="font-bold">Meal</p>
-                        <p>{data.meal} Times a day</p>
+                        <p>
+                          {/* {data.meal
+                        }  */}
+                          3 Times a day
+                        </p>
                       </div>
                     </div>
                   </div>
