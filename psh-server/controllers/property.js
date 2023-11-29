@@ -450,7 +450,7 @@ export const updatePropertys = async (req, res, next) => {
     property.floor = floor;
     property.builtYear = builtYear;
     property.area = area;
-    property?.bedType = bedType;
+    // property?.bedType = bedType;
     property.totalRoom = totalRoom;
     property.totalPerson = totalPerson;
     property.CCTV = CCTV;
