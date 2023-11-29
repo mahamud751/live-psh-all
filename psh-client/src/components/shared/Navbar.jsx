@@ -13,10 +13,10 @@ import {
   Card,
   IconButton,
   Collapse,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
+  // Dialog,
+  // DialogHeader,
+  // DialogBody,
+  // DialogFooter,
 } from "@material-tailwind/react";
 
 import {
@@ -104,10 +104,10 @@ const navListMenuItems = [
     title: "Contact us",
     icon: CodeBracketSquareIcon,
   },
-  {
-    title: "PSH for Business",
-    icon: CodeBracketSquareIcon,
-  },
+  // {
+  //   title: "PSH for Business",
+  //   icon: CodeBracketSquareIcon,
+  // },
   {
     title: "Promo",
     icon: CodeBracketSquareIcon,
@@ -247,10 +247,10 @@ const navListItems = [
     label: "Contact us",
     icon: CodeBracketSquareIcon,
   },
-  {
-    label: "PSH for Business",
-    icon: CodeBracketSquareIcon,
-  },
+  // {
+  //   label: "PSH for Business",
+  //   icon: CodeBracketSquareIcon,
+  // },
   {
     label: "Promo",
     icon: CodeBracketSquareIcon,
@@ -307,11 +307,11 @@ export default function Navmenu() {
           Contact
         </Link>
       </Typography>
-      <Typography as="li" className="p-1 font-normal">
+      {/* <Typography as="li" className="p-1 font-normal">
         <Link to={"/"} className="flex items-center">
           PSH for Business
         </Link>
-      </Typography>
+      </Typography> */}
       <Typography as="li" className="p-1 font-normal">
         <Link to={"/promo"} className="flex items-center">
           Promo

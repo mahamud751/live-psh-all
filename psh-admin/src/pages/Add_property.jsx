@@ -459,13 +459,27 @@ const Add_property = () => {
                     >
                       Bed Type
                     </label>
-                    <input
+                    {/* <input
                       type="text"
                       className="main_form w-100"
                       name="bedType"
                       placeholder="Bed Type"
                       required
-                    />
+                    /> */}
+
+                    <select
+                      name="bedType"
+                      id="inputState"
+                      className="main_form w-100"
+                      required
+                    >
+                      <option value="Bunk Bed">Bunk Bed</option>
+                      <option value="Single Bed">Single Bed</option>
+                      <option value="Double Bed">Double Bed</option>
+                      <option value="Bunk Bed & Single Bed">
+                        Bunk Bed & Single Bed
+                      </option>
+                    </select>
                   </div>
                   <div className="col-md-4 form_sub_stream mt-3">
                     <label htmlFor="inputState" className="profile_label3">
@@ -783,6 +797,7 @@ const Add_property = () => {
                           >
                             <option value="Upper Bed">Upper Bed</option>
                             <option value="Lower Bed">Lower Bed</option>
+                            <option value="Single Bed">Single Bed</option>
                           </select>
                         </div>
 
