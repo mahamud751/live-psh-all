@@ -20,7 +20,6 @@ import SeeOrderDetails from "../Orders/SeeOrderDetails";
 import PropertyDetails from "./PropertyDetails";
 import PropertyStatusUpdate from "../../pages/edit/PropertyStatusUpdate";
 import { useQuery } from "react-query";
-import PropertyUpdate2 from "../../pages/edit/PropertyUpdate2";
 
 const Admin_property_list = (props) => {
   const MySwal = withReactContent(Swal);
@@ -172,23 +171,16 @@ const Admin_property_list = (props) => {
       formatter: (cellContent, row) => {
         return (
           <>
+            {" "}
             <div className="d-flex justify-content-center">
-              {/* <div>
-                <button
-                  type="button"
-                  className="bg-white"
-                  data-bs-toggle="modal"
-                  data-bs-target={`#propertyUpdate${row._id}`}
-                >
-                  <span>
-                    <BiSolidEdit style={{ width: "24px", height: "24px" }} />
-                  </span>
-                </button>
-
-             
-                <PropertyUpdate2 data={row} />
-              </div> */}
-
+              <div>
+                <img
+                  src={img3}
+                  alt=""
+                  data-toggle="modal"
+                  data-target={`#loginModal${row._id}`}
+                />
+              </div>
               <div
                 className="modal fade"
                 id={`loginModal${row._id}`}
