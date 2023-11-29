@@ -210,16 +210,29 @@ function HotelsList({ item }) {
                   </div>
 
                   <div>
-                    <div className="flex price-part">
-                      <p className="mx-2 month ">
-                        {" "}
-                        {item.perDay} <span>BDT/day</span>
-                      </p>
-                      <p className="month">
-                        {" "}
-                        {item.perMonth} <span>BDT/month</span>
-                      </p>
-                    </div>
+                    {item?.category?.name == "Shared Room" ? (
+                      <div className="flex price-part">
+                        <p className="mx-2 month">
+                          {" "}
+                          {item?.seats[0].perDay} <span>BDT/day</span>
+                        </p>
+                        <p className="month">
+                          {" "}
+                          {item?.seats[0].perMonth} <span>BDT/month</span>
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="flex price-part">
+                        <p className="mx-2 month ">
+                          {" "}
+                          {item.perDay} <span>BDT/day</span>
+                        </p>
+                        <p className="month">
+                          {" "}
+                          {item.perMonth} <span>BDT/month</span>
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -308,13 +321,31 @@ function HotelsList({ item }) {
                   </div>
                 </div>
               </div>
+
               <div className="card-price flex gap-x-3 mt-2">
-                <p>
-                  {item.perDay} BDT/<span>day</span>
-                </p>
-                <p className="">
-                  {item.perMonth} BDT/<span>month</span>
-                </p>
+                {item?.category?.name == "Shared Room" ? (
+                  <div className="flex price-part">
+                    <p className="mx-2 month">
+                      {" "}
+                      {item?.seats[0].perDay} <span>BDT/day</span>
+                    </p>
+                    <p className="month">
+                      {" "}
+                      {item?.seats[0].perMonth} <span>BDT/month</span>
+                    </p>
+                  </div>
+                ) : (
+                  <div className="flex price-part">
+                    <p className="mx-2 month ">
+                      {" "}
+                      {item.perDay} <span>BDT/day</span>
+                    </p>
+                    <p className="month">
+                      {" "}
+                      {item.perMonth} <span>BDT/month</span>
+                    </p>
+                  </div>
+                )}
               </div>
             </CardFooter>
           </Card>

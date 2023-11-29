@@ -94,6 +94,10 @@
     padding: 10px;
   }
 
+  .form>label {
+    font-size: 14px !important;
+  }
+
   .sign_out {
     display: flex;
     justify-content: center;

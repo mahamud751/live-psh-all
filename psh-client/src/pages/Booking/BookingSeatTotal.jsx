@@ -905,11 +905,12 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
         className={`bg-[#35B0A7] h-[55px] flex justify-center items-center mt-7 ${
           !seatBooking?._id ? " opacity-60	" : "opacity-100"
         }`}
+        style={{ cursor: "pointer" }}
+        onClick={handleAddItem}
       >
         <div>
           <button
             className={`text-xl p-2 text-white bg-transparent `}
-            onClick={handleAddItem}
             // onClick={() => handleDateSelection("2023-09-19")}
             disabled={!seatBooking?._id ? true : false}
           >

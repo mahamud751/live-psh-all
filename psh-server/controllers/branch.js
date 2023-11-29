@@ -18,7 +18,9 @@ export const getBranch = async (req, res, next) => {
 };
 export const getSingleBranch = async (req, res, next) => {
   try {
-    const branch = await Branch.findById(req.params.id).populate("property");
+    const branch = await Branch.findById(req.params.id).populate(
+      "property category"
+    );
 
     res.status(200).json(branch);
   } catch (err) {

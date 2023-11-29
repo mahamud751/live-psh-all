@@ -1092,7 +1092,7 @@ const PersonalInfo = () => {
                   I Would Like to Extend in Future
                 </p>
               </div>
-              <div className="flex px-4 mt-10 text-black terms">
+              <div className="flex px-4 mt-10 text-black terms mb-3">
                 <div>
                   <input type="checkbox" name="terms" required id="" />
                 </div>
@@ -1101,16 +1101,12 @@ const PersonalInfo = () => {
                   Privacy Policy
                 </p>
               </div>
-              <div className="bg-[#35B0A7] h-[55px] flex justify-center items-center mt-3">
-                <div>
-                  <input
-                    type="submit"
-                    className="text-xl p-2 cursor-pointer text-white bg-transparent"
-                    style={{ borderRadius: 8 }}
-                    value="Confirm Booking"
-                  />
-                </div>
-              </div>
+
+              <input
+                type="submit"
+                className="text-xl p-4 cursor-pointer bg-[#35B0A7] w-full text-white"
+                value="Confirm Booking"
+              />
             </div>
           </div>
         </div>

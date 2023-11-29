@@ -205,7 +205,7 @@ export default function Navmenu() {
           Lease Your Property
         </Link>
       </Typography>
-      <Typography as="li" className="p-1 font-normal">
+      {/* <Typography as="li" className="p-1 font-normal">
         <Link
           to={"/"}
           className="flex items-center hover:text-[#00bbb4] md:ml-0 sm:ml-5"
@@ -218,7 +218,7 @@ export default function Navmenu() {
           </div>
           Popular Area
         </Link>
-      </Typography>
+      </Typography> */}
       <Typography as="li" className="p-1 font-normal">
         <Link
           to={"/about"}
@@ -261,7 +261,7 @@ export default function Navmenu() {
           PSH for Business
         </Link>
       </Typography>
-      <Typography as="li" className="p-1 font-normal">
+      {/* <Typography as="li" className="p-1 font-normal">
         <Link
           to={"/promo"}
           className="flex items-center hover:text-[#00bbb4] md:ml-0 sm:ml-5"
@@ -274,7 +274,7 @@ export default function Navmenu() {
           </div>
           Promo
         </Link>
-      </Typography>
+      </Typography> */}
     </ul>
   );
 

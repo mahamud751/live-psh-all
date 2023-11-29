@@ -893,7 +893,8 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
             data?.endDate > startDate
               ? " opacity-75	"
               : "opacity-100"
-          }`}
+          }cursor-pointer `}
+          onClick={handleAddItem}
         >
           <div>
             <button
@@ -904,7 +905,6 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                   ? "opacity-75	"
                   : "opacity-100"
               } `}
-              onClick={handleAddItem}
               // onClick={() => handleDateSelection("2023-09-19")}
               disabled={
                 data?.endDate === endDate ||

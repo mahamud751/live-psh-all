@@ -29,6 +29,7 @@ const BranchSchema = new mongoose.Schema(
         ref: "Property",
       },
     ],
+
     user: [
       {
         type: mongoose.Schema.Types.ObjectId,
