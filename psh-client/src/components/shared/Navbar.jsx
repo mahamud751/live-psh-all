@@ -13,10 +13,10 @@ import {
   Card,
   IconButton,
   Collapse,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
+  // Dialog,
+  // DialogHeader,
+  // DialogBody,
+  // DialogFooter,
 } from "@material-tailwind/react";
 
 import {
@@ -104,10 +104,10 @@ const navListMenuItems = [
     title: "Contact us",
     icon: CodeBracketSquareIcon,
   },
-  {
-    title: "PSH for Business",
-    icon: CodeBracketSquareIcon,
-  },
+  // {
+  //   title: "PSH for Business",
+  //   icon: CodeBracketSquareIcon,
+  // },
   {
     title: "Promo",
     icon: CodeBracketSquareIcon,
@@ -247,10 +247,10 @@ const navListItems = [
     label: "Contact us",
     icon: CodeBracketSquareIcon,
   },
-  {
-    label: "PSH for Business",
-    icon: CodeBracketSquareIcon,
-  },
+  // {
+  //   label: "PSH for Business",
+  //   icon: CodeBracketSquareIcon,
+  // },
   {
     label: "Promo",
     icon: CodeBracketSquareIcon,
