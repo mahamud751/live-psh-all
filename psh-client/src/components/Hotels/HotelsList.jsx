@@ -72,20 +72,20 @@ function HotelsList({ item }) {
                   <img src={whislistIcon} alt="" />
                 </div>
 
-                {isIntoDate ? (
+                {/* {isIntoDate ? (
                   <div className="absolute bottom-0 right-0 bg-[#27B3B1] text-white rounded-sm text-sm font-[600] p-3">
                     <span>Join for Waiting List</span>
                   </div>
                 ) : (
                   ""
-                )}
+                )} */}
                 {isSeatIntoDate &&
                 item?.category?.name === "Shared Room" &&
                 isAlreadySeatBook?.length > 0 ? (
                   <div className="absolute bottom-0 right-0 bg-[#27B3B1] text-white rounded-sm text-sm font-[600] p-3">
                     <span>
                       {item?.seats?.length === isAlreadySeatBook?.length
-                        ? "No Seat Availbale"
+                        ? ""
                         : `Only ${
                             item?.seats?.length - isAlreadySeatBook?.length
                           } Seat Left`}

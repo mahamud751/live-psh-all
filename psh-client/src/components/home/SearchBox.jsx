@@ -94,7 +94,16 @@ const SearchBox = () => {
   const [categoryQuery, setCategoryQuery] = useState("");
   const [categoryValue, setCategoryValue] = useState(0);
   const category = ["All", ...data.map((item) => item?.name)];
-  const beds = ["All", "Bunk Bed", "1 BR", "2 BR", "3 BR"];
+  const beds = [
+    "All",
+    "Bunk Bed",
+    "Single Bed",
+    "Double Bed",
+    "Semi-Double Bed",
+    "1 BR",
+    "2 BR",
+    "3 BR",
+  ];
   const [bedValue, setBedValue] = useState(0);
 
   const handleFurnitureSelection = (index) => {
@@ -271,7 +280,7 @@ const SearchBox = () => {
                   }`}
                   onClick={() => handleCategorySelection(index + 1)}
                 >
-                  {rent?.name}
+                  {rent?.property?.length > 0 ? rent?.name : ""}
                 </span>
               </li>
             ))}
@@ -427,8 +436,13 @@ const SearchBox = () => {
               >
                 {beds.map((bed, index) => {
                   if (
-                    (categoryValue === 1 && bed !== "Bunk Bed") ||
-                    (categoryValue === 2 && bed !== "1 BR" && bed !== "2 BR") ||
+                    (categoryValue === 1 &&
+                      bed !== "Bunk Bed" &&
+                      bed !== "Single Bed") ||
+                    (categoryValue === 2 &&
+                      bed !== "Single Bed" &&
+                      bed !== "Double Bed" &&
+                      bed !== "Semi-Double Bed") ||
                     (categoryValue === 3 &&
                       bed !== "All" &&
                       bed !== "1 BR" &&

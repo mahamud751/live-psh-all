@@ -14,11 +14,11 @@ const PropertyUpdate2 = ({ data }) => {
   const [files, setFiles] = useState("");
   const MySwal = withReactContent(Swal);
   const [categories, setCategories] = useState([]);
-  const [branch, setBranch] = useState([]);
+  const [branch, setBranch] = useState(data?.branch?.name);
   const [seatPhotos, setSeatPhotos] = useState("");
   const [facilities, setFacilities] = useState([]);
   const [commonFacilities, setCommonaFacilities] = useState([]);
-  const [categoryName, setCategoryName] = useState("");
+  const [categoryName, setCategoryName] = useState(data?.category?.name);
   const [seatOptions, setSeatOptions] = useState([]);
 
   // Update seatOptions whenever categoryName changes
@@ -61,27 +61,16 @@ const PropertyUpdate2 = ({ data }) => {
   //   return facility?.photos?.[0] || "";
   // };
 
-  const handleCategoryChange = (event) => {
-    const selectedCategoryId = event.target.value;
-    const selectedCategory = categories.find(
-      (category) => category._id === selectedCategoryId
-    );
-    setCategoryName(selectedCategory?.name || "");
-  };
-  console.log(categoryName);
+  //   const handleCategoryChange = (event) => {
+  //     const selectedCategoryId = event.target.value;
+  //     const selectedCategory = categories.find(
+  //       (category) => category._id === selectedCategoryId
+  //     );
+  //     setCategoryName(selectedCategory?.name || "");
+  //   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://api.psh.com.bd/api/branch");
-        setBranch(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  //   console.log(categoryName);
 
-    fetchData();
-  }, []);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -306,14 +295,11 @@ const PropertyUpdate2 = ({ data }) => {
                       name="category"
                       id="inputState"
                       className="main_form w-100"
-                      onChange={handleCategoryChange}
+                      //   onChange={handleCategoryChange}
                     >
-                      <option>Select Type</option>
-                      {categories.map((pd) => (
-                        <option key={pd._id} value={pd._id}>
-                          {pd.name}
-                        </option>
-                      ))}
+                      <option value={data?.category?._id}>
+                        {data?.category?.name}
+                      </option>
                     </select>
                   </div>
                   {(user && user.role === "SuperAdmin") ||
@@ -328,12 +314,9 @@ const PropertyUpdate2 = ({ data }) => {
                         className="main_form w-100"
                         required
                       >
-                        <option value="">Select Type</option>
-                        {branch.map((category) => (
-                          <option key={category._id} value={category._id}>
-                            {category.name}
-                          </option>
-                        ))}
+                        <option value={data?.branch?._id}>
+                          {data?.branch.name}
+                        </option>
                       </select>
                     </div>
                   ) : (
@@ -366,6 +349,7 @@ const PropertyUpdate2 = ({ data }) => {
                       name="floor"
                       placeholder="Name"
                       required
+                      defaultValue={data?.floor}
                     />
                   </div>
                   {categoryName !== "Private Room" &&
@@ -381,7 +365,8 @@ const PropertyUpdate2 = ({ data }) => {
                           type="text"
                           className="main_form w-100"
                           name="totalRoom"
-                          placeholder="  Total Room"
+                          placeholder="Total Room"
+                          defaultValue={data?.totalRoom}
                           // required
                         />
                       </div>
@@ -414,6 +399,7 @@ const PropertyUpdate2 = ({ data }) => {
                       name="name"
                       placeholder="Room Name"
                       required
+                      defaultValue={data?.name}
                     />
                   </div>
                   <div className="col-md-6 form_sub_stream">
@@ -429,6 +415,7 @@ const PropertyUpdate2 = ({ data }) => {
                       name="area"
                       placeholder="Please Type in Sqft"
                       required
+                      defaultValue={data?.area}
                     />
                   </div>
                   {categoryName === "Shared Room" ? (
@@ -444,6 +431,7 @@ const PropertyUpdate2 = ({ data }) => {
                         name="bedroom"
                         placeholder="Total Bed Room"
                         required
+                        defaultValue={data?.bedroom}
                       />
                     </div>
                   )}
@@ -462,6 +450,7 @@ const PropertyUpdate2 = ({ data }) => {
                       name="bathroom"
                       placeholder="bathroom"
                       required
+                      defaultValue={data?.bathroom}
                     />
                   </div>
                   <h2 className="profile_label3 profile_bg mt-5">
@@ -478,6 +467,7 @@ const PropertyUpdate2 = ({ data }) => {
                           id="furnitured"
                           className="main_form w-100"
                           required
+                          defaultValue={data?.balcony}
                         >
                           <option value="yes">Yes</option>
                           <option value="no">No</option>
@@ -503,6 +493,7 @@ const PropertyUpdate2 = ({ data }) => {
                           id="inputState"
                           className="main_form w-100"
                           required
+                          defaultValue={data?.bedType}
                         >
                           <option value="Bunk Bed">Bunk Bed</option>
                           <option value="Single Bed">Single Bed</option>
@@ -521,6 +512,7 @@ const PropertyUpdate2 = ({ data }) => {
                           id="inputState"
                           className="main_form w-100"
                           required
+                          defaultValue={data?.recommended}
                         >
                           <option value="yes">Yes</option>
                           <option value="no">No</option>
@@ -528,13 +520,14 @@ const PropertyUpdate2 = ({ data }) => {
                       </div>
                       <div className="col-md-4 form_sub_stream">
                         <label htmlFor="inputState" className="profile_label3">
-                          Furnitured
+                          Furnished
                         </label>
                         <select
                           name="furnitured"
                           id="furnitured"
                           className="main_form w-100"
                           required
+                          defaultValue={data?.furnitured}
                         >
                           <option value="yes">Yes</option>
                           <option value="no">No</option>
@@ -549,6 +542,7 @@ const PropertyUpdate2 = ({ data }) => {
                           id="inputState"
                           className="main_form w-100"
                           required
+                          defaultValue={data?.CCTV}
                         >
                           <option value="yes">Yes</option>
                           <option value="no">No</option>
@@ -563,6 +557,7 @@ const PropertyUpdate2 = ({ data }) => {
                           id="furnitured"
                           className="main_form w-100"
                           required
+                          defaultValue={data?.WiFi}
                         >
                           <option value="yes">Yes</option>
                           <option value="no">No</option>
@@ -719,6 +714,7 @@ const PropertyUpdate2 = ({ data }) => {
                               name="perDay"
                               placeholder="Per Day"
                               required
+                              defaultValue={data?.perDay}
                             />
                           </div>
                           <div className="col-md-4 form_sub_stream">
@@ -735,6 +731,7 @@ const PropertyUpdate2 = ({ data }) => {
                               name="perMonth"
                               placeholder="Per Month"
                               required
+                              defaultValue={data?.perMonth}
                             />
                           </div>
                           <div className="col-md-4 form_sub_stream">
@@ -751,6 +748,7 @@ const PropertyUpdate2 = ({ data }) => {
                               name="perYear"
                               placeholder="Per Year"
                               required
+                              defaultValue={data?.perYear}
                             />
                           </div>
                         </div>
@@ -769,12 +767,13 @@ const PropertyUpdate2 = ({ data }) => {
                           className="main_form w-100"
                           name="roomNumber"
                           placeholder="Room Number"
+                          defaultValue={data?.roomNumber}
                         />
                       </div>
                     </>
                   )}
 
-                  {categoryName === "Shared Room" && (
+                  {data?.category?.name === "Shared Room" && (
                     <>
                       <h2 className="profile_label3 profile_bg">
                         Seat Details

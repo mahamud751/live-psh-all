@@ -395,7 +395,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
               onClick={() =>
                 dispatch(rightDate(addDays(new Date(startDate), 1)))
               }
-              className={` px-11 cursor-pointer py-2 ${
+              className={` md:px-11 sm:px-3  cursor-pointer py-2 ${
                 customerRent.remainingDays < getLastDayOfMonth() &&
                 customerRent.years === undefined
                   ? "dmyActive "
@@ -410,7 +410,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
               onClick={() =>
                 dispatch(rightDate(addMonths(new Date(startDate), 1)))
               }
-              className={` px-11 cursor-pointer py-2 ${
+              className={` md:px-11 sm:px-3 cursor-pointer py-2 ${
                 customerRent.remainingDays >= getLastDayOfMonth() &&
                 customerRent.years === undefined
                   ? "dmyActive "
@@ -427,7 +427,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
                   ? dispatch(rightDate(addYears(new Date(endDate), 1)))
                   : ""
               }
-              className={` px-11 cursor-pointer py-2 ${
+              className={` md:px-11 sm:px-3 cursor-pointer py-2 ${
                 customerRent.years >= 1 ? "dmyActive " : "text-black"
               }`}
             >
@@ -484,7 +484,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center mt-5 ms-16">
+      <div className="flex justify-center mt-5 md:ms-16 sm:ms-0">
         <p className="font-bold">Duration = </p>
         <div>
           <input
@@ -513,11 +513,11 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
         <div className="md:flex m-5 total-area relative ms-10">
           <div>
             <input
-              className="sm:px-14 md:px-12"
+              className="sm:px-8 md:px-12"
               type="text"
               name="promoCode"
               onChange={(e) => setPromoCode(e.target.value)}
-              style={{ height: "30px" }}
+              style={{ height: "30px", width: "100%" }}
               placeholder="If You Pormo Code"
               disabled={promoCodeCheck ? true : false}
               required
@@ -924,33 +924,29 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
           style={{ zIndex: 9999, width: "92%" }}
         >
           {data?.category?.name === "Shared Room" && (
-            <div className="filter md:invisible ms-2">
-              <FaBed />
-              <a
-                href="#seat"
-                onClick={anchorClickHandler}
-                className="ms-1 text-white hover:text-white "
-                style={{ fontSize: 14 }}
-              >
-                Choose Seat
-              </a>
-            </div>
-          )}
-
-          <div className="filter md:invisible ms-2">
-            <i
-              className="fas fa-shopping-cart mt-1"
-              style={{ fontSize: 14 }}
-            ></i>
             <a
-              href="#cart"
+              href="#seat"
               onClick={anchorClickHandler}
-              className="ms-1 text-white hover:text-white"
+              className="filter md:invisible ms-2 hover:text-white"
               style={{ fontSize: 14 }}
             >
-              Booking Now
+              <FaBed style={{ fontSize: 20 }} className="mr-2" />
+              Choose Seat
             </a>
-          </div>
+          )}
+
+          <a
+            href="#cart"
+            onClick={anchorClickHandler}
+            className="filter md:invisible ms-2 hover:text-white"
+            style={{ fontSize: 14 }}
+          >
+            <i
+              className="fas fa-shopping-cart mt-1 mr-2"
+              style={{ fontSize: 14 }}
+            ></i>
+            Booking Now
+          </a>
         </div>
       </div>
     </div>

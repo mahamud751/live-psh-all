@@ -262,7 +262,7 @@ const Room = () => {
                     <div className="col-span-10">
                       <div>
                         <h1 className="text-3xl font-bold text-gray-900 ">
-                          {data.name} -
+                          {data?.name}
                         </h1>
 
                         <p className="text-2xl font-bold mt-1">

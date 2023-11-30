@@ -26,7 +26,7 @@ import UseFetch from "../../hooks/useFetch";
 import { FaHeart } from "react-icons/fa";
 const SingleCard = ({ item }) => {
   const { user } = useContext(AuthContext);
-  console.log("item", item);
+
   const userName = user?.firstName;
   const email = user?.email;
   const [data, setData] = useState([]);
@@ -36,7 +36,7 @@ const SingleCard = ({ item }) => {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [item?._id]);
-  console.log(data);
+
   // Checking Booking Dates for privet room and apartment
   const currentDate = new Date().toISOString().split("T")[0];
   // Check if the target date falls within any of the date ranges
@@ -139,20 +139,20 @@ const SingleCard = ({ item }) => {
                 <img src={whislistIcon} alt="wishlist" onClick={handleSubmit} />
               )}
             </div>
-            {isIntoDate ? (
+            {/* {isIntoDate ? (
               <div className="absolute bottom-0 right-0 bg-[#27B3B1] text-white rounded-sm text-sm font-[600] px-1 py-1">
                 <span>Already Booked</span>
               </div>
             ) : (
               ""
-            )}
+            )} */}
             {isSeatIntoDate &&
             item?.category?.name === "Shared Room" &&
             isAlreadySeatBook?.length > 0 ? (
               <div className="absolute bottom-0 right-0 bg-[#27B3B1] text-white rounded-sm text-sm font-[600] px-1 py-1">
                 <span>
                   {item?.seats?.length === isAlreadySeatBook?.length
-                    ? "No Seat Availbale"
+                    ? ""
                     : `Only ${
                         item?.seats?.length - isAlreadySeatBook?.length
                       } Seat Left`}

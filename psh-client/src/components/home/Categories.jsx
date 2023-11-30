@@ -167,7 +167,13 @@ export default function Categories() {
             breakpoints: {
               1200: { arrows: true, perPage: 4 },
               800: { arrows: true, perPage: 2 },
-              640: { arrows: true, perPage: 1.4, height: "22rem" },
+              640: {
+                arrows: true,
+                perPage: 1,
+                height: "22rem",
+                drag: "free",
+                rewind: true,
+              },
             },
           }}
         >

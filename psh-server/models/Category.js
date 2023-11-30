@@ -15,6 +15,10 @@ const CategorySchema = new mongoose.Schema(
         ref: "Property",
       },
     ],
+    position: {
+      type: String,
+      // required: true,
+    },
   },
 
   { timestamps: true }

@@ -253,6 +253,7 @@ export const updateBooking = async (req, res, next) => {
     const bookingInfo_Id = findSingleOrder[0].bookingInfo?.data?._id;
 
     const bookingInfoForShareRoomId = findSingleOrder[0].bookingInfo?.roomId;
+
     const bookingInfoForShareSeatId =
       findSingleOrder[0].bookingInfo?.seatBooking?._id;
 
@@ -324,7 +325,7 @@ export const updateBooking = async (req, res, next) => {
             },
             { new: true }
           );
-          res.status(200).json(updateOrder);
+          // res.status(200).json(updateOrder);
         } else {
           await Property.updateOne(
             { _id: bookingInfo_Id },
@@ -338,7 +339,7 @@ export const updateBooking = async (req, res, next) => {
             },
             { new: true }
           );
-          res.status(200).json(updateOrder);
+          // res.status(200).json(updateOrder);
         }
       }
     } else if (req.body?.receivedTk) {

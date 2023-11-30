@@ -32,7 +32,7 @@ const Seats = ({ data, handleSubmit }) => {
       }
     }
   }
-  console.log(isAlreadySeatBook);
+  console.log(isSeatIntoDate);
   return (
     <>
       <div className="facility_h1 p-2">
@@ -49,9 +49,9 @@ const Seats = ({ data, handleSubmit }) => {
 
       {data.seats &&
         data.seats.map((item) => {
-          const bookedSeat = isAlreadySeatBook?.find(
-            (rent) => rent._id === item?._id
-          );
+          // const bookedSeat = isAlreadySeatBook?.find(
+          //   (rent) => rent._id === item?._id
+          // );
           // console.log(item?.rentDate.filter((rent) => rent?._id));
 
           return (
@@ -74,11 +74,11 @@ const Seats = ({ data, handleSubmit }) => {
                     <div className=" w-full">
                       <p className="text-start font-bold">
                         {item?.name}
-                        {bookedSeat?._id === item?._id ? (
+                        {/* {bookedSeat?._id === item?._id ? (
                           <span className="text-red-500 ml-2">(Booked)</span>
                         ) : (
                           ""
-                        )}
+                        )} */}
                       </p>
                       <div className="flex mt-2">
                         <div>
