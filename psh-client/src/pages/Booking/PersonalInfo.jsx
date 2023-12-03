@@ -467,10 +467,9 @@ const PersonalInfo = () => {
                 <input
                   placeholder="Gardian Contact Name *"
                   type="text"
-                  className="text-black personal-info rounded"
+                  className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   name="ecName"
                   style={{
-                    width: "350px",
                     height: "45px",
                     padding: "0px 10px",
                   }}
@@ -479,11 +478,10 @@ const PersonalInfo = () => {
               <div>
                 <input
                   placeholder="Relationship *"
-                  className="text-black personal-info rounded"
+                  className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   type="text"
                   name="ecRelation"
                   style={{
-                    width: "350px",
                     height: "45px",
                     padding: "0px 10px",
                   }}
@@ -493,10 +491,9 @@ const PersonalInfo = () => {
                 <input
                   type="text"
                   placeholder="Gardian Contact Number *"
-                  className="text-black personal-info rounded"
+                  className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   name="ecNumber"
                   style={{
-                    width: "350px",
                     height: "45px",
                     padding: "0px 10px",
                   }}
@@ -526,13 +523,13 @@ const PersonalInfo = () => {
                   setGardianImg(e.target.files);
                 }}
                 type="file"
-                className="mt-2 personal-info rounded "
+                className="mt-2 personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                 required
                 name="gardianImg"
                 id=""
-                style={{
-                  width: "350px",
-                }}
+                // style={{
+                //   width: "350px",
+                // }}
               />
             </div>
           </div>
@@ -546,9 +543,8 @@ const PersonalInfo = () => {
                 </p>
                 <select
                   name="employeeStatus"
-                  className="text-black personal-info rounded"
+                  className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   style={{
-                    width: "350px",
                     height: "45px",
                     padding: "0px 10px",
                   }}
@@ -565,9 +561,8 @@ const PersonalInfo = () => {
                 </p>
                 <select
                   name="emplyeeIncome"
-                  className="text-black personal-info rounded"
+                  className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   style={{
-                    width: "350px",
                     height: "45px",
                     padding: "0px 10px",
                   }}
@@ -588,9 +583,8 @@ const PersonalInfo = () => {
 
             <div>
               <select
-                className="text-black personal-info rounded mt-5"
+                className="text-black personal-info rounded mt-5 lg:w-[350px] md:w-[300px] sm:w-full"
                 style={{
-                  width: "350px",
                   height: "45px",
                   padding: "0px 10px",
                 }}
@@ -784,7 +778,7 @@ const PersonalInfo = () => {
                   <ul className="flex justify-evenly ">
                     <li className="list-none border py-1">
                       <span
-                        className={` px-11 py-2 ${
+                        className={` md:px-11 sm:px-3 py-2 ${
                           bookingItem?.customerRent?.remainingDays <
                             getLastDayOfMonth() &&
                           bookingItem?.customerRent?.years === undefined
@@ -797,7 +791,7 @@ const PersonalInfo = () => {
                     </li>
                     <li className="list-none border py-1">
                       <span
-                        className={` px-11 py-2 ${
+                        className={` md:px-11 sm:px-3 py-2 ${
                           bookingItem?.customerRent?.remainingDays >=
                             getLastDayOfMonth() &&
                           bookingItem?.customerRent?.years === undefined
@@ -810,7 +804,7 @@ const PersonalInfo = () => {
                     </li>
                     <li className="list-none border py-1">
                       <span
-                        className={` px-11 py-2 ${
+                        className={` md:px-11 sm:px-3 py-2 ${
                           bookingItem?.customerRent?.years >= 1
                             ? "dmyActive "
                             : "text-black"
@@ -835,7 +829,7 @@ const PersonalInfo = () => {
                       style={{ color: "#00bbb4", marginTop: -3 }}
                     ></i>
                     <input
-                      className="ps-7 input_main"
+                      className="ps-7 input_main md:w-full sm:w-36"
                       type="date"
                       defaultValue={bookingItem?.rentDate?.bookStartDate}
                       disabled
@@ -854,7 +848,7 @@ const PersonalInfo = () => {
                       style={{ color: "#00bbb4", marginTop: -3 }}
                     ></i>
                     <input
-                      className="ps-7"
+                      className="ps-7 md:w-full sm:w-36"
                       type="date"
                       defaultValue={bookingItem?.rentDate?.bookEndDate}
                       disabled
@@ -863,7 +857,7 @@ const PersonalInfo = () => {
                 </div>
               </div>
               <div className="flex justify-center mt-5 items-center">
-                <p className="font-bold mb-1 ms-20">Duration = </p>
+                <p className="font-bold mb-1 md:ms-20 sm:sm-0">Duration = </p>
                 <div>
                   <input
                     className="px-2 "
@@ -1116,16 +1110,14 @@ const PersonalInfo = () => {
           className="flex justify-center mb-4 fixed bottom-0"
           style={{ zIndex: 9999, width: "97%" }}
         >
-          <div className="filter md:invisible">
-            <i className="fas fa-shopping-cart mt-2"></i>
-            <a
-              href="#keyDetails"
-              onClick={anchorClickHandler}
-              className=" ms-3 text-white hover:text-white"
-            >
-              Booking Cart
-            </a>
-          </div>
+          <a
+            href="#keyDetails"
+            onClick={anchorClickHandler}
+            className="filter md:invisible hover:text-white"
+          >
+            <i className="fas fa-shopping-cart mt-2 mr-2"></i>
+            Booking Cart
+          </a>
         </div>
       </div>
       <Toaster

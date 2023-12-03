@@ -1,10 +1,14 @@
 .all_recommended .splide__arrow--prev::before {
-  content: url("../../assets/img/arrow1.png");
+  content: url("../../assets/img/arrow2.png");
   /* Add your custom icon or image here */
   border-radius: 5px 0px 0px 5px;
   border: 1px solid #e5e5e5;
-  background: #fff;
+  background: white;
   padding: 15px 20px;
+  border-radius: 52%;
+  height: 52px;
+  width: 52px;
+  color: black;
 }
 
 .all_recommended svg {
@@ -12,25 +16,41 @@
 }
 
 .all_recommended .splide__arrow--next::before {
-  content: url("../../assets/img/arrow2.png");
+  content: url("../../assets/img/arrow1.png");
   /* Add your custom icon or image here */
   border: 1px solid #e5e5e5;
-  background: #fff;
+  background: white;
   padding: 15px 20px;
+  border-radius: 52%;
+  height: 52px;
+  width: 52px;
 }
+/* 
+
 
 /* Customize the left arrow button position */
 
 .all_recommended .splide__arrow--prev {
-  left: 635px;
-  top: 380px !important;
+  left: -20px;
+  top: 100px !important;
+  display: none;
+  opacity: 1 !important;
 }
 
 /* Customize the right arrow button position */
 
 .all_recommended .splide__arrow--next {
-  right: 635px;
-  top: 380px !important;
+  right: -20px;
+  top: 100px !important;
+  display: none;
+  opacity: 1 !important;
+}
+
+.all_recommended:hover .splide__arrow--prev {
+  display: block;
+}
+.all_recommended:hover .splide__arrow--next {
+  display: block;
 }
 
 @media screen and (max-width: 600px) {

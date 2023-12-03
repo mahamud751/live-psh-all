@@ -14,11 +14,11 @@ const PromoOffer = () => {
           <div className="">
             <h2 className="text-2xl font-bold text-gray-900">Promo Offers</h2>
             <p className="mb-2">Our best Discount Offers for you</p>
-            <div className="all_promo">
+            <div className="all_recommended">
               <Splide
                 options={{
                   // type: "loop",
-                  arrows: true,
+                  arrows: data?.length > 3 ? true : false,
                   rewind: true,
                   drag: "free",
 

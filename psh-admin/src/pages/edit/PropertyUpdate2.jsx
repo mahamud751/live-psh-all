@@ -41,7 +41,7 @@ const PropertyUpdate2 = ({ data }) => {
     }
   }, [categoryName]);
 
-  console.log("seatOptions", seatOptions);
+  // console.log("seatOptions", seatOptions);
   const formRef = useRef(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -248,10 +248,10 @@ const PropertyUpdate2 = ({ data }) => {
           photos: seatPhotoList[index],
         })),
       };
-
-      await axios.post("https://api.psh.com.bd/api/property", product);
-      MySwal.fire("Good job!", "successfully added", "success");
-      formRef.current.reset();
+      console.log(product);
+      // await axios.post("https://api.psh.com.bd/api/property", product);
+      // MySwal.fire("Good job!", "successfully added", "success");
+      // formRef.current.reset();
     } catch (err) {
       console.log(err);
       MySwal.fire("Something Error Found.", "warning");
@@ -571,37 +571,47 @@ const PropertyUpdate2 = ({ data }) => {
                       <div className="row">
                         <h2 className="profile_label3  mt-4">Regular</h2>
                         <div>
-                          {commonFacilities.map((facility) => (
-                            <>
-                              <input
-                                type="checkbox"
-                                id={facility._id}
-                                name="commonfacility[]"
-                                value={facility._id}
-                                multiple
-                                key={facility._id}
-                                className="me-1"
-                              />
-                              <label
-                                className="ms-2 mt-1"
-                                htmlFor={facility._id}
-                              >
-                                {facility.name ? facility.name : ""}
-                              </label>
-                              <img
-                                src={facility.photos ? facility.photos[0] : ""}
-                                alt=""
-                                style={{ width: 20 }}
-                                className="mx-3"
-                              />
-                            </>
-                          ))}
+                          {commonFacilities.map((facility) => {
+                            const selectedCommon = data?.commonfacility?.find(
+                              (check) => check._id === facility._id
+                            );
+
+                            return (
+                              <>
+                                <input
+                                  type="checkbox"
+                                  id={facility._id}
+                                  name="commonfacility[]"
+                                  value={facility._id}
+                                  multiple
+                                  key={facility._id}
+                                  className="me-1"
+                                  defaultChecked={selectedCommon ? true : false}
+                                />
+                                <label
+                                  className="ms-2 mt-1"
+                                  htmlFor={facility._id}
+                                >
+                                  {facility.name ? facility.name : ""}
+                                </label>
+                                <img
+                                  src={
+                                    facility.photos ? facility.photos[0] : ""
+                                  }
+                                  alt=""
+                                  style={{ width: 20 }}
+                                  className="mx-3"
+                                />
+                              </>
+                            );
+                          })}
                         </div>
                       </div>
 
                       {categoryName === "Private Room" ||
                       categoryName === "Shared Room" ? (
                         <>
+                          {/* facility */}
                           <div className="row">
                             {facilities.map((facility) => (
                               <>
@@ -612,32 +622,43 @@ const PropertyUpdate2 = ({ data }) => {
                                     </h2>
 
                                     <div>
-                                      {facility.facility.map((pd) => (
-                                        <>
-                                          <input
-                                            type="checkbox"
-                                            id={pd._id}
-                                            name="facility[]"
-                                            value={pd._id}
-                                            multiple
-                                            key={pd._id}
-                                            className="me-1"
-                                          />
+                                      {facility.facility.map((pd) => {
+                                        const selectedFacility =
+                                          data?.facility?.find(
+                                            (check) => check._id === pd._id
+                                          );
+                                        return (
+                                          <>
+                                            <input
+                                              type="checkbox"
+                                              id={pd._id}
+                                              name="facility[]"
+                                              value={pd._id}
+                                              multiple
+                                              key={pd._id}
+                                              className="me-1"
+                                              defaultChecked={
+                                                selectedFacility ? true : false
+                                              }
+                                            />
 
-                                          <label
-                                            className="ms-2 mt-1"
-                                            htmlFor={pd._id}
-                                          >
-                                            {pd.name ? pd.name : ""}
-                                          </label>
-                                          <img
-                                            src={pd.photos ? pd.photos[0] : ""}
-                                            alt=""
-                                            style={{ width: 20 }}
-                                            className="mx-3"
-                                          />
-                                        </>
-                                      ))}
+                                            <label
+                                              className="ms-2 mt-1"
+                                              htmlFor={pd._id}
+                                            >
+                                              {pd.name ? pd.name : ""}
+                                            </label>
+                                            <img
+                                              src={
+                                                pd.photos ? pd.photos[0] : ""
+                                              }
+                                              alt=""
+                                              style={{ width: 20 }}
+                                              className="mx-3"
+                                            />
+                                          </>
+                                        );
+                                      })}
                                     </div>
                                   </>
                                 ) : null}
@@ -658,32 +679,41 @@ const PropertyUpdate2 = ({ data }) => {
                                 </h2>
 
                                 <div>
-                                  {facility.facility.map((pd) => (
-                                    <>
-                                      <input
-                                        type="checkbox"
-                                        id={pd._id}
-                                        name="facility[]"
-                                        value={pd._id}
-                                        multiple
-                                        key={pd._id}
-                                        className="me-1"
-                                      />
+                                  {facility.facility.map((pd) => {
+                                    const selectedFacility =
+                                      data?.facility?.find(
+                                        (check) => check._id === pd._id
+                                      );
+                                    return (
+                                      <>
+                                        <input
+                                          type="checkbox"
+                                          id={pd._id}
+                                          name="facility[]"
+                                          value={pd._id}
+                                          multiple
+                                          key={pd._id}
+                                          className="me-1"
+                                          defaultChecked={
+                                            selectedFacility ? true : false
+                                          }
+                                        />
 
-                                      <label
-                                        className="ms-2 mt-1"
-                                        htmlFor={pd._id}
-                                      >
-                                        {pd.name ? pd.name : ""}
-                                      </label>
-                                      <img
-                                        src={pd.photos ? pd.photos[0] : ""}
-                                        alt=""
-                                        style={{ width: 20 }}
-                                        className="mx-3"
-                                      />
-                                    </>
-                                  ))}
+                                        <label
+                                          className="ms-2 mt-1"
+                                          htmlFor={pd._id}
+                                        >
+                                          {pd.name ? pd.name : ""}
+                                        </label>
+                                        <img
+                                          src={pd.photos ? pd.photos[0] : ""}
+                                          alt=""
+                                          style={{ width: 20 }}
+                                          className="mx-3"
+                                        />
+                                      </>
+                                    );
+                                  })}
                                 </div>
                               </>
                             ) : null}
@@ -778,182 +808,195 @@ const PropertyUpdate2 = ({ data }) => {
                       <h2 className="profile_label3 profile_bg">
                         Seat Details
                       </h2>
-                      <div className="row card_div p-4">
-                        {seatOptions.map((option, index) => (
-                          <>
-                            <h2 className="profile_label3 profile_bg">
-                              Seat No{index + 1}
-                            </h2>
-                            <div
-                              className="col-md-6 form_sub_stream"
-                              key={index}
-                            >
-                              <label className="profile_label3">
-                                Seat Name
-                              </label>
-                              <input
-                                type="text"
-                                className="main_form w-100"
-                                value={option.name}
-                                onChange={(e) => {
-                                  const updatedOptions = [...seatOptions];
-                                  updatedOptions[index].name = e.target.value;
-                                  setSeatOptions(updatedOptions);
-                                }}
-                                placeholder="Seat Name"
-                                required
-                              />
-                            </div>
-
-                            <div className="col-md-6 form_sub_stream">
-                              <label className="profile_label3">
-                                Seat Number
-                              </label>
-                              <input
-                                type="text"
-                                className="main_form w-100"
-                                value={option.seatNumber}
-                                onChange={(e) => {
-                                  const updatedOptions = [...seatOptions];
-                                  updatedOptions[index].seatNumber =
-                                    e.target.value;
-                                  setSeatOptions(updatedOptions);
-                                }}
-                                placeholder="Seat Number"
-                                required
-                              />
-                            </div>
-                            <div className="col-md-3 form_sub_stream">
-                              <label className="profile_label3">
-                                Seat Type
-                              </label>
-                              {/* <input
-                            type="text"
-                            className="main_form w-100"
-                            value={option.seatNumber}
-                          /> */}
-
-                              <select
-                                name="WiFi"
-                                id="furnitured"
-                                className="main_form w-100"
-                                required
-                                value={option.seatType}
-                                onChange={(e) => {
-                                  const updatedOptions = [...seatOptions];
-                                  updatedOptions[index].seatType =
-                                    e.target.value;
-                                  setSeatOptions(updatedOptions);
-                                }}
+                      {data?.seats?.map((seat, index) => (
+                        <div key={seat._id} className="row card_div p-4">
+                          {seatOptions.map((option, index) => (
+                            <>
+                              <h2 className="profile_label3 profile_bg">
+                                Seat
+                              </h2>
+                              <div
+                                className="col-md-6 form_sub_stream"
+                                key={index}
                               >
-                                <option value="Upper Bed">Upper Bed</option>
-                                <option value="Lower Bed">Lower Bed</option>
-                                <option value="Single Bed">Single Bed</option>
-                              </select>
-                            </div>
+                                <label className="profile_label3">
+                                  Seat Name
+                                </label>
+                                <input
+                                  type="text"
+                                  className="main_form w-100"
+                                  // value={option.name}
+                                  onChange={(e) => {
+                                    const updatedOptions = [...seatOptions];
+                                    updatedOptions[index].name = e.target.value;
+                                    setSeatOptions(updatedOptions);
+                                  }}
+                                  placeholder="Seat Name"
+                                  required
+                                  defaultValue={seat?.name}
+                                />
+                              </div>
 
-                            <div className="col-md-3 form_sub_stream">
-                              <label className="profile_label3">Per Day</label>
-                              <input
-                                type="text"
-                                className="main_form w-100"
-                                value={option.perDay}
-                                onChange={(e) => {
-                                  const updatedOptions = [...seatOptions];
-                                  updatedOptions[index].perDay = e.target.value;
-                                  setSeatOptions(updatedOptions);
-                                }}
-                                placeholder="Per Day Price"
-                                required
-                              />
-                            </div>
-                            <div className="col-md-3 form_sub_stream">
-                              <label className="profile_label3">
-                                Per Month
-                              </label>
-                              <input
-                                type="text"
-                                className="main_form w-100"
-                                value={option.perMonth}
-                                onChange={(e) => {
-                                  const updatedOptions = [...seatOptions];
-                                  updatedOptions[index].perMonth =
-                                    e.target.value;
-                                  setSeatOptions(updatedOptions);
-                                }}
-                                placeholder="Per Month Price"
-                                required
-                              />
-                            </div>
-                            <div className="col-md-3 form_sub_stream">
-                              <label className="profile_label3">Per Year</label>
-                              <input
-                                type="text"
-                                className="main_form w-100"
-                                value={option.perYear}
-                                onChange={(e) => {
-                                  const updatedOptions = [...seatOptions];
-                                  updatedOptions[index].perYear =
-                                    e.target.value;
-                                  setSeatOptions(updatedOptions);
-                                }}
-                                placeholder="Per Year Price"
-                                required
-                              />
-                            </div>
-                            {/* <div className="col-md-4 form_sub_stream">
-                          <label className="profile_label3">Description</label>
-                          <input
-                            type="text"
-                            className="main_form w-100"
-                            value={option.description}
-                            onChange={(e) => {
-                              const updatedOptions = [...seatOptions];
-                              updatedOptions[index].description =
-                                e.target.value;
-                              setSeatOptions(updatedOptions);
-                            }}
-                          />
-                        </div> */}
-                            <div
-                              className="col-md-4 form_sub_stream"
-                              key={index}
-                            >
-                              <label
-                                htmlFor={`seatPhotos-${index}`}
-                                className="form-label profile_label3"
+                              <div className="col-md-6 form_sub_stream">
+                                <label className="profile_label3">
+                                  Seat Number
+                                </label>
+                                <input
+                                  type="text"
+                                  className="main_form w-100"
+                                  // value={option.seatNumber}
+                                  onChange={(e) => {
+                                    const updatedOptions = [...seatOptions];
+                                    updatedOptions[index].seatNumber =
+                                      e.target.value;
+                                    setSeatOptions(updatedOptions);
+                                  }}
+                                  placeholder="Seat Number"
+                                  required
+                                  defaultValue={seat?.seatNumber}
+                                />
+                              </div>
+                              <div className="col-md-3 form_sub_stream">
+                                <label className="profile_label3">
+                                  Seat Type
+                                </label>
+                                {/* <input
+                          type="text"
+                          className="main_form w-100"
+                          value={option.seatNumber}
+                        /> */}
+
+                                <select
+                                  name="WiFi"
+                                  id="furnitured"
+                                  className="main_form w-100"
+                                  required
+                                  // value={option.seatType}
+                                  onChange={(e) => {
+                                    const updatedOptions = [...seatOptions];
+                                    updatedOptions[index].seatType =
+                                      e.target.value;
+                                    setSeatOptions(updatedOptions);
+                                  }}
+                                  defaultValue={seat?.seatType}
+                                >
+                                  <option value="Upper Bed">Upper Bed</option>
+                                  <option value="Lower Bed">Lower Bed</option>
+                                  <option value="Single Bed">Single Bed</option>
+                                </select>
+                              </div>
+
+                              <div className="col-md-3 form_sub_stream">
+                                <label className="profile_label3">
+                                  Per Day
+                                </label>
+                                <input
+                                  type="text"
+                                  className="main_form w-100"
+                                  // value={option.perDay}
+                                  onChange={(e) => {
+                                    const updatedOptions = [...seatOptions];
+                                    updatedOptions[index].perDay =
+                                      e.target.value;
+                                    setSeatOptions(updatedOptions);
+                                  }}
+                                  defaultValue={seat?.perDay}
+                                  placeholder="Per Day Price"
+                                  required
+                                />
+                              </div>
+                              <div className="col-md-3 form_sub_stream">
+                                <label className="profile_label3">
+                                  Per Month
+                                </label>
+                                <input
+                                  type="text"
+                                  className="main_form w-100"
+                                  // value={option.perMonth}
+                                  onChange={(e) => {
+                                    const updatedOptions = [...seatOptions];
+                                    updatedOptions[index].perMonth =
+                                      e.target.value;
+                                    setSeatOptions(updatedOptions);
+                                  }}
+                                  defaultValue={seat?.perMonth}
+                                  placeholder="Per Month Price"
+                                  required
+                                />
+                              </div>
+                              <div className="col-md-3 form_sub_stream">
+                                <label className="profile_label3">
+                                  Per Year
+                                </label>
+                                <input
+                                  type="text"
+                                  className="main_form w-100"
+                                  // value={option.perYear}
+                                  onChange={(e) => {
+                                    const updatedOptions = [...seatOptions];
+                                    updatedOptions[index].perYear =
+                                      e.target.value;
+                                    setSeatOptions(updatedOptions);
+                                  }}
+                                  defaultValue={seat?.perYear}
+                                  placeholder="Per Year Price"
+                                  required
+                                />
+                              </div>
+                              {/* <div className="col-md-4 form_sub_stream">
+                        <label className="profile_label3">Description</label>
+                        <input
+                          type="text"
+                          className="main_form w-100"
+                          value={option.description}
+                          onChange={(e) => {
+                            const updatedOptions = [...seatOptions];
+                            updatedOptions[index].description =
+                              e.target.value;
+                            setSeatOptions(updatedOptions);
+                          }}
+                        />
+                      </div> */}
+                              <div
+                                className="col-md-4 form_sub_stream"
+                                key={index}
                               >
-                                Seat Photos
-                              </label>
-                              <input
-                                type="file"
-                                id={`seatPhotos-${index}`}
-                                className="main_form w-100 p-0"
-                                name={`seatPhotos-${index}`}
-                                onChange={(e) =>
-                                  handleSeatPhotosChange(e, index)
-                                }
-                                multiple
-                                required
-                              />
-                            </div>
+                                <label
+                                  htmlFor={`seatPhotos-${index}`}
+                                  className="form-label profile_label3"
+                                >
+                                  Seat Photos
+                                </label>
+                                <input
+                                  type="file"
+                                  id={`seatPhotos-${index}`}
+                                  className="main_form w-100 p-0"
+                                  name={`seatPhotos-${index}`}
+                                  onChange={(e) =>
+                                    handleSeatPhotosChange(e, index)
+                                  }
+                                  multiple
+                                  required
+                                />
+                              </div>
 
-                            <div
-                              className="col-md-2 form_sub_stream"
-                              style={{ marginTop: 50 }}
-                            >
-                              <i
-                                className="fa-solid fa-plus"
-                                onClick={handleAddSeatOption}
-                              ></i>
-                              <i
-                                className="fa-solid fa-trash ms-4"
-                                onClick={() => handleRemoveSeatOption(index)}
-                              ></i>
-                            </div>
-                          </>
-                        ))}
-                      </div>
+                              <div
+                                className="col-md-2 form_sub_stream"
+                                style={{ marginTop: 50 }}
+                              >
+                                <i
+                                  className="fa-solid fa-plus"
+                                  onClick={handleAddSeatOption}
+                                ></i>
+                                <i
+                                  className="fa-solid fa-trash ms-4"
+                                  onClick={() => handleRemoveSeatOption(index)}
+                                ></i>
+                              </div>
+                            </>
+                          ))}
+                        </div>
+                      ))}
                     </>
                   )}
 

@@ -15,27 +15,26 @@ const AllBranch = () => {
     <div>
       <div>
         <div className=" ">
-          <div className="mt-5">
+          <div className="">
             <h2 className="text-2xl font-bold ">
               Looking For Best Place To Stay{" "}
             </h2>
             <h6 className="mb-10 mt-2">Our available Branches for your stay</h6>
-            <div className="all_branch ">
+            <div className="all_recommended ">
               <Splide
                 options={{
                   // type: "loop",
-                  arrows: true,
+                  arrows: data?.length > 8 ? true : false,
                   rewind: true,
                   drag: "free",
-
+                  perPage: 8,
                   gap: "1rem",
-                  perPage: 4,
-                  height: "14rem",
+                  height: "10rem",
                   pagination: false,
                   breakpoints: {
-                    1200: { arrows: true, perPage: 4 },
-                    800: { arrows: true, perPage: 2 },
-                    640: { arrows: true, perPage: 1 },
+                    1200: { arrows: true, perPage: 8 },
+                    800: { arrows: true, perPage: 4 },
+                    640: { arrows: true, perPage: 2 },
                   },
                 }}
               >
@@ -45,20 +44,20 @@ const AllBranch = () => {
                       <Link to={`/branch/${item._id}`}>
                         <Card
                           shadow={false}
-                          className="relative grid h-[14rem] w-full max-w-[28rem] items-end justify-center overflow-hidden text-center"
+                          className="relative grid h-[10rem] max-w-[10rem] items-end justify-center overflow-hidden text-center"
                         >
                           <CardHeader
                             floated={false}
                             shadow={false}
                             color="transparent"
-                            className={`absolute inset-0 m-0 h-full w-full rounded-none bg-cover bg-center`}
+                            className={`absolute inset-0 m-0 rounded-none bg-cover bg-center`}
                             style={{
                               backgroundImage: `url('${item.photos[0]}')`,
                             }}
                           >
-                            <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 " />
+                            <div className="to-bg-black-10 absolute inset-0 bg-gradient-to-t from-black/80 " />
                           </CardHeader>
-                          <CardBody className="relative  px-6 md:px-12">
+                          <CardBody className="relative ">
                             <div
                               style={{
                                 display: "flex",

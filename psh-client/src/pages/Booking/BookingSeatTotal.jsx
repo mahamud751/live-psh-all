@@ -336,7 +336,6 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
     }
   };
 
-  console.log(customerRent);
   return (
     <div
       style={{
@@ -347,7 +346,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
         borderRadius: "3px",
         backgroundColor: "white",
       }}
-      className="sticky md:top-24 w-full"
+      className="sticky md:top-20 w-full"
     >
       <LoginModal handleOpen={handleOpen} size={size} />
 
@@ -355,7 +354,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
         style={{
           backgroundColor: "#35B0A7",
           // width: "430px",
-          height: "55px",
+          height: "35px",
           borderRadius: "3px 3px 0px 0px",
         }}
       ></div>
@@ -484,7 +483,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center mt-5 md:ms-16 sm:ms-0">
+      <div className="flex justify-center mt-2 md:ms-16 sm:ms-0">
         <p className="font-bold">Duration = </p>
         <div>
           <input
@@ -510,7 +509,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
       </div>
 
       <form onSubmit={handlePromoCode}>
-        <div className="md:flex m-5 total-area relative ms-10">
+        <div className="md:flex m-2 total-area relative ms-10">
           <div>
             <input
               className="sm:px-8 md:px-12"
@@ -561,8 +560,45 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
                       }}
                       className="font-normal opacity-75 px-5 py-2 rounded"
                     >
-                      {customerRent?.remainingDays} X {data?.perDay} =
-                      {data?.perDay * customerRent?.remainingDays}
+                      {customerRent?.months === undefined &&
+                      customerRent?.years === undefined ? (
+                        <span>
+                          {customerRent?.remainingDays + " day"} X{" "}
+                          {seatBooking?.perDay} = {""}
+                          {seatBooking?.perDay * customerRent?.remainingDays +
+                            " Tk"}
+                        </span>
+                      ) : (
+                        ""
+                      )}
+
+                      {customerRent?.months >= 1 &&
+                      customerRent?.years === undefined ? (
+                        <span>
+                          {customerRent.months + " month"} = {""}
+                          {seatBooking?.perMonth * customerRent.months +
+                            " Tk"}{" "}
+                          {customerRent?.days > 0 ? (
+                            <span>
+                              + {customerRent?.days + " Days"} = {""}
+                              {seatBooking?.perDay * customerRent?.days + " Tk"}
+                            </span>
+                          ) : (
+                            ""
+                          )}
+                        </span>
+                      ) : (
+                        ""
+                      )}
+
+                      {customerRent?.years === 1 ? (
+                        <span>
+                          {customerRent?.years + " Year"} = {""}
+                          {seatBooking?.perYear * customerRent?.years + " Tk"}
+                        </span>
+                      ) : (
+                        ""
+                      )}
                     </Typography>
                   </div>
                 }
@@ -770,7 +806,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
           ""
         )}
 
-        <hr className="mt-3 ml-5 text-black" />
+        <hr className="mt-1 ml-5 text-black" />
         <div className="flex justify-between mt-2">
           <p className="ml-16">Total Amount</p>
           <p>BDT {isNaN(totalRentAmount) ? 0 : totalRentAmount}</p>
@@ -902,7 +938,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
       </div>
       <div
         title={!seatBooking?._id ? "Please Select A Seat" : ""}
-        className={`bg-[#35B0A7] h-[55px] flex justify-center items-center mt-7 ${
+        className={`bg-[#35B0A7] h-[40px] flex justify-center items-center mt-3 ${
           !seatBooking?._id ? " opacity-60	" : "opacity-100"
         }`}
         style={{ cursor: "pointer" }}
@@ -910,7 +946,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
       >
         <div>
           <button
-            className={`text-xl p-2 text-white bg-transparent `}
+            className={`text-xl text-white bg-transparent `}
             // onClick={() => handleDateSelection("2023-09-19")}
             disabled={!seatBooking?._id ? true : false}
           >
@@ -927,7 +963,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
             <a
               href="#seat"
               onClick={anchorClickHandler}
-              className="filter md:invisible ms-2 hover:text-white"
+              className="filter md:invisible ms-2 hover:text-white py-2"
               style={{ fontSize: 14 }}
             >
               <FaBed style={{ fontSize: 20 }} className="mr-2" />
@@ -938,7 +974,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
           <a
             href="#cart"
             onClick={anchorClickHandler}
-            className="filter md:invisible ms-2 hover:text-white"
+            className="filter md:invisible ms-2 hover:text-white py-2"
             style={{ fontSize: 14 }}
           >
             <i

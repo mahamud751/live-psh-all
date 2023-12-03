@@ -110,7 +110,7 @@ export default function Categories() {
     <div className="category-item">
       <Header />
 
-      <div className=" text-left mt-5">
+      <div className=" text-left mt-3">
         <Tabs value="All" className=" ">
           <TabsHeader
             className="rounded-none border-b bg-transparent p-0 md:gap-x-14 sm:gap-x-4 "
@@ -156,13 +156,18 @@ export default function Categories() {
         <Splide
           options={{
             // type: "loop",
-            arrows: true,
+            arrows:
+              publishRandomProperty?.length > 5 || filteredData?.length > 5
+                ? true
+                : false,
             rewind: true,
             drag: "free",
+
             autoplay: true,
             gap: "1rem",
             perPage: 5,
-            height: "28rem",
+            height: "22rem",
+            pauseOnHover: true,
             pagination: false,
             breakpoints: {
               1200: { arrows: true, perPage: 4 },
@@ -189,6 +194,7 @@ export default function Categories() {
                 </SplideSlide>
               ))}
         </Splide>
+
         {/* <Slider {...settings}>
           {activeTab === "All"
             ? randomIndex?.map((item) => <SingleCard item={item} />)

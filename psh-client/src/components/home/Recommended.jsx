@@ -18,7 +18,7 @@ const Recommended = () => {
     (property) => property?.isPublished === "Published"
   );
   return (
-    <div className="md:mt-28 sm:mt-2">
+    <div className="md:mt-5 sm:mt-2">
       <h2 className="text-3xl font-bold text-gray-900 mb-2">
         Our Best Recommend
       </h2>
@@ -28,13 +28,13 @@ const Recommended = () => {
           <Splide
             options={{
               // type: "loop",
-              arrows: true,
+              arrows: publishedData?.length > 5 ? true : false,
               rewind: true,
               drag: "free",
               autoplay: true,
               gap: "1rem",
               perPage: 5,
-              height: "26rem",
+              height: "22rem",
               pagination: false,
               breakpoints: {
                 1200: { arrows: true, perPage: 4 },

@@ -6,21 +6,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.banner-sm-slider button {
+/* .banner-sm-slider button {
   display: none !important;
-}
+} */
 .slick-slider button {
   /* display: none !important; */
   margin: 0 60px;
   z-index: 999;
 }
 
-/* .banner-slider button {
-  display: block !important;
-}
-.banner-slider .slick-next:before {
-  display: block;
-} */
 .single-card {
   font-family: "Poppins", sans-serif !important;
 }

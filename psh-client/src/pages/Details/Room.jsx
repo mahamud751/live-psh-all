@@ -173,7 +173,7 @@ const Room = () => {
                   {data?.photos ? (
                     <img
                       src={data?.photos[0]}
-                      className="rounded w-[100%] lg:h-[500px] md:h-[280px] sm:h-[230px]"
+                      className="rounded w-[100%] lg:h-[400px] md:h-[280px] sm:h-[230px]"
                       alt=""
                     />
                   ) : (
@@ -187,7 +187,7 @@ const Room = () => {
                         <img
                           src={photo}
                           alt=""
-                          className="rounded w-[100%] lg:h-[245px] md:h-[134px] sm:h-[110px]"
+                          className="rounded w-[100%] lg:h-[195px] md:h-[134px] sm:h-[110px]"
                         />
                       </div>
                     ))}
@@ -201,59 +201,61 @@ const Room = () => {
               <DetailsModal size={size} handleOpen={handleOpen} data={data} />
             </div>
 
-            <div className="mt-5 text-start">
-              <div className="md:flex text-[24px] gap-x-8 font-medium ">
-                <div>
-                  <a
-                    href="#keyDetails"
-                    onClick={anchorClickHandler}
-                    className="hover:text-black hover:border-b-2 border-[#35B0A7]"
-                  >
-                    Key Details
-                  </a>
-                </div>
-                <div className="sm:flex sm:gap-x-2 md:gap-x-6">
-                  {facality?.slice(0, 3).map((pd) => (
-                    <div key={pd?._id}>
-                      <span>
-                        <a
-                          href={`#${pd?.name}`}
-                          onClick={anchorClickHandler}
-                          className="hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[18px] md:text-[22px]"
-                        >
-                          {pd?.name}
-                        </a>
-                      </span>
-                    </div>
-                  ))}
-                </div>
+            <div className="mt-5 text-start ">
+              <div className="sticky md:top-[72px] sm:top-[72px] bg-white py-1">
+                <div className="md:flex text-[24px] gap-x-8 font-medium">
+                  <div>
+                    <a
+                      href="#keyDetails"
+                      onClick={anchorClickHandler}
+                      className="hover:text-black hover:border-b-2 border-[#35B0A7]"
+                    >
+                      Key Details
+                    </a>
+                  </div>
+                  <div className="sm:flex sm:gap-x-2 md:gap-x-6">
+                    {facality?.slice(0, 3).map((pd) => (
+                      <div key={pd?._id}>
+                        <span>
+                          <a
+                            href={`#${pd?.name}`}
+                            onClick={anchorClickHandler}
+                            className="hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[18px] md:text-[22px]"
+                          >
+                            {pd?.name}
+                          </a>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
 
-                {data?.category?.name === "Apartment" ? (
-                  <div>
-                    <a
-                      href="#priceDetails"
-                      onClick={anchorClickHandler}
-                      className="hover:text-black hover:border-b-2 border-[#35B0A7]"
-                    >
-                      Price Details
-                    </a>
-                  </div>
-                ) : (
-                  ""
-                )}
-                {data?.category?.name === "Apartment" ? (
-                  <div>
-                    <a
-                      href="#apartmentDetails"
-                      onClick={anchorClickHandler}
-                      className="hover:text-black hover:border-b-2 border-[#35B0A7]"
-                    >
-                      {data?.category?.name} Details
-                    </a>
-                  </div>
-                ) : (
-                  ""
-                )}
+                  {data?.category?.name === "Apartment" ? (
+                    <div>
+                      <a
+                        href="#priceDetails"
+                        onClick={anchorClickHandler}
+                        className="hover:text-black hover:border-b-2 border-[#35B0A7]"
+                      >
+                        Price Details
+                      </a>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  {data?.category?.name === "Apartment" ? (
+                    <div>
+                      <a
+                        href="#apartmentDetails"
+                        onClick={anchorClickHandler}
+                        className="hover:text-black hover:border-b-2 border-[#35B0A7]"
+                      >
+                        {data?.category?.name} Details
+                      </a>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
 
               <div className="grid grid-cols-12 lg:gap-x-5 gap-y-16 ">
@@ -809,7 +811,7 @@ const Room = () => {
                 </div>
                 {/* Total Box */}
 
-                <div className="flex flex-col items-start space-y-3 sm:col-span-12 md:col-span-4 lg:col-span-4 mt-2 pt-3">
+                <div className="flex flex-col items-start space-y-3 sm:col-span-12 md:col-span-4 lg:col-span-4 ">
                   {data.seats && data.seats.length > 0 ? (
                     <BookingSeatTotal
                       data={data}
@@ -826,24 +828,24 @@ const Room = () => {
                 </div>
               </div>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mt-20">
+            <h2 className="text-2xl font-bold text-gray-900 mt-5">
               Recommended Room
             </h2>
             {/* <Recommended /> */}
           </div>
         </div>
         <div>
-          <div className=" mb-20 mt-10 all_recommended">
+          <div className=" mb-5 mt-5 all_recommended">
             <Splide
               options={{
                 // type: "loop",
-                arrows: true,
+                arrows: publishedRecomended?.length > 5 ? true : false,
                 rewind: true,
                 drag: "free",
                 autoplay: true,
                 gap: "1rem",
                 perPage: 5,
-                height: "26rem",
+                height: "22rem",
                 pagination: false,
                 breakpoints: {
                   1200: { arrows: true, perPage: 4 },

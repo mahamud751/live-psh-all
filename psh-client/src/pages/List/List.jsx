@@ -15,6 +15,7 @@ import "./List.css";
 import ListFilter from "./ListFilter";
 import { BsArrowRight } from "react-icons/bs";
 import { useSelector } from "react-redux";
+import SingleCard from "../../components/home/SingleCard";
 
 function List({ type }) {
   const location = useLocation();
@@ -188,9 +189,9 @@ function List({ type }) {
   );
   return (
     <div className="custom-container">
-      <div className="mt-3 flex justify-between">
+      <div className=" mt-3 flex justify-between items-center">
         <p>{publishRandomProperty?.length} Results Found</p>
-        <p className="md:mr-[420px]">
+        <p className="md:mr-[420px] ">
           Search Number{" "}
           <select
             className="border border-black rounded ml-2"
@@ -211,10 +212,10 @@ function List({ type }) {
       <div className="mt-5">
         <div className="listFilterSm">
           <div
-            className="flex justify-center mb-4 fixed bottom-0 p-4  w-full filterZindex"
+            className="flex justify-center mb-4 fixed bottom-0 filterZindex"
             style={{ zIndex: 9999, width: "95%" }}
           >
-            <div className="filter" onClick={() => handleOpen("xxl")}>
+            <div className="filter py-2" onClick={() => handleOpen("xxl")}>
               <i className="fa-solid fa-filter mt-2"></i>
               <h6 className="ms-3"> Filter</h6>
             </div>
@@ -255,7 +256,12 @@ function List({ type }) {
               </div>
             </DialogHeader>
             <DialogBody divider>
-              <div className="flex flex-col items-start col-span-12  sm:col-span-12 right-side lg:col-span-4">
+              <div
+                className="flex flex-col items-start col-span-12  sm:col-span-12 right-side lg:col-span-4"
+                style={{
+                  backgroundColor: "white",
+                }}
+              >
                 <div className="filter_card w-full text-start p-5 filter_card_sm_height">
                   <ListFilter
                     handleFacilityFilterChange={handleFacilityFilterChange}
@@ -281,9 +287,13 @@ function List({ type }) {
               "Loading"
             ) : publishRandomProperty?.length > 0 ? (
               <>
-                {publishRandomProperty?.map((item) => (
-                  <HotelsList key={item._id} item={item} />
-                ))}
+                <div className="grid lg:grid-cols-3 md:grid-cols-3 lg:gap-x-5 md:gap-x-7 sm:grid-cols-1 mt-2 sm:gap-x-0 z-0">
+                  {publishRandomProperty?.map((item) => (
+                    <div className="sm:ms-6 lg:ms-0 md:ms-0">
+                      <SingleCard key={item._id} item={item} />
+                    </div>
+                  ))}
+                </div>
               </>
             ) : (
               <div className="d-flex justify-content-center text-bg-danger not_found">
@@ -296,7 +306,7 @@ function List({ type }) {
             )}
           </div>
           <div className="flex flex-col items-start col-span-12  sm:col-span-12 right-side lg:col-span-4">
-            <div className="filter_card w-full text-start p-5 listFilterLg">
+            <div className="filter_card w-full text-start px-5 mt-2 listFilterLg">
               <ListFilter
                 handleFacilityFilterChange={handleFacilityFilterChange}
                 handleCommonFacilityFilterChange={
@@ -317,12 +327,16 @@ function List({ type }) {
       <div className=" mt-10 flex justify-center items-center mb-10">
         <div className="bg-[#399] text-white rounded px-2 py-2">
           <div>
-            <button onClick={() => setPage(page - 1)} disabled={page === 1}>
-              Previous Page
+            <button
+              onClick={() => setPage(page - 1)}
+              disabled={page === 1}
+              className="text-sm"
+            >
+              Previous
             </button>
           </div>
         </div>
-        <div className="flex ml-2 mx-2">
+        <div className="flex ml-2 mx-2 text-sm">
           <p>Page</p>
           <select
             className="border border-black rounded ml-2"
@@ -340,12 +354,13 @@ function List({ type }) {
           </select>
           <p className="ml-2"> of {totalPages}</p>
         </div>
-        <div className="flex items-center bg-[#399] text-white rounded px-2 py-2">
+        <div className="flex items-center bg-[#399] text-white rounded px-5 py-2">
           <button
             onClick={() => setPage(page + 1)}
             disabled={page === totalPages}
+            className="text-sm"
           >
-            Next Page
+            Next
           </button>
         </div>
       </div>

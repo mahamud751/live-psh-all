@@ -349,13 +349,13 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
           borderRadius: "3px",
           backgroundColor: "white",
         }}
-        className="sticky md:top-24 w-full"
+        className="sticky md:top-20 w-full"
       >
         <div
           style={{
             backgroundColor: "#35B0A7",
             // width: "430px",
-            height: "55px",
+            height: "35px",
             borderRadius: "3px 3px 0px 0px",
           }}
         ></div>
@@ -396,7 +396,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                 onClick={() =>
                   dispatch(rightDate(addDays(new Date(startDate), 1)))
                 }
-                className={` px-11 cursor-pointer py-2 ${
+                className={` md:px-11 sm:px-3 cursor-pointer py-2 ${
                   customerRent.remainingDays < getLastDayOfMonth() &&
                   customerRent.years === undefined
                     ? "dmyActive "
@@ -411,7 +411,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                 onClick={() =>
                   dispatch(rightDate(addMonths(new Date(startDate), 1)))
                 }
-                className={` px-11 cursor-pointer py-2 ${
+                className={` md:px-11 sm:px-3 cursor-pointer py-2 ${
                   customerRent.remainingDays >= getLastDayOfMonth() &&
                   customerRent.years === undefined
                     ? "dmyActive "
@@ -428,7 +428,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                     ? dispatch(rightDate(addYears(new Date(endDate), 1)))
                     : ""
                 }
-                className={` px-11 cursor-pointer py-2 ${
+                className={` md:px-11 sm:px-3 cursor-pointer py-2 ${
                   customerRent.years >= 1 ? "dmyActive " : "text-black"
                 }`}
               >
@@ -486,7 +486,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center mt-5 ms-16">
+        <div className="flex justify-center mt-2 md:ms-16 sm:ms-0">
           <p className="font-bold">Duration = </p>
           <div>
             <input
@@ -512,14 +512,14 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
         </div>
 
         <form onSubmit={handlePromoCode}>
-          <div className="md:flex m-5 total-area relative ms-10">
+          <div className="md:flex m-2 total-area relative ms-10">
             <div>
               <input
                 className="sm:px-14 md:px-12"
                 type="text"
                 name="promoCode"
                 onChange={(e) => setPromoCode(e.target.value)}
-                style={{ height: "30px" }}
+                style={{ height: "30px", width: "100%" }}
                 placeholder="If You Pormo Code"
                 disabled={promoCodeCheck ? true : false}
                 required
@@ -563,8 +563,43 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                         }}
                         className="font-normal opacity-75 px-5 py-2 rounded"
                       >
-                        {customerRent?.remainingDays} X {data?.perDay} =
-                        {data?.perDay * customerRent?.remainingDays}
+                        {customerRent?.months === undefined &&
+                        customerRent?.years === undefined ? (
+                          <span>
+                            {customerRent?.remainingDays + " day"} X{" "}
+                            {data?.perDay} = {""}
+                            {data?.perDay * customerRent?.remainingDays + " Tk"}
+                          </span>
+                        ) : (
+                          ""
+                        )}
+
+                        {customerRent?.months >= 1 &&
+                        customerRent?.years === undefined ? (
+                          <span>
+                            {customerRent.months + " month"} = {""}
+                            {data?.perMonth * customerRent.months + " Tk"}
+                            {customerRent?.days > 0 ? (
+                              <span>
+                                + {customerRent?.days + " Days"} = {""}
+                                {data?.perDay * customerRent?.days + " Tk"}
+                              </span>
+                            ) : (
+                              ""
+                            )}
+                          </span>
+                        ) : (
+                          ""
+                        )}
+
+                        {customerRent?.years === 1 ? (
+                          <span>
+                            {customerRent?.years + " Year"} = {""}
+                            {data?.perYear * customerRent?.years + " Tk"}
+                          </span>
+                        ) : (
+                          ""
+                        )}
                       </Typography>
                     </div>
                   }
@@ -774,7 +809,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
             ""
           )}
 
-          <hr className="mt-3 ml-5 text-black" />
+          <hr className="mt-1 ml-5 text-black" />
           <div className="flex justify-between mt-2">
             <p className="ml-16">Total Amount</p>
             <p>BDT {totalRentAmount}</p>
@@ -887,7 +922,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
           </div>
         </div>
         <div
-          className={`bg-[#35B0A7] h-[55px] flex justify-center items-center mt-7 ${
+          className={`bg-[#35B0A7] h-[55px] flex justify-center items-center mt-2 ${
             data?.endDate === endDate ||
             data?.endDate > endDate ||
             data?.endDate > startDate

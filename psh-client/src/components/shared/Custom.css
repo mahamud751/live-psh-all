@@ -79,7 +79,7 @@
 .navbar_sticky {
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 9999;
 }
 
 @media screen and (max-width: 600px) {
@@ -94,7 +94,7 @@
     padding: 10px;
   }
 
-  .form>label {
+  .form > label {
     font-size: 14px !important;
   }
 

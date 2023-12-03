@@ -5,7 +5,7 @@ import forMobile2 from "../../assets/img/formobile2.png";
 import forMobile3 from "../../assets/img/formobile3.png";
 const Platform = () => {
   return (
-    <div className="md:mt-32 sm:mt-5">
+    <div className="md:mt-10 sm:mt-5">
       <h2 className="text-2xl font-bold">
         Why this platform better then others?
       </h2>

@@ -34,3 +34,8 @@
   width: 400px !important;
   height: 160px;
 }
+
+.sub-nav-sticky {
+  position: sticky !important;
+  top: 0 !important;
+}
