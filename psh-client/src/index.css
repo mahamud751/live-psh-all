@@ -139,6 +139,10 @@ button:focus-visible {
     padding: 0px;
   }
 
+  .slider_margin {
+    margin-left: -78px;
+  }
+
   .searchBox {
     display: none;
   }

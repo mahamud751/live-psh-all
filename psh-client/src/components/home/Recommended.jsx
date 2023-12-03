@@ -24,7 +24,7 @@ const Recommended = () => {
       </h2>
       <span className="text-[1rem]">Our best rooms available for you</span>
       {publishedData?.length > 0 ? (
-        <div className="all_recommended mt-4">
+        <div className="all_recommended mt-4 slider_margin">
           <Splide
             options={{
               // type: "loop",
@@ -39,7 +39,7 @@ const Recommended = () => {
               breakpoints: {
                 1200: { arrows: true, perPage: 4 },
                 800: { arrows: true, perPage: 2 },
-                640: { arrows: true, perPage: 1 },
+                640: { arrows: true, perPage: 1, padding: "5rem" },
               },
             }}
           >

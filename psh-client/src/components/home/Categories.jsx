@@ -152,7 +152,7 @@ export default function Categories() {
         {/* card start */}
       </div>
 
-      <div className="mt-3 all_recommended">
+      <div className="mt-3 all_recommended slider_margin">
         <Splide
           options={{
             // type: "loop",
@@ -178,6 +178,7 @@ export default function Categories() {
                 height: "22rem",
                 drag: "free",
                 rewind: true,
+                padding: "5rem",
               },
             },
           }}

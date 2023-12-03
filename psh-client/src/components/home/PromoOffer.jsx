@@ -14,14 +14,14 @@ const PromoOffer = () => {
           <div className="">
             <h2 className="text-2xl font-bold text-gray-900">Promo Offers</h2>
             <p className="mb-2">Our best Discount Offers for you</p>
-            <div className="all_recommended">
+            <div className="all_promo slider_margin">
               <Splide
                 options={{
                   // type: "loop",
                   arrows: data?.length > 3 ? true : false,
+                  arrows: true,
                   rewind: true,
                   drag: "free",
-
                   gap: "1rem",
                   perPage: 3,
                   height: "14rem",
@@ -29,7 +29,7 @@ const PromoOffer = () => {
                   breakpoints: {
                     1200: { arrows: true, perPage: 3 },
                     800: { arrows: true, perPage: 2 },
-                    640: { arrows: true, perPage: 1 },
+                    640: { arrows: true, perPage: 1, padding: "5rem" },
                   },
                 }}
               >

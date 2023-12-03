@@ -78,11 +78,6 @@ export default function Profile() {
       icon: <MdPayment style={{ width: "24px", height: "24px" }} />,
     },
 
-    // {
-    //   label: "Join Waiting List",
-    //   value: "waitingList",
-    //   icon: <FaRegHourglass style={{ width: "24px", height: "24px" }} />,
-    // },
     {
       label: "Wishlist",
       value: "wishlist",

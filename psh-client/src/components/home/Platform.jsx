@@ -10,8 +10,8 @@ const Platform = () => {
         Why this platform better then others?
       </h2>
       <div className="grid grid-cols-12 md:gap-x-8 sm:gap-x-0 md:gap-y-16 sm:gap-y-8 mt-5">
-        <div className=" space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6 ">
-          <Card className="max-w-[18rem] overflow-hidden">
+        <div className=" space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6">
+          <Card className="overflow-hidden">
             <CardHeader
               floated={false}
               shadow={false}
@@ -34,7 +34,7 @@ const Platform = () => {
           </Card>
         </div>
         <div className=" space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6 ">
-          <Card className="max-w-[18rem] overflow-hidden">
+          <Card className="overflow-hidden">
             <CardHeader
               floated={false}
               shadow={false}
@@ -58,7 +58,7 @@ const Platform = () => {
           </Card>
         </div>
         <div className=" space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6">
-          <Card className="max-w-[18rem] overflow-hidden">
+          <Card className="overflow-hidden">
             <CardHeader
               floated={false}
               shadow={false}
@@ -82,7 +82,7 @@ const Platform = () => {
           </Card>
         </div>
         <div className="space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6">
-          <Card className="max-w-[18rem] overflow-hidden">
+          <Card className="overflow-hidden">
             <CardHeader
               floated={false}
               shadow={false}

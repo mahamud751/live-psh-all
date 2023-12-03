@@ -61,7 +61,7 @@ const LoginModal = ({ handleOpen, size, isLoginModalOpen }) => {
               <>
                 <div className="flex justify-around">
                   <div>
-                    <h2 className="text-[36px] font-[600]">Login</h2>
+                    <h2 className="text-[26px] font-[600]">Login</h2>
                     <p className="my-2">
                       Welcome Back To{" "}
                       {/* <span className="font-bold">Project Second Home</span> */}
@@ -71,7 +71,7 @@ const LoginModal = ({ handleOpen, size, isLoginModalOpen }) => {
                     <img
                       src={"https://i.ibb.co/RNJjy5X/Layer-1.png"}
                       alt="pharmacy"
-                      className="img-fluid sm:w-[70px] md:w-[70px]"
+                      className="img-fluid sm:w-[50px] md:w-[70px]"
                     />
                   </Link>
                 </div>
@@ -209,7 +209,7 @@ const LoginModal = ({ handleOpen, size, isLoginModalOpen }) => {
                 <div>
                   <div className="flex justify-around">
                     <div>
-                      <h2 className="text-[36px] font-[600]">Login</h2>
+                      <h2 className="text-[26px] font-[600]">Login</h2>
                       <p className="my-2">
                         Welcome Back To{" "}
                         {/* <span className="font-bold">Project Second Home</span> */}
@@ -219,7 +219,7 @@ const LoginModal = ({ handleOpen, size, isLoginModalOpen }) => {
                       <img
                         src={"https://i.ibb.co/RNJjy5X/Layer-1.png"}
                         alt="pharmacy"
-                        className="img-fluid sm:w-[70px] md:w-[70px]"
+                        className="img-fluid sm:w-[50px] md:w-[70px]"
                       />
                     </Link>
                   </div>
