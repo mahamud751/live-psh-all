@@ -175,7 +175,7 @@ const Admin_property_list = (props) => {
           <>
             {" "}
             <div className="d-flex justify-content-center">
-              {/* <div>
+              <div>
                 <button
                   type="button"
                   className="bg-white"
@@ -190,9 +190,9 @@ const Admin_property_list = (props) => {
 
               <div>
                 <PropertyUpdate2 data={row} />
-              </div> */}
+              </div>
 
-              <div>
+              {/* <div>
                 <img
                   src={img3}
                   alt=""
@@ -215,7 +215,7 @@ const Admin_property_list = (props) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div>
                 <button
                   type="button"

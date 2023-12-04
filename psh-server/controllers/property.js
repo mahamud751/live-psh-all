@@ -326,155 +326,62 @@ export const updatePropertys = async (req, res, next) => {
     }
     // Find the property by ID
     const property = await Property.findById(propertyId);
-    if (!property) {
-      return res.status(404).json({ error: "Property not found" });
-    }
-
-    const {
-      name,
-      city,
-      availble,
-      desc,
-      roomNumber,
-      fulldesc,
-      rating,
-      perDay,
-      perMonth,
-      perYear,
-      bedroom,
-      bathroom,
-      car,
-      recommended,
-      bike,
-      pet,
-      categoryId,
-      furnitured,
-      branchId,
-      facility,
-      floor,
-      builtYear,
-      area,
-      totalRoom,
-      photos,
-      meal,
-      bedType,
-      type,
-      CCTV,
-      WiFi,
-      balcony,
-      totalPerson,
-      rules,
-      //apartment
-      roomCategory,
-      additionalFacility,
-      apartmentRent,
-      serviceCharge,
-      security,
-      faltPolicy,
-      seats,
-    } = req.body;
-
-    // // Check if the category ID has changed
-    // if (categoryId !== String(property.category)) {
-    //   // Find the new category
-    //   const newCategory = await Category.findById(categoryId);
-    //   if (!newCategory) {
-    //     return res.status(404).json({ error: "New category not found" });
-    //   }
-
-    //   // Find the previous category
-    //   const previousCategory = await Category.findById(property.category);
-    //   if (!previousCategory) {
-    //     return res.status(404).json({ error: "Previous category not found" });
-    //   }
-
-    //   // Remove the property from the previous category's property array
-    //   previousCategory.property.pull(propertyId);
-    //   await previousCategory.save();
-
-    //   // Assign the property to the new category
-    //   property.category = newCategory._id;
-
-    //   // Add the property to the new category's property array
-    //   newCategory.property.push(propertyId);
-    //   await newCategory.save();
-    // }
-
-    // // Check if the branch ID has changed
-    // if (branchId !== String(property.branch)) {
-    //   // Find the new branch
-    //   const newBranch = await Branch.findById(branchId);
-    //   if (!newBranch) {
-    //     return res.status(404).json({ error: "New branch not found" });
-    //   }
-
-    //   // Find the previous branch
-    //   const previousBranch = await Branch.findById(property.branch);
-    //   if (!previousBranch) {
-    //     return res.status(404).json({ error: "Previous branch not found" });
-    //   }
-
-    //   // Remove the property from the previous branch's property array
-    //   previousBranch.property.pull(propertyId);
-    //   await previousBranch.save();
-
-    //   // Assign the property to the new branch
-    //   property.branch = newBranch._id;
-
-    //   // Add the property to the new branch's property array
-    //   newBranch.property.push(propertyId);
-    //   await newBranch.save();
+    // if (!property) {
+    //   return res.status(404).json({ error: "Property not found" });
     // }
 
     // Update the property fields
-    property.name = name;
-    property.city = city;
-    property.availble = availble;
-    property.desc = desc;
-    property.roomNumber = roomNumber;
-    property.fulldesc = fulldesc;
-    property.type = type;
-    property.rating = rating;
-    property.perDay = perDay;
-    property.recommended = recommended;
-    property.furnitured = furnitured;
-    property.perMonth = perMonth;
-    property.perYear = perYear;
-    property.bedroom = bedroom;
-    property.bathroom = bathroom;
-    property.car = car;
-    property.photos = photos;
-    property.bike = bike;
-    property.pet = pet;
-    property.facility = facility;
-    property.floor = floor;
-    property.builtYear = builtYear;
-    property.area = area;
-    // property?.bedType = bedType;
-    property.totalRoom = totalRoom;
-    property.totalPerson = totalPerson;
-    property.CCTV = CCTV;
-    property.WiFi = WiFi;
-    property.balcony = balcony;
-    // property.gas = gas;
-    // property.ccTv = ccTv;
-    // property.generator = generator;
-    // property.parking = parking;
-    property.seats = seats;
 
-    // property.occupanct = occupanct;
-    property.meal = meal;
-    property.rules = rules;
-    property.roomCategory = roomCategory;
-    property.additionalFacility = additionalFacility;
-    property.apartmentRent = apartmentRent;
-    property.serviceCharge = serviceCharge;
-    property.security = security;
-    property.faltPolicy = faltPolicy;
-    // Save the updated property
-    await property.save();
+    const updateData = {
+      name: req.body.name,
+      city: req.body.city,
+      floor: req.body.floor,
+      roomNumber: req.body.roomNumber,
+      builtYear: req.body.builtYear,
+      area: req.body.area,
+      totalRoom: req.body.totalRoom,
+      desc: req.body.desc,
+      fulldesc: req.body.fulldesc,
+      perDay: req.body.perDay,
+      perMonth: req.body.perMonth,
+      perYear: req.body.perYear,
+      bedroom: req.body.bedroom,
+      bathroom: req.body.bathroom,
+      car: req.body.car,
+      bike: req.body.bike,
+      pet: req.body.pet,
+      categoryId: req.body.categoryId,
+      recommended: req.body.recommended,
+      furnitured: req.body.furnitured,
+      branchId: req.body.branchId,
+      facility: req.body.facility,
+      commonfacility: req.body.commonfacility,
+      photos: req.body.photos,
+      meal: req.body.meal,
+      bedType: req.body.bedType,
+      CCTV: req.body.CCTV,
+      WiFi: req.body.WiFi,
+      balcony: req.body.balcony,
+      totalPerson: req.body.totalPerson,
+      rentDate: property?.rentDate,
+      type: req.body.type,
+      rules: req.body.rules,
+      roomCategory: req.body.roomCategory,
+      additionalFacility: req.body.additionalFacility,
+      apartmentRent: req.body.apartmentRent,
+      serviceCharge: req.body.serviceCharge,
+      security: req.body.security,
+      faltPolicy: req.body.faltPolicy,
+      seats: req.body.seats,
+      isPublished: req.body.isPublished,
+    };
 
-    res.status(200).json(property);
+    const result = await Property.updateOne(
+      { _id: propertyId },
+      { $set: updateData },
+      { runValidators: true }
+    );
+    res.status(200).json(result);
   } catch (err) {
     next(err);
   }

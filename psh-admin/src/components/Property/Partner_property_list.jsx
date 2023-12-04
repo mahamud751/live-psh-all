@@ -16,6 +16,9 @@ import { AuthContext } from "../../contexts/UserProvider";
 import { BiSolidEdit } from "react-icons/bi";
 import PropertyStatusUpdate from "../../pages/edit/PropertyStatusUpdate";
 import { useQuery } from "react-query";
+import { AiOutlineEye } from "react-icons/ai";
+import PropertyDetails from "./PropertyDetails";
+import PropertyUpdate2 from "../../pages/edit/PropertyUpdate2";
 
 const Partner_property_list = (props) => {
   const MySwal = withReactContent(Swal);
@@ -182,34 +185,44 @@ const Partner_property_list = (props) => {
           <>
             {" "}
             <div className="d-flex justify-content-center">
-              <img
-                src={img3}
-                alt=""
-                data-toggle="modal"
-                data-target={`#loginModal${row._id}`}
-              />
-              <img
+              <div>
+                <button
+                  type="button"
+                  className="bg-white"
+                  data-bs-toggle="modal"
+                  data-bs-target={`#propertyUpdate${row._id}`}
+                >
+                  <span>
+                    <BiSolidEdit style={{ width: "24px", height: "24px" }} />
+                  </span>
+                </button>
+              </div>
+
+              <div>
+                <PropertyUpdate2 data={row} />
+              </div>
+
+              <div>
+                <button
+                  type="button"
+                  className="bg-white"
+                  data-bs-toggle="modal"
+                  data-bs-target={`#propertyDetails${row._id}`}
+                >
+                  <span>
+                    <AiOutlineEye style={{ width: "30px", height: "30px" }} />
+                  </span>
+                </button>
+
+                {/* Modal Order Details */}
+                <PropertyDetails data={row} />
+              </div>
+              {/* <img
                 src={img}
                 alt=""
                 className="ms-3"
                 onClick={() => handleCategory(row._id)}
-              />
-            </div>
-            <div
-              className="modal fade"
-              id={`loginModal${row._id}`}
-              tabIndex="{-1}"
-              role="dialog"
-              aria-labelledby="loginModal"
-              aria-hidden="true"
-            >
-              <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content" style={{ width: 700 }}>
-                  <div className="modal-body">
-                    <Property data={row} />
-                  </div>
-                </div>
-              </div>
+              /> */}
             </div>
           </>
         );

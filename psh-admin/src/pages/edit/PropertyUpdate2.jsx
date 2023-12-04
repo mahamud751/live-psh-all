@@ -101,7 +101,7 @@ const PropertyUpdate2 = ({ data }) => {
         perMonth: "",
         perYear: "",
         photos: [],
-        isSeatPublished: "",
+        isSeatPublished: "Published",
       },
     ]);
   };
@@ -250,8 +250,11 @@ const PropertyUpdate2 = ({ data }) => {
         return MySwal.fire("Sorry ! Minimum 5 Photo Required.", "warning");
       }
 
-      // await axios.post("https://api.psh.com.bd/api/property", product);
-      // MySwal.fire("Good job!", "successfully added", "success");
+      await axios.put(
+        `http://localhost:8000/api/property/${data?._id}`,
+        product
+      );
+      MySwal.fire("successfully Update", "success");
       // formRef.current.reset();
     } catch (err) {
       console.log(err);
@@ -889,27 +892,6 @@ const PropertyUpdate2 = ({ data }) => {
                                   <option value="Single Bed">Single Bed</option>
                                 </select>
                               </div>
-                              <div className="col-md-3 form_sub_stream">
-                                <label className="profile_label3">Status</label>
-
-                                <select
-                                  name="WiFi"
-                                  id="furnitured"
-                                  className="main_form w-100"
-                                  required
-                                  // value={option.seatType}
-                                  onChange={(e) => {
-                                    const updatedOptions = [...seatOptions];
-                                    updatedOptions[index].isSeatPublished =
-                                      e.target.value;
-                                    setSeatOptions(updatedOptions);
-                                  }}
-                                  defaultValue={option?.isSeatPublished}
-                                >
-                                  <option value="Upper Bed">Published</option>
-                                  <option value="Lower Bed">Unpublished</option>
-                                </select>
-                              </div>
 
                               <div className="col-md-3 form_sub_stream">
                                 <label className="profile_label3">
@@ -1005,10 +987,34 @@ const PropertyUpdate2 = ({ data }) => {
                                     )
                                   }
                                   multiple
-                                  // required
+                                  required={
+                                    option?.photos?.length > 0 ? false : true
+                                  }
                                 />
                               </div>
+                              <div className="col-md-3 form_sub_stream">
+                                <label className="profile_label3">Status</label>
 
+                                <select
+                                  name="WiFi"
+                                  id="furnitured"
+                                  className="main_form w-100"
+                                  required
+                                  // value={option.seatType}
+                                  onChange={(e) => {
+                                    const updatedOptions = [...seatOptions];
+                                    updatedOptions[index].isSeatPublished =
+                                      e.target.value;
+                                    setSeatOptions(updatedOptions);
+                                  }}
+                                  defaultValue={option?.isSeatPublished}
+                                >
+                                  <option value="Published">Published</option>
+                                  <option value="Unpublished">
+                                    Unpublished
+                                  </option>
+                                </select>
+                              </div>
                               <div
                                 className="col-md-2 form_sub_stream"
                                 style={{ marginTop: 50 }}
