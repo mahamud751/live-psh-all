@@ -19,22 +19,23 @@ const AllBranch = () => {
             <h2 className="text-2xl font-bold ">
               Looking For Best Place To Stay{" "}
             </h2>
-            <h6 className="mb-10 mt-2">Our available Branches for your stay</h6>
-            <div className="all_recommended ">
+            <h6 className="mt-2">Our available Branches for your stay</h6>
+            <div className="all_recommended mt-4 slider_margin">
               <Splide
                 options={{
                   // type: "loop",
                   arrows: data?.length > 8 ? true : false,
                   rewind: true,
                   drag: "free",
-                  perPage: 8,
+                  autoplay: true,
                   gap: "1rem",
-                  height: "10rem",
+                  perPage: 5,
+                  height: "16rem",
                   pagination: false,
                   breakpoints: {
-                    1200: { arrows: true, perPage: 8 },
-                    800: { arrows: true, perPage: 4 },
-                    640: { arrows: true, perPage: 2 },
+                    1200: { arrows: true, perPage: 5 },
+                    800: { arrows: true, perPage: 2 },
+                    640: { arrows: true, perPage: 1, padding: "5rem" },
                   },
                 }}
               >
@@ -44,7 +45,7 @@ const AllBranch = () => {
                       <Link to={`/branch/${item._id}`}>
                         <Card
                           shadow={false}
-                          className="relative grid h-[10rem] max-w-[10rem] items-end justify-center overflow-hidden text-center"
+                          className="relative grid h-[14rem] items-end justify-center overflow-hidden text-center"
                         >
                           <CardHeader
                             floated={false}
