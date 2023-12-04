@@ -21,6 +21,7 @@ import PropertyDetails from "./PropertyDetails";
 import PropertyStatusUpdate from "../../pages/edit/PropertyStatusUpdate";
 import { useQuery } from "react-query";
 import PropertyUpdate2 from "../../pages/edit/PropertyUpdate2";
+import { ToastContainer } from "react-bootstrap";
 
 const Admin_property_list = (props) => {
   const MySwal = withReactContent(Swal);
@@ -342,6 +343,10 @@ const Admin_property_list = (props) => {
                           data={data}
                           pagination={pagination}
                           {...props.baseProps}
+                        />
+                        <ToastContainer
+                          className="toast-position"
+                          position="top-center"
                         />
                       </React.Fragment>
                     )}

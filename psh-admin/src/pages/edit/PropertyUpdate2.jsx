@@ -7,6 +7,7 @@ import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 import { useRef } from "react";
+import { toast } from "react-toastify";
 
 const PropertyUpdate2 = ({ data }) => {
   const { user } = useContext(AuthContext);
@@ -24,22 +25,11 @@ const PropertyUpdate2 = ({ data }) => {
   // Update seatOptions whenever categoryName changes
   useEffect(() => {
     if (categoryName === "Shared Room") {
-      setSeatOptions([
-        {
-          name: "",
-          description: "",
-          seatNumber: "",
-          seatType: "",
-          perDay: "",
-          perMonth: "",
-          perYear: "",
-          photos: [],
-        },
-      ]);
+      setSeatOptions([...data?.seats]);
     } else {
       setSeatOptions([]);
     }
-  }, [categoryName]);
+  }, [categoryName, data?.seats]);
 
   // console.log("seatOptions", seatOptions);
   const formRef = useRef(null);
@@ -111,12 +101,15 @@ const PropertyUpdate2 = ({ data }) => {
         perMonth: "",
         perYear: "",
         photos: [],
+        isSeatPublished: "",
       },
     ]);
   };
-  const handleSeatPhotosChange = (e, index) => {
+  const handleSeatPhotosChange = (e, index, seatPhoto) => {
     const updatedOptions = [...seatOptions];
-    updatedOptions[index].photos = e.target.files;
+
+    updatedOptions[index].photos =
+      e.target.files === "" ? seatPhoto : e.target.files;
     setSeatOptions(updatedOptions);
   };
 
@@ -124,6 +117,9 @@ const PropertyUpdate2 = ({ data }) => {
     if (seatOptions.length === 1) {
       MySwal.fire("You must need to select one seat.", "warning");
       return;
+    }
+    if (data?.seats?.find((seat, indx) => indx === index)) {
+      return MySwal.fire("Sorry ! This Seat Not Remove.", "warning");
     }
     const updatedOptions = seatOptions.filter((_, idx) => idx !== index);
     setSeatOptions(updatedOptions);
@@ -156,7 +152,8 @@ const PropertyUpdate2 = ({ data }) => {
         option.perDay &&
         option.perMonth &&
         option.photos &&
-        option.perYear
+        option.perYear &&
+        option.isSeatPublished
     );
 
     const data2 = {
@@ -242,13 +239,17 @@ const PropertyUpdate2 = ({ data }) => {
 
       const product = {
         ...data2,
-        photos: list,
+        photos: list?.length > 0 ? list : data?.photos,
         seats: seatOptions?.map((option, index) => ({
           ...option,
           photos: seatPhotoList[index],
         })),
       };
-      console.log(product);
+
+      if (product?.photos?.length < 5) {
+        return MySwal.fire("Sorry ! Minimum 5 Photo Required.", "warning");
+      }
+
       // await axios.post("https://api.psh.com.bd/api/property", product);
       // MySwal.fire("Good job!", "successfully added", "success");
       // formRef.current.reset();
@@ -497,7 +498,11 @@ const PropertyUpdate2 = ({ data }) => {
                         >
                           <option value="Bunk Bed">Bunk Bed</option>
                           <option value="Single Bed">Single Bed</option>
-                          <option value="Double Bed">Double Bed</option>
+                          <option value="Queen Size Bed">Queen Size Bed</option>
+                          <option value="King Size Bed">King Size Bed</option>
+                          <option value="Semi-Double Bed">
+                            Semi-Double Bed
+                          </option>
                           <option value="Bunk Bed & Single Bed">
                             Bunk Bed & Single Bed
                           </option>
@@ -808,17 +813,15 @@ const PropertyUpdate2 = ({ data }) => {
                       <h2 className="profile_label3 profile_bg">
                         Seat Details
                       </h2>
-                      {data?.seats?.map((seat, index) => (
-                        <div key={seat._id} className="row card_div p-4">
-                          {seatOptions.map((option, index) => (
-                            <>
+
+                      <div className=" card_div p-4">
+                        {seatOptions.map((option, index) => (
+                          <>
+                            <div className="row">
                               <h2 className="profile_label3 profile_bg">
                                 Seat
                               </h2>
-                              <div
-                                className="col-md-6 form_sub_stream"
-                                key={index}
-                              >
+                              <div className="col-md-6 form_sub_stream">
                                 <label className="profile_label3">
                                   Seat Name
                                 </label>
@@ -829,11 +832,12 @@ const PropertyUpdate2 = ({ data }) => {
                                   onChange={(e) => {
                                     const updatedOptions = [...seatOptions];
                                     updatedOptions[index].name = e.target.value;
+
                                     setSeatOptions(updatedOptions);
                                   }}
                                   placeholder="Seat Name"
                                   required
-                                  defaultValue={seat?.name}
+                                  defaultValue={option?.name}
                                 />
                               </div>
 
@@ -853,7 +857,7 @@ const PropertyUpdate2 = ({ data }) => {
                                   }}
                                   placeholder="Seat Number"
                                   required
-                                  defaultValue={seat?.seatNumber}
+                                  defaultValue={option?.seatNumber}
                                 />
                               </div>
                               <div className="col-md-3 form_sub_stream">
@@ -878,11 +882,32 @@ const PropertyUpdate2 = ({ data }) => {
                                       e.target.value;
                                     setSeatOptions(updatedOptions);
                                   }}
-                                  defaultValue={seat?.seatType}
+                                  defaultValue={option?.seatType}
                                 >
                                   <option value="Upper Bed">Upper Bed</option>
                                   <option value="Lower Bed">Lower Bed</option>
                                   <option value="Single Bed">Single Bed</option>
+                                </select>
+                              </div>
+                              <div className="col-md-3 form_sub_stream">
+                                <label className="profile_label3">Status</label>
+
+                                <select
+                                  name="WiFi"
+                                  id="furnitured"
+                                  className="main_form w-100"
+                                  required
+                                  // value={option.seatType}
+                                  onChange={(e) => {
+                                    const updatedOptions = [...seatOptions];
+                                    updatedOptions[index].isSeatPublished =
+                                      e.target.value;
+                                    setSeatOptions(updatedOptions);
+                                  }}
+                                  defaultValue={option?.isSeatPublished}
+                                >
+                                  <option value="Upper Bed">Published</option>
+                                  <option value="Lower Bed">Unpublished</option>
                                 </select>
                               </div>
 
@@ -900,7 +925,7 @@ const PropertyUpdate2 = ({ data }) => {
                                       e.target.value;
                                     setSeatOptions(updatedOptions);
                                   }}
-                                  defaultValue={seat?.perDay}
+                                  defaultValue={option?.perDay}
                                   placeholder="Per Day Price"
                                   required
                                 />
@@ -919,7 +944,7 @@ const PropertyUpdate2 = ({ data }) => {
                                       e.target.value;
                                     setSeatOptions(updatedOptions);
                                   }}
-                                  defaultValue={seat?.perMonth}
+                                  defaultValue={option?.perMonth}
                                   placeholder="Per Month Price"
                                   required
                                 />
@@ -938,7 +963,7 @@ const PropertyUpdate2 = ({ data }) => {
                                       e.target.value;
                                     setSeatOptions(updatedOptions);
                                   }}
-                                  defaultValue={seat?.perYear}
+                                  defaultValue={option?.perYear}
                                   placeholder="Per Year Price"
                                   required
                                 />
@@ -973,10 +998,14 @@ const PropertyUpdate2 = ({ data }) => {
                                   className="main_form w-100 p-0"
                                   name={`seatPhotos-${index}`}
                                   onChange={(e) =>
-                                    handleSeatPhotosChange(e, index)
+                                    handleSeatPhotosChange(
+                                      e,
+                                      index,
+                                      option?.photos
+                                    )
                                   }
                                   multiple
-                                  required
+                                  // required
                                 />
                               </div>
 
@@ -993,10 +1022,10 @@ const PropertyUpdate2 = ({ data }) => {
                                   onClick={() => handleRemoveSeatOption(index)}
                                 ></i>
                               </div>
-                            </>
-                          ))}
-                        </div>
-                      ))}
+                            </div>
+                          </>
+                        ))}
+                      </div>
                     </>
                   )}
 
@@ -1161,7 +1190,7 @@ const PropertyUpdate2 = ({ data }) => {
                       name="photos"
                       onChange={(e) => setFiles(e.target.files)}
                       multiple
-                      required
+                      // required
                     />
                   </div>
                 </div>
@@ -1173,7 +1202,7 @@ const PropertyUpdate2 = ({ data }) => {
                     style={{ width: 175 }}
                     onSubmit={handleSubmit}
                   >
-                    Add Property
+                    Update Property
                   </button>
                 </div>
               </form>

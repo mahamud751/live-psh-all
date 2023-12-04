@@ -36,6 +36,11 @@ const SeatSchema = new mongoose.Schema({
     type: [String],
   },
   rentDate: [rentDateSchema],
+  isSeatPublished: {
+    type: String,
+    enum: ["Unpublished", "Published"],
+    default: "Published",
+  },
 });
 
 const PropertySchema = new mongoose.Schema(

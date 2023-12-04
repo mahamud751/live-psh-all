@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import UseFetch from "../../hooks/useFetch";
 
 const PropertyDetails = ({ show, setShow, data }) => {
-  console.log(data);
   const { data3, loading3, error3, refetch3 } = UseFetch("facilityCategory");
   const formattedDate = new Date(data?.createdAt).toLocaleString();
   return (

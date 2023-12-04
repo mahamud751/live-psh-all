@@ -256,6 +256,10 @@ const Add_property = () => {
         })),
       };
 
+      if (product?.photos?.length < 5) {
+        return MySwal.fire("Sorry ! Minimum 5 Photo Required.", "warning");
+      }
+
       await axios.post("https://api.psh.com.bd/api/property", product);
       MySwal.fire("Good job!", "successfully added", "success");
       formRef.current.reset();
@@ -475,7 +479,9 @@ const Add_property = () => {
                     >
                       <option value="Bunk Bed">Bunk Bed</option>
                       <option value="Single Bed">Single Bed</option>
-                      <option value="Double Bed">Double Bed</option>
+                      <option value="Queen Size Bed">Queen Size Bed</option>
+                      <option value="King Size Bed">King Size Bed</option>
+                      <option value="Semi-Double Bed">Semi-Double Bed</option>
                       <option value="Bunk Bed & Single Bed">
                         Bunk Bed & Single Bed
                       </option>
