@@ -251,7 +251,7 @@ const PropertyUpdate2 = ({ data }) => {
       }
 
       await axios.put(
-        `http://localhost:8000/api/property/${data?._id}`,
+        `https://api.psh.com.bd/api/property/${data?._id}`,
         product
       );
       MySwal.fire("successfully Update", "success");
