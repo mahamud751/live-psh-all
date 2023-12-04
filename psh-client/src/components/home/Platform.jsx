@@ -1,4 +1,5 @@
 import React from "react";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 import forMobile1 from "../../assets/img/formobile1.png";
 import forMobile2 from "../../assets/img/formobile2.png";
@@ -9,9 +10,30 @@ const Platform = () => {
       <h2 className="text-2xl font-bold">
         Why this platform better then others?
       </h2>
-      <div className="grid grid-cols-12 md:gap-x-8 sm:gap-x-0 md:gap-y-16 sm:gap-y-8 mt-5">
-        <div className=" space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6">
-          <Card className="overflow-hidden">
+      <div className="all_promo slider_margin">
+              <Splide
+                options={{
+                  // type: "loop",
+                  // arrows: data?.length > 3 ? true : false,
+                  arrows: false,
+                  rewind: true,
+                  drag: "free",
+                  gap: "1rem",
+                  perPage: 4,
+                  height: "24rem",
+                  pagination: false,
+                  breakpoints: {
+                    1200: { arrows: true, perPage: 4},
+                    800: { arrows: true, perPage: 2 },
+                    640: { arrows: true, perPage: 1, padding: "5rem" },
+                  },
+                }}
+              >
+              
+                  <SplideSlide>
+                    <div  className="group relative">
+                     
+                    <Card className="overflow-hidden">
             <CardHeader
               floated={false}
               shadow={false}
@@ -32,9 +54,12 @@ const Platform = () => {
               </p>
             </CardBody>
           </Card>
-        </div>
-        <div className=" space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6 ">
-          <Card className="overflow-hidden">
+                     
+                    </div>
+                  </SplideSlide>
+                  <SplideSlide>
+                    <div  className="group relative">
+                    <Card className="overflow-hidden">
             <CardHeader
               floated={false}
               shadow={false}
@@ -56,9 +81,15 @@ const Platform = () => {
               </p>
             </CardBody>
           </Card>
-        </div>
-        <div className=" space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6">
-          <Card className="overflow-hidden">
+                 
+                     
+                    </div>
+                  </SplideSlide>
+                 
+                  <SplideSlide>
+                    <div  className="group relative">
+                   
+                    <Card className="overflow-hidden">
             <CardHeader
               floated={false}
               shadow={false}
@@ -80,9 +111,13 @@ const Platform = () => {
               </p>
             </CardBody>
           </Card>
-        </div>
-        <div className="space-y-3 sm:col-span-12 lg:col-span-3 md:col-span-6">
-          <Card className="overflow-hidden">
+                     
+                    </div>
+                  </SplideSlide>
+                  <SplideSlide>
+                    <div  className="group relative">
+                   
+                    <Card className="overflow-hidden">
             <CardHeader
               floated={false}
               shadow={false}
@@ -104,8 +139,12 @@ const Platform = () => {
               </p>
             </CardBody>
           </Card>
-        </div>
-      </div>
+                     
+                    </div>
+                  </SplideSlide>
+              </Splide>
+            </div>
+    
       {/* For Desktop */}
       <div className="mt-12 sm:hidden md:block">
         <div className="grid grid-cols-12 gap-x-8 gap-y-16">
