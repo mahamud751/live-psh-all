@@ -129,6 +129,27 @@ const Property_list = (props) => {
       text: "Per Month",
     },
     {
+      text: "Status",
+      formatter: (cellContent, row) => {
+        return (
+          <>
+            <div className=" d-flex ">
+              <div>
+                <p
+                  className="fw-bold"
+                  style={{
+                    color: row?.isPublished === "Published" ? "#27b3b1" : "red",
+                  }}
+                >
+                  {row?.isPublished}
+                </p>
+              </div>
+            </div>
+          </>
+        );
+      },
+    },
+    {
       text: "Action",
       formatter: (cellContent, row) => {
         return (
