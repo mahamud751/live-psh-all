@@ -4,7 +4,7 @@ import healthyMealIcon from "../../assets/img/healthy-meal.png";
 import security24 from "../../assets/img/security-24.svg";
 const Facility = () => {
   return (
-    <div style={{ background: "rgba(245, 245, 245, 1)" }} className="py-[63px]">
+    <div style={{ background: "rgba(245, 245, 245, 1)" }} className="py-[20px]">
       <div className="custom-container">
         <div className=" md:px-0 sm:px-6 ">
           <div className=" lg:py-2">
