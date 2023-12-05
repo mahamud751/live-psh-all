@@ -189,7 +189,7 @@ const Footer = () => {
                     </ul>
                   </div>
                 </li>
-                <li className="w-1/1 md:w-1/6 lg:w-1/6">
+                <li className="w-full md:w-1/6 lg:w-1/6">
                   <div className="text-start">
                     <h2
                       className=" dark:text-gray-200 text-md uppercase mb-4"
