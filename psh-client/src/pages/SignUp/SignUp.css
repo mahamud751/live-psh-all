@@ -44,12 +44,12 @@
   padding: 7px;
 }
 
-.form>label {
+.form > label {
   color: black;
   font-size: 22px;
 }
 
-.form>input {
+.form > input {
   padding: 20px;
   border-radius: 10px;
   outline: none;
@@ -57,7 +57,7 @@
   /* border: 1px solid #e2464c; */
   box-shadow: 0px 2px 6px 0px rgba(19, 18, 66, 0.07);
   color: black;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 /* */
@@ -68,7 +68,7 @@
   gap: 4rem;
 }
 
-.Auth>div {
+.Auth > div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,12 +79,12 @@
   gap: 2rem;
 }
 
-.left>img {
+.left > img {
   width: 4rem;
   height: 4rem;
 }
 
-.Webname>h1 {
+.Webname > h1 {
   font-size: 3rem;
   background-color: red;
 
@@ -99,7 +99,7 @@
   -moz-text-fill-color: transparent;
 }
 
-.Webname>h6 {
+.Webname > h6 {
   font-size: 0.85rem;
 }
 
@@ -117,8 +117,25 @@
   width: 100%;
   height: 40px;
 }
+.loginInputModal {
+  outline: none;
+  /* background-color: var(--inputColor); */
+  border-radius: 8px;
+  /* padding: 20px; */
+  /* flex: 1; */
 
-.infoForm>div {
+  border: 1px solid rgb(69, 69, 69);
+  width: 100%;
+  height: 40px;
+}
+
+.label-text {
+  font-size: 1rem !important;
+}
+.custom_modal_width {
+  max-width: 100px !important;
+}
+.infoForm > div {
   gap: 1rem;
 
   width: 90%;
@@ -137,7 +154,7 @@
   padding: 1rem;
 }
 
-.authForm>div {
+.authForm > div {
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -146,12 +163,10 @@
 .card_signup {
   background: rgba(255, 255, 255, 1);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 30px
+  border-radius: 30px;
 }
 
 /*----------------------------------------------------------------*/
-
-
 
 @media only screen and (max-width: 600px) {
   .registration {
@@ -167,11 +182,11 @@
     display: none;
   }
 
-  .form>label {
+  .form > label {
     font-size: 6px;
   }
 
-  .form>input {
+  .form > input {
     padding: 7px;
     border-radius: 10px;
     outline: none;
@@ -181,7 +196,6 @@
     color: black;
     margin-bottom: 2px;
   }
-
 }
 
 .remember-switch {

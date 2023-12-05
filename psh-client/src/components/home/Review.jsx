@@ -53,7 +53,10 @@ const Review = () => {
 
   return (
     <div>
-      <div className=" my-14">
+      <h3 className="flex justify-center text-2xl mt-10 font-bold">
+        Listening to Our Clients
+      </h3>
+      <div className=" my-12">
         <Slider {...settings}>
           <div>
             <div className="flex items-center gap-x-7">

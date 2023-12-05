@@ -350,7 +350,7 @@ export default function Navmenu() {
                     <div className="md:block">
                       <button
                         className="sign_btn sm:text-[14px] md:text-[16px]"
-                        onClick={() => handleOpen("sm")}
+                        onClick={() => handleOpen("xs")}
                       >
                         Sign Up/Login
                       </button>

@@ -442,8 +442,8 @@ const SearchBox = () => {
                       bed !== "Single Bed") ||
                     (categoryValue === 2 &&
                       bed !== "Single Bed" &&
-                      bed !== "Double Bed" &&
-                      bed !== "Semi-Double Bed") ||
+                      bed !== "Semi-Double Bed" &&
+                      bed !== "Queen Bed") ||
                     (categoryValue === 3 &&
                       bed !== "All" &&
                       bed !== "1 BR" &&
@@ -528,9 +528,9 @@ const SearchBox = () => {
             <div>
               <input
                 type="submit"
+                className=" bg-[#00bbb4] hover:bg-[#2dc3c0]"
                 value="Find Accommodation"
                 style={{
-                  backgroundColor: "#00bbb4",
                   border: "none",
                   color: "white",
                   padding: "7px 10px",
