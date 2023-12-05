@@ -189,7 +189,7 @@ const Admin_property_list = (props) => {
               </div>
 
               <div>
-                <PropertyUpdate2 data={row} />
+                <PropertyUpdate2 data={row} refetch={refetch} />
               </div>
 
               {/* <div>

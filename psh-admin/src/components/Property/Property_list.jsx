@@ -18,6 +18,7 @@ import { BiSolidEdit } from "react-icons/bi";
 import PropertyUpdate2 from "../../pages/edit/PropertyUpdate2";
 import { AiOutlineEye } from "react-icons/ai";
 import PropertyDetails from "./PropertyDetails";
+import { useQuery } from "react-query";
 
 const Property_list = (props) => {
   const MySwal = withReactContent(Swal);
@@ -70,6 +71,19 @@ const Property_list = (props) => {
 
     fetchCategories();
   }, []);
+
+  // Get Propertys
+
+  const { isLoading, refetch } = useQuery([data, branch], () =>
+    fetch(`https://api.psh.com.bd/api/property`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      })
+  );
+  const main = data.filter((pd) => pd?.branch?._id === userBranch);
 
   const columns = [
     {
@@ -170,7 +184,7 @@ const Property_list = (props) => {
               </div>
 
               <div>
-                <PropertyUpdate2 data={row} />
+                <PropertyUpdate2 data={row} refetch={refetch} />
               </div>
 
               <div>
@@ -219,23 +233,22 @@ const Property_list = (props) => {
       console.log("sizePerPage", sizePerPage);
     },
   });
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://api.psh.com.bd/api/property`,
-          {
-            mode: "cors",
-          }
-        );
-        setData(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, []);
-  const main = data.filter((pd) => pd?.branch?._id === userBranch);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       const { data } = await axios.get(
+  //         `https://api.psh.com.bd/api/property`,
+  //         {
+  //           mode: "cors",
+  //         }
+  //       );
+  //       setData(data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   getData();
+  // }, []);
 
   // const mainData = user?.user?.role === "manager" ? main : [];
   // console.log(mainData);

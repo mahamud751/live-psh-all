@@ -7,144 +7,137 @@ import forMobile3 from "../../assets/img/formobile3.png";
 const Platform = () => {
   return (
     <div className="md:mt-10 sm:mt-5">
-      <h2 className="text-2xl font-bold">
+      <h2 className="text-2xl font-bold mb-5">
         Why this platform better then others?
       </h2>
       <div className="all_promo slider_margin">
-              <Splide
-                options={{
-                  // type: "loop",
-                  // arrows: data?.length > 3 ? true : false,
-                  arrows: false,
-                  rewind: true,
-                  drag: "free",
-                  gap: "1rem",
-                  perPage: 4,
-                  height: "24rem",
-                  pagination: false,
-                  breakpoints: {
-                    1200: { arrows: true, perPage: 4},
-                    800: { arrows: true, perPage: 2 },
-                    640: { arrows: true, perPage: 1, padding: "5rem" },
-                  },
-                }}
-              >
-              
-                  <SplideSlide>
-                    <div  className="group relative">
-                     
-                    <Card className="overflow-hidden">
-            <CardHeader
-              floated={false}
-              shadow={false}
-              color="transparent"
-              className="m-0 rounded-none"
-            >
-              <img
-                src="/images/fully-furnished@3x.webp.png"
-                alt="ui/ux review check"
-                style={{ height: 200, width: "100%" }}
-              />
-            </CardHeader>
-            <CardBody className="md:p-4 sm:p-2 md:h-40 sm:h-28 ">
-              <h6 className="text-black font-bold">Female-Focused Dormitory</h6>
-              <p className="mt-3">
-                All rooms are equipped with AC, WiFi, and full furnishing. Ready
-                to move in!
-              </p>
-            </CardBody>
-          </Card>
-                     
-                    </div>
-                  </SplideSlide>
-                  <SplideSlide>
-                    <div  className="group relative">
-                    <Card className="overflow-hidden">
-            <CardHeader
-              floated={false}
-              shadow={false}
-              color="transparent"
-              className="m-0 rounded-none"
-            >
-              <img
-                src="/images/fully-furnished@3x.webp-1.png"
-                alt="ui/ux review check"
-                style={{ height: 200, width: "100%" }}
-              />
-            </CardHeader>
-            <CardBody className="md:p-4 sm:p-2 md:h-40 sm:h-28 ">
-              <h6 className="text-black font-bold">Full services</h6>
-
-              <p className="mt-3">
-                All rooms are equipped with AC, WiFi, and full furnishing. Ready
-                to move in!
-              </p>
-            </CardBody>
-          </Card>
-                 
-                     
-                    </div>
-                  </SplideSlide>
-                 
-                  <SplideSlide>
-                    <div  className="group relative">
-                   
-                    <Card className="overflow-hidden">
-            <CardHeader
-              floated={false}
-              shadow={false}
-              color="transparent"
-              className="m-0 rounded-none"
-            >
-              <img
-                src="/images/fully-furnished@3x.webp-2.png"
-                alt="ui/ux review check"
-                style={{ height: 200, width: "100%" }}
-              />
-            </CardHeader>
-            <CardBody className="md:p-4 sm:p-2 md:h-40 sm:h-28 ">
-              <h6 className="text-black font-bold">Fully furnished Room</h6>
-
-              <p className="mt-3">
-                All rooms are equipped with AC, WiFi, and full furnishing. Ready
-                to move in!
-              </p>
-            </CardBody>
-          </Card>
-                     
-                    </div>
-                  </SplideSlide>
-                  <SplideSlide>
-                    <div  className="group relative">
-                   
-                    <Card className="overflow-hidden">
-            <CardHeader
-              floated={false}
-              shadow={false}
-              color="transparent"
-              className="m-0 rounded-none"
-            >
-              <img
-                src="images/fully-furnished@3x.webp-3.png"
-                alt="ui/ux review check"
-                style={{ height: 200, width: "100%" }}
-              />
-            </CardHeader>
-            <CardBody className="md:p-4 sm:p-2 md:h-40 sm:h-28 ">
-              <h6 className="text-black font-bold">Fully furnished Room</h6>
-
-              <p className="mt-3">
-                All rooms are equipped with AC, WiFi, and full furnishing. Ready
-                to move in!
-              </p>
-            </CardBody>
-          </Card>
-                     
-                    </div>
-                  </SplideSlide>
-              </Splide>
+        <Splide
+          options={{
+            // type: "loop",
+            // arrows: data?.length > 3 ? true : false,
+            arrows: false,
+            rewind: true,
+            drag: "free",
+            gap: "1rem",
+            perPage: 4,
+            height: "24rem",
+            pagination: false,
+            breakpoints: {
+              1200: { arrows: true, perPage: 4 },
+              800: { arrows: true, perPage: 2 },
+              640: { arrows: true, perPage: 1, padding: "5rem" },
+            },
+          }}
+        >
+          <SplideSlide>
+            <div className="group relative">
+              <Card className="overflow-hidden">
+                <CardHeader
+                  floated={false}
+                  shadow={false}
+                  color="transparent"
+                  className="m-0 rounded-none"
+                >
+                  <img
+                    src="/images/fully-furnished@3x.webp.png"
+                    alt="ui/ux review check"
+                    style={{ height: 200, width: "100%" }}
+                  />
+                </CardHeader>
+                <CardBody className="md:p-4 sm:p-2 md:h-40 sm:h-28 ">
+                  <h6 className="text-black font-bold">
+                    Female-Focused Dormitory
+                  </h6>
+                  <p className="mt-3">
+                    All rooms are equipped with AC, WiFi, and full furnishing.
+                    Ready to move in!
+                  </p>
+                </CardBody>
+              </Card>
             </div>
-    
+          </SplideSlide>
+          <SplideSlide>
+            <div className="group relative">
+              <Card className="overflow-hidden">
+                <CardHeader
+                  floated={false}
+                  shadow={false}
+                  color="transparent"
+                  className="m-0 rounded-none"
+                >
+                  <img
+                    src="/images/fully-furnished@3x.webp-1.png"
+                    alt="ui/ux review check"
+                    style={{ height: 200, width: "100%" }}
+                  />
+                </CardHeader>
+                <CardBody className="md:p-4 sm:p-2 md:h-40 sm:h-28 ">
+                  <h6 className="text-black font-bold">Full services</h6>
+
+                  <p className="mt-3">
+                    All rooms are equipped with AC, WiFi, and full furnishing.
+                    Ready to move in!
+                  </p>
+                </CardBody>
+              </Card>
+            </div>
+          </SplideSlide>
+
+          <SplideSlide>
+            <div className="group relative">
+              <Card className="overflow-hidden">
+                <CardHeader
+                  floated={false}
+                  shadow={false}
+                  color="transparent"
+                  className="m-0 rounded-none"
+                >
+                  <img
+                    src="/images/fully-furnished@3x.webp-2.png"
+                    alt="ui/ux review check"
+                    style={{ height: 200, width: "100%" }}
+                  />
+                </CardHeader>
+                <CardBody className="md:p-4 sm:p-2 md:h-40 sm:h-28 ">
+                  <h6 className="text-black font-bold">Fully furnished Room</h6>
+
+                  <p className="mt-3">
+                    All rooms are equipped with AC, WiFi, and full furnishing.
+                    Ready to move in!
+                  </p>
+                </CardBody>
+              </Card>
+            </div>
+          </SplideSlide>
+          <SplideSlide>
+            <div className="group relative">
+              <Card className="overflow-hidden">
+                <CardHeader
+                  floated={false}
+                  shadow={false}
+                  color="transparent"
+                  className="m-0 rounded-none"
+                >
+                  <img
+                    src="images/fully-furnished@3x.webp-3.png"
+                    alt="ui/ux review check"
+                    style={{ height: 200, width: "100%" }}
+                  />
+                </CardHeader>
+                <CardBody className="md:p-4 sm:p-2 md:h-40 sm:h-28 ">
+                  <h6 className="text-black font-bold">Fully furnished Room</h6>
+
+                  <p className="mt-3">
+                    All rooms are equipped with AC, WiFi, and full furnishing.
+                    Ready to move in!
+                  </p>
+                </CardBody>
+              </Card>
+            </div>
+          </SplideSlide>
+        </Splide>
+      </div>
+
       {/* For Desktop */}
       <div className="mt-12 sm:hidden md:block">
         <div className="grid grid-cols-12 gap-x-8 gap-y-16">

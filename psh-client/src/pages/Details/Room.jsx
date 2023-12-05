@@ -20,7 +20,6 @@ import { AiFillStar } from "react-icons/ai";
 import { useState } from "react";
 import "../../components/shared/Custom.css";
 import Map from "./Map";
-import SingleCard from "../../components/home/SingleCard";
 
 import { Toaster } from "react-hot-toast";
 import BookingTotalBox from "../Booking/BookingTotalBox";
@@ -34,6 +33,7 @@ import { ReviewAll } from "./ReviewAll";
 import useBranch from "../../hooks/useBranch";
 
 import useExtraCharge from "../../hooks/useExtraCharge";
+import SingleCard from "../../components/home/SingleCard";
 
 const Room = () => {
   const { id } = useParams();
@@ -828,34 +828,43 @@ const Room = () => {
           {/* <Recommended /> */}
         </div>
       </div>
-      <div>
-        <div className=" mb-5 all_recommended mt-4 slider_margin">
-          <Splide
-            options={{
-              // type: "loop",
-              arrows: publishedRecomended?.length > 5 ? true : false,
-              rewind: true,
-              drag: "free",
-              autoplay: true,
-              gap: "1rem",
-              perPage: 5,
-              height: "22rem",
-              pagination: false,
-              breakpoints: {
-                1200: { arrows: true, perPage: 5 },
-                800: { arrows: true, perPage: 2 },
-                640: { arrows: true, perPage: 1, padding: "5rem" },
+
+      <div className=" mb-5 all_recommended mt-4 slider_margin">
+        <Splide
+          options={{
+            // type: "loop",
+            arrows: publishedRecomended?.length > 5 ? true : false,
+            rewind: true,
+            drag: "free",
+
+            autoplay: true,
+            gap: "1rem",
+            perPage: 5,
+            height: "22rem",
+            pauseOnHover: true,
+            pagination: false,
+            breakpoints: {
+              1200: { arrows: true, perPage: 4 },
+              800: { arrows: true, perPage: 2 },
+              640: {
+                arrows: true,
+                perPage: 1,
+                height: "22rem",
+                drag: "free",
+                rewind: true,
+                padding: "5rem",
               },
-            }}
-          >
-            {publishedRecomended?.map((item, index) => (
-              <SplideSlide>
-                <SingleCard item={item} key={index} />
-              </SplideSlide>
-            ))}
-          </Splide>
-        </div>
+            },
+          }}
+        >
+          {publishedRecomended?.map((item) => (
+            <SplideSlide>
+              <SingleCard item={item} key={item?._id} />{" "}
+            </SplideSlide>
+          ))}
+        </Splide>
       </div>
+
       <Toaster
         containerStyle={{ top: 300 }}
         toastOptions={{ position: "top-center" }}

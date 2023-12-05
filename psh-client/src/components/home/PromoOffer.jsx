@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import UseFetch from "../../hooks/useFetch";
 import "./AllPromo.css";
-
+import { IoIosArrowForward } from "react-icons/io";
 const PromoOffer = () => {
   const { data } = UseFetch(`promo`);
   return (
@@ -12,14 +12,28 @@ const PromoOffer = () => {
       <div className="mt-5">
         <div className="">
           <div className="">
-            <h2 className="text-2xl font-bold text-gray-900">Promo Offers</h2>
+            <div className="flex justify-between items-center">
+              <h2 className="text-2xl font-bold text-gray-900">Promo Offers</h2>
+              <p>
+                <Link
+                  to="/promo"
+                  className="flex items-center hover:text-[#27b3b1]"
+                >
+                  See More
+                  <div>
+                    <IoIosArrowForward />
+                  </div>
+                </Link>
+              </p>
+            </div>
+
             <p className="mb-2">Our best Discount Offers for you</p>
-            <div className="all_promo slider_margin">
+            <div className="all_recommended slider_margin">
               <Splide
                 options={{
                   // type: "loop",
                   arrows: data?.length > 3 ? true : false,
-                  arrows: true,
+
                   rewind: true,
                   drag: "free",
                   gap: "1rem",

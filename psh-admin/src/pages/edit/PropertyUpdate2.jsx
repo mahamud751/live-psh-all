@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import { toast } from "react-toastify";
 
-const PropertyUpdate2 = ({ data }) => {
+const PropertyUpdate2 = ({ data, refetch }) => {
   const { user } = useContext(AuthContext);
 
   const [files, setFiles] = useState("");
@@ -256,6 +256,7 @@ const PropertyUpdate2 = ({ data }) => {
       );
       MySwal.fire("successfully Update", "success");
       // formRef.current.reset();
+      refetch();
     } catch (err) {
       console.log(err);
       MySwal.fire("Something Error Found.", "warning");

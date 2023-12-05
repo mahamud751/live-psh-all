@@ -42,7 +42,7 @@ const Banner = () => {
                   key={i}
                   src={pd.photos[0]}
                   alt="image 2"
-                  className="md:h-[350px] sm:h-full object-cover w-full"
+                  className="md:h-[400px] sm:h-full object-cover w-full"
                 />
               </div>
             ))}

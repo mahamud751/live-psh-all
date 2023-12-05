@@ -4,11 +4,8 @@
   border-radius: 5px 0px 0px 5px;
   border: 1px solid #e5e5e5;
   background: white;
-  padding: 15px 20px;
-  border-radius: 52%;
-  height: 52px;
-  width: 52px;
-  color: black;
+  padding: 10px 16px;
+  border-radius: 50%;
 }
 
 .all_recommended svg {
@@ -20,10 +17,8 @@
   /* Add your custom icon or image here */
   border: 1px solid #e5e5e5;
   background: white;
-  padding: 15px 20px;
-  border-radius: 52%;
-  height: 52px;
-  width: 52px;
+  padding: 10px 16px;
+  border-radius: 50%;
 }
 /* 
 
@@ -34,7 +29,7 @@
   left: -20px;
   top: 100px !important;
   display: none;
-  opacity: 1 !important;
+  opacity: 0.9 !important;
 }
 
 /* Customize the right arrow button position */
@@ -43,7 +38,7 @@
   right: -20px;
   top: 100px !important;
   display: none;
-  opacity: 1 !important;
+  opacity: 0.9 !important;
 }
 
 .all_recommended:hover .splide__arrow--prev {

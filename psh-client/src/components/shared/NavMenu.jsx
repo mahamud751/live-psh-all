@@ -221,6 +221,21 @@ export default function Navmenu() {
       </Typography> */}
       <Typography as="li" className="p-1 font-normal">
         <Link
+          to={"/"}
+          className="flex items-center hover:text-[#00bbb4] md:ml-0 sm:ml-5"
+        >
+          <div className="md:hidden sm:block">
+            <FaHandsHelping
+              style={{ width: "24px", height: "24px" }}
+              className="mr-2"
+            />
+          </div>
+          PSH for Business
+        </Link>
+      </Typography>
+
+      <Typography as="li" className="p-1 font-normal">
+        <Link
           to={"/about"}
           className="flex items-center hover:text-[#00bbb4] md:ml-0 sm:ml-5"
         >
@@ -247,20 +262,7 @@ export default function Navmenu() {
           Contact
         </Link>
       </Typography>
-      <Typography as="li" className="p-1 font-normal">
-        <Link
-          to={"/"}
-          className="flex items-center hover:text-[#00bbb4] md:ml-0 sm:ml-5"
-        >
-          <div className="md:hidden sm:block">
-            <FaHandsHelping
-              style={{ width: "24px", height: "24px" }}
-              className="mr-2"
-            />
-          </div>
-          PSH for Business
-        </Link>
-      </Typography>
+
       {/* <Typography as="li" className="p-1 font-normal">
         <Link
           to={"/promo"}

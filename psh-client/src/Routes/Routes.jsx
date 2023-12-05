@@ -31,6 +31,7 @@ import Vouchers from "../components/profile/Vouchers";
 import Community from "../components/profile/Community";
 import EditProfile from "../components/profile/EditProfile";
 import Referral from "../components/profile/Referral";
+import AllRecomonded from "../components/home/AllRecomonded";
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
       {
         path: "/promo",
         element: <PromoList></PromoList>,
+      },
+      {
+        path: "/recomended",
+        element: <AllRecomonded></AllRecomonded>,
       },
       {
         path: "/promo/:id",
