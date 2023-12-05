@@ -825,7 +825,7 @@ const Room = () => {
           <h2 className="text-2xl font-bold text-gray-900 mt-5">
             Recommended Room
           </h2>
-          {/* <Recommended /> */}
+          
         </div>
       </div>
 
