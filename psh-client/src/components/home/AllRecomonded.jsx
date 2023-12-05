@@ -1,107 +1,74 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./SingleCard.css";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-} from "@material-tailwind/react";
-import withReactContent from "sweetalert2-react-content";
-import Swal from "sweetalert2";
-import axios from "axios";
-import { AiFillHeart } from "react-icons/ai";
 
-import whislistIcon from "../../assets/img/Wishlist.png";
-import whislistIcon2 from "../../assets/img/heart.png";
-import heart2 from "../../assets/img/Heart2.png";
-import locationIcon from "../../assets/img/branchLocationIcon.png";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../../contexts/UserProvider";
-import { useState } from "react";
-import { useEffect } from "react";
-import UseFetch from "../../hooks/useFetch";
 
-import { FaHeart } from "react-icons/fa";
+import UseFetch from "../../hooks/useFetch";
+import AllRecoondedSingle from "./AllRecoondedSingle";
 
 const AllRecomonded = ({ item }) => {
-  const { user } = useContext(AuthContext);
-  const [recomendedId, setRecomendId] = useState("");
-  const userName = user?.firstName;
-  const email = user?.email;
+  const [page, setPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(Number.MAX_VALUE);
+  const [totalPages, setTotalPages] = useState(1);
+  const handleItemsPerPageChange = (event) => {
+    const selectedItemsPerPage = parseInt(event.target.value);
+    setItemsPerPage(
+      selectedItemsPerPage === -1 ? Number.MAX_VALUE : selectedItemsPerPage
+    );
+    setPage(1);
+  };
+  const handlePageChange = (event) => {
+    const selectedPage = parseInt(event.target.value);
+    setPage(selectedPage);
+  };
+
   const {
     data: recomendedData,
     loading,
     error,
     reFetch,
-  } = UseFetch(`property/properties/recommended`);
+  } = UseFetch(
+    `property/properties/recommended?page=${page}&pageSize=${itemsPerPage}`
+  );
   // find Published Recommended Property
   const publishedData = recomendedData.filter(
     (property) => property?.isPublished === "Published"
   );
-
-  const [data, setData] = useState({});
-
   useEffect(() => {
-    fetch(`https://api.psh.com.bd/api/property/${recomendedId}`)
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, [recomendedId]);
-
-  let propertyId = data?._id;
-  const MySwal = withReactContent(Swal);
-  const { data: wishlist, reFetch: wishlistRefetch } = UseFetch(`wishlist`);
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const product = {
-        userName,
-        propertyId,
-        email,
-      };
-      await axios.post("https://api.psh.com.bd/api/wishlist", product);
-      // MySwal.fire("Thanks ! wishlisted");
-      wishlistRefetch();
-    } catch (err) {
-      MySwal.fire("Already Added!");
+    if (publishedData && publishedData.length > 0) {
+      setTotalPages(Math.ceil(publishedData.length / itemsPerPage));
+    } else {
+      setTotalPages(1);
     }
-  };
-
-  const exactWishList = wishlist?.filter(
-    (wishList) => wishList?.property?._id == data?._id
+  }, [publishedData, itemsPerPage]);
+  const paginatedData = publishedData.slice(
+    (page - 1) * itemsPerPage,
+    page * itemsPerPage
   );
-  const userWishList = exactWishList?.find(
-    (wishList) => wishList?.email === email
-  );
-  const checkWishLists = wishlist?.filter((pd) => pd?.email === email);
-  const checkWishListIds = checkWishLists?.map((item) => item?.property?._id);
-  const handleRemoveSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const product = {
-        userName,
-        propertyId,
-        email,
-      };
-      await axios.delete(
-        `https://api.psh.com.bd/api/wishlist/${userWishList._id}`,
-        product
-      );
-      // MySwal.fire("Successfullt Remove ! wishlisted");
-      wishlistRefetch();
-    } catch (err) {
-      MySwal.fire("Wrong!");
-    }
-  };
-
   return (
     <>
-      {publishedData?.length > 0 ? (
+      <div className=" mt-3 flex justify-between items-center">
+        <p className="ms-0 md:ms-72">{paginatedData?.length} Results Found</p>
+        <p className="md:mr-[320px] ">
+          Search Number{" "}
+          <select
+            className="border border-black rounded ml-2"
+            value={itemsPerPage}
+            onChange={handleItemsPerPageChange}
+            style={{ width: 50, height: 32 }}
+          >
+            <option value={-1}>All</option>
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+            <option value={30}>30</option>
+            <option value={40}>40</option>
+            <option value={50}>50</option>
+          </select>
+        </p>
+      </div>
+      {paginatedData?.length > 0 ? (
         <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-x-5 custom-container mt-5">
-          {publishedData?.map((item) => {
-            propertyId = item._id;
+          {paginatedData?.map((item) => {
             // Checking Booking Dates for privet room and apartment
             const currentDate = new Date().toISOString().split("T")[0];
             // Check if the target date falls within any of the date ranges
@@ -134,145 +101,10 @@ const AllRecomonded = ({ item }) => {
                 className="single-card "
                 key={item?._id}
               >
-                <Card
-                  className="mb-5"
-                  style={{
-                    width: "100%",
-                    // height: "22rem",
-                  }}
-                >
-                  <CardHeader
-                    floated={false}
-                    shadow={false}
-                    color="transparent"
-                    className="m-0 rounded-none"
-                  >
-                    <img
-                      className="img_size"
-                      style={{ borderRadius: "10px 10px 0px 0px" }}
-                      src={item.photos[0]}
-                      alt="No Found Image"
-                    />
-                    <div className="absolute top-2 right-2">
-                      {checkWishListIds?.some((wish) => wish === data?._id) ? (
-                        <img
-                          src={heart2}
-                          alt="wishlist"
-                          onClick={handleRemoveSubmit}
-                        />
-                      ) : (
-                        // <span>
-                        //   <FaHeart style={{ color: "red" }} />
-                        // </span>
-                        <span onClick={() => setRecomendId(item._id)}>
-                          <img
-                            src={whislistIcon}
-                            alt="wishlist"
-                            onClick={handleSubmit}
-                          />
-                        </span>
-                      )}
-                    </div>
-                    {/* {isIntoDate ? (
-                <div className="absolute bottom-0 right-0 bg-[#27B3B1] text-white rounded-sm text-sm font-[600] px-1 py-1">
-                  <span>Already Booked</span>
-                </div>
-              ) : (
-                ""
-              )} */}
-                    {isSeatIntoDate &&
-                    item?.category?.name === "Shared Room" &&
-                    isAlreadySeatBook?.length > 0 ? (
-                      <div className="absolute bottom-0 right-0 bg-[#27B3B1] text-white rounded-sm text-sm font-[600] px-1 py-1">
-                        <span>
-                          {item?.seats?.length === isAlreadySeatBook?.length
-                            ? ""
-                            : `Only ${
-                                item?.seats?.length - isAlreadySeatBook?.length
-                              } Seat Left`}
-                        </span>
-                      </div>
-                    ) : (
-                      ""
-                    )}
-                    {!isSeatIntoDate &&
-                    item?.category?.name === "Shared Room" ? (
-                      <div className="absolute bottom-0 right-0 bg-[#27B3B1] text-white rounded-sm text-sm font-[600] px-1 py-1">
-                        <span>{item?.seats?.length} Seat Available</span>
-                      </div>
-                    ) : (
-                      ""
-                    )}
-                  </CardHeader>
-                  <CardBody className="p-2">
-                    <div className="flex items-center justify-between">
-                      <Typography variant="div">
-                        <span className="text-sm font-medium bg-[#FCA22A] text-white px-2 py-1 rounded">
-                          {item?.category?.name}({item.type.toUpperCase()})
-                        </span>
-                      </Typography>
-                      <Typography variant="div" className="flex "></Typography>
-                    </div>
-                    <div className="flex itmes-center">
-                      <img
-                        className="mt-1"
-                        src={locationIcon}
-                        style={{ height: "15px", width: "15px" }}
-                        alt=""
-                      />
-                      <p className="branch-location">
-                        <span className="text-[10px]">{item.branch?.name}</span>
-                      </p>
-                    </div>
-
-                    <div className="">
-                      <Typography>
-                        <h2 className=" text-[14px] card-title ">
-                          {item.name.slice(0, 29)}{" "}
-                          {item.name?.length > 29 ? "..." : ""}
-                        </h2>
-                      </Typography>
-                    </div>
-                  </CardBody>
-
-                  <CardFooter className="p-0">
-                    <div className="card-price flex gap-x-3 px-2 mb-2">
-                      {item?.category?.name === "Shared Room" ? (
-                        <>
-                          <p>
-                            <span className="card-price-sub">
-                              BDT {item?.seats[0]?.perDay}
-                            </span>
-                            <span className="day">/day</span>
-                          </p>
-                          <p className="">
-                            <span className=" card-price-sub">
-                              {" "}
-                              BDT {item?.seats[0]?.perMonth}{" "}
-                            </span>
-                            <span className="day">/month</span>
-                          </p>
-                        </>
-                      ) : (
-                        <>
-                          <p>
-                            <span className=" card-price-sub">
-                              BDT {item.perDay}
-                            </span>
-                            <span className="day">/day</span>
-                          </p>
-                          <p>
-                            <span className="card-price-sub">
-                              {" "}
-                              BDT {item.perMonth}{" "}
-                            </span>
-                            <span className="day">/month</span>
-                          </p>
-                        </>
-                      )}
-                    </div>
-                  </CardFooter>
-                </Card>
+                <AllRecoondedSingle
+                  item={item}
+                  isSeatIntoDate={isSeatIntoDate}
+                />
               </Link>
             );
           })}
@@ -280,6 +112,46 @@ const AllRecomonded = ({ item }) => {
       ) : (
         <p className="text-center mt-20 mb-20"> Loading...</p>
       )}
+      <div className=" mt-10 flex justify-center items-center mb-10">
+        <div className="bg-[#399] text-white rounded px-2 py-2">
+          <div>
+            <button
+              onClick={() => setPage(page - 1)}
+              disabled={page === 1}
+              className="text-sm"
+            >
+              Previous
+            </button>
+          </div>
+        </div>
+        <div className="flex ml-2 mx-2 text-sm">
+          <p>Page</p>
+          <select
+            className="border border-black rounded ml-2"
+            value={page}
+            onChange={handlePageChange}
+            style={{ width: 50, height: 26 }}
+          >
+            {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+              (pageNum) => (
+                <option key={pageNum} value={pageNum}>
+                  {pageNum}
+                </option>
+              )
+            )}
+          </select>
+          <p className="ml-2"> of {totalPages}</p>
+        </div>
+        <div className="flex items-center bg-[#399] text-white rounded px-5 py-2">
+          <button
+            onClick={() => setPage(page + 1)}
+            disabled={page === totalPages}
+            className="text-sm"
+          >
+            Next
+          </button>
+        </div>
+      </div>
     </>
   );
 };

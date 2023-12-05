@@ -82,10 +82,13 @@ const Footer = () => {
           <footer className="pt-4 pb-8 xl:pt-8 custom-container sm:p-5 ">
             <div className="  dark:text-gray-300">
               <ul className="flex flex-wrap justify-center pb-8 text-lg font-light">
-                <li className="w-1/2 md:w-1/3 lg:w-1/5">
+                <li className="w-1/2 md:w-1/6 lg:w-1/6">
                   <div className="text-start">
-                    <h2 className="text-white dark:text-gray-200 text-md mb-4">
-                      About PSH
+                    <h2
+                      className=" dark:text-gray-200 text-md mb-4"
+                      style={{ color: "rgba(40, 255, 239, 1)" }}
+                    >
+                      PSH
                     </h2>
 
                     <ul className="footer_li">
@@ -117,91 +120,165 @@ const Footer = () => {
                     </ul>
                   </div>
                 </li>
-                <li className="w-1/2 md:w-1/3 lg:w-1/5">
+                <li className="w-1/2 md:w-1/6 lg:w-1/6">
                   <div className="text-start">
-                    <h2 className="text-white dark:text-gray-200 text-md uppercase mb-4">
-                      Rooms Category
+                    <h2
+                      className=" dark:text-gray-200 text-md uppercase mb-4"
+                      style={{ color: "rgba(40, 255, 239, 1)" }}
+                    >
+                      Partner With Us
                     </h2>
                     <ul className="footer_li">
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Standard Room</a>
+                        <a href="#">Lease your Property</a>
                       </li>
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Deluxe Room</a>
+                        <a href="#">PSH Finance</a>
                       </li>
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Executive Room</a>
-                      </li>
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Premium Room</a>
-                      </li>
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Family Room</a>
+                        <a href="#">Build for Rent</a>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li className="w-1/2 md:w-1/3 lg:w-1/5">
+                <li className="w-1/2 md:w-1/6 lg:w-1/6">
                   <div className="text-start">
-                    <h2 className="text-white dark:text-gray-200 text-md uppercase mb-4">
-                      Bookings
+                    <h2
+                      className=" dark:text-gray-200 text-md uppercase mb-4"
+                      style={{ color: "rgba(40, 255, 239, 1)" }}
+                    >
+                      PSH FOR Business
                     </h2>
                     <ul className="footer_li">
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Book Now</a>
+                        <a href="#">Corporate Housing</a>
                       </li>
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Room Availability</a>
-                      </li>
-                      <Link to="/privacy">
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Reservation Policies</a>
-                        </li>
-                      </Link>
-                      <Link to={"/promo"}>
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Discount and Offers</a>
-                        </li>
-                      </Link>
-                    </ul>
-                  </div>
-                </li>
-                <li className="w-1/2 md:w-1/3 lg:w-1/5">
-                  <div className="text-start">
-                    <h2 className="text-white dark:text-gray-200 text-md uppercase mb-4">
-                      Office Location{" "}
-                    </h2>
-                    <ul className="footer_li">
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Dhanmondi</a>
-                      </li>
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Mirpur</a>
+                        <a href="#">Brand Collaboration</a>
                       </li>
 
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a>Banani</a>
-                      </li>
-
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Gulsan</a>
+                        <a>Community</a>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li className="w-1/2 md:w-1/3 lg:w-1/5">
+                <li className="w-1/2 md:w-1/6 lg:w-1/6">
                   <div className="text-start">
-                    <h2 className="text-white dark:text-gray-200 text-md uppercase mb-4">
+                    <h2
+                      className=" dark:text-gray-200 text-md uppercase mb-4"
+                      style={{ color: "rgba(40, 255, 239, 1)" }}
+                    >
+                      Resource
+                    </h2>
+                    <ul className="footer_li">
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <a href="#">About PSH</a>
+                      </li>
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <a href="#">FAQ</a>
+                      </li>
+
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <a>Career</a>
+                      </li>
+
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <a href="#">Stories</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li className="w-1/1 md:w-1/6 lg:w-1/6">
+                  <div className="text-start">
+                    <h2
+                      className=" dark:text-gray-200 text-md uppercase mb-4"
+                      style={{ color: "rgba(40, 255, 239, 1)" }}
+                    >
                       Connect with us
                     </h2>
                     <div className="flex mx-auto">
-                      <i className="fa-brands fa-youtube text-white text-3xl"></i>
-                      <i className="fa-brands fa-facebook text-white text-3xl mx-5"></i>
-                      <i className="fa-brands fa-linkedin text-white text-3xl"></i>
-                      <i className="fa-brands fa-twitter text-white text-3xl ms-5"></i>
+                      <div>
+                        <img src="assets/img/whatsapp.svg.png" alt="" />
+                      </div>
+                      <p
+                        className="text-white ms-3 text-[12px]"
+                        style={{ marginTop: -3 }}
+                      >
+                        +880 123456789
+                      </p>
                     </div>
-                    <div className="mt-12 sm:w-full">
-                      <img src="https://i.ibb.co/Pg69RP3/app.png" alt="" />
+                    <div className="flex mx-auto">
+                      <div>
+                        <img src="assets/img/email.svg fill.png" alt="" />
+                      </div>
+
+                      <p
+                        className="text-white ms-3 text-[14px]"
+                        style={{ marginTop: -3 }}
+                      >
+                        info@psh.com.bd
+                      </p>
+                    </div>
+                    <p className="text-white text-[14px]">Operational Hour</p>
+                    <p
+                      className=" text-[12px]"
+                      style={{
+                        fontWeight: "300px",
+                        lineWeight: "18px",
+                        color: "rgba(255, 255, 255, 1)",
+                      }}
+                    >
+                      Monday - Friday: 10.00 - 19.00
+                    </p>
+                    <p
+                      className=" text-[12px]"
+                      style={{
+                        fontWeight: "300px",
+                        lineWeight: "18px",
+                        color: "rgba(255, 255, 255, 1)",
+                      }}
+                    >
+                      Operational Hour
+                    </p>
+                  </div>
+                </li>
+                <li className="w-1/1 md:w-1/6 lg:w-1/6">
+                  <div className="text-start">
+                    <div className="flex mx-auto justify-center">
+                      <div>
+                        <img src="assets/img/facebook.svg.png" alt="" />
+                      </div>
+                      <div className="mx-2">
+                        <img src="assets/img/Link → instagram.svg.png" alt="" />
+                      </div>
+                      <div>
+                        <img src="assets/img/Link → twitter.svg.png" alt="" />
+                      </div>
+                    </div>
+
+                    <div className="mt-6">
+                      <button className="footer_btn">
+                        <p className="mt-2 text-[14px]"> Login / Signup</p>
+                      </button>
+                    </div>
+                    <div className="mt-6">
+                      <button className="footer_btn">
+                        <img
+                          src="assets/img/appstore.svg.png"
+                          alt=""
+                          className="mt-2 text-[14px] ms-3"
+                        />
+                        <img
+                          src="assets/img/playstore.svg.png"
+                          alt=""
+                          className="mt-2 text-[14px] "
+                        />
+                        <span className="mt-2 text-[14px] ms-3">
+                          {" "}
+                          Download Aplikasi
+                        </span>
+                      </button>
                     </div>
                   </div>
                 </li>

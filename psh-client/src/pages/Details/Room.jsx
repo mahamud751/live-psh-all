@@ -825,45 +825,47 @@ const Room = () => {
           <h2 className="text-2xl font-bold text-gray-900 mt-5">
             Recommended Room
           </h2>
-          
         </div>
       </div>
+      {publishedRecomended?.length > 0 ? (
+        <div className=" mb-5 all_recommended mt-4 slider_margin">
+          <Splide
+            options={{
+              // type: "loop",
+              arrows: publishedRecomended?.length > 5 ? true : false,
+              rewind: true,
+              drag: "free",
 
-      <div className=" mb-5 all_recommended mt-4 slider_margin">
-        <Splide
-          options={{
-            // type: "loop",
-            arrows: publishedRecomended?.length > 5 ? true : false,
-            rewind: true,
-            drag: "free",
-
-            autoplay: true,
-            gap: "1rem",
-            perPage: 5,
-            height: "22rem",
-            pauseOnHover: true,
-            pagination: false,
-            breakpoints: {
-              1200: { arrows: true, perPage: 4 },
-              800: { arrows: true, perPage: 2 },
-              640: {
-                arrows: true,
-                perPage: 1,
-                height: "22rem",
-                drag: "free",
-                rewind: true,
-                padding: "5rem",
+              autoplay: true,
+              gap: "1rem",
+              perPage: 5,
+              height: "22rem",
+              pauseOnHover: true,
+              pagination: false,
+              breakpoints: {
+                1200: { arrows: true, perPage: 4 },
+                800: { arrows: true, perPage: 2 },
+                640: {
+                  arrows: true,
+                  perPage: 1,
+                  height: "22rem",
+                  drag: "free",
+                  rewind: true,
+                  padding: "5rem",
+                },
               },
-            },
-          }}
-        >
-          {publishedRecomended?.map((item) => (
-            <SplideSlide>
-              <SingleCard item={item} key={item?._id} />{" "}
-            </SplideSlide>
-          ))}
-        </Splide>
-      </div>
+            }}
+          >
+            {publishedRecomended?.map((item) => (
+              <SplideSlide>
+                <SingleCard item={item} key={item?._id} />{" "}
+              </SplideSlide>
+            ))}
+          </Splide>
+        </div>
+      ) : (
+        ""
+      )}
 
       <Toaster
         containerStyle={{ top: 300 }}
