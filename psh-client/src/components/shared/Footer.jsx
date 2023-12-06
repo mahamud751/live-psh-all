@@ -82,7 +82,7 @@ const Footer = () => {
           <footer className="pt-4 pb-8 xl:pt-8 custom-container sm:p-5 ">
             <div className="  dark:text-gray-300">
               <ul className="flex flex-wrap justify-center pb-8 text-lg font-light">
-                <li className="w-1/2 md:w-1/6 lg:w-1/6">
+                {/* <li className="w-1/2 md:w-1/6 lg:w-1/6">
                   <div className="text-start">
                     <h2
                       className=" dark:text-gray-200 text-md mb-4"
@@ -100,12 +100,10 @@ const Footer = () => {
                           </li>
                         ))}
 
-                      {/* <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Our Story</a>
                       </li>
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Our Team</a>
-                      </li>
+                     
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Our Service</a>
                       </li>
@@ -116,10 +114,10 @@ const Footer = () => {
                         <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                           <a>Terms & Conditions</a>
                         </li>
-                      </Link> */}
+                      </Link>
                     </ul>
                   </div>
-                </li>
+                </li> */}
                 <li className="w-1/2 md:w-1/6 lg:w-1/6">
                   <div className="text-start">
                     <h2
@@ -173,9 +171,6 @@ const Footer = () => {
                     </h2>
                     <ul className="footer_li">
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">About PSH</a>
-                      </li>
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">FAQ</a>
                       </li>
 
@@ -189,7 +184,7 @@ const Footer = () => {
                     </ul>
                   </div>
                 </li>
-                <li className="w-full md:w-1/6 lg:w-1/6">
+                <li className="w-1/2 md:w-1/6 lg:w-1/6">
                   <div className="text-start">
                     <h2
                       className=" dark:text-gray-200 text-md uppercase mb-4"
@@ -230,16 +225,6 @@ const Footer = () => {
                       }}
                     >
                       Monday - Friday: 10.00 - 19.00
-                    </p>
-                    <p
-                      className=" text-[12px]"
-                      style={{
-                        fontWeight: "300px",
-                        lineWeight: "18px",
-                        color: "rgba(255, 255, 255, 1)",
-                      }}
-                    >
-                      Operational Hour
                     </p>
                   </div>
                 </li>
@@ -285,13 +270,60 @@ const Footer = () => {
               </ul>
             </div>
           </footer>
+          <div className=" sm:flex sm:justify-center md:hidden">
+              <Link
+                to={"/terms"}
+                className="text-white text-[14px]"
+                style={{
+                  fontWeight: "300px",
+                }}
+              >
+                Terms & Conditions
+              </Link>
+              <Link
+                to={"/privacy"}
+                className="text-white text-[14px] ms-2"
+                style={{
+                  fontWeight: "300px",
+                }}
+              >
+                Privacy & Policy
+              </Link>
+            </div>
           <div
-            className="text-center flex items-center justify-center text-white py-3"
+            className="text-center flex items-center justify-center text-white py-3 sm:text-[12px]"
             style={{
               background: "linear-gradient(to right, #020304, #071e37)",
             }}
           >
-            Copyright © 2023 Project Second Home. All rights reserved
+            © 2023 Project Second Home. All rights reserved
+            <div className="flex ms-5 sm:hidden md:block">
+              <Link
+                to={"/terms"}
+                className="text-white text-[14px]"
+                style={{
+                  fontWeight: "300px",
+                }}
+              >
+                Terms & Conditions
+              </Link>
+              <Link
+                to={"/privacy"}
+                className="text-white text-[14px] ms-2"
+                style={{
+                  fontWeight: "300px",
+                }}
+              >
+                Privacy & Policy
+              </Link>
+            </div>
+            <div className="sm:hidden md:flex md:ms-4 footer_social ms-2 mr-2">
+              <img src="assets/img/facebook.svg.png" alt="" />
+
+              <img src="assets/img/Link → instagram.svg.png" alt="" className="mx-2"/>
+
+              <img src="assets/img/Link → twitter.svg.png" alt="" />
+            </div>
           </div>
         </div>
       </div>
