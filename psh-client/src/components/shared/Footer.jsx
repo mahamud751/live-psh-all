@@ -172,9 +172,7 @@ const Footer = () => {
                       Resource
                     </h2>
                     <ul className="footer_li">
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">About PSH</a>
-                      </li>
+                    
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">FAQ</a>
                       </li>
@@ -231,16 +229,7 @@ const Footer = () => {
                     >
                       Monday - Friday: 10.00 - 19.00
                     </p>
-                    <p
-                      className=" text-[12px]"
-                      style={{
-                        fontWeight: "300px",
-                        lineWeight: "18px",
-                        color: "rgba(255, 255, 255, 1)",
-                      }}
-                    >
-                      Operational Hour
-                    </p>
+                 
                   </div>
                 </li>
                 <li className="w-1/1 md:w-1/6 lg:w-1/6">
@@ -291,7 +280,7 @@ const Footer = () => {
               background: "linear-gradient(to right, #020304, #071e37)",
             }}
           >
-            Copyright © 2023 Project Second Home. All rights reserved
+             © 2023 Project Second Home. All rights reserved
           </div>
         </div>
       </div>
