@@ -82,7 +82,7 @@ const Footer = () => {
           <footer className="pt-4 pb-8 xl:pt-8 custom-container sm:p-5 ">
             <div className="  dark:text-gray-300">
               <ul className="flex flex-wrap justify-center pb-8 text-lg font-light">
-                <li className="w-1/2 md:w-1/6 lg:w-1/6">
+                {/* <li className="w-1/2 md:w-1/6 lg:w-1/6">
                   <div className="text-start">
                     <h2
                       className=" dark:text-gray-200 text-md mb-4"
@@ -100,7 +100,7 @@ const Footer = () => {
                           </li>
                         ))}
 
-                      {/* <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Our Story</a>
                       </li>
                      
@@ -114,10 +114,10 @@ const Footer = () => {
                         <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                           <a>Terms & Conditions</a>
                         </li>
-                      </Link> */}
+                      </Link>
                     </ul>
                   </div>
-                </li>
+                </li> */}
                 <li className="w-1/2 md:w-1/6 lg:w-1/6">
                   <div className="text-start">
                     <h2
