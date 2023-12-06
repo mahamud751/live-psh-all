@@ -170,7 +170,6 @@ const Footer = () => {
                       Resource
                     </h2>
                     <ul className="footer_li">
-                    
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">FAQ</a>
                       </li>
@@ -227,7 +226,6 @@ const Footer = () => {
                     >
                       Monday - Friday: 10.00 - 19.00
                     </p>
-                 
                   </div>
                 </li>
                 <li className="w-1/1 md:w-1/6 lg:w-1/6">
@@ -278,7 +276,34 @@ const Footer = () => {
               background: "linear-gradient(to right, #020304, #071e37)",
             }}
           >
-             © 2023 Project Second Home. All rights reserved
+            © 2023 Project Second Home. All rights reserved
+            <div className="flex ms-5 sm:hidden md:block">
+              <Link
+                to={"/terms"}
+                className="text-white text-[14px]"
+                style={{
+                  fontWeight: "300px",
+                }}
+              >
+                Terms & Conditions
+              </Link>
+              <Link
+                to={"/privacy"}
+                className="text-white text-[14px] ms-2"
+                style={{
+                  fontWeight: "300px",
+                }}
+              >
+                Privacy & Policy
+              </Link>
+            </div>
+            <div className="sm:hidden md:flex ms-4">
+              <img src="assets/img/facebook.svg.png" alt="" />
+
+              <img src="assets/img/Link → instagram.svg.png" alt="" className="mx-2"/>
+
+              <img src="assets/img/Link → twitter.svg.png" alt="" />
+            </div>
           </div>
         </div>
       </div>
