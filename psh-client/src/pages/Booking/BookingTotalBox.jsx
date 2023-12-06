@@ -368,30 +368,32 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
             borderRadius: "5px",
           }}
         >
-          <h2 className="text-left font-bold" style={{ color: "#212A42" }}>
+          {/* <h2 className="text-left font-bold" style={{ color: "#212A42" }}>
             {data?.name}
-          </h2>
-          <div className="flex ">
-            <div>
-              <img src={brachLocationIcon} alt="" />
+          </h2> */}
+          <div className="flex justify-between">
+            <div className="flex ">
+              <div>
+                <img src={brachLocationIcon} alt="" />
+              </div>
+              <p className="text-black">{data?.branch?.name}</p>
             </div>
-            <p className="text-black">{branch?.name}</p>
+            <p
+              className=" flex justify-start "
+              style={{
+                backgroundColor: "#FCA22A",
+                color: "white",
+                padding: "3px 5px ",
+                borderRadius: "5px",
+              }}
+            >
+              {data?.category?.name} ({data?.type})
+            </p>
           </div>
-          <p
-            className=" flex justify-start w-[60%]"
-            style={{
-              backgroundColor: "#FCA22A",
-              color: "white",
-              padding: "3px 5px ",
-              borderRadius: "5px",
-            }}
-          >
-            {data?.category?.name} ({data?.type})
-          </p>
         </div>
         <div className="mx-2">
-          <ul className="flex justify-evenly ">
-            <li className="list-none border py-1">
+          <ul className="flex justify-evenly text-sm">
+            <li className="list-none border py-1 ">
               <span
                 onClick={() =>
                   dispatch(rightDate(addDays(new Date(startDate), 1)))
@@ -438,7 +440,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
           </ul>
         </div>
 
-        <div className="flex justify-evenly mt-3 total-area text-black">
+        <div className="flex justify-evenly mt-3 total-area text-black text-sm">
           <div>
             <p className="text-center font-bold">Check-In</p>
             <div className="input-filed-area w-full" style={{ marginTop: 10 }}>
@@ -922,7 +924,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
           </div>
         </div>
         <div
-          className={`bg-[#35B0A7] h-[55px] flex justify-center items-center mt-2 ${
+          className={`bg-[#35B0A7]  flex justify-center items-center mt-2 ${
             data?.endDate === endDate ||
             data?.endDate > endDate ||
             data?.endDate > startDate
@@ -933,7 +935,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
         >
           <div>
             <button
-              className={`text-xl p-2 text-white bg-transparent ${
+              className={`text-xl p-2 text-white bg-transparent cursor-pointer  ${
                 data?.endDate === endDate ||
                 data?.endDate > endDate ||
                 data?.endDate > startDate

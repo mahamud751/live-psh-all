@@ -335,7 +335,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
       toast.error("Sorry ! You Select Already Booking Dates");
     }
   };
-  console.log(data);
+
   return (
     <div
       style={{
@@ -377,7 +377,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
             <div>
               <img src={brachLocationIcon} alt="" />
             </div>
-            <p className="text-black text-sm">{branch?.name}</p>
+            <p className="text-black text-sm">{data?.branch?.name}</p>
           </div>
           <p
             className=" flex justify-start  text-sm"

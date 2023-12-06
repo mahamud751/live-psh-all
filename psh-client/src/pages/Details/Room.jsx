@@ -275,16 +275,16 @@ const Room = () => {
                       <h1 className="text-2xl font-bold text-gray-900 px-2">
                         {data?.name}
                       </h1>
-
+                      {/* 
                       <p className="text-xl font-bold mt-1">
                         {data.branch?.name}
-                      </p>
+                      </p> */}
                       <div className="md:flex mt-2">
                         <div className="flex text-[#9A9A9A] items-center">
                           <div>
                             <img src="/images/icon/marker-02.png" alt="" />
                           </div>
-                          <p className="ms-1">{branch?.name}</p>
+                          <p className="ms-1"> {data.branch?.name}</p>
                         </div>
                         <div className="flex sm:text-[12px] sm:mt-2 md:mt-0">
                           <div className="flex md:mx-3 items-center">

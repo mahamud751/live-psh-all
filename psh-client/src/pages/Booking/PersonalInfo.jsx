@@ -737,7 +737,7 @@ const PersonalInfo = () => {
                 style={{
                   backgroundColor: "#35B0A7",
                   // width: "430px",
-                  height: "55px",
+                  height: "35px",
                   borderRadius: "3px 3px 0px 0px",
                 }}
               ></div>
@@ -748,29 +748,31 @@ const PersonalInfo = () => {
                   borderRadius: "5px",
                 }}
               >
-                <h2
+                {/* <h2
                   className="text-left font-bold"
                   style={{ color: "#212A42" }}
                 >
                   {bookingItem?.data?.name}
-                </h2>
-                <div className="flex ">
-                  <div>
-                    <img src={brachLocationIcon} alt="" />
+                </h2> */}
+                <div className="flex justify-between">
+                  <div className="flex ">
+                    <div>
+                      <img src={brachLocationIcon} alt="" />
+                    </div>
+                    <p className="text-black">{bookingItem?.branch?.name}</p>
                   </div>
-                  <p className="text-black">{branch?.name}</p>
+                  <p
+                    className=" flex justify-start "
+                    style={{
+                      backgroundColor: "#FCA22A",
+                      color: "white",
+                      padding: "3px 5px ",
+                      borderRadius: "5px",
+                    }}
+                  >
+                    {bookingItem?.roomType}
+                  </p>
                 </div>
-                <p
-                  className=" flex justify-start w-[60%]"
-                  style={{
-                    backgroundColor: "#FCA22A",
-                    color: "white",
-                    padding: "3px 5px ",
-                    borderRadius: "5px",
-                  }}
-                >
-                  {bookingItem?.roomType}
-                </p>
               </div>
 
               <div className="mx-5">
@@ -856,7 +858,7 @@ const PersonalInfo = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center mt-5 items-center">
+              <div className="flex justify-center mt-2 items-center">
                 <p className="font-bold mb-1 md:ms-20 sm:sm-0">Duration = </p>
                 <div>
                   <input
@@ -882,7 +884,7 @@ const PersonalInfo = () => {
                 </div>
               </div>
 
-              <div className="md:flex m-5 total-area relative ms-12">
+              <div className="md:flex mx-5  mt-1 mb-2 total-area relative">
                 <div>
                   <input
                     className="sm:px-10 md:px-12"
@@ -1073,7 +1075,7 @@ const PersonalInfo = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center px-4 mt-12 text-black terms">
+              <div className="flex items-center px-4 mt-2 text-black terms">
                 <div>
                   <input
                     type="checkbox"
@@ -1086,7 +1088,7 @@ const PersonalInfo = () => {
                   I Would Like to Extend in Future
                 </p>
               </div>
-              <div className="flex px-4 mt-10 text-black terms mb-3">
+              <div className="flex px-4 mt-8 text-black terms mb-3">
                 <div>
                   <input type="checkbox" name="terms" required id="" />
                 </div>

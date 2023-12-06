@@ -34,7 +34,7 @@ const AllBranch = () => {
     autoplaySpeed: 3000,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
-
+    className: "mx-[-15px]",
     responsive: [
       {
         breakpoint: 1200,

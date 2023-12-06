@@ -124,7 +124,7 @@ export default function Categories() {
     slidesToScroll: 1,
     initialSlide: 0,
     infinite: true,
-
+    className: "mx-[-15px]",
     arrows:
       publishRandomProperty?.length > 5 || filteredData?.length > 5
         ? true
