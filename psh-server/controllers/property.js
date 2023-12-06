@@ -255,7 +255,7 @@ export const getSinglePropertys = async (req, res, next) => {
 
     // Find the property by ID
     const property = await Property.findById(propertyId).populate(
-      "category facility review"
+      "category facility review branch"
     );
 
     if (!property) {

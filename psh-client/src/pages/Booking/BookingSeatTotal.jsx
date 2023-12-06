@@ -335,7 +335,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
       toast.error("Sorry ! You Select Already Booking Dates");
     }
   };
-
+  console.log(data);
   return (
     <div
       style={{
@@ -366,26 +366,31 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
           borderRadius: "5px",
         }}
       >
-        <h2 className="text-left font-bold" style={{ color: "#212A42" }}>
-          {data?.name}
-        </h2>
-        <div className="flex ">
-          <div>
-            <img src={brachLocationIcon} alt="" />
-          </div>
-          <p className="text-black">{branch?.name}</p>
-        </div>
-        <p
-          className=" flex justify-start w-[60%]"
-          style={{
-            backgroundColor: "#FCA22A",
-            color: "white",
-            padding: "3px 5px ",
-            borderRadius: "5px",
-          }}
+        {/* <h2
+          className="text-left font-bold text-sm"
+          style={{ color: "#212A42" }}
         >
-          {data?.category?.name} ({data?.type})
-        </p>
+          {data?.name}
+        </h2> */}
+        <div className="flex justify-between">
+          <div className="flex ">
+            <div>
+              <img src={brachLocationIcon} alt="" />
+            </div>
+            <p className="text-black text-sm">{branch?.name}</p>
+          </div>
+          <p
+            className=" flex justify-start  text-sm"
+            style={{
+              backgroundColor: "#FCA22A",
+              color: "white",
+              padding: "3px 5px ",
+              borderRadius: "5px",
+            }}
+          >
+            {data?.category?.name} ({data?.type})
+          </p>
+        </div>
       </div>
       <div className="mx-2">
         <ul className="flex justify-evenly ">

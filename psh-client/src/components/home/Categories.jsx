@@ -8,6 +8,7 @@ import {
   Spinner,
 } from "@material-tailwind/react";
 import Slider from "react-slick";
+
 // import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 
 import UseFetch from "../../hooks/useFetch";
@@ -17,7 +18,8 @@ import axios from "axios";
 import SingleCard from "./SingleCard";
 import { settings } from "../../slider/Slider";
 import SearchBoxSm from "./SearchBoxSm";
-
+import LeftArrow from "../../assets/img/left-arrow.svg";
+import RightArrow from "../../assets/img/right-arrow.svg";
 export default function Categories() {
   const { data, loading, error, reFetch } = UseFetch(`property`);
 
@@ -106,6 +108,71 @@ export default function Categories() {
   );
   // console.log(filteredData);
 
+  // For Slider
+
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <img src={LeftArrow} alt="prevArrow" {...props} />
+  );
+
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <img src={RightArrow} alt="nextArrow" {...props} />
+  );
+  const settings = {
+    dots: false,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    infinite: true,
+
+    arrows:
+      publishRandomProperty?.length > 5 || filteredData?.length > 5
+        ? true
+        : false,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
+
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          dots: false,
+          infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+          infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          className: "center ms-5",
+          centerMode: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          arrows: false,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="category-item">
       <Header />
@@ -152,8 +219,8 @@ export default function Categories() {
         {/* card start */}
       </div>
 
-      <div className="mt-3 all_recommended slider_margin">
-        <Splide
+      <div className="mt-3 all_recommended slider_margin card-slider ">
+        {/* <Splide
           options={{
             // type: "loop",
             arrows:
@@ -163,7 +230,7 @@ export default function Categories() {
             rewind: true,
             drag: "free",
 
-            autoplay: true,
+            // autoplay: true,
             gap: "1rem",
             perPage: 5,
             height: "22rem",
@@ -173,12 +240,13 @@ export default function Categories() {
               1200: { arrows: true, perPage: 4 },
               800: { arrows: true, perPage: 2 },
               640: {
+                // type: "loop",
                 arrows: true,
-                perPage: 1,
+                perPage: 1.5,
                 height: "22rem",
                 drag: "free",
                 rewind: true,
-                padding: "5rem",
+                // padding: "5rem",
               },
             },
           }}
@@ -194,13 +262,20 @@ export default function Categories() {
                   <SingleCard item={item} />{" "}
                 </SplideSlide>
               ))}
-        </Splide>
-
-        {/* <Slider {...settings}>
-          {activeTab === "All"
-            ? randomIndex?.map((item) => <SingleCard item={item} />)
-            : filteredData.map((item) => <SingleCard item={item} />)}
-        </Slider> */}
+        </Splide> */}
+        {publishRandomProperty?.length > 5 || filteredData?.length > 5 ? (
+          <Slider {...settings}>
+            {activeTab === "All"
+              ? publishRandomProperty?.map((item) => <SingleCard item={item} />)
+              : filteredData.map((item) => <SingleCard item={item} />)}
+          </Slider>
+        ) : (
+          <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-x-5">
+            {activeTab === "All"
+              ? publishRandomProperty?.map((item) => <SingleCard item={item} />)
+              : filteredData.map((item) => <SingleCard item={item} />)}
+          </div>
+        )}
       </div>
 
       {/* <div className=" xl:mx-[244px] lg:mx-32 md:mx-26 mt-3 room-slide">

@@ -1,10 +1,18 @@
 import React from "react";
 import UseFetch from "../../hooks/useFetch";
 import Slider from "react-slick";
-
+import LeftArrow from "../../assets/img/left-arrow.svg";
+import RightArrow from "../../assets/img/right-arrow.svg";
 const Banner = () => {
   const { data } = UseFetch(`banner`);
 
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <img src={LeftArrow} alt="prevArrow" {...props} />
+  );
+
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <img src={RightArrow} alt="nextArrow" {...props} />
+  );
   const settings = {
     dots: false,
     speed: 500,
@@ -14,17 +22,19 @@ const Banner = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: true,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
 
     responsive: [
       {
-        breakpoint: 480,
+        breakpoint: 640,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
           autoplay: true,
           autoplaySpeed: 3000,
-          arrows: true,
+          arrows: false,
           padding: 20,
         },
       },
@@ -34,7 +44,7 @@ const Banner = () => {
   return (
     <>
       <div style={{ zIndex: "000" }}>
-        <div className=" p-0 ">
+        <div className=" p-0 banner-slider">
           <Slider {...settings} className="">
             {data?.map((pd, i) => (
               <div>

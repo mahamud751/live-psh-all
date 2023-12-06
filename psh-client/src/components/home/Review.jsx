@@ -53,9 +53,7 @@ const Review = () => {
 
   return (
     <div>
-      <h3 className="flex justify-center text-2xl mt-10 font-bold">
-        Listening to Our Clients
-      </h3>
+      <h3 className=" text-xl mt-10 font-bold">Listening to Our Clients</h3>
       <div className=" my-12">
         <Slider {...settings}>
           <div>

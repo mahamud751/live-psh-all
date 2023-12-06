@@ -9,10 +9,46 @@
 /* .banner-sm-slider button {
   display: none !important;
 } */
-.slick-slider button {
+.banner-slider .slick-slider .slick-arrow {
   /* display: none !important; */
-  margin: 0 50px;
+
+  margin: -30px 50px;
   z-index: 999;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  background-color: #fff;
+
+  box-shadow: 0 0 20px 5px rgba(35, 35, 35, 0.5);
+}
+
+.card-slider .slick-slider .slick-arrow {
+  /* display: none !important; */
+
+  margin: -60px 20px;
+  z-index: 999;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  background-color: #fff;
+
+  box-shadow: 0 0 20px 5px rgba(35, 35, 35, 0.5);
+}
+/* .banner-slider .slick-slider .slick-arrow:hover {
+  opacity: 0.8;
+}
+.card-slider .slick-slider .slick-arrow:hover {
+  opacity: 0.8;
+} */
+.card-slider .slick-slider .slick-arrow {
+  display: none !important;
+}
+.card-slider .slick-slider:hover .slick-arrow {
+  display: block !important;
 }
 
 .single-card {

@@ -382,7 +382,7 @@ const LoginModal = ({ handleOpen, size, isLoginModalOpen }) => {
                             </p>
                           )}
                         </div>
-                        <div className=" col-span-12 sm:col-span-12 lg:col-span-12 md:inline-block form ">
+                        {/* <div className=" col-span-12 sm:col-span-12 lg:col-span-12 md:inline-block form ">
                           <label htmlFor="Email" className="mb-1 label-text ">
                             Refers Code
                           </label>
@@ -392,7 +392,7 @@ const LoginModal = ({ handleOpen, size, isLoginModalOpen }) => {
                             placeholder="Enter Refer Code"
                             {...register("refferCode", {})}
                           />
-                        </div>
+                        </div> */}
                       </div>
 
                       {/* <div>
