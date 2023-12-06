@@ -270,8 +270,28 @@ const Footer = () => {
               </ul>
             </div>
           </footer>
+          <div className=" sm:flex md:hidden">
+              <Link
+                to={"/terms"}
+                className="text-white text-[14px]"
+                style={{
+                  fontWeight: "300px",
+                }}
+              >
+                Terms & Conditions
+              </Link>
+              <Link
+                to={"/privacy"}
+                className="text-white text-[14px] ms-2"
+                style={{
+                  fontWeight: "300px",
+                }}
+              >
+                Privacy & Policy
+              </Link>
+            </div>
           <div
-            className="text-center flex items-center justify-center text-white py-3"
+            className="text-center flex items-center justify-center text-white py-3 sm:text-[12px]"
             style={{
               background: "linear-gradient(to right, #020304, #071e37)",
             }}
@@ -297,7 +317,7 @@ const Footer = () => {
                 Privacy & Policy
               </Link>
             </div>
-            <div className="sm:hidden md:flex ms-4">
+            <div className="flex md:ms-4 footer_social ms-2">
               <img src="assets/img/facebook.svg.png" alt="" />
 
               <img src="assets/img/Link → instagram.svg.png" alt="" className="mx-2"/>
