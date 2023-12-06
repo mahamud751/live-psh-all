@@ -103,9 +103,7 @@ const Footer = () => {
                       {/* <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Our Story</a>
                       </li>
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Our Team</a>
-                      </li>
+                     
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Our Service</a>
                       </li>
