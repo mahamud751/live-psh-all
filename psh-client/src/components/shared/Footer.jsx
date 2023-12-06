@@ -291,7 +291,7 @@ const Footer = () => {
               </Link>
             </div>
           <div
-            className="text-center flex items-center justify-center text-white py-3 sm:text-[12px]"
+            className="text-center flex items-center sm:justify-between md:justify-center text-white py-3 sm:text-[12px]"
             style={{
               background: "linear-gradient(to right, #020304, #071e37)",
             }}
@@ -317,7 +317,7 @@ const Footer = () => {
                 Privacy & Policy
               </Link>
             </div>
-            <div className="flex md:ms-4 footer_social ms-2">
+            <div className="flex md:ms-4 footer_social ms-2 mr-2">
               <img src="assets/img/facebook.svg.png" alt="" />
 
               <img src="assets/img/Link → instagram.svg.png" alt="" className="mx-2"/>
