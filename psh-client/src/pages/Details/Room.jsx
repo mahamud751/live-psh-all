@@ -159,7 +159,7 @@ const Room = () => {
   //   window.scrollTo(0, 0); // Scroll to the top of the page
   // };
   const [keyValue, setKeyValue] = useState("");
-  console.log(keyValue);
+
   return (
     <div className="custom-container">
       <div className="mt-2">
@@ -202,13 +202,13 @@ const Room = () => {
           </div>
 
           <div className="mt-2 text-start ">
-            <div className="sticky md:top-[72px] sm:top-[72px] bg-white py-1">
-              <div className="md:flex text-[24px] gap-x-8 font-medium">
+            <div className="sticky md:top-[72px] sm:top-[50px] bg-white py-1">
+              <div className="md:flex text-[24px]  font-medium ">
                 <div onClick={() => setKeyValue(0)}>
                   <a
                     href="#keyDetails"
                     onClick={anchorClickHandler}
-                    className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[18px] md:text-[22px]  px-2 py-1 rounded ${
+                    className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[18px] md:text-[22px]  md:px-10 sm:px-2 py-1 rounded border ${
                       // typeof keyValue !== "string" &&
                       typeof keyValue === "number" && keyValue === 0
                         ? "bg-[#00bbb4] text-white hover:text-white"
@@ -218,14 +218,14 @@ const Room = () => {
                     Key Details
                   </a>
                 </div>
-                <div className="sm:flex sm:gap-x-2 md:gap-x-6">
+                <div className="sm:flex  ">
                   {facality?.slice(0, 3).map((pd, index) => (
                     <div key={pd?._id} onClick={() => setKeyValue(index + 1)}>
                       <span>
                         <a
                           href={`#${pd?.name}`}
                           onClick={anchorClickHandler}
-                          className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[18px] md:text-[22px] px-2 py-1 rounded ${
+                          className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[18px] md:text-[22px] md:px-10 sm:px-2 py-1 rounded border ${
                             keyValue === index + 1
                               ? "bg-[#00bbb4] text-white hover:text-white"
                               : ""
@@ -284,7 +284,12 @@ const Room = () => {
                           <div>
                             <img src="/images/icon/marker-02.png" alt="" />
                           </div>
-                          <p className="ms-1"> {data.branch?.name}</p>
+                          <p className="ms-1"> {data.branch?.name} -</p>
+                        </div>
+                        <div className="flex items-center text-black">
+                          <p className="ms-1 text-sm">
+                            Room Number : {data?.roomNumber}
+                          </p>
                         </div>
                         <div className="flex sm:text-[12px] sm:mt-2 md:mt-0">
                           <div className="flex md:mx-3 items-center">
@@ -293,11 +298,11 @@ const Room = () => {
                             </div>
                             {data.furnitured === "yes" ? (
                               <div className="ms-1 ">
-                                <span>Full Furnited</span>
+                                <span>Full Furnished</span>
                               </div>
                             ) : (
                               <div className="ms-1">
-                                <span>None Full Furnited</span>
+                                <span>None Full Furnished</span>
                               </div>
                             )}
                           </div>

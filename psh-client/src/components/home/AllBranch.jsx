@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AllBranch.css";
 import UseFetch from "../../hooks/useFetch";
 import { Link } from "react-router-dom";
@@ -15,22 +15,36 @@ import Slider from "react-slick";
 const AllBranch = () => {
   const { data } = UseFetch(`branch`);
 
-  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
-    <img src={LeftArrow} alt="prevArrow" {...props} />
-  );
+  const [lastSlideIndex, setLastSlideIndex] = useState(0);
 
-  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
-    <img src={RightArrow} alt="nextArrow" {...props} />
-  );
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => {
+    if (lastSlideIndex === 0) {
+      return null;
+    } else {
+      return <img src={LeftArrow} alt="prevArrow" {...props} />;
+    }
+  };
+
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => {
+    if (lastSlideIndex === data?.length - 5) {
+      return null;
+    } else {
+      return <img src={RightArrow} alt="nextArrow" {...props} />;
+    }
+  };
   const settings = {
     dots: false,
-    speed: 500,
+
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
-    infinite: true,
+    afterChange: (index) => {
+      setLastSlideIndex(index);
+    },
+    infinite: false,
+    speed: 400,
     arrows: data?.length > 4 ? true : false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
@@ -42,8 +56,7 @@ const AllBranch = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           dots: false,
-          infinite: true,
-          autoplay: true,
+
           autoplaySpeed: 3000,
         },
       },
@@ -53,21 +66,25 @@ const AllBranch = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 2,
-          infinite: true,
-          autoplay: true,
+
           autoplaySpeed: 3000,
         },
       },
       {
         breakpoint: 640,
         settings: {
-          className: "center ms-5",
+          className: `center ms-5 ${
+            lastSlideIndex >= 1 ? "only-forMobile" : ""
+          }`,
+          afterChange: (index) => {
+            setLastSlideIndex(index);
+          },
           centerMode: true,
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: true,
-          autoplay: true,
-          autoplaySpeed: 3000,
+          infinite: false,
+          speed: 1000,
+          autoplaySpeed: 1000,
           arrows: false,
         },
       },
@@ -154,7 +171,7 @@ const AllBranch = () => {
                       <Link to={`/branch/${item._id}`}>
                         <Card
                           shadow={false}
-                          className="relative grid h-[14rem] items-end justify-center overflow-hidden text-center"
+                          className="relative grid h-[7rem] items-end justify-center overflow-hidden text-center"
                         >
                           <CardHeader
                             floated={false}
@@ -198,7 +215,7 @@ const AllBranch = () => {
                         <Link to={`/branch/${item._id}`}>
                           <Card
                             shadow={false}
-                            className="relative grid h-[14rem] items-end justify-center overflow-hidden text-center"
+                            className="relative grid h-[7rem] items-end justify-center overflow-hidden text-center"
                           >
                             <CardHeader
                               floated={false}
@@ -239,7 +256,7 @@ const AllBranch = () => {
                         <Link to={`/branch/${item._id}`}>
                           <Card
                             shadow={false}
-                            className="relative grid h-[14rem] items-end justify-center overflow-hidden text-center"
+                            className="relative grid h-[7rem] items-end justify-center overflow-hidden text-center"
                           >
                             <CardHeader
                               floated={false}

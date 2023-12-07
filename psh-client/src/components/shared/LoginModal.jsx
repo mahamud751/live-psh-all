@@ -394,13 +394,20 @@ const LoginModal = ({ handleOpen, size, isLoginModalOpen }) => {
                           />
                         </div> */}
                       </div>
-
-                      {/* <div>
-                        <span className="text-[12px]">
-                          By Signing up, you agree the Terms and Conditions and
-                          Privacy Policy.
-                        </span>
-                      </div> */}
+                      <div className="flex px-4 mt-0 text-black ">
+                        <div>
+                          <input type="checkbox" name="terms" required id="" />
+                        </div>
+                        <p className="text-left pl-3 text-[12px] mt-1">
+                          <span className="underline hover:text-[#00bbb4] cursor-pointer">
+                            Terms of use
+                          </span>{" "}
+                          &{" "}
+                          <span className="underline hover:text-[#00bbb4] cursor-pointer">
+                            Pivacy policy
+                          </span>
+                        </p>
+                      </div>
                     </div>
 
                     <div className="  sm:mt-1">

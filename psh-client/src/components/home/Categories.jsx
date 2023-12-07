@@ -27,7 +27,7 @@ export default function Categories() {
   const [activeTab, setActiveTab] = useState("All");
   const [isLoaded, setIsLoaded] = useState(false); // Track the loading status
   const [randomIndex, setRandomIndex] = useState([]);
-
+  const [lastSlideIndex, setLastSlideIndex] = useState(0);
   // show Random index
   const getRandomData = () => {
     const shuffledData = [...data];
@@ -44,7 +44,7 @@ export default function Categories() {
   };
 
   // find Published Property
-  const publishRandomProperty = randomIndex.filter(
+  const publishRandomProperty = randomIndex?.filter(
     (property) => property?.isPublished === "Published"
   );
 
@@ -110,27 +110,45 @@ export default function Categories() {
 
   // For Slider
 
-  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
-    <img src={LeftArrow} alt="prevArrow" {...props} />
-  );
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => {
+    if (lastSlideIndex === 0) {
+      return null;
+    } else {
+      return <img src={LeftArrow} alt="prevArrow" {...props} />;
+    }
+  };
 
-  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
-    <img src={RightArrow} alt="nextArrow" {...props} />
-  );
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => {
+    if (
+      lastSlideIndex === publishRandomProperty?.length - 5 ||
+      lastSlideIndex === filteredData?.length - 5
+    ) {
+      return null;
+    } else {
+      return <img src={RightArrow} alt="nextArrow" {...props} />;
+    }
+  };
+
   const settings = {
     dots: false,
-    speed: 500,
+
+    afterChange: (index) => {
+      setLastSlideIndex(index);
+    },
+    infinite: false,
+    speed: 400,
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
-    infinite: true,
-    className: "mx-[-15px]",
+
+    className: `center mx-[-15px] `,
     arrows:
       publishRandomProperty?.length > 5 || filteredData?.length > 5
         ? true
         : false,
-    autoplay: true,
-    autoplaySpeed: 3000,
+    autoplay: false,
+    autoplaySpeed: 1000,
+
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
 
@@ -141,8 +159,8 @@ export default function Categories() {
           slidesToShow: 3,
           slidesToScroll: 1,
           dots: false,
-          infinite: true,
-          autoplay: true,
+          infinite: false,
+
           autoplaySpeed: 3000,
         },
       },
@@ -152,21 +170,26 @@ export default function Categories() {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 2,
-          infinite: true,
-          autoplay: true,
+          infinite: false,
+
           autoplaySpeed: 3000,
         },
       },
       {
         breakpoint: 640,
         settings: {
-          className: "center ms-5",
+          className: `center ms-5 ${
+            lastSlideIndex >= 1 ? "only-forMobile" : ""
+          }`,
+          afterChange: (index) => {
+            setLastSlideIndex(index);
+          },
           centerMode: true,
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: true,
-          autoplay: true,
-          autoplaySpeed: 3000,
+          infinite: false,
+          speed: 1000,
+          autoplaySpeed: 1000,
           arrows: false,
         },
       },

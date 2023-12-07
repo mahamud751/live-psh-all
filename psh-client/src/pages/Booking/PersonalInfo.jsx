@@ -277,8 +277,8 @@ const PersonalInfo = () => {
   return (
     <form onSubmit={bookingOrder}>
       <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  custom-container mb-20">
-        <div className="p-5">
-          <h2 className="text-black flex justify-left font-bold mt-5">
+        <div className="">
+          <h2 className="text-black flex justify-left font-bold mt-2">
             Please Fill this information{" "}
           </h2>
           <div>
@@ -723,7 +723,7 @@ const PersonalInfo = () => {
 
         {/* Cart for Lg */}
         <div id="keyDetails">
-          <div className="mt-5 lg:ml-44 md:ml-0 sticky md:top-24">
+          <div className="mt-2 lg:ml-44 md:ml-0 sticky md:top-20">
             <div
               style={{
                 // width: "430px",
@@ -776,7 +776,7 @@ const PersonalInfo = () => {
               </div>
 
               <div className="mx-5">
-                <div className="flex justify-evenly ">
+                <div className="flex justify-evenly text-sm">
                   <ul className="flex justify-evenly ">
                     <li className="list-none border py-1">
                       <span
@@ -819,7 +819,7 @@ const PersonalInfo = () => {
                 </div>
               </div>
 
-              <div className="flex justify-evenly mt-3 total-area text-black">
+              <div className="flex justify-evenly mt-3 total-area text-black text-sm">
                 <div>
                   <p className="text-center font-bold">Check-In</p>
                   <div
@@ -883,13 +883,13 @@ const PersonalInfo = () => {
                   />
                 </div>
               </div>
-
-              <div className="md:flex mx-5  mt-1 mb-2 total-area relative">
+              <hr className="my-1 ml-5 text-black mr-5" />
+              {/* <div className="md:flex mx-5  mt-1 mb-2 total-area relative">
                 <div>
                   <input
                     className="sm:px-10 md:px-12"
                     type="text"
-                    style={{ height: "30px" }}
+                    style={{ height: "27px" }}
                     placeholder="Pormo Code"
                     disabled
                   />
@@ -904,14 +904,14 @@ const PersonalInfo = () => {
                       backgroundColor: "#35B0A7 ",
                       color: "white",
                       borderRadius: "0px 2px 2px 0px",
-                      padding: "2px 10px",
+                      padding: "1px 10px",
                     }}
                     disabled
                   >
                     Confirm
                   </button>
                 </div>
-              </div>
+              </div> */}
 
               {/* <div className="text-black font-bold text-lg pr-5">
               <div className="flex justify-between ">
@@ -932,7 +932,7 @@ const PersonalInfo = () => {
                 <p>BDT {bookingItem?.totalAmount}</p>
               </div>
             </div> */}
-              <div className="text-black font-bold text-lg pr-5">
+              <div className="text-black font-bold text-[16px] pr-5">
                 <div className="flex justify-between ">
                   <div className="ml-16 flex items-center">
                     <p>Rent</p>
@@ -1075,7 +1075,7 @@ const PersonalInfo = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center px-4 mt-2 text-black terms">
+              <div className="flex items-center px-4 text-black">
                 <div>
                   <input
                     type="checkbox"
@@ -1084,23 +1084,22 @@ const PersonalInfo = () => {
                     onClick={() => setBookingExtend(!bookingExtend)}
                   />
                 </div>
-                <p className="text-left pl-3 text-[#35B0A7] font-bold">
+                <p className="text-left pl-3 text-[#35B0A7] font-bold text-[12px]">
                   I Would Like to Extend in Future
                 </p>
               </div>
-              <div className="flex px-4 mt-8 text-black terms mb-3">
+              <div className="flex px-4 mt-1 text-black  mb-1">
                 <div>
                   <input type="checkbox" name="terms" required id="" />
                 </div>
-                <p className="text-left pl-3 mt-[-15px]">
-                  I agree with Project Second Home’s Terms of Service and
-                  Privacy Policy
+                <p className="text-left pl-3  text-[12px]">
+                  I agree with our Terms of use and Privacy Policy
                 </p>
               </div>
 
               <input
                 type="submit"
-                className="text-xl p-4 cursor-pointer bg-[#35B0A7] w-full text-white"
+                className="text-xl p-2 cursor-pointer bg-[#35B0A7] w-full text-white"
                 value="Confirm Booking"
               />
             </div>

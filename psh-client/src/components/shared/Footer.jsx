@@ -3,12 +3,13 @@ import "./Custom.css";
 import MessengerCustomerChat from "react-messenger-customer-chat";
 import { Link } from "react-router-dom";
 import UseFetch from "../../hooks/useFetch";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 
 const Footer = () => {
   const { data } = UseFetch(`dynamic`);
   console.log("ssss", data);
   return (
-    <div>
+    <div className="footer-part">
       <div>
         <div style={{ background: "linear-gradient(to right, #000, #061c34)" }}>
           <div
@@ -29,7 +30,7 @@ const Footer = () => {
                         Email Support
                       </h2>
                       <h5 className="text-white text-sm mt-2">
-                        helo@raynative.com
+                        info@psh.com.bd
                       </h5>
                     </div>
                   </div>
@@ -81,7 +82,7 @@ const Footer = () => {
           </div>
           <footer className="pt-4 pb-8 xl:pt-8 custom-container sm:p-5 ">
             <div className="  dark:text-gray-300">
-              <ul className="flex flex-wrap justify-center pb-8 text-lg font-light">
+              <ul className="grid lg:grid-cols-5 md:grid-cols-5 sm:grid-cols-2 pb-8 text-lg font-light gap-x-10">
                 {/* <li className="w-1/2 md:w-1/6 lg:w-1/6">
                   <div className="text-start">
                     <h2
@@ -118,7 +119,7 @@ const Footer = () => {
                     </ul>
                   </div>
                 </li> */}
-                <li className="w-1/2 md:w-1/6 lg:w-1/6">
+                <li className="">
                   <div className="text-start">
                     <h2
                       className=" dark:text-gray-200 text-md uppercase mb-4"
@@ -139,7 +140,7 @@ const Footer = () => {
                     </ul>
                   </div>
                 </li>
-                <li className="w-1/2 md:w-1/6 lg:w-1/6">
+                <li className="">
                   <div className="text-start">
                     <h2
                       className=" dark:text-gray-200 text-md uppercase mb-4"
@@ -161,7 +162,7 @@ const Footer = () => {
                     </ul>
                   </div>
                 </li>
-                <li className="w-1/2 md:w-1/6 lg:w-1/6">
+                <li className="">
                   <div className="text-start">
                     <h2
                       className=" dark:text-gray-200 text-md uppercase mb-4"
@@ -184,7 +185,7 @@ const Footer = () => {
                     </ul>
                   </div>
                 </li>
-                <li className="w-1/2 md:w-1/6 lg:w-1/6">
+                <li className="">
                   <div className="text-start">
                     <h2
                       className=" dark:text-gray-200 text-md uppercase mb-4"
@@ -192,18 +193,20 @@ const Footer = () => {
                     >
                       Connect with us
                     </h2>
-                    <div className="flex mx-auto">
+                    <div className="flex ">
                       <div>
-                        <img src="assets/img/whatsapp.svg.png" alt="" />
+                        <HiOutlineLocationMarker className="text-white font-bold" />
                       </div>
                       <p
-                        className="text-white ms-3 text-[12px]"
+                        className="text-white md:ms-1 sm:ms-[0] text-[11px]"
                         style={{ marginTop: -3 }}
                       >
-                        +880 123456789
+                        House: 23, Road: 3, Dhanmondi, <br />
+                        Dhaka, Bangladesh
                       </p>
+                      <p></p>
                     </div>
-                    <div className="flex mx-auto">
+                    {/* <div className="flex mx-auto">
                       <div>
                         <img src="assets/img/email.svg fill.png" alt="" />
                       </div>
@@ -214,7 +217,7 @@ const Footer = () => {
                       >
                         info@psh.com.bd
                       </p>
-                    </div>
+                    </div> */}
                     <p className="text-white text-[14px]">Operational Hour</p>
                     <p
                       className=" text-[12px]"
@@ -228,20 +231,19 @@ const Footer = () => {
                     </p>
                   </div>
                 </li>
-                <li className="w-1/1 md:w-1/6 lg:w-1/6">
+                <li className="">
                   <div className="text-start">
-                    <div className="flex mx-auto justify-center">
-                      <div>
-                        <img src="assets/img/facebook.svg.png" alt="" />
-                      </div>
-                      <div className="mx-2">
-                        <img src="assets/img/Link → instagram.svg.png" alt="" />
-                      </div>
-                      <div>
-                        <img src="assets/img/Link → twitter.svg.png" alt="" />
-                      </div>
-                    </div>
+                    <div className="flex justify-center">
+                      <img src="assets/img/facebook.svg.png" alt="" />
 
+                      <img
+                        src="assets/img/Link → instagram.svg.png"
+                        alt=""
+                        className="mx-2"
+                      />
+
+                      <img src="assets/img/Link → twitter.svg.png" alt="" />
+                    </div>
                     <div className="mt-6">
                       <button className="footer_btn">
                         <p className="mt-2 text-[14px]"> Login / Signup</p>
@@ -271,27 +273,27 @@ const Footer = () => {
             </div>
           </footer>
           <div className=" sm:flex sm:justify-center md:hidden">
-              <Link
-                to={"/terms"}
-                className="text-white text-[14px]"
-                style={{
-                  fontWeight: "300px",
-                }}
-              >
-                Terms & Conditions
-              </Link>
-              <Link
-                to={"/privacy"}
-                className="text-white text-[14px] ms-2"
-                style={{
-                  fontWeight: "300px",
-                }}
-              >
-                Privacy & Policy
-              </Link>
-            </div>
+            <Link
+              to={"/terms"}
+              className="text-white text-[12px] underline hover:text-[#00bbb4]"
+              style={{
+                fontWeight: "300px",
+              }}
+            >
+              Terms & Conditions
+            </Link>
+            <Link
+              to={"/privacy"}
+              className="text-white text-[12px] ms-2 underline hover:text-[#00bbb4]"
+              style={{
+                fontWeight: "300px",
+              }}
+            >
+              Privacy & Policy
+            </Link>
+          </div>
           <div
-            className="text-center flex items-center justify-center text-white py-3 sm:text-[12px]"
+            className=" flex  justify-between text-white py-3 sm:text-[12px] custom-container"
             style={{
               background: "linear-gradient(to right, #020304, #071e37)",
             }}
@@ -300,7 +302,7 @@ const Footer = () => {
             <div className="flex ms-5 sm:hidden md:block">
               <Link
                 to={"/terms"}
-                className="text-white text-[14px]"
+                className="text-white text-[12px] underline hover:text-[#00bbb4]"
                 style={{
                   fontWeight: "300px",
                 }}
@@ -309,7 +311,7 @@ const Footer = () => {
               </Link>
               <Link
                 to={"/privacy"}
-                className="text-white text-[14px] ms-2"
+                className="text-white text-[12px] ms-2 underline hover:text-[#00bbb4]"
                 style={{
                   fontWeight: "300px",
                 }}
@@ -317,13 +319,17 @@ const Footer = () => {
                 Privacy & Policy
               </Link>
             </div>
-            <div className="sm:hidden md:flex md:ms-4 footer_social ms-2 mr-2">
+            {/* <div className="sm:hidden md:flex md:ms-4 footer_social ms-2 mr-2">
               <img src="assets/img/facebook.svg.png" alt="" />
 
-              <img src="assets/img/Link → instagram.svg.png" alt="" className="mx-2"/>
+              <img
+                src="assets/img/Link → instagram.svg.png"
+                alt=""
+                className="mx-2"
+              />
 
               <img src="assets/img/Link → twitter.svg.png" alt="" />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

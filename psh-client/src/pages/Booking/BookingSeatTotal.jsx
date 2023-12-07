@@ -339,7 +339,6 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
   return (
     <div
       style={{
-        width: "100%",
         // height: "650px",
         boxShadow:
           "0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ",
@@ -393,7 +392,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
         </div>
       </div>
       <div className="mx-2">
-        <ul className="flex justify-evenly ">
+        <ul className="flex justify-evenly text-sm">
           <li className="list-none border py-1">
             <span
               onClick={() =>
@@ -441,10 +440,10 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
         </ul>
       </div>
 
-      <div className="flex justify-evenly mt-3 total-area text-black">
+      <div className="flex justify-evenly mt-3 total-area text-black text-sm">
         <div>
           <p className="text-center font-bold">Check-In</p>
-          <div className="input-filed-area w-full" style={{ marginTop: 10 }}>
+          <div className="input-filed-area w-full " style={{ marginTop: 10 }}>
             <i
               className="fa-solid fa-calendar-days location-icon"
               style={{ color: "#00bbb4", marginTop: -4 }}
@@ -487,8 +486,25 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
             />
           </div>
         </div>
+        {/* <div className="mt-[29px] w-full px-1 py-[0.5px] sm:hidden md:block">
+          <p className=" duraion-count   ps-1 text-sm ">
+            {customerRent?.daysDifference >= 0
+              ? `${customerRent?.daysDifference} days`
+              : "" ||
+                (customerRent?.months &&
+                  customerRent?.days >= 0 &&
+                  !customerRent?.years)
+              ? `${customerRent?.months} months, ${customerRent?.days} days`
+              : "" ||
+                (customerRent?.years &&
+                  customerRent?.months >= 0 &&
+                  customerRent?.days >= 0)
+              ? `${customerRent?.years} year`
+              : ""}
+          </p>
+        </div> */}
       </div>
-      <div className="flex justify-center mt-2 md:ms-16 sm:ms-0">
+      <div className="flex justify-center mt-2 md:ms-16 sm:ms-0  ">
         <p className="font-bold">Duration = </p>
         <div>
           <input
@@ -514,15 +530,15 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
       </div>
 
       <form onSubmit={handlePromoCode}>
-        <div className="md:flex m-2 total-area relative ms-10">
+        <div className="md:flex m-2 total-area relative ">
           <div>
             <input
               className="sm:px-8 md:px-12"
               type="text"
               name="promoCode"
               onChange={(e) => setPromoCode(e.target.value)}
-              style={{ height: "30px", width: "100%" }}
-              placeholder="If You Pormo Code"
+              style={{ height: "27px", width: "100%" }}
+              placeholder=" Pormo Code"
               disabled={promoCodeCheck ? true : false}
               required
             />
@@ -530,7 +546,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
               <img src={promoIcon} alt="" />
             </div>
           </div>
-          <div className="sm:flex sm:justify-center md:mt-0 sm:mt-3 ">
+          <div className="sm:flex sm:justify-center md:mt-0 sm:mt-3 text-sm">
             <button
               type="submit"
               style={{
@@ -538,7 +554,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
                 backgroundColor: promoCodeCheck ? "#9eebe8" : "#35B0A7 ",
                 color: "white",
                 borderRadius: "0px 2px 2px 0px",
-                padding: "2px 10px",
+                padding: "1px 10px",
               }}
               disabled={promoCodeCheck ? true : false}
             >
@@ -548,7 +564,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
         </div>
       </form>
 
-      <div className="text-black font-bold text-lg pr-5">
+      <div className="text-black font-bold text-[16px] pr-5 ">
         <div className="flex justify-between ">
           <div className="ml-16 flex items-center">
             <p>Rent</p>

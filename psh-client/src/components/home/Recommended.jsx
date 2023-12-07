@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "@splidejs/react-splide/css/skyblue";
@@ -23,22 +23,36 @@ const Recommended = () => {
     (property) => property?.isPublished === "Published"
   );
 
-  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
-    <img src={LeftArrow} alt="prevArrow" {...props} />
-  );
+  const [lastSlideIndex, setLastSlideIndex] = useState(0);
 
-  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
-    <img src={RightArrow} alt="nextArrow" {...props} />
-  );
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => {
+    if (lastSlideIndex === 0) {
+      return null;
+    } else {
+      return <img src={LeftArrow} alt="prevArrow" {...props} />;
+    }
+  };
+
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => {
+    if (lastSlideIndex === publishedData?.length - 5) {
+      return null;
+    } else {
+      return <img src={RightArrow} alt="nextArrow" {...props} />;
+    }
+  };
   const settings = {
     dots: false,
-    speed: 500,
+
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
-    infinite: true,
+    afterChange: (index) => {
+      setLastSlideIndex(index);
+    },
+    infinite: false,
+    speed: 400,
     arrows: publishedData?.length > 5 ? true : false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
@@ -50,8 +64,7 @@ const Recommended = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           dots: false,
-          infinite: true,
-          autoplay: true,
+
           autoplaySpeed: 3000,
         },
       },
@@ -61,21 +74,25 @@ const Recommended = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 2,
-          infinite: true,
-          autoplay: true,
+
           autoplaySpeed: 3000,
         },
       },
       {
         breakpoint: 640,
         settings: {
-          className: "center ms-5",
+          className: `center ms-5 ${
+            lastSlideIndex >= 1 ? "only-forMobile" : ""
+          }`,
+          afterChange: (index) => {
+            setLastSlideIndex(index);
+          },
           centerMode: true,
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: true,
-          autoplay: true,
-          autoplaySpeed: 3000,
+          infinite: false,
+          speed: 1000,
+          autoplaySpeed: 1000,
           arrows: false,
         },
       },

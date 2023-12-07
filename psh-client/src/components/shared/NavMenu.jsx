@@ -286,7 +286,10 @@ export default function Navmenu() {
         <Navbar className="py-2 lg:py-2 shadow-none px-0">
           <div className="flex items-center justify-between text-blue-gray-900 ">
             <div className="md:ms-0 sm:ms-[15px]">
-              <Link to={"/"}>
+              <Link
+                to={"/"}
+                //  onClick={() => window.location.reload()}
+              >
                 <img
                   src={"https://i.ibb.co/GpqY8tQ/PSH-web-logo-1.png"}
                   alt=""

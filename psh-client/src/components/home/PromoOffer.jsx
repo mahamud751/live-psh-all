@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "react-router-dom";
 
@@ -11,16 +11,26 @@ import Slider from "react-slick";
 const PromoOffer = () => {
   const { data } = UseFetch(`promo`);
 
-  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
-    <img src={LeftArrow} alt="prevArrow" {...props} />
-  );
+  const [lastSlideIndex, setLastSlideIndex] = useState(0);
 
-  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
-    <img src={RightArrow} alt="nextArrow" {...props} />
-  );
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => {
+    if (lastSlideIndex === 0) {
+      return null;
+    } else {
+      return <img src={LeftArrow} alt="prevArrow" {...props} />;
+    }
+  };
+
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => {
+    if (lastSlideIndex === data?.length - 5) {
+      return null;
+    } else {
+      return <img src={RightArrow} alt="nextArrow" {...props} />;
+    }
+  };
   const settings = {
     dots: false,
-    speed: 500,
+    speed: 400,
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -57,13 +67,18 @@ const PromoOffer = () => {
       {
         breakpoint: 640,
         settings: {
-          className: "center ms-5",
+          className: `center ms-5 ${
+            lastSlideIndex >= 1 ? "only-forMobile" : ""
+          }`,
+          afterChange: (index) => {
+            setLastSlideIndex(index);
+          },
           centerMode: true,
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: true,
-          autoplay: true,
-          autoplaySpeed: 3000,
+          infinite: false,
+          speed: 1000,
+          autoplaySpeed: 1000,
           arrows: false,
         },
       },

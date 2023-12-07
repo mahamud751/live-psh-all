@@ -521,8 +521,8 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                 type="text"
                 name="promoCode"
                 onChange={(e) => setPromoCode(e.target.value)}
-                style={{ height: "30px", width: "100%" }}
-                placeholder="If You Pormo Code"
+                style={{ height: "27px", width: "100%" }}
+                placeholder="Pormo Code"
                 disabled={promoCodeCheck ? true : false}
                 required
               />
@@ -538,7 +538,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                   backgroundColor: promoCodeCheck ? "#9eebe8" : "#35B0A7 ",
                   color: "white",
                   borderRadius: "0px 2px 2px 0px",
-                  padding: "2px 10px",
+                  padding: "1px 10px",
                 }}
                 disabled={promoCodeCheck ? true : false}
               >
@@ -548,7 +548,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
           </div>
         </form>
 
-        <div className="text-black font-bold text-lg pr-5">
+        <div className="text-black font-bold text-[16px] pr-5 ">
           <div className="flex justify-between ">
             <div className="ml-16 flex items-center">
               <p>Rent</p>

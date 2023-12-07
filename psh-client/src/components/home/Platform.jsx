@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 import forMobile1 from "../../assets/img/formobile1.png";
@@ -10,6 +10,7 @@ import RightArrow from "../../assets/img/right-arrow.svg";
 import Slider from "react-slick";
 
 const Platform = () => {
+  const [lastSlideIndex, setLastSlideIndex] = useState(0);
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <img src={LeftArrow} alt="prevArrow" {...props} />
   );
@@ -19,13 +20,17 @@ const Platform = () => {
   );
   const settings = {
     dots: false,
-    speed: 500,
+
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
-    infinite: true,
+    afterChange: (index) => {
+      setLastSlideIndex(index);
+    },
+    infinite: false,
+    speed: 400,
     // arrows: publishedData?.length > 5 ? true : false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
@@ -38,7 +43,7 @@ const Platform = () => {
           slidesToScroll: 1,
           dots: false,
           infinite: true,
-          autoplay: true,
+
           autoplaySpeed: 3000,
           arrows: true,
         },
@@ -50,7 +55,7 @@ const Platform = () => {
           slidesToScroll: 1,
           initialSlide: 2,
           infinite: true,
-          autoplay: true,
+
           autoplaySpeed: 3000,
           arrows: true,
         },
@@ -58,13 +63,18 @@ const Platform = () => {
       {
         breakpoint: 640,
         settings: {
-          className: "center ms-5",
+          className: `center ms-5 ${
+            lastSlideIndex >= 1 ? "only-forMobile" : ""
+          }`,
+          afterChange: (index) => {
+            setLastSlideIndex(index);
+          },
           centerMode: true,
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: true,
-          autoplay: true,
-          autoplaySpeed: 3000,
+          infinite: false,
+          speed: 1000,
+          autoplaySpeed: 1000,
           arrows: false,
         },
       },
