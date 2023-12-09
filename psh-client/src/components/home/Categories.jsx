@@ -248,7 +248,7 @@ export default function Categories() {
       </div>
 
       <div className="mt-3 all_recommended slider_margin card-slider ">
-        {/* <Splide
+        <Splide
           options={{
             // type: "loop",
             arrows:
@@ -290,13 +290,13 @@ export default function Categories() {
                   <SingleCard item={item} />{" "}
                 </SplideSlide>
               ))}
-        </Splide> */}
-
+        </Splide>
+        {/* 
         <Slider {...settings}>
           {activeTab === "All"
             ? publishRandomProperty?.map((item) => <SingleCard item={item} />)
             : filteredData.map((item) => <SingleCard item={item} />)}
-        </Slider>
+        </Slider> */}
       </div>
 
       {/* <div className=" xl:mx-[244px] lg:mx-32 md:mx-26 mt-3 room-slide">
