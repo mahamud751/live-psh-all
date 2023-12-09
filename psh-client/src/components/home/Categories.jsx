@@ -18,8 +18,8 @@ import axios from "axios";
 import SingleCard from "./SingleCard";
 import { settings } from "../../slider/Slider";
 import SearchBoxSm from "./SearchBoxSm";
-import LeftArrow from "../../assets/img/left-arrow.svg";
-import RightArrow from "../../assets/img/right-arrow.svg";
+import LeftArrow from "../../assets/img/arrow2.png";
+import RightArrow from "../../assets/img/arrow1.png";
 export default function Categories() {
   const { data, loading, error, reFetch } = UseFetch(`property`);
 
@@ -138,7 +138,7 @@ export default function Categories() {
     infinite: false,
     speed: 500,
     adaptiveHeight: true,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
 
@@ -177,7 +177,13 @@ export default function Categories() {
         breakpoint: 640,
         settings: {
           className: `center ms-5 ${
-            lastSlideIndex >= 1 ? "only-forMobile" : ""
+            activeTab === "All"
+              ? lastSlideIndex >= publishRandomProperty?.length - 1
+                ? "only-forMobile"
+                : ""
+              : lastSlideIndex >= filteredData?.length - 1
+              ? "only-forMobile"
+              : ""
           }`,
           afterChange: (index) => {
             setLastSlideIndex(index);
@@ -187,13 +193,14 @@ export default function Categories() {
           slidesToScroll: 1,
           infinite: false,
           arrows: false,
-          speed: 400,
-          cssEase: "ease",
+          initialSlide: 1,
+          speed: 300,
+          cssEase: "ease-out",
         },
       },
     ],
   };
-
+  console.log(lastSlideIndex);
   return (
     <div className="category-item">
       <Header />

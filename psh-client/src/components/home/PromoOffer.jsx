@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import UseFetch from "../../hooks/useFetch";
 import "./AllPromo.css";
 import { IoIosArrowForward } from "react-icons/io";
-import LeftArrow from "../../assets/img/left-arrow.svg";
-import RightArrow from "../../assets/img/right-arrow.svg";
+import LeftArrow from "../../assets/img/arrow2.png";
+import RightArrow from "../../assets/img/arrow1.png";
 import Slider from "react-slick";
 const PromoOffer = () => {
   const { data } = UseFetch(`promo`);
@@ -68,7 +68,7 @@ const PromoOffer = () => {
         breakpoint: 640,
         settings: {
           className: `center ms-5 ${
-            lastSlideIndex >= 1 ? "only-forMobile" : ""
+            lastSlideIndex >= data?.length - 1 ? "only-forMobile" : ""
           }`,
           afterChange: (index) => {
             setLastSlideIndex(index);
@@ -77,9 +77,10 @@ const PromoOffer = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: false,
-          speed: 400,
-          cssEase: "ease",
           arrows: false,
+          initialSlide: 1,
+          speed: 300,
+          cssEase: "ease-out",
         },
       },
     ],

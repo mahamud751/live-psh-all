@@ -5,8 +5,8 @@ import forMobile1 from "../../assets/img/formobile1.png";
 import forMobile2 from "../../assets/img/formobile2.png";
 import forMobile3 from "../../assets/img/formobile3.png";
 
-import LeftArrow from "../../assets/img/left-arrow.svg";
-import RightArrow from "../../assets/img/right-arrow.svg";
+import LeftArrow from "../../assets/img/arrow2.png";
+import RightArrow from "../../assets/img/arrow1.png";
 import Slider from "react-slick";
 
 const Platform = () => {

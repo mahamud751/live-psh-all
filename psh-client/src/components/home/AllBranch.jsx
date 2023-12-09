@@ -9,8 +9,8 @@ import {
   CardBody,
   Typography,
 } from "@material-tailwind/react";
-import LeftArrow from "../../assets/img/left-arrow.svg";
-import RightArrow from "../../assets/img/right-arrow.svg";
+import LeftArrow from "../../assets/img/arrow2.png";
+import RightArrow from "../../assets/img/arrow1.png";
 import Slider from "react-slick";
 const AllBranch = () => {
   const { data } = UseFetch(`branch`);
@@ -75,7 +75,7 @@ const AllBranch = () => {
         breakpoint: 640,
         settings: {
           className: `center ms-5 ${
-            lastSlideIndex >= 1 ? "only-forMobile" : ""
+            lastSlideIndex >= data?.length - 1 ? "only-forMobile" : ""
           }`,
           afterChange: (index) => {
             setLastSlideIndex(index);
@@ -84,9 +84,10 @@ const AllBranch = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: false,
-          speed: 400,
-          cssEase: "ease",
           arrows: false,
+          initialSlide: 1,
+          speed: 300,
+          cssEase: "ease-out",
         },
       },
     ],

@@ -16,12 +16,12 @@
   z-index: 999;
   border-radius: 50%;
   cursor: pointer;
-  width: 30px;
-  height: 30px;
-  padding: 5px;
+  width: 35px;
+  height: 36px;
+  padding: 12px 12.5px;
   background-color: #fff;
 
-  /* box-shadow: 0 0 20px 5px rgba(35, 35, 35, 0.5); */
+  box-shadow: 0 0 20px 5px rgba(35, 35, 35, 0.5);
 }
 
 .card-slider .slick-slider .slick-arrow {
@@ -31,9 +31,9 @@
   z-index: 999;
   border-radius: 50%;
   cursor: pointer;
-  width: 30px;
-  height: 30px;
-  padding: 5px;
+  width: 35px;
+  height: 36px;
+  padding: 12px 12.5px;
   background-color: #fff;
 
   box-shadow: 0 0 20px 5px rgba(35, 35, 35, 0.5);
@@ -41,6 +41,7 @@
 
 .only-forMobile .slick-list {
   padding: 0 90px !important;
+  transition: padding 0.5s ease-in-out;
 }
 
 .card-slider .slick-slider .slick-arrow {

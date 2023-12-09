@@ -11,9 +11,10 @@ import { settings } from "../../slider/Slider";
 import "./Recommended.css";
 import AllRecomonded from "./AllRecomonded";
 import { Link } from "react-router-dom";
-import LeftArrow from "../../assets/img/left-arrow.svg";
-import RightArrow from "../../assets/img/right-arrow.svg";
+import LeftArrow from "../../assets/img/arrow2.png";
+import RightArrow from "../../assets/img/arrow1.png";
 import Slider from "react-slick";
+
 const Recommended = () => {
   const { data, loading, error, reFetch } = UseFetch(
     `property/properties/recommended`
@@ -83,7 +84,7 @@ const Recommended = () => {
         breakpoint: 640,
         settings: {
           className: `center ms-5 ${
-            lastSlideIndex >= 1 ? "only-forMobile" : ""
+            lastSlideIndex >= publishedData?.length - 1 ? "only-forMobile" : ""
           }`,
           afterChange: (index) => {
             setLastSlideIndex(index);
@@ -92,9 +93,10 @@ const Recommended = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: false,
-          speed: 400,
-          cssEase: "ease",
           arrows: false,
+          initialSlide: 1,
+          speed: 300,
+          cssEase: "ease-out",
         },
       },
     ],
@@ -148,7 +150,7 @@ const Recommended = () => {
           </Splide> */}
 
           <Slider {...settings}>
-            {data?.map((item) => (
+            {publishedData?.map((item) => (
               <SingleCard item={item} />
             ))}
           </Slider>

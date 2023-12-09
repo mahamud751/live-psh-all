@@ -1,8 +1,8 @@
 import React from "react";
 import UseFetch from "../../hooks/useFetch";
 import Slider from "react-slick";
-import LeftArrow from "../../assets/img/left-arrow.svg";
-import RightArrow from "../../assets/img/right-arrow.svg";
+import LeftArrow from "../../assets/img/arrow2.png";
+import RightArrow from "../../assets/img/arrow1.png";
 const Banner = () => {
   const { data } = UseFetch(`banner`);
 
@@ -44,7 +44,7 @@ const Banner = () => {
   return (
     <>
       <div style={{ zIndex: "000" }}>
-        <div className=" p-0 banner-slider">
+        <div className=" p-0 banner-slider  ">
           <Slider {...settings} className="">
             {data?.map((pd, i) => (
               <div>

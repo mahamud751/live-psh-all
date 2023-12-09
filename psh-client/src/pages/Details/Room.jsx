@@ -34,8 +34,8 @@ import useBranch from "../../hooks/useBranch";
 
 import useExtraCharge from "../../hooks/useExtraCharge";
 import SingleCard from "../../components/home/SingleCard";
-import LeftArrow from "../../assets/img/left-arrow.svg";
-import RightArrow from "../../assets/img/right-arrow.svg";
+import LeftArrow from "../../assets/img/arrow2.png";
+import RightArrow from "../../assets/img/arrow1.png";
 import Slider from "react-slick";
 
 const Room = () => {
@@ -225,7 +225,9 @@ const Room = () => {
         breakpoint: 640,
         settings: {
           className: `center ms-5 ${
-            lastSlideIndex >= 1 ? "only-forMobile" : ""
+            lastSlideIndex >= publishedRecomended?.length - 1
+              ? "only-forMobile"
+              : ""
           }`,
           afterChange: (index) => {
             setLastSlideIndex(index);
@@ -235,8 +237,9 @@ const Room = () => {
           slidesToScroll: 1,
           infinite: false,
           arrows: false,
-          speed: 400,
-          cssEase: "ease",
+          initialSlide: 1,
+          speed: 300,
+          cssEase: "ease-out",
         },
       },
     ],
