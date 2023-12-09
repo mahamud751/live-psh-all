@@ -270,7 +270,7 @@ export default function Categories() {
               640: {
                 // type: "loop",
                 arrows: true,
-                perPage: 1.5,
+                perPage: 1,
                 height: "22rem",
                 drag: "free",
                 rewind: true,
