@@ -21,7 +21,7 @@ import heart2 from "../../assets/img/Heart2.png";
 import locationIcon from "../../assets/img/branchLocationIcon.png";
 import { FaHeart } from "react-icons/fa";
 
-const AllRecoondedSingle = ({ item, isSeatIntoDate }) => {
+const AllRecoondedSingle = ({ item, isSeatIntoDate, isAlreadySeatBook }) => {
   const { user } = useContext(AuthContext);
   const [recomendedId, setRecomendId] = useState("");
   const userName = user?.firstName;

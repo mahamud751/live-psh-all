@@ -134,9 +134,9 @@ const Footer = () => {
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">PSH Finance</a>
                       </li>
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                      {/* <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Build for Rent</a>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                 </li>
@@ -233,7 +233,7 @@ const Footer = () => {
                 </li>
                 <li className="">
                   <div className="text-start">
-                    <div className="flex justify-center">
+                    {/* <div className="flex justify-center">
                       <img src="assets/img/facebook.svg.png" alt="" />
 
                       <img
@@ -243,13 +243,13 @@ const Footer = () => {
                       />
 
                       <img src="assets/img/Link → twitter.svg.png" alt="" />
-                    </div>
-                    <div className="mt-6">
+                    </div> */}
+                    <div className="mt-6 md:px-0 sm:px-12">
                       <button className="footer_btn">
                         <p className="mt-2 text-[14px]"> Login / Signup</p>
                       </button>
                     </div>
-                    <div className="mt-6">
+                    <div className="mt-6 md:px-0 sm:px-12">
                       <button className="footer_btn">
                         <img
                           src="assets/img/appstore.svg.png"
@@ -293,7 +293,7 @@ const Footer = () => {
             </Link>
           </div>
           <div
-            className=" flex  justify-between text-white py-3 sm:text-[12px] custom-container"
+            className=" flex  justify-center text-white py-3 sm:text-[12px]"
             style={{
               background: "linear-gradient(to right, #020304, #071e37)",
             }}

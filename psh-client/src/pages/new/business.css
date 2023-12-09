@@ -1,0 +1,78 @@
+.header {
+    color: #000;
+    font-family: Rubik;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    /* 150% */
+}
+
+.content {
+    color: #646464;
+    font-family: Rubik;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+}
+
+.second_part {
+    border-radius: 0px 0px 80px 0px;
+    background: #222;
+}
+
+.header2 {
+    color: #FFF;
+    font-family: Rubik;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    /* 144.444% */
+}
+
+.content2 {
+    color: #E7E7E7;
+    font-family: Rubik;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+}
+
+.header3 {
+    color: #FFF;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 44px;
+    /* 137.5% */
+}
+
+.banner-left {
+    background-color: #222;
+}
+
+.banner_h1 {
+    color: #FFF;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 50px;
+
+    /* 125% */
+}
+
+.banner_p {
+    color: #B3B3B3;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+
+    /* 144.444% */
+}
