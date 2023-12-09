@@ -15,7 +15,7 @@ import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
 import Slider from "react-slick";
 import "./business.css";
-import Benefit from "./benefit";
+import Benefit from "./Benefit";
 
 const Business = () => {
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
