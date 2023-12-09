@@ -15,7 +15,6 @@ import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
 import Slider from "react-slick";
 
-import Benefit from "./benefit";
 import "./partner.css";
 
 const Partner = () => {
