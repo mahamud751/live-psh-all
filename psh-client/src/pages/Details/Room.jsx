@@ -288,12 +288,12 @@ const Room = () => {
 
           <div className="mt-2 text-start ">
             <div className="sticky md:top-[72px] sm:top-[50px] bg-white py-1">
-              <div className="md:flex text-[24px]  font-medium ">
+              <div className="flex text-[24px]  font-medium ">
                 <div onClick={() => setKeyValue(0)}>
                   <a
                     href="#keyDetails"
                     onClick={anchorClickHandler}
-                    className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[18px] md:text-[22px]  md:px-10 sm:px-2 py-1  border ${
+                    className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[13px] md:text-[22px]  md:px-10 sm:px-2 py-1  border ${
                       // typeof keyValue !== "string" &&
                       typeof keyValue === "number" && keyValue === 0
                         ? "bg-[#00bbb4] text-white hover:text-white"
@@ -310,7 +310,7 @@ const Room = () => {
                         <a
                           href={`#${pd?.name}`}
                           onClick={anchorClickHandler}
-                          className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[18px] md:text-[22px] md:px-10 sm:px-2 py-1 border ${
+                          className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[13px] md:text-[22px] md:px-10 sm:px-2 py-1 border ${
                             keyValue === index + 1
                               ? "bg-[#00bbb4] text-white hover:text-white"
                               : ""
