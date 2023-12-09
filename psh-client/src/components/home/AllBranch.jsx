@@ -42,7 +42,8 @@ const AllBranch = () => {
       setLastSlideIndex(index);
     },
     infinite: false,
-    speed: 400,
+    speed: 500,
+    adaptiveHeight: true,
     arrows: data?.length > 4 ? true : false,
     autoplay: false,
     autoplaySpeed: 3000,
@@ -83,8 +84,7 @@ const AllBranch = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: false,
-          speed: 1000,
-          autoplaySpeed: 1000,
+
           arrows: false,
         },
       },
@@ -164,134 +164,47 @@ const AllBranch = () => {
               </Splide> */}
 
               {/* For Mobile */}
-              <div className="md:hidden sm:block">
-                <Slider {...settings}>
-                  {data?.map((item) => (
-                    <div className="items-start ">
-                      <Link to={`/branch/${item._id}`}>
-                        <Card
+
+              <Slider {...settings}>
+                {data?.map((item) => (
+                  <div className="items-start ">
+                    <Link to={`/branch/${item._id}`}>
+                      <Card
+                        shadow={false}
+                        className="relative grid h-[7rem] items-end justify-center overflow-hidden text-center"
+                      >
+                        <CardHeader
+                          floated={false}
                           shadow={false}
-                          className="relative grid h-[7rem] items-end justify-center overflow-hidden text-center"
+                          color="transparent"
+                          className={`absolute inset-0 m-0 rounded-none bg-cover bg-center`}
+                          style={{
+                            backgroundImage: `url('${item.photos[0]}')`,
+                          }}
                         >
-                          <CardHeader
-                            floated={false}
-                            shadow={false}
-                            color="transparent"
-                            className={`absolute inset-0 m-0 rounded-none bg-cover bg-center`}
+                          <div className="to-bg-black-10 absolute inset-0 bg-gradient-to-t from-black/80 " />
+                        </CardHeader>
+                        <CardBody className="relative ">
+                          <div
                             style={{
-                              backgroundImage: `url('${item.photos[0]}')`,
+                              display: "flex",
+                              justifyContent: "start",
                             }}
                           >
-                            <div className="to-bg-black-10 absolute inset-0 bg-gradient-to-t from-black/80 " />
-                          </CardHeader>
-                          <CardBody className="relative ">
-                            <div
-                              style={{
-                                display: "flex",
-                                justifyContent: "start",
-                              }}
+                            <i className="fa-solid fa-location-dot text-white me-3 mt-1"></i>
+                            <Typography
+                              variant="h5"
+                              className="mb-4 text-white "
                             >
-                              <i className="fa-solid fa-location-dot text-white me-3 mt-1"></i>
-                              <Typography
-                                variant="h5"
-                                className="mb-4 text-white "
-                              >
-                                {item.name}
-                              </Typography>
-                            </div>
-                          </CardBody>
-                        </Card>
-                      </Link>
-                    </div>
-                  ))}
-                </Slider>
-              </div>
-              {/* For Desktom */}
-              <div className="md:block sm:hidden">
-                {data?.length > 4 ? (
-                  <Slider {...settings}>
-                    {data?.map((item) => (
-                      <div className="items-start ">
-                        <Link to={`/branch/${item._id}`}>
-                          <Card
-                            shadow={false}
-                            className="relative grid h-[7rem] items-end justify-center overflow-hidden text-center"
-                          >
-                            <CardHeader
-                              floated={false}
-                              shadow={false}
-                              color="transparent"
-                              className={`absolute inset-0 m-0 rounded-none bg-cover bg-center`}
-                              style={{
-                                backgroundImage: `url('${item.photos[0]}')`,
-                              }}
-                            >
-                              <div className="to-bg-black-10 absolute inset-0 bg-gradient-to-t from-black/80 " />
-                            </CardHeader>
-                            <CardBody className="relative ">
-                              <div
-                                style={{
-                                  display: "flex",
-                                  justifyContent: "start",
-                                }}
-                              >
-                                <i className="fa-solid fa-location-dot text-white me-3 mt-1"></i>
-                                <Typography
-                                  variant="h5"
-                                  className="mb-4 text-white "
-                                >
-                                  {item.name}
-                                </Typography>
-                              </div>
-                            </CardBody>
-                          </Card>
-                        </Link>
-                      </div>
-                    ))}
-                  </Slider>
-                ) : (
-                  <div className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 gap-x-5">
-                    {data?.map((item) => (
-                      <div className="items-start ">
-                        <Link to={`/branch/${item._id}`}>
-                          <Card
-                            shadow={false}
-                            className="relative grid h-[7rem] items-end justify-center overflow-hidden text-center"
-                          >
-                            <CardHeader
-                              floated={false}
-                              shadow={false}
-                              color="transparent"
-                              className={`absolute inset-0 m-0 rounded-none bg-cover bg-center`}
-                              style={{
-                                backgroundImage: `url('${item.photos[0]}')`,
-                              }}
-                            >
-                              <div className="to-bg-black-10 absolute inset-0 bg-gradient-to-t from-black/80 " />
-                            </CardHeader>
-                            <CardBody className="relative ">
-                              <div
-                                style={{
-                                  display: "flex",
-                                  justifyContent: "start",
-                                }}
-                              >
-                                <i className="fa-solid fa-location-dot text-white me-3 mt-1"></i>
-                                <Typography
-                                  variant="h5"
-                                  className="mb-4 text-white "
-                                >
-                                  {item.name}
-                                </Typography>
-                              </div>
-                            </CardBody>
-                          </Card>
-                        </Link>
-                      </div>
-                    ))}
+                              {item.name}
+                            </Typography>
+                          </div>
+                        </CardBody>
+                      </Card>
+                    </Link>
                   </div>
-                )}
-              </div>
+                ))}
+              </Slider>
             </div>
           </div>
         </div>

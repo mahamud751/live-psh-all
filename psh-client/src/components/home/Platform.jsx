@@ -28,7 +28,8 @@ const Platform = () => {
       setLastSlideIndex(index);
     },
     infinite: false,
-    speed: 400,
+    speed: 500,
+    adaptiveHeight: true,
     // arrows: publishedData?.length > 5 ? true : false,
     autoplay: false,
     autoplaySpeed: 3000,
@@ -73,8 +74,7 @@ const Platform = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: false,
-          speed: 1000,
-          autoplaySpeed: 1000,
+
           arrows: false,
         },
       },
@@ -193,110 +193,6 @@ const Platform = () => {
           </div>
         </Slider>
       </div>
-
-      {/* For Desktop */}
-      <div className="mt-12 sm:hidden md:block">
-        <div className="grid grid-cols-12 gap-x-8 gap-y-16">
-          <div className=" text-center space-y-3 sm:col-span-12 lg:col-span-4 md:col-span-4 ">
-            <div className="flex ">
-              <img src="/images/Frame 3727.png" alt="" />
-              <div style={{ marginLeft: 40, marginTop: 120 }}>
-                <img src="/images/Line 1 (Stroke).png" alt="" />
-              </div>
-            </div>
-            <div className="flex justify-center w-full">
-              <h2>Search on Maps</h2>
-            </div>
-            <p>
-              Explore and find your desired location on our interactive maps
-              feature, ensuring convenience and proximity to your desired area.
-            </p>
-          </div>
-          <div className=" text-center space-y-3 sm:col-span-12 lg:col-span-4 md:col-span-4">
-            <div className="flex">
-              <img src="/images/Group.png" alt="" />
-              <div style={{ marginLeft: 40, marginTop: 120 }}>
-                <img src="/images/Line 1 (Stroke).png" alt="" />
-              </div>
-            </div>
-            <div className="flex justify-center w-full">
-              <h2>Select Your Perfect Room</h2>
-            </div>
-            <p>
-              Explore and find your desired location on our interactive maps
-              feature, ensuring convenience and proximity to your desired area.
-            </p>
-          </div>
-          <div className=" text-center col-span-12 space-y-3 sm:col-span-12 lg:col-span-4 md:col-span-4">
-            <div className="flex">
-              <img src="/images/Frame 3726.png" alt="" />
-            </div>
-            <div className="flex justify-center w-full">
-              <h2>Book and Get Ready to Stay</h2>
-            </div>
-            <p>
-              Explore and find your desired location on our interactive maps
-              feature, ensuring convenience and proximity to your desired area.
-            </p>
-          </div>
-        </div>
-      </div>
-      {/* For Mobile */}
-      {/* <div className="mt-12 ">
-        <div className="grid grid-cols-12 gap-x-8 gap-y-16">
-          <div className=" text-center space-y-3 sm:col-span-12 lg:col-span-4 md:col-span-4 w-4/5">
-            <div className="flex justify-center">
-              <div>
-                <img src={forMobile1} alt="" />
-              </div>
-            </div>
-            <div className="">
-              <div className="mb-2">
-                <h2>Search on Maps</h2>
-              </div>
-              <p className="">
-                Explore and find your desired location on our interactive maps
-                feature, ensuring convenience and proximity to your desired
-                area.
-              </p>
-            </div>
-          </div>
-          <div className=" text-center space-y-3 sm:col-span-12 lg:col-span-4 md:col-span-4 w-4/5">
-            <div className="flex justify-center">
-              <div>
-                <img src={forMobile2} alt="" />
-              </div>
-            </div>
-            <div className="">
-              <div className="mb-2">
-                <h2>Search on Maps</h2>
-              </div>
-              <p className="">
-                Explore and find your desired location on our interactive maps
-                feature, ensuring convenience and proximity to your desired
-                area.
-              </p>
-            </div>
-          </div>
-          <div className=" text-center space-y-3 sm:col-span-12 lg:col-span-4 md:col-span-4 w-4/5">
-            <div className="flex justify-center">
-              <div>
-                <img src={forMobile3} alt="" />
-              </div>
-            </div>
-            <div className="">
-              <div className="mb-2">
-                <h2>Search on Maps</h2>
-              </div>
-              <p className="">
-                Explore and find your desired location on our interactive maps
-                feature, ensuring convenience and proximity to your desired
-                area.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

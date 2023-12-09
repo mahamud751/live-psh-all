@@ -30,14 +30,15 @@ const PromoOffer = () => {
   };
   const settings = {
     dots: false,
-    speed: 400,
+    speed: 500,
+    adaptiveHeight: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
     infinite: true,
     arrows: data?.length > 3 ? true : false,
-    autoplay: true,
-    autoplaySpeed: 3000,
+    autoplay: false,
+
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
     className: "mx-[-15px]",
@@ -50,7 +51,6 @@ const PromoOffer = () => {
           dots: false,
           infinite: true,
           autoplay: true,
-          autoplaySpeed: 3000,
         },
       },
       {
@@ -77,8 +77,7 @@ const PromoOffer = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: false,
-          speed: 1000,
-          autoplaySpeed: 1000,
+
           arrows: false,
         },
       },
@@ -146,79 +145,23 @@ const PromoOffer = () => {
                 ))}
               </Splide> */}
 
-              <div className="md:hidden sm:block">
-                <Slider {...settings}>
-                  {data?.map((item, i) => (
-                    <div key={i} className="group relative">
-                      <Link to={`/promo/${item._id}`}>
-                        <div className="relative w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75">
-                          <img
-                            src={item.photos[0]}
-                            alt=""
-                            className="promo_img"
-                            style={{ width: "100%" }}
-                          />
-                        </div>
-                      </Link>
-                    </div>
-                  ))}
-                </Slider>
-              </div>
-
-              <div className=" md:block sm:hidden">
-                {data?.length > 3 ? (
-                  <Slider {...settings}>
-                    {data?.map((item, i) => (
-                      <div key={i} className="group relative ">
-                        <Link to={`/promo/${item._id}`}>
-                          <div className="relative w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75">
-                            <img
-                              src={item.photos[0]}
-                              alt=""
-                              className="promo_img"
-                              style={{ width: "100%" }}
-                            />
-                          </div>
-                        </Link>
+              <Slider {...settings}>
+                {data?.map((item, i) => (
+                  <div key={i} className="group relative">
+                    <Link to={`/promo/${item._id}`}>
+                      <div className="relative w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75">
+                        <img
+                          src={item.photos[0]}
+                          alt=""
+                          className="promo_img"
+                          style={{ width: "100%" }}
+                        />
                       </div>
-                    ))}
-                  </Slider>
-                ) : (
-                  <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 gap-x-5">
-                    {data?.map((item, i) => (
-                      <div key={i} className="group relative">
-                        <Link to={`/promo/${item._id}`}>
-                          <div className="relative w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75">
-                            <img
-                              src={item.photos[0]}
-                              alt=""
-                              className="promo_img"
-                              style={{ width: "100%" }}
-                            />
-                          </div>
-                        </Link>
-                      </div>
-                    ))}
+                    </Link>
                   </div>
-                )}
-              </div>
+                ))}
+              </Slider>
             </div>
-            {/* <div className="mt-6 md:space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
-              {data.map((item, i) => (
-                <div key={i} className="group relative">
-                  <Link to={`/promo/${item._id}`}>
-                    <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-                      <img
-                        src={item.photos[0]}
-                        alt=""
-                        className="promo_img"
-                        style={{ width: "100%" }}
-                      />
-                    </div>
-                  </Link>
-                </div>
-              ))}
-            </div> */}
           </div>
         </div>
       </div>

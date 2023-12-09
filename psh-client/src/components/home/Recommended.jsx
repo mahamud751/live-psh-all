@@ -49,8 +49,9 @@ const Recommended = () => {
     afterChange: (index) => {
       setLastSlideIndex(index);
     },
+    adaptiveHeight: true,
     infinite: false,
-    speed: 400,
+    speed: 500,
     arrows: publishedData?.length > 5 ? true : false,
     autoplay: false,
     autoplaySpeed: 3000,
@@ -91,8 +92,7 @@ const Recommended = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: false,
-          speed: 1000,
-          autoplaySpeed: 1000,
+
           arrows: false,
         },
       },
@@ -145,19 +145,12 @@ const Recommended = () => {
               </SplideSlide>
             ))}
           </Splide> */}
-          {data?.length > 5 ? (
-            <Slider {...settings}>
-              {data?.map((item) => (
-                <SingleCard item={item} />
-              ))}
-            </Slider>
-          ) : (
-            <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-x-5">
-              {data?.map((item) => (
-                <SingleCard item={item} />
-              ))}
-            </div>
-          )}
+
+          <Slider {...settings}>
+            {data?.map((item) => (
+              <SingleCard item={item} />
+            ))}
+          </Slider>
         </div>
       ) : (
         ""

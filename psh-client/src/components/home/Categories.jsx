@@ -136,11 +136,12 @@ export default function Categories() {
       setLastSlideIndex(index);
     },
     infinite: false,
-    speed: 400,
+    speed: 500,
+    adaptiveHeight: true,
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
-
+    cssEase: "ease",
     className: `center mx-[-15px] `,
     arrows:
       publishRandomProperty?.length > 5 || filteredData?.length > 5
@@ -171,8 +172,6 @@ export default function Categories() {
           slidesToScroll: 1,
           initialSlide: 2,
           infinite: false,
-
-          autoplaySpeed: 3000,
         },
       },
       {
@@ -188,8 +187,6 @@ export default function Categories() {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: false,
-          speed: 1000,
-          autoplaySpeed: 1000,
           arrows: false,
         },
       },
@@ -286,19 +283,12 @@ export default function Categories() {
                 </SplideSlide>
               ))}
         </Splide> */}
-        {publishRandomProperty?.length > 5 || filteredData?.length > 5 ? (
-          <Slider {...settings}>
-            {activeTab === "All"
-              ? publishRandomProperty?.map((item) => <SingleCard item={item} />)
-              : filteredData.map((item) => <SingleCard item={item} />)}
-          </Slider>
-        ) : (
-          <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-x-5">
-            {activeTab === "All"
-              ? publishRandomProperty?.map((item) => <SingleCard item={item} />)
-              : filteredData.map((item) => <SingleCard item={item} />)}
-          </div>
-        )}
+
+        <Slider {...settings}>
+          {activeTab === "All"
+            ? publishRandomProperty?.map((item) => <SingleCard item={item} />)
+            : filteredData.map((item) => <SingleCard item={item} />)}
+        </Slider>
       </div>
 
       {/* <div className=" xl:mx-[244px] lg:mx-32 md:mx-26 mt-3 room-slide">

@@ -42,17 +42,17 @@
 .only-forMobile .slick-list {
   padding: 0 90px !important;
 }
-/* .banner-slider .slick-slider .slick-arrow:hover {
-  opacity: 0.8;
-}
-.card-slider .slick-slider .slick-arrow:hover {
-  opacity: 0.8;
-} */
+
 .card-slider .slick-slider .slick-arrow {
   display: none !important;
 }
 .card-slider .slick-slider:hover .slick-arrow {
   display: block !important;
+}
+
+.slick-track {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
 }
 
 .single-card {

@@ -327,7 +327,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
         dispatch(placeBooking(bookingData));
       }
       if (!user) {
-        handleOpen("sm");
+        handleOpen("xs");
       } else {
         navigate("/personal-info");
       }
