@@ -189,9 +189,9 @@ const Room = () => {
       setLastSlideIndex(index);
     },
     infinite: false,
-    speed: 500,
+    speed: 400,
     adaptiveHeight: true,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
 
@@ -238,7 +238,7 @@ const Room = () => {
           infinite: false,
           arrows: false,
           initialSlide: 1,
-          speed: 300,
+          speed: 400,
           cssEase: "ease-out",
         },
       },
@@ -246,7 +246,7 @@ const Room = () => {
   };
 
   return (
-    <div className="custom-container">
+    <div className="custom-container ">
       <div className="mt-2">
         <div className=" ">
           <div>
@@ -293,7 +293,7 @@ const Room = () => {
                   <a
                     href="#keyDetails"
                     onClick={anchorClickHandler}
-                    className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[13px] md:text-[22px]  md:px-10 sm:px-2 py-1  border ${
+                    className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[12px] md:text-[22px]  md:px-10 sm:px-2 py-1  border ${
                       // typeof keyValue !== "string" &&
                       typeof keyValue === "number" && keyValue === 0
                         ? "bg-[#00bbb4] text-white hover:text-white"
@@ -310,7 +310,7 @@ const Room = () => {
                         <a
                           href={`#${pd?.name}`}
                           onClick={anchorClickHandler}
-                          className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[13px] md:text-[22px] md:px-10 sm:px-2 py-1 border ${
+                          className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[12px] md:text-[22px] md:px-10 sm:px-2 py-1 border ${
                             keyValue === index + 1
                               ? "bg-[#00bbb4] text-white hover:text-white"
                               : ""
@@ -928,7 +928,7 @@ const Room = () => {
         </div>
       </div>
       {publishedRecomended?.length > 0 ? (
-        <div className=" mb-5 all_recommended mt-4 slider_margin card-slider">
+        <div className=" mb-5 all_recommended mt-4 slider_margin card-slider ">
           {/* <Splide
             options={{
               // type: "loop",

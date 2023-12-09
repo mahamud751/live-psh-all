@@ -57,7 +57,7 @@
   flex-direction: column;
   font-size: 30px;
   text-align: center;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Rubik", sans-serif !important;
   line-height: 2rem;
   font-weight: 500;
   color: green;

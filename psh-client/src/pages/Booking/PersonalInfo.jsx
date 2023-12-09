@@ -275,8 +275,8 @@ const PersonalInfo = () => {
   }, [pathname]);
 
   return (
-    <form onSubmit={bookingOrder}>
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  custom-container mb-20">
+    <form onSubmit={bookingOrder} className="custom-container md:mx-0 sm:mx-3">
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mb-20">
         <div className="">
           <h2 className="text-black flex justify-left font-bold mt-2">
             Please Fill this information{" "}
@@ -1108,8 +1108,8 @@ const PersonalInfo = () => {
       </div>
       <div>
         <div
-          className="flex justify-center mb-4 fixed bottom-0"
-          style={{ zIndex: 9999, width: "97%" }}
+          className="flex items-center mb-4 fixed bottom-0"
+          style={{ zIndex: 9999, width: "100%" }}
         >
           <a
             href="#keyDetails"

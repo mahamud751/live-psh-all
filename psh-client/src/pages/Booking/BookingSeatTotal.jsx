@@ -530,7 +530,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
       </div>
 
       <form onSubmit={handlePromoCode}>
-        <div className="md:flex m-2 total-area relative ">
+        <div className="md:flex m-2 total-area relative md:ms-10 sm:ms-0">
           <div>
             <input
               className="sm:px-8 md:px-12"

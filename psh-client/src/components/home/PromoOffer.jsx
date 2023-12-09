@@ -30,7 +30,7 @@ const PromoOffer = () => {
   };
   const settings = {
     dots: false,
-    speed: 500,
+    speed: 400,
     adaptiveHeight: true,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -79,7 +79,7 @@ const PromoOffer = () => {
           infinite: false,
           arrows: false,
           initialSlide: 1,
-          speed: 300,
+          speed: 400,
           cssEase: "ease-out",
         },
       },

@@ -17,33 +17,33 @@ const Vouchers = () => {
           <table className="w-full min-w-max table-auto text-left border">
             <thead>
               <tr>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4 ">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2 ">
                   <Typography className="font-normal leading-none opacity-70">
                     Voucher Title
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Code
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Minimum Booking
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     start
                   </Typography>
                 </th>
 
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     End
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Discount
                   </Typography>

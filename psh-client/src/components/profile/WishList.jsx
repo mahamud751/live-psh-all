@@ -24,33 +24,33 @@ export default function WishList() {
           <table className="w-full min-w-max table-auto text-left border">
             <thead>
               <tr>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4 ">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2 ">
                   <Typography className="font-normal leading-none opacity-70">
                     Property Picture
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Gender Type
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Bed-Room
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Bath-Room
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Name
                   </Typography>
                 </th>
 
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Details
                   </Typography>
@@ -64,36 +64,36 @@ export default function WishList() {
                 ).toLocaleString();
 
                 return (
-                  <tr className="even:bg-blue-gray-50/50">
-                    <td className="p-4">
+                  <tr className="even:bg-blue-gray-50/50  border ">
+                    <td className="p-2 border">
                       <img
                         src={item?.property?.photos[0]}
                         alt=""
                         style={{ width: 120 }}
                       />
                     </td>
-                    <td className="p-4">
+                    <td className="p-2 border">
                       <Typography className="font-normal">
                         {item?.property?.type}
                       </Typography>
                     </td>
-                    <td className="p-4">
+                    <td className="p-2 border">
                       <Typography className="font-normal">
                         {item?.property?.bedroom}
                       </Typography>
                     </td>
-                    <td className="p-4">
+                    <td className="p-2 border">
                       <Typography className="font-normal">
                         {item?.property?.bathroom}
                       </Typography>
                     </td>
-                    <td className="p-4">
+                    <td className="p-2 border">
                       <Typography className="font-normal ">
                         {item?.property?.name}
                       </Typography>
                     </td>
 
-                    <td className="p-4">
+                    <td className="p-2 border">
                       <Link to={`/room/${item?.property?._id}`}>Details</Link>
                     </td>
                   </tr>

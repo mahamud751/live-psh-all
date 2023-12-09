@@ -136,7 +136,7 @@ export default function Categories() {
       setLastSlideIndex(index);
     },
     infinite: false,
-    speed: 500,
+    speed: 400,
     adaptiveHeight: true,
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -194,13 +194,13 @@ export default function Categories() {
           infinite: false,
           arrows: false,
           initialSlide: 1,
-          speed: 300,
+          speed: 400,
           cssEase: "ease-out",
         },
       },
     ],
   };
-  console.log(lastSlideIndex);
+
   return (
     <div className="category-item">
       <Header />
@@ -208,7 +208,7 @@ export default function Categories() {
       <div className=" text-left mt-3">
         <Tabs value="All" className=" ">
           <TabsHeader
-            className="rounded-none border-b bg-transparent p-0 md:gap-x-14 sm:gap-x-4 "
+            className="rounded-none border-b bg-transparent p-0 md:gap-x-10 sm:gap-x-4 "
             indicatorProps={{
               className:
                 "bg-transparent border-b-2 border-[#00BBB4] shadow-none rounded-none ",
@@ -248,7 +248,7 @@ export default function Categories() {
       </div>
 
       <div className="mt-3 all_recommended slider_margin card-slider ">
-        <Splide
+        {/* <Splide
           options={{
             // type: "loop",
             arrows:
@@ -290,13 +290,13 @@ export default function Categories() {
                   <SingleCard item={item} />{" "}
                 </SplideSlide>
               ))}
-        </Splide>
-        {/* 
+        </Splide> */}
+
         <Slider {...settings}>
           {activeTab === "All"
             ? publishRandomProperty?.map((item) => <SingleCard item={item} />)
             : filteredData.map((item) => <SingleCard item={item} />)}
-        </Slider> */}
+        </Slider>
       </div>
 
       {/* <div className=" xl:mx-[244px] lg:mx-32 md:mx-26 mt-3 room-slide">

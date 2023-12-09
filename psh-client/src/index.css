@@ -15,6 +15,7 @@ a:hover {
 body {
   margin: 0;
   width: 100%;
+  font-family: "Rubik", sans-serif !important;
 }
 
 h1 {

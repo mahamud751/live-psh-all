@@ -54,7 +54,7 @@ export default function TicketList() {
           <table className="w-full min-w-max table-auto text-left border">
             <thead>
               <tr>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4 ">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2 ">
                   <Typography
                     className="font-normal leading-none opacity-70
                     "
@@ -62,29 +62,29 @@ export default function TicketList() {
                     Ticket ID
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Date & Time
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Branch
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Category
                   </Typography>
                 </th>
 
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Status
                   </Typography>
                 </th>
 
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
                   <Typography className="font-normal leading-none opacity-70">
                     Action
                   </Typography>
@@ -96,38 +96,44 @@ export default function TicketList() {
                 const formattedDate = new Date(item.createdAt).toLocaleString();
 
                 return (
-                  <tr className="even:bg-blue-gray-50/50">
-                    <td className="p-4">
+                  <tr className="even:bg-blue-gray-50/50 border">
+                    <td className="p-2 border">
                       <Typography className="font-normal">
                         {item._id.slice(19)}
                       </Typography>
                     </td>
-                    <td className="p-4">
+                    <td className="p-2 border">
                       <Typography className="font-normal">
                         {formattedDate}
                       </Typography>
                     </td>
-                    <td className="p-4">
+                    <td className="p-2 border">
                       <Typography className="font-normal ">
                         {item?.branch?.name}
                       </Typography>
                     </td>
 
-                    <td className="p-4">
+                    <td className="p-2 border">
                       <Typography as="span" href="#" className="font-medium">
                         {item.name}
                       </Typography>
                     </td>
-                    <td className="p-4">
+                    <td className="p-2 border">
                       <Typography
                         as="span"
                         href="#"
                         className="font-medium capitalize "
+                        style={{
+                          color: item.status === "pending" ? "red" : "#00bbb4",
+                        }}
                       >
                         {item.status}
                       </Typography>
                     </td>
-                    <td className="pr-2" onClick={() => setSeeTicket(item)}>
+                    <td
+                      className="p-2 border"
+                      onClick={() => setSeeTicket(item)}
+                    >
                       <button onClick={handleDetailsShow}>View Details</button>
                     </td>
                   </tr>

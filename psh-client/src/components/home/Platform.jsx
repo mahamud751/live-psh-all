@@ -28,7 +28,7 @@ const Platform = () => {
       setLastSlideIndex(index);
     },
     infinite: false,
-    speed: 500,
+    speed: 400,
     adaptiveHeight: true,
     // arrows: publishedData?.length > 5 ? true : false,
     autoplay: false,

@@ -9,7 +9,7 @@ function Personal() {
   const [singleUser] = useUser();
 
   return (
-    <div className="md:p-0 sm:p-2">
+    <div className="md:p-0 sm:p-2 account-details">
       {/* <div className="md:hidden sm:block">
         <MenuList />
       </div> */}

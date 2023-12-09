@@ -59,7 +59,7 @@
 .footer_li li a {
   width: 58px;
   height: 24px;
-  font-family: "Roboto";
+  font-family: "Rubik", sans-serif !important;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -112,7 +112,7 @@
 }
 
 .category-type {
-  font-family: "Poppins", sans-serif !important;
+  font-family: "Rubik", sans-serif !important;
   font-style: normal;
   font-weight: 600;
   column-gap: 0 !important;

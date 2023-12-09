@@ -42,7 +42,7 @@ const AllBranch = () => {
       setLastSlideIndex(index);
     },
     infinite: false,
-    speed: 500,
+    speed: 400,
     adaptiveHeight: true,
     arrows: data?.length > 4 ? true : false,
     autoplay: false,
@@ -86,7 +86,7 @@ const AllBranch = () => {
           infinite: false,
           arrows: false,
           initialSlide: 1,
-          speed: 300,
+          speed: 400,
           cssEase: "ease-out",
         },
       },

@@ -37,61 +37,61 @@ const BookNow = () => {
   return (
     <div className=" custom-container  py-20 text-black sm:p-10">
       {/* Personal Info */}
-      <h2 className="flex justify-left font-bold mb-5 text-3xl">
+      <h2 className="flex justify-left font-bold mb-5 text-2xl">
         Your Information :
       </h2>
-      <div className="text-xl">
-        <div className="flex justify-between">
+      <div className=" md:text-xl sm:text-sm">
+        <div className="flex justify-between ">
           <p className="flex">
-            <p>Name</p> <p className="ml-32">:</p>
+            <p>Name</p> <p className="md:ml-32 sm:ml-2">:</p>
           </p>
           <p>{endOrder?.fullName}</p>
         </div>
         <hr className="mt-2" />
         <div className="flex justify-between mt-4">
           <p className="flex ">
-            <p>Email</p> <p className="ml-[130px]">:</p>
+            <p>Email</p> <p className="md:ml-[130px] sm:ml-2">:</p>
           </p>
           <p>{endOrder?.email}</p>
         </div>
         <hr className="mt-2" />
         <div className="flex justify-between mt-4">
           <p className="flex ">
-            <p>Phone Number</p> <p className="ml-[45px]">:</p>
+            <p>Phone Number</p> <p className="md:ml-[45px] sm:ml-2">:</p>
           </p>
           <p>{endOrder?.phone}</p>
         </div>
         <hr className="mt-2" />
         <div className="flex justify-between mt-4">
           <p className="flex ">
-            <p>Present Address</p> <p className="ml-[32px]">:</p>
+            <p>Address</p> <p className="ml-[32px] sm:mr-5 md:mr-0">:</p>
           </p>
           <p>{endOrder?.address}</p>
         </div>
         <hr className="mt-2" />
         <div className="flex justify-between mt-4">
           <p className="flex ">
-            <p>Cuopon</p> <p className="ml-[110px]">:</p>
+            <p>Cuopon</p> <p className="md:ml-[110px] sm:ml-2">:</p>
           </p>
           <p>None</p>
         </div>
         <hr className="mt-2" />
         <div className="flex justify-between mt-4">
           <p className="flex ">
-            <p>Arrival Time</p> <p className="ml-[75px]">:</p>
+            <p>Arrival Time</p> <p className="ml-[75px] sm:ml-2">:</p>
           </p>
           <p>{endOrder?.arrivalTime}</p>
         </div>
       </div>
       {/* Booking Information */}
 
-      <h2 className="flex justify-left font-bold mb-5 text-3xl mt-10">
+      <h2 className="flex justify-left font-bold mb-5 text-2xl mt-10">
         Booking Information :
       </h2>
-      <div className="text-xl">
+      <div className="md:text-xl sm:text-sm">
         <div className="flex justify-between">
           <p className="flex">
-            <p>Room Type</p> <p className="ml-20">:</p>
+            <p>Room Type</p> <p className="md:ml-20 sm:ml-2">:</p>
           </p>
           <p>{endOrder?.bookingInfo?.roomType}</p>
         </div>
@@ -99,14 +99,14 @@ const BookNow = () => {
         {endOrder?.bookingInfo?.roomType === "Shared Room" ? (
           <div className="flex justify-between mt-4">
             <p className="flex ">
-              <p>Seat Number</p> <p className="ml-[64px]">:</p>
+              <p>Seat Number</p> <p className="md:ml-[64px] sm:ml-2">:</p>
             </p>
             <p>{endOrder?.bookingInfo?.seatBooking?.seatNumber}</p>
           </div>
         ) : (
           <div className="flex justify-between mt-4">
             <p className="flex ">
-              <p>Room Number</p> <p className="ml-[64px]">:</p>
+              <p>Room Number</p> <p className="md:ml-[64px] sm:ml-2 ">:</p>
             </p>
             <p>{endOrder?.bookingInfo?.data?.roomNumber}</p>
           </div>
@@ -115,21 +115,21 @@ const BookNow = () => {
         <hr className="mt-2" />
         <div className="flex justify-between mt-4">
           <p className="flex ">
-            <p>Check-In</p> <p className="ml-[102px]">:</p>
+            <p>Check-In</p> <p className="md:ml-[102px] sm:ml-2">:</p>
           </p>
           <p>{endOrder?.bookingInfo?.rentDate?.bookStartDate}</p>
         </div>
         <hr className="mt-2" />
         <div className="flex justify-between mt-4">
           <p className="flex ">
-            <p>Check-Out</p> <p className="ml-[85px]">:</p>
+            <p>Check-Out</p> <p className="md:ml-[85px] sm:ml-2">:</p>
           </p>
           <p>{endOrder?.bookingInfo?.rentDate?.bookEndDate}</p>
         </div>
         <hr className="mt-2" />
         <div className="flex justify-between mt-4">
           <p className="flex ">
-            <p>Total Duration</p> <p className="ml-[58px]">:</p>
+            <p>Total Duration</p> <p className="md:ml-[58px] sm:ml-2">:</p>
           </p>
           <p>
             {endOrder?.bookingInfo?.customerRent?.daysDifference >= 0
@@ -150,7 +150,7 @@ const BookNow = () => {
         <hr className="mt-2" />
         <div className="flex justify-between mt-4">
           <p className="flex ">
-            <p>Total Amount</p> <p className="ml-[64px]">:</p>
+            <p>Total Amount</p> <p className="md:ml-[64px] sm:ml-2">:</p>
           </p>
           <p>Tk {endOrder?.bookingInfo?.totalAmount}</p>
         </div>
@@ -159,7 +159,7 @@ const BookNow = () => {
       <div className="flex justify-center mt-20">
         <div
           onClick={getInvoice}
-          className="bg-[#35B0A7] px-[120px] py-[8px] rounded"
+          className="bg-[#35B0A7] md:px-[120px] sm:px-[60px] py-[8px] rounded"
         >
           <button className="text-xl text-white">Get Invoice</button>
         </div>

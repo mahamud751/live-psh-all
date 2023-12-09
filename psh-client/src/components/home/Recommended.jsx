@@ -44,7 +44,7 @@ const Recommended = () => {
   const settings = {
     dots: false,
 
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
     afterChange: (index) => {

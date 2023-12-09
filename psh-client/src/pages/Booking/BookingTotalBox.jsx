@@ -514,7 +514,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
         </div>
 
         <form onSubmit={handlePromoCode}>
-          <div className="md:flex m-2 total-area relative ms-10">
+          <div className="md:flex m-2 total-area relative md:ms-10 sm:ms-0">
             <div>
               <input
                 className="sm:px-14 md:px-12"
@@ -957,19 +957,17 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
         </div>
         <div>
           <div
-            className="flex justify-center mb-4 fixed bottom-0"
-            style={{ zIndex: 9999, width: "95%" }}
+            className="flex justify-center mb-4 fixed bottom-0 z-40"
+            style={{ width: "95%" }}
           >
-            <div className="filter md:invisible">
-              <i className="fas fa-shopping-cart mt-2"></i>
-              <a
-                href="#cart2"
-                onClick={anchorClickHandler}
-                className=" ms-3 text-white hover:text-white"
-              >
-                Booking Cart
-              </a>
-            </div>
+            <a
+              href="#cart2"
+              className="filter md:invisible ms-3 text-white hover:text-white"
+              onClick={anchorClickHandler}
+            >
+              <i className="fas fa-shopping-cart mr-2 mt-2"></i>
+              Booking Cart
+            </a>
           </div>
         </div>
       </div>

@@ -287,9 +287,9 @@ function List({ type }) {
               "Loading"
             ) : publishRandomProperty?.length > 0 ? (
               <>
-                <div className="grid lg:grid-cols-3 md:grid-cols-3 lg:gap-x-5 md:gap-x-7 sm:grid-cols-1 mt-2 sm:gap-x-0 z-0">
+                <div className="grid lg:grid-cols-3 md:grid-cols-3 lg:gap-x-5 md:gap-x-7 sm:grid-cols-1 mt-2 sm:gap-x-0 z-0 sm:mx-auto md:mx-0">
                   {publishRandomProperty?.map((item) => (
-                    <div className="sm:ms-6 lg:ms-0 md:ms-0">
+                    <div className="">
                       <SingleCard key={item._id} item={item} />
                     </div>
                   ))}
