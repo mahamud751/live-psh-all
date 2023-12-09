@@ -77,7 +77,8 @@ const PromoOffer = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: false,
-
+          speed: 400,
+          cssEase: "ease",
           arrows: false,
         },
       },

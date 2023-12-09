@@ -34,11 +34,15 @@ import useBranch from "../../hooks/useBranch";
 
 import useExtraCharge from "../../hooks/useExtraCharge";
 import SingleCard from "../../components/home/SingleCard";
+import LeftArrow from "../../assets/img/left-arrow.svg";
+import RightArrow from "../../assets/img/right-arrow.svg";
+import Slider from "react-slick";
 
 const Room = () => {
   const { id } = useParams();
   const [extraCharge] = useExtraCharge(id);
   const { user } = useContext(AuthContext);
+  const [lastSlideIndex, setLastSlideIndex] = useState(0);
 
   const userName = user?.firstName;
   const email = user?.email;
@@ -160,6 +164,84 @@ const Room = () => {
   // };
   const [keyValue, setKeyValue] = useState("");
 
+  // For Slider
+
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => {
+    if (lastSlideIndex === 0) {
+      return null;
+    } else {
+      return <img src={LeftArrow} alt="prevArrow" {...props} />;
+    }
+  };
+
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => {
+    if (lastSlideIndex === publishedRecomended?.length - 5) {
+      return null;
+    } else {
+      return <img src={RightArrow} alt="nextArrow" {...props} />;
+    }
+  };
+
+  const settings = {
+    dots: false,
+
+    afterChange: (index) => {
+      setLastSlideIndex(index);
+    },
+    infinite: false,
+    speed: 500,
+    adaptiveHeight: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    initialSlide: 0,
+
+    className: `center mx-[-15px] `,
+    arrows: publishedRecomended?.length > 5 ? true : false,
+    autoplay: false,
+
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
+
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          dots: false,
+          infinite: false,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+          infinite: false,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          className: `center ms-5 ${
+            lastSlideIndex >= 1 ? "only-forMobile" : ""
+          }`,
+          afterChange: (index) => {
+            setLastSlideIndex(index);
+          },
+          centerMode: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+          arrows: false,
+          speed: 400,
+          cssEase: "ease",
+        },
+      },
+    ],
+  };
+
   return (
     <div className="custom-container">
       <div className="mt-2">
@@ -208,7 +290,7 @@ const Room = () => {
                   <a
                     href="#keyDetails"
                     onClick={anchorClickHandler}
-                    className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[18px] md:text-[22px]  md:px-10 sm:px-2 py-1 rounded border ${
+                    className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[18px] md:text-[22px]  md:px-10 sm:px-2 py-1  border ${
                       // typeof keyValue !== "string" &&
                       typeof keyValue === "number" && keyValue === 0
                         ? "bg-[#00bbb4] text-white hover:text-white"
@@ -225,7 +307,7 @@ const Room = () => {
                         <a
                           href={`#${pd?.name}`}
                           onClick={anchorClickHandler}
-                          className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[18px] md:text-[22px] md:px-10 sm:px-2 py-1 rounded border ${
+                          className={`hover:text-black hover:border-b-2 border-[#35B0A7] sm:text-[18px] md:text-[22px] md:px-10 sm:px-2 py-1 border ${
                             keyValue === index + 1
                               ? "bg-[#00bbb4] text-white hover:text-white"
                               : ""
@@ -843,8 +925,8 @@ const Room = () => {
         </div>
       </div>
       {publishedRecomended?.length > 0 ? (
-        <div className=" mb-5 all_recommended mt-4 slider_margin">
-          <Splide
+        <div className=" mb-5 all_recommended mt-4 slider_margin card-slider">
+          {/* <Splide
             options={{
               // type: "loop",
               arrows: publishedRecomended?.length > 5 ? true : false,
@@ -876,7 +958,13 @@ const Room = () => {
                 <SingleCard item={item} key={item?._id} />{" "}
               </SplideSlide>
             ))}
-          </Splide>
+          </Splide> */}
+
+          <Slider {...settings}>
+            {publishedRecomended?.map((item) => (
+              <SingleCard item={item} />
+            ))}
+          </Slider>
         </div>
       ) : (
         ""

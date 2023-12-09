@@ -141,14 +141,13 @@ export default function Categories() {
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
-    cssEase: "ease",
+
     className: `center mx-[-15px] `,
     arrows:
       publishRandomProperty?.length > 5 || filteredData?.length > 5
         ? true
         : false,
     autoplay: false,
-    autoplaySpeed: 1000,
 
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
@@ -188,6 +187,8 @@ export default function Categories() {
           slidesToScroll: 1,
           infinite: false,
           arrows: false,
+          speed: 400,
+          cssEase: "ease",
         },
       },
     ],
