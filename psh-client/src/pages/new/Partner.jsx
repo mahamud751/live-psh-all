@@ -17,6 +17,7 @@ import Slider from "react-slick";
 
 import "./partner.css";
 import PartnerLastCard from "./PartnerLastCard";
+import PartnerService from "./PartnerService";
 
 const Partner = () => {
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
@@ -144,6 +145,7 @@ const Partner = () => {
           </div>
         </div>
       </div>
+      <PartnerService />
       <div className="custom-container">
         <h2 className="text-xl font-bold mb-5 mt-12">
           PSH's choice of housing for companies

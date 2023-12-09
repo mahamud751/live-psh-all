@@ -35,3 +35,12 @@
     border-radius: 100px 0px;
     background: #E9F5F4;
 }
+
+.partner_li li {
+    list-style-type: disc;
+    margin-left: 30px;
+}
+
+.banner3 {
+    background: #E7F9F7;
+}
