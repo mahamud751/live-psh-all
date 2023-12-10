@@ -37,11 +37,11 @@ export default function TicketList() {
         <MenuList />
       </div> */}
       <div className="flex justify-between items-center">
-        <h1 className="font-bold text-[32px]">Issu Details</h1>
+        <h1 className="font-bold text-xl">Issu Details</h1>
         <div>
           <button
             onClick={handleOpen}
-            className="text-xl bg-[#35B0A7] px-5 py-3 text-white rounded "
+            className="text-sm bg-[#35B0A7] px-5 py-3 text-white rounded "
           >
             Create Ticket
           </button>

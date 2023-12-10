@@ -399,13 +399,17 @@ const LoginModal = ({ handleOpen, size, isLoginModalOpen }) => {
                           <input type="checkbox" name="terms" required id="" />
                         </div>
                         <p className="text-left pl-3 text-[12px] mt-1">
-                          <span className="underline hover:text-[#00bbb4] cursor-pointer">
-                            Terms of use
-                          </span>{" "}
+                          <Link to="/terms" onClick={() => handleOpen()}>
+                            <span className="underline hover:text-[#00bbb4] cursor-pointer">
+                              Terms of use
+                            </span>
+                          </Link>
                           &{" "}
-                          <span className="underline hover:text-[#00bbb4] cursor-pointer">
-                            Pivacy policy
-                          </span>
+                          <Link to="/privacy" onClick={() => handleOpen()}>
+                            <span className="underline hover:text-[#00bbb4] cursor-pointer">
+                              Pivacy policy
+                            </span>
+                          </Link>
                         </p>
                       </div>
                     </div>

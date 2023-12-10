@@ -22,7 +22,7 @@ const PromoOffer = () => {
   };
 
   const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => {
-    if (lastSlideIndex === data?.length - 5) {
+    if (lastSlideIndex === data?.length - 3) {
       return null;
     } else {
       return <img src={RightArrow} alt="nextArrow" {...props} />;
@@ -31,14 +31,14 @@ const PromoOffer = () => {
   const settings = {
     dots: false,
     speed: 400,
-    adaptiveHeight: true,
+
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    infinite: true,
+
     arrows: data?.length > 3 ? true : false,
     autoplay: false,
-
+    infinite: true,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
     className: "mx-[-15px]",
@@ -49,8 +49,8 @@ const PromoOffer = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           dots: false,
-          infinite: true,
-          autoplay: true,
+          infinite: false,
+          // autoplay: true,
         },
       },
       {
@@ -58,25 +58,23 @@ const PromoOffer = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          initialSlide: 2,
-          infinite: true,
-          autoplay: true,
+          initialSlide: 0,
+          // infinite: true,
+          // autoplay: true,
           autoplaySpeed: 3000,
         },
       },
       {
         breakpoint: 640,
         settings: {
-          className: `center ms-5 ${
-            lastSlideIndex >= data?.length - 1 ? "only-forMobile" : ""
-          }`,
+          className: `center ms-5 `,
           afterChange: (index) => {
             setLastSlideIndex(index);
           },
           centerMode: true,
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: false,
+
           arrows: false,
           initialSlide: 1,
           speed: 400,
@@ -141,14 +139,11 @@ const PromoOffer = () => {
                       </Link>
                     </div>
                   </SplideSlide>
-
-
-
                 ))}
               </Splide> */}
 
               <Slider {...settings}>
-                {data?.map((item, i) => (
+                {data.map((item, i) => (
                   <div key={i} className="group relative">
                     <Link to={`/promo/${item._id}`}>
                       <div className="relative w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75">

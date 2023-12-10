@@ -32,6 +32,7 @@ import Community from "../components/profile/Community";
 import EditProfile from "../components/profile/EditProfile";
 import Referral from "../components/profile/Referral";
 import AllRecomonded from "../components/home/AllRecomonded";
+import FaqQuestions from "../pages/Faq/FaqQuestion";
 
 export const router = createBrowserRouter([
   {
@@ -110,6 +111,10 @@ export const router = createBrowserRouter([
       {
         path: "/terms",
         element: <Terms />,
+      },
+      {
+        path: "/faq-question",
+        element: <FaqQuestions />,
       },
     ],
   },

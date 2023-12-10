@@ -3,8 +3,8 @@ const Terms = () => {
   const { data } = UseFetch(`terms`);
 
   return (
-    <div className=" mt-5 px-24">
-      <h3 className="text-[32px] font-bold whitespace-normal text-center">
+    <div className=" mt-5 md:px-24 sm:px-3">
+      <h3 className="text-xl font-bold whitespace-normal text-center">
         Terms & Conditions Policy
       </h3>
       <div className="my-10">

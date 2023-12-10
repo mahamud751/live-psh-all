@@ -3,6 +3,7 @@ import UseFetch from "../../hooks/useFetch";
 import Slider from "react-slick";
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
 const Banner = () => {
   const { data } = UseFetch(`banner`);
 
@@ -19,7 +20,7 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: true,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 3000,
     arrows: true,
     prevArrow: <SlickArrowLeft />,
@@ -44,19 +45,41 @@ const Banner = () => {
   return (
     <>
       <div style={{ zIndex: "000" }}>
-        <div className=" p-0 banner-slider  ">
-          <Slider {...settings} className="">
+        <div className=" p-0 banner-slider  all_recommended">
+          <Splide
+            options={{
+              // type: "loop",
+
+              rewind: true,
+              drag: "free",
+              autoplay: true,
+              arrows: true,
+              perPage: 1,
+              height: "25rem",
+
+              breakpoints: {
+                1200: { arrows: true, perPage: 1 },
+                800: { arrows: true, perPage: 1 },
+                640: {
+                  arrows: false,
+                  perPage: 1,
+                  pagination: false,
+                  height: "9rem",
+                },
+              },
+            }}
+          >
             {data?.map((pd, i) => (
-              <div>
+              <SplideSlide>
                 <img
                   key={i}
                   src={pd.photos[0]}
                   alt="image 2"
-                  className="md:h-[400px] sm:h-full object-cover w-full"
+                  className=" w-full h-full"
                 />
-              </div>
+              </SplideSlide>
             ))}
-          </Slider>
+          </Splide>
         </div>
       </div>
 
