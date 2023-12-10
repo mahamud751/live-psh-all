@@ -212,9 +212,7 @@ const Footer = () => {
                       <p></p>
                     </div>
                     {/* <div className="flex mx-auto">
-                      <div>
-                        <img src="assets/img/email.svg fill.png" alt="" />
-                      </div>
+                    
 
                       <p
                         className="text-white ms-3 text-[14px]"
