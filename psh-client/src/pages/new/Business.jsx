@@ -1,16 +1,6 @@
 import React, { useState } from "react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Carousel } from "@material-tailwind/react";
-import forMobile1 from "../../assets/img/formobile1.png";
-import forMobile2 from "../../assets/img/formobile2.png";
-import forMobile3 from "../../assets/img/formobile3.png";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Avatar,
-} from "@material-tailwind/react";
+import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
 import Slider from "react-slick";

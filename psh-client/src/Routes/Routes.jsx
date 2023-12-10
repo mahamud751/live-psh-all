@@ -35,6 +35,7 @@ import AllRecomonded from "../components/home/AllRecomonded";
 import Business from "../pages/new/Business";
 
 import Partner from "../pages/new/Partner";
+import Collaberation from "../pages/new/Collaberation";
 
 export const router = createBrowserRouter([
   {
@@ -121,6 +122,10 @@ export const router = createBrowserRouter([
       {
         path: "/partner",
         element: <Partner />,
+      },
+      {
+        path: "/collaberation",
+        element: <Collaberation />,
       },
     ],
   },

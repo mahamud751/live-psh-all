@@ -40,7 +40,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.slick-slide > div {
+.slick-slide>div {
   margin: 0 10px;
 }
 
@@ -139,7 +139,7 @@ button:focus-visible {
   }
 
   .slider_margin {
-    margin-left: -78px;
+    margin-left: -48px;
   }
 
   .searchBox {

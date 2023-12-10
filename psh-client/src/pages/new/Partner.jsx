@@ -156,7 +156,7 @@ const Partner = () => {
               <div className="overflow-hidden">
                 <div className="m-0 rounded-none">
                   <img
-                    src="assets/img/jadi_partner_rukita.png.png"
+                    src="assets/img/jadi_partner_Project Second Home.png.png"
                     alt="ui/ux review check"
                     style={{ height: 269, width: "100%" }}
                   />
@@ -282,9 +282,9 @@ const Partner = () => {
                       Hassle-Free Income
                     </p>
                     <p className="content">
-                      Project Second Home siap mengurus, mengelola, dan memelihara semua
-                      urusan properti Anda mulai dari biaya operasional, gaji
-                      staf hingga tagihan utilitas.
+                      Project Second Home siap mengurus, mengelola, dan
+                      memelihara semua urusan properti Anda mulai dari biaya
+                      operasional, gaji staf hingga tagihan utilitas.
                     </p>
                   </div>
                 </div>
@@ -303,8 +303,9 @@ const Partner = () => {
                     <p className="business font-bold my-3">Design Upgrade</p>
 
                     <p className="content ">
-                      Project Second Home meningkatkan value properti Anda dengan renovasi,
-                      upgrade desain interior, dan pembersihan menyeluruh.
+                      Project Second Home meningkatkan value properti Anda
+                      dengan renovasi, upgrade desain interior, dan pembersihan
+                      menyeluruh.
                     </p>
                   </div>
                 </div>
@@ -325,9 +326,9 @@ const Partner = () => {
                     </p>
 
                     <p className="content">
-                    Project Second Home memastikan properti Anda selalu dalam kondisi baik
-                      dengan bantuan tim maintenance kami. Semua kamar akan
-                      dibersihkan minimal 2x seminggu.
+                      Project Second Home memastikan properti Anda selalu dalam
+                      kondisi baik dengan bantuan tim maintenance kami. Semua
+                      kamar akan dibersihkan minimal 2x seminggu.
                     </p>
                   </div>
                 </div>
@@ -348,8 +349,8 @@ const Partner = () => {
                   <div>
                     <p className="business font-bold my-3">Resident Services</p>
                     <p className="content">
-                      Rukita akan bertanggung jawab dan siaga untuk memenuhi
-                      semua kebutuhan penghuni.
+                      Project Second Home akan bertanggung jawab dan siaga untuk
+                      memenuhi semua kebutuhan penghuni.
                     </p>
                   </div>
                 </div>
@@ -390,8 +391,8 @@ const Partner = () => {
                     <p className="business font-bold my-3">Safe from Abuse</p>
 
                     <p className="content">
-                      Rukita is committed to only renting out rooms on a monthly
-                      basis to avoid abuse by residents.
+                      Project Second Home is committed to only renting out rooms
+                      on a monthly basis to avoid abuse by residents.
                     </p>
                   </div>
                 </div>
@@ -402,7 +403,7 @@ const Partner = () => {
       </div>
       <div className="custom-container">
         <h2 className="text-xl font-bold mb-5 mt-12">
-          3 Steps to Become a Rukita Partner
+          3 Steps to Become a Project Second Home Partner
         </h2>
         <div className="all_promo slider_margin card-slider ">
           <Slider {...settings}>
@@ -451,7 +452,7 @@ const Partner = () => {
                       Enjoy the Results
                     </div>
                     <div className="justify-center text-stone-500 text-sm leading-5 whitespace-nowrap mt-2.5">
-                      Sit back and enjoy the results from Rukita
+                      Sit back and enjoy the results from Project Second Home
                     </div>
                   </div>
                 </div>
