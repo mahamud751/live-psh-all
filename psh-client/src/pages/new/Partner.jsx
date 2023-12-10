@@ -282,7 +282,7 @@ const Partner = () => {
                       Hassle-Free Income
                     </p>
                     <p className="content">
-                      Rukita siap mengurus, mengelola, dan memelihara semua
+                      Project Second Home siap mengurus, mengelola, dan memelihara semua
                       urusan properti Anda mulai dari biaya operasional, gaji
                       staf hingga tagihan utilitas.
                     </p>
@@ -303,7 +303,7 @@ const Partner = () => {
                     <p className="business font-bold my-3">Design Upgrade</p>
 
                     <p className="content ">
-                      Rukita meningkatkan value properti Anda dengan renovasi,
+                      Project Second Home meningkatkan value properti Anda dengan renovasi,
                       upgrade desain interior, dan pembersihan menyeluruh.
                     </p>
                   </div>
@@ -325,7 +325,7 @@ const Partner = () => {
                     </p>
 
                     <p className="content">
-                      Rukita memastikan properti Anda selalu dalam kondisi baik
+                    Project Second Home memastikan properti Anda selalu dalam kondisi baik
                       dengan bantuan tim maintenance kami. Semua kamar akan
                       dibersihkan minimal 2x seminggu.
                     </p>
