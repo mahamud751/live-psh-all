@@ -128,15 +128,18 @@ const Footer = () => {
                       Partner With Us
                     </h2>
                     <ul className="footer_li">
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Lease your Property</a>
-                      </li>
+                    
+                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                          <a>Lease your Property</a>
+                        </li>
+                     
+
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">PSH Finance</a>
                       </li>
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                      {/* <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Build for Rent</a>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                 </li>
@@ -149,9 +152,11 @@ const Footer = () => {
                       PSH FOR Business
                     </h2>
                     <ul className="footer_li">
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Corporate Housing</a>
-                      </li>
+                      
+                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                          <a>Corporate Housing</a>
+                        </li>
+                      
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Brand Collaboration</a>
                       </li>
@@ -207,9 +212,7 @@ const Footer = () => {
                       <p></p>
                     </div>
                     {/* <div className="flex mx-auto">
-                      <div>
-                        <img src="assets/img/email.svg fill.png" alt="" />
-                      </div>
+                    
 
                       <p
                         className="text-white ms-3 text-[14px]"
@@ -233,7 +236,7 @@ const Footer = () => {
                 </li>
                 <li className="">
                   <div className="text-start">
-                    <div className="flex justify-center">
+                    {/* <div className="flex justify-center">
                       <img src="assets/img/facebook.svg.png" alt="" />
 
                       <img
@@ -243,13 +246,13 @@ const Footer = () => {
                       />
 
                       <img src="assets/img/Link → twitter.svg.png" alt="" />
-                    </div>
-                    <div className="mt-6">
+                    </div> */}
+                    <div className="mt-6 md:px-0 sm:px-12">
                       <button className="footer_btn">
                         <p className="mt-2 text-[14px]"> Login / Signup</p>
                       </button>
                     </div>
-                    <div className="mt-6">
+                    <div className="mt-6 md:px-0 sm:px-12">
                       <button className="footer_btn">
                         <img
                           src="assets/img/appstore.svg.png"
@@ -293,7 +296,7 @@ const Footer = () => {
             </Link>
           </div>
           <div
-            className=" flex  justify-between text-white py-3 sm:text-[12px] custom-container"
+            className=" flex  justify-center text-white py-3 sm:text-[12px]"
             style={{
               background: "linear-gradient(to right, #020304, #071e37)",
             }}

@@ -33,6 +33,9 @@ import EditProfile from "../components/profile/EditProfile";
 import Referral from "../components/profile/Referral";
 import AllRecomonded from "../components/home/AllRecomonded";
 import FaqQuestions from "../pages/Faq/FaqQuestion";
+import Business from "../pages/new/Business";
+
+import Partner from "../pages/new/Partner";
 
 export const router = createBrowserRouter([
   {
@@ -115,6 +118,12 @@ export const router = createBrowserRouter([
       {
         path: "/faq-question",
         element: <FaqQuestions />,
+        path: "/business",
+        element: <Business />,
+      },
+      {
+        path: "/partner",
+        element: <Partner />,
       },
     ],
   },
