@@ -167,7 +167,11 @@ export default function Booking() {
                       <Typography
                         as="span"
                         href="#"
-                        className="font-bold text-red-500"
+                        className="font-bold "
+                        style={{
+                          color:
+                            order?.status === "Approved" ? "#00bbb4" : "red",
+                        }}
                       >
                         {order?.status}
                       </Typography>

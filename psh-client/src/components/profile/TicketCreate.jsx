@@ -76,18 +76,21 @@ const TicketCreate = ({ handleOpen, open }) => {
       <Dialog open={open} handler={handleOpen}>
         <DialogHeader>
           {" "}
-          <h2 className="text-[32px] font-bold" style={{ fontFamily: "inter" }}>
+          <h2
+            className="text-xl font-bold md:p-0 sm:p-2"
+            style={{ fontFamily: "inter" }}
+          >
             Create a Ticket
           </h2>
         </DialogHeader>
         <DialogBody
           divider
-          className="xl:h-[850px] h-[500px]  overflow-y-auto xl:overflow-hidden"
+          className=" md:h-[450px] sm:h-[300px]  overflow-y-auto xl:overflow-hidden mb-5"
         >
-          <div className="px-10">
-            <h3 className="text-xl">Issue For</h3>
+          <div className="md:px-10 sm:px-3 ">
+            <h3 className="text-xl mt-1">Issue For</h3>
             <form ref={formRef} onSubmit={handleSubmit}>
-              <div className="flex gap-8 ">
+              <div className="flex md:flex-row sm:flex-col md:gap-8 sm:gap-0 ">
                 <Radio
                   name="type"
                   label="My Room"
@@ -97,39 +100,42 @@ const TicketCreate = ({ handleOpen, open }) => {
                 <Radio name="type" label="Common Area" value="common-area" />
                 <Radio name="type" label="Payment" value="payment" />
               </div>
-              <div>
-                <label htmlFor="inputState" className="profile_label3">
-                  Branch
-                </label>
-                <select
-                  name="branch"
-                  id="inputState"
-                  className="w-3/5 h-9 border rounded mt-2 border-black"
-                >
-                  <option selected>Select Branch</option>
-                  {branch.map((pd) => (
-                    <option key={pd._id} value={pd._id}>
-                      {pd.name}
-                    </option>
-                  ))}
-                </select>
+              <div className="flex md:gap-x-16 gap-x-5 items-center">
+                <div>
+                  <label htmlFor="inputState" className="profile_label3">
+                    Branch
+                  </label>
+                  <select
+                    name="branch"
+                    id="inputState"
+                    className="w-full h-9 border rounded  border-black"
+                  >
+                    <option selected>Select Branch</option>
+                    {branch.map((pd) => (
+                      <option key={pd._id} value={pd._id}>
+                        {pd.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="">
+                  <h3 className="text-xl">Issu Category</h3>
+                  <select
+                    className="w-full h-9 border rounded mt-4 border-black"
+                    onChange={(e) => setIssue(e.target.value)}
+                    name="category"
+                  >
+                    <option>Air Condition Problem</option>
+                    <option>Room Problem</option>
+                  </select>
+                </div>
               </div>
-              <div className="mt-5">
-                <h3 className="text-xl">Issu Category</h3>
-                <select
-                  className="w-3/5 h-9 border rounded mt-2 border-black"
-                  onChange={(e) => setIssue(e.target.value)}
-                  name="category"
-                >
-                  <option>Air Condition Problem</option>
-                  <option>Room Problem</option>
-                </select>
-              </div>
+
               {/* Sub Category */}
               <div className="mt-5 mb-5">
                 <h3 className="text-xl">Sub Category</h3>
                 {issue === "Air Condition Problem" ? (
-                  <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1">
+                  <div className="grid lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1">
                     {issueSubCategories1.map((issue, index) => (
                       <div
                         className="mt-6"
@@ -143,7 +149,7 @@ const TicketCreate = ({ handleOpen, open }) => {
                             issueSubValue === index
                               ? "bg-[#399] text-white border-none "
                               : ""
-                          } border border-black rounded-[15px] px-5 py-1.5 cursor-pointer`}
+                          } border border-black rounded-[15px] px-5 py-1.5 cursor-pointer text-sm`}
                         >
                           {issue}
                         </span>
@@ -154,7 +160,7 @@ const TicketCreate = ({ handleOpen, open }) => {
                   ""
                 )}
                 {issue === "Room Problem" ? (
-                  <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1">
+                  <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1">
                     {issueSubCategories2.map((issue, index) => (
                       <div
                         className="mt-6"
@@ -168,7 +174,7 @@ const TicketCreate = ({ handleOpen, open }) => {
                             issueSubValue === index
                               ? "bg-[#399] text-white border-none "
                               : ""
-                          } border border-black rounded-[15px] px-5 py-1.5 cursor-pointer`}
+                          } border border-black rounded-[15px] text-sm px-5 py-1.5 cursor-pointer`}
                         >
                           {issue}
                         </span>
@@ -202,7 +208,7 @@ const TicketCreate = ({ handleOpen, open }) => {
               <div className="issu_title mt-5 ">
                 <h3 className="text-xl">Description</h3>
                 <textarea
-                  className="w-full rounded mt-2 h-28  p-3"
+                  className="w-full rounded mt-2 h-24  p-3"
                   placeholder="Write about your Problem "
                   name="desc"
                 />

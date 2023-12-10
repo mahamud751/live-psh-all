@@ -226,7 +226,7 @@ const SearchBoxSm = () => {
   return (
     <div className="searchBoxSm mt-5">
       <div className="searchButton" onClick={() => handleOpen("xxl")}>
-        <h5 className="text-black text-xl "> Find Your Accommodation</h5>
+        <h5 className="text-black text-[1rem] "> Find Your Accommodation</h5>
 
         <i className="fa fa-search mt-2" />
       </div>

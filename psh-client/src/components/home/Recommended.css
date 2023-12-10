@@ -4,7 +4,7 @@
   border-radius: 5px 0px 0px 5px;
   border: 1px solid #e5e5e5;
   background: white;
-  padding: 10px 16px;
+  padding: 6px 14px;
   border-radius: 50%;
 }
 
@@ -17,8 +17,9 @@
   /* Add your custom icon or image here */
   border: 1px solid #e5e5e5;
   background: white;
-  padding: 10px 16px;
+  padding: 6px 14px;
   border-radius: 50%;
+  /* box-shadow: 0 0 20px 5px rgba(35, 35, 35, 0.5); */
 }
 /* 
 
@@ -26,26 +27,19 @@
 /* Customize the left arrow button position */
 
 .all_recommended .splide__arrow--prev {
-  left: -20px;
-  top: 100px !important;
-  display: none;
+  left: 20px;
+  top: 180px !important;
+  /* display: none; */
   opacity: 0.9 !important;
 }
 
 /* Customize the right arrow button position */
 
 .all_recommended .splide__arrow--next {
-  right: -20px;
-  top: 100px !important;
-  display: none;
+  right: 20px;
+  top: 180px !important;
+  /* display: none; */
   opacity: 0.9 !important;
-}
-
-.all_recommended:hover .splide__arrow--prev {
-  display: block;
-}
-.all_recommended:hover .splide__arrow--next {
-  display: block;
 }
 
 @media screen and (max-width: 600px) {

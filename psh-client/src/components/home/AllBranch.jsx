@@ -26,7 +26,7 @@ const AllBranch = () => {
   };
 
   const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => {
-    if (lastSlideIndex === data?.length - 5) {
+    if (lastSlideIndex === data?.length - 4) {
       return null;
     } else {
       return <img src={RightArrow} alt="nextArrow" {...props} />;
@@ -74,16 +74,14 @@ const AllBranch = () => {
       {
         breakpoint: 640,
         settings: {
-          className: `center ms-5 ${
-            lastSlideIndex >= data?.length - 1 ? "only-forMobile" : ""
-          }`,
+          className: `center ms-5 `,
           afterChange: (index) => {
             setLastSlideIndex(index);
           },
           centerMode: true,
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: false,
+          infinite: true,
           arrows: false,
           initialSlide: 1,
           speed: 400,

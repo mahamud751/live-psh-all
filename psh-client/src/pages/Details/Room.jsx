@@ -293,7 +293,7 @@ const Room = () => {
                   <a
                     href="#keyDetails"
                     onClick={anchorClickHandler}
-                    className={`hover:text-black hover:border-b-2 border-[#e7e7e7] sm:text-[12px] md:text-[1rem]  md:px-10 sm:px-2 py-1  border ${
+                    className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-10 sm:px-2 py-1  border ${
                       // typeof keyValue !== "string" &&
                       typeof keyValue === "number" && keyValue === 0
                         ? "bg-[#00bbb4] text-white hover:text-white"
@@ -310,7 +310,7 @@ const Room = () => {
                         <a
                           href={`#${pd?.name}`}
                           onClick={anchorClickHandler}
-                          className={`hover:text-black hover:border-b-2 border-[#e7e7e7] sm:text-[12px] md:text-[1rem] md:px-10 sm:px-2 py-1 border ${
+                          className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem] md:px-10 sm:px-2 py-1 border ${
                             keyValue === index + 1
                               ? "bg-[#00bbb4] text-white hover:text-white"
                               : ""
