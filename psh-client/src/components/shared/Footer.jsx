@@ -128,11 +128,11 @@ const Footer = () => {
                       Partner With Us
                     </h2>
                     <ul className="footer_li">
-                      <Link to={"partner"}>
+                    
                         <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                           <a>Lease your Property</a>
                         </li>
-                      </Link>
+                     
 
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">PSH Finance</a>
@@ -152,11 +152,11 @@ const Footer = () => {
                       PSH FOR Business
                     </h2>
                     <ul className="footer_li">
-                      <Link to={"business"}>
+                      
                         <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                           <a>Corporate Housing</a>
                         </li>
-                      </Link>
+                      
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Brand Collaboration</a>
                       </li>
