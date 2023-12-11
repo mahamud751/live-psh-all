@@ -7,7 +7,7 @@ import withReactContent from "sweetalert2-react-content";
 import UseFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../contexts/UserProvider";
 import { Link } from "react-router-dom";
-const LeasProperty = () => {
+const LeaseProperty = () => {
   const MySwal = withReactContent(Swal);
   const formRef = useRef(null);
   const { user } = useContext(AuthContext);
@@ -20,6 +20,7 @@ const LeasProperty = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data2 = {
+      purpose: formData.get("purpose"),
       firstName: formData.get("firstName"),
       lastName: formData.get("lastName"),
       phoneNumber: formData.get("phoneNumber"),
@@ -70,6 +71,19 @@ const LeasProperty = () => {
                 {/* Property Owner Details */}
 
                 <div className="grid grid-cols-2 md:gap-x-5">
+                  <div className="col-span-2 font-medium mb-4">
+                    <label htmlFor="">Purpose</label>
+
+                    <select
+                      name="purpose"
+                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                    >
+                      <option value="rent">Rent</option>
+                      <option value="franchising">Franchising</option>
+                      <option value="lease">Lease</option>
+                      <option value="partnership">PartnerShip</option>
+                    </select>
+                  </div>
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 font-medium ">
                     <label htmlFor="">First Name</label>
                     <input
@@ -397,4 +411,4 @@ const LeasProperty = () => {
   );
 };
 
-export default LeasProperty;
+export default LeaseProperty;

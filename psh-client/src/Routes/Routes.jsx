@@ -16,7 +16,7 @@ import Branch from "../pages/Details/Branch";
 import PersonalInfo from "../pages/Booking/PersonalInfo";
 import BookNow from "../pages/Booking/BookNow";
 import Invoice from "../pages/Invoice/Invoice";
-import LeasProperty from "../pages/LeasProperty/LeasProperty";
+
 import Promo from "../pages/Details/Promo";
 import PromoList from "../pages/Promo/Promo";
 import Privacy from "../pages/Privacy/Privacy";
@@ -38,6 +38,7 @@ import Business from "../pages/new/Business";
 import Partner from "../pages/new/Partner";
 import Collaberation from "../pages/new/Collaberation";
 import PshFinance from "../pages/PshFinance/PshFinance";
+import LeaseProperty from "../pages/LeaseProperty/LeaseProperty";
 
 export const router = createBrowserRouter([
   {
@@ -62,7 +63,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/leas-property",
-        element: <LeasProperty />,
+        element: <LeaseProperty />,
       },
       {
         path: "/room/:id",

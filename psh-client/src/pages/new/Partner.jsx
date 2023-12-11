@@ -19,7 +19,7 @@ import "./partner.css";
 import PartnerLastCard from "./PartnerLastCard";
 import PartnerService from "./PartnerService";
 import { ListModal } from "./ListModal";
-import LeasProperty from "../LeasProperty/LeasProperty";
+import LeaseProperty from "../LeaseProperty/LeaseProperty";
 
 const Partner = () => {
   const [size, setSize] = React.useState(null);
@@ -157,7 +157,7 @@ const Partner = () => {
                       </div>
                     </DialogHeader>
                     <DialogBody className="p-2">
-                      <LeasProperty />
+                      <LeaseProperty />
                     </DialogBody>
                   </Dialog>
                 </div>
