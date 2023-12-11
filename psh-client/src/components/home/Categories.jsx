@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Tabs,
   TabsHeader,
@@ -28,6 +28,7 @@ export default function Categories() {
   const [isLoaded, setIsLoaded] = useState(false); // Track the loading status
   const [randomIndex, setRandomIndex] = useState([]);
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
+
   // show Random index
   const getRandomData = () => {
     const shuffledData = [...data];
@@ -139,12 +140,13 @@ export default function Categories() {
     speed: 400,
     adaptiveHeight: true,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    touchThreshold: 100,
     initialSlide: 0,
-
+    draggable: true, // Enable free dragging
+    swipeToSlide: true,
     className: `center mx-[-15px] `,
     arrows:
-      publishRandomProperty?.length > 5 || filteredData?.length > 5
+      publishRandomProperty?.length > 4 || filteredData?.length > 4
         ? true
         : false,
     autoplay: false,
@@ -190,12 +192,14 @@ export default function Categories() {
           },
           centerMode: true,
           slidesToShow: 1,
-          slidesToScroll: 1,
+
           infinite: false,
           arrows: false,
-          initialSlide: 1,
+
           speed: 400,
           cssEase: "ease-out",
+          draggable: true, // Enable free dragging
+          swipeToSlide: true,
         },
       },
     ],
@@ -274,7 +278,7 @@ export default function Categories() {
                 height: "22rem",
                 drag: "free",
                 rewind: true,
-                // padding: "5rem",
+                padding: "3rem",
               },
             },
           }}

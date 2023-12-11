@@ -196,7 +196,7 @@ const Room = () => {
     initialSlide: 0,
 
     className: `center mx-[-15px] `,
-    arrows: publishedRecomended?.length > 5 ? true : false,
+    arrows: publishedRecomended?.length > 4 ? true : false,
     autoplay: false,
 
     prevArrow: <SlickArrowLeft />,
@@ -209,6 +209,7 @@ const Room = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           dots: false,
+
           infinite: false,
         },
       },

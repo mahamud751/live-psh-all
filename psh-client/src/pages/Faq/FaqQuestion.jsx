@@ -64,7 +64,7 @@ export default function FaqQuestions() {
   const data2 = [
     {
       label: "Search and Order",
-      value: "Search and Order",
+      value: "search",
       icon: <img src={Svg} alt="" style={{ width: "24px", height: "24px" }} />,
     },
 
@@ -137,125 +137,92 @@ export default function FaqQuestions() {
             FAQs
           </h3>
 
-          <div className="">
-            <Tabs
-              value={activeTab}
-              className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 gap-x-5 "
-            >
-              <div className=" col-span-1 ">
-                <TabsHeader
-                  className={`flex-col w-full profile-left md:border  rounded p-0 lg:block md:block
-               
+          <Tabs
+            value="search"
+            className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 gap-x-5 "
+          >
+            <div className=" col-span-1 ">
+              <TabsHeader
+                className={`flex-col w-full profile-left md:border  rounded p-0 lg:block md:block
+
                   sm:${!isFaqMenu ? "hidden" : "block"}
-               
-      
-                
+
               `}
-                >
-                  {data2.map((tab, idx) => (
-                    <span>
-                      <Tab
-                        key={idx}
-                        onClick={() => setActive(idx)}
-                        value={tab.value}
-                        className={`${active === idx ? "text-[#35b0a7] " : ""}
-                         
+              >
+                {data2.map((tab, idx) => (
+                  <span>
+                    <Tab
+                      key={idx}
+                      onClick={() => {
+                        setActive(idx), dispatch(placeFaqMenu(false));
+                      }}
+                      value={tab.value}
+                      className={`${active === idx ? "text-[#35b0a7] " : ""}
+
                           flex justify-start py-1 `}
-                      >
-                        <div
-                          className=" gap-2 p-2 flex items-center "
-                          onClick={() => dispatch(placeFaqMenu(false))}
-                        >
-                          <div>{tab.icon}</div>
-
-                          <div className="single-tab text-left">
-                            <span>{tab.label}</span>
-                          </div>
-                        </div>
-                      </Tab>
-                    </span>
-                  ))}
-                </TabsHeader>
-              </div>
-
-              {/* tabs description */}
-              {isFaqMenu ? (
-                ""
-              ) : (
-                <div className="w-full lg:col-span-3 md:col-span-3 sm:col-span-1 md:mt-0 sm:mt-3 ">
-                  <div
-                    className="absolute top-[130px] left-5 md:hidden sm:block"
-                    onClick={() => dispatch(placeFaqMenu(true))}
-                  >
-                    <HiArrowNarrowLeft
-                      style={{ width: "24px", height: "24px" }}
-                    />
-                  </div>
-                  <TabsBody>
-                    {/* Personal Info Description */}
-                    <TabPanel value="info" className="py-0">
-                      <Personal />
-                    </TabPanel>
-                    <TabPanel value="edit" className="py-0">
-                      <EditProfile />
-                    </TabPanel>
-                    <TabPanel value="createTricket" className="py-0">
-                      <Ticket />
-                    </TabPanel>
-
-                    <TabPanel value="community" className="py-0">
-                      <Community />
-                    </TabPanel>
-                    {/* <TabPanel value="waitingList" className="py-0">
-                <JoinWaitingList />
-              </TabPanel> */}
-
-                    {/* Booking history Description */}
-                    <TabPanel value="Search and Order" className="py-0">
-                      <Faq1 />
-                    </TabPanel>
-                    <TabPanel value="Regarding Check-in" className="py-0">
-                      <Faq2 />
-                    </TabPanel>
-                    <TabPanel
-                      value="Check-out and Deposit Refund"
-                      className="py-0"
                     >
-                      <Faq3 />
-                    </TabPanel>
+                      <div
+                        className=" gap-2 p-2 flex items-center "
+                        // onClick={() => dispatch(placeFaqMenu(false))}
+                      >
+                        <div>{tab.icon}</div>
 
-                    {/* Payment Setting Description */}
-                    <TabPanel value="payment" className="py-0">
-                      <Payment />
-                    </TabPanel>
+                        <div className="single-tab text-left">
+                          <span>{tab.label}</span>
+                        </div>
+                      </div>
+                    </Tab>
+                  </span>
+                ))}
+              </TabsHeader>
+            </div>
 
-                    {/* Wishlist Description */}
-                    <TabPanel value="wishlist" className="py-0">
-                      <WishList />
-                    </TabPanel>
-                    <TabPanel value="list" className="py-0">
-                      <TicketList />
-                    </TabPanel>
-                    <TabPanel value="listBack" className="py-0">
-                      <TicketList />
-                    </TabPanel>
+            {/* For Desktop */}
 
-                    {/* Setting Tab Description */}
-                    <TabPanel value="Security" className="py-0">
-                      {/* component */}
-                      <Setting />
-                    </TabPanel>
-                    <TabPanel value="vouchers" className="py-0">
-                      <Vouchers />
-                    </TabPanel>
-                    <TabPanel value="referral" className="py-0">
-                      <Referral />
-                    </TabPanel>
-                  </TabsBody>
+            <div className="w-full lg:col-span-3 md:col-span-3 sm:col-span-1 md:mt-0 sm:mt-3 md:block sm:hidden ">
+              <TabsBody>
+                <TabPanel value="search" className="py-0">
+                  <Faq1 />
+                </TabPanel>
+                <TabPanel value="Regarding Check-in" className="py-0">
+                  <Faq2 />
+                </TabPanel>
+                <TabPanel value="Check-out and Deposit Refund" className="py-0">
+                  <Faq3 />
+                </TabPanel>
+              </TabsBody>
+            </div>
+
+            {/* For Mobile */}
+            {isFaqMenu ? (
+              ""
+            ) : (
+              <div className="w-full lg:col-span-3 md:col-span-3 sm:col-span-1 md:mt-0 sm:mt-3 md:hidden sm:block ">
+                <div
+                  className="absolute top-[130px] left-5 md:hidden sm:block"
+                  onClick={() => dispatch(placeFaqMenu(true))}
+                >
+                  <HiArrowNarrowLeft
+                    style={{ width: "24px", height: "24px" }}
+                  />
                 </div>
-              )}
-            </Tabs>
-          </div>
+                <TabsBody>
+                  <TabPanel value="search" className="py-0">
+                    <Faq1 />
+                  </TabPanel>
+                  <TabPanel value="Regarding Check-in" className="py-0">
+                    <Faq2 />
+                  </TabPanel>
+                  <TabPanel
+                    value="Check-out and Deposit Refund"
+                    className="py-0"
+                  >
+                    <Faq3 />
+                  </TabPanel>
+                </TabsBody>
+              </div>
+            )}
+          </Tabs>
         </div>
       </div>
     </div>

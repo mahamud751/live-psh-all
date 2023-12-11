@@ -53,7 +53,7 @@ const Recommended = () => {
     adaptiveHeight: true,
     infinite: false,
     speed: 400,
-    arrows: publishedData?.length > 5 ? true : false,
+    arrows: publishedData?.length > 4 ? true : false,
     autoplay: false,
     swipeToSlide: true,
     prevArrow: <SlickArrowLeft />,
@@ -64,7 +64,7 @@ const Recommended = () => {
         breakpoint: 1200,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 1,
+
           dots: false,
 
           autoplaySpeed: 3000,
@@ -74,7 +74,7 @@ const Recommended = () => {
         breakpoint: 800,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
+
           initialSlide: 2,
 
           autoplaySpeed: 3000,
@@ -91,10 +91,10 @@ const Recommended = () => {
           },
           centerMode: true,
           slidesToShow: 1,
-          slidesToScroll: 1,
+
           infinite: false,
           arrows: false,
-          initialSlide: 0,
+
           speed: 400,
           cssEase: "ease-out",
           swipeToSlide: true,

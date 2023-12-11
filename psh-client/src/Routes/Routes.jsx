@@ -37,6 +37,7 @@ import Business from "../pages/new/Business";
 
 import Partner from "../pages/new/Partner";
 import Collaberation from "../pages/new/Collaberation";
+import PshFinance from "../pages/PshFinance/PshFinance";
 
 export const router = createBrowserRouter([
   {
@@ -123,6 +124,10 @@ export const router = createBrowserRouter([
       {
         path: "/faq-question",
         element: <FaqQuestions />,
+      },
+      {
+        path: "/psh-finance",
+        element: <PshFinance />,
       },
       {
         path: "/partner",
