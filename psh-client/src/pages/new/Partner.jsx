@@ -5,11 +5,11 @@ import forMobile1 from "../../assets/img/formobile1.png";
 import forMobile2 from "../../assets/img/formobile2.png";
 import forMobile3 from "../../assets/img/formobile3.png";
 import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Avatar,
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
 } from "@material-tailwind/react";
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
@@ -18,8 +18,13 @@ import Slider from "react-slick";
 import "./partner.css";
 import PartnerLastCard from "./PartnerLastCard";
 import PartnerService from "./PartnerService";
+import { ListModal } from "./ListModal";
+import LeasProperty from "../LeasProperty/LeasProperty";
 
 const Partner = () => {
+  const [size, setSize] = React.useState(null);
+
+  const handleOpen = (value) => setSize(value);
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <img src={LeftArrow} alt="prevArrow" {...props} />
@@ -94,8 +99,8 @@ const Partner = () => {
     <div>
       <div className="banner-left">
         <div className="grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16 ">
-          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 xl:col-span-6">
-            <div className="md:ms-72">
+          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6">
+            <div className="2xl:ms-72">
               <div
                 className="flex justify-center items-center"
                 style={{ height: "100vh" }}
@@ -111,12 +116,16 @@ const Partner = () => {
                     Become a PSH partner to maximize your property profits and
                     enjoy hassle-free profits.
                   </p>
+
                   <div className="md:flex  gap-4">
-                    <div
-                      className="text-neutral-800 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch bg-white  px-4 py-4 rounded-lg"
-                      style={{ width: 220 }}
-                    >
-                      List Your Property
+                    <div className="sm:mb-3 md:mb-0">
+                      <button
+                        className="text-neutral-800 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch bg-white  px-4 py-4 rounded-lg"
+                        style={{ width: 220 }}
+                        onClick={() => handleOpen("md")}
+                      >
+                        List Your Property
+                      </button>
                     </div>
                     <div
                       className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white"
@@ -132,11 +141,30 @@ const Partner = () => {
                       </div>
                     </div>
                   </div>
+                  <Dialog
+                    open={size === "sm" || size === "md"}
+                    size={size || "md"}
+                    handler={handleOpen}
+                    style={{ height: "100vh", overflow: "scroll" }}
+                  >
+                    <DialogHeader>
+                      {" "}
+                      <div
+                        className="flex justify-end text-3xl text-black"
+                        onClick={() => handleOpen(null)}
+                      >
+                        <i className="fa-solid fa-circle-xmark cursor-pointer"></i>
+                      </div>
+                    </DialogHeader>
+                    <DialogBody className="p-2">
+                      <LeasProperty />
+                    </DialogBody>
+                  </Dialog>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 xl:col-span-6 ">
+          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6 ">
             <img
               src="assets/img/partners_hero.png.png"
               alt=""

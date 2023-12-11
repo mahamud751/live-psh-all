@@ -283,7 +283,7 @@ export default function Navmenu() {
   return (
     <div className="bg-white navbar_sticky shadow-md">
       <div className=" flex custom-container ">
-        <Navbar className="py-2 lg:py-2 shadow-none px-0">
+        <Navbar className="py-2 lg:py-2 shadow-none px-0 border-none">
           <div className="flex items-center justify-between text-blue-gray-900 ">
             <div className="md:ms-0 sm:ms-[15px]">
               <Link

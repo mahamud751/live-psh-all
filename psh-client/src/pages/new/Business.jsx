@@ -82,8 +82,8 @@ const Business = () => {
     <div>
       <div className="banner-left">
         <div className="grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16 ">
-          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 xl:col-span-6">
-            <div className="md:ms-72">
+          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6">
+            <div className="2xl:ms-72">
               <div
                 className="flex justify-center items-center"
                 style={{ height: "100vh" }}
@@ -121,7 +121,7 @@ const Business = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 xl:col-span-6 ">
+          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6 ">
             <Carousel className="rounded-xl">
               <img
                 src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"

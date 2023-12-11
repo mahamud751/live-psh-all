@@ -3,6 +3,11 @@ import mongoose from "mongoose";
 // Define the LeaseProperty Schema
 const LeaseProperty = new mongoose.Schema(
   {
+    purpose: {
+      type: String,
+      enum: ["rent", "franchising", "lease", "partnership"],
+      default: "pending",
+    },
     firstName: {
       type: String,
       required: true,
