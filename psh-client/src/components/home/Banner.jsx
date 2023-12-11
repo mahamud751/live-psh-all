@@ -48,15 +48,16 @@ const Banner = () => {
         <div className=" p-0 banner-slider  all_recommended">
           <Splide
             options={{
-              // type: "loop",
+              type: "loop",
 
               rewind: true,
-              drag: "free",
+
               autoplay: true,
               arrows: true,
               perPage: 1,
               height: "25rem",
-
+              perMove: 1,
+              autoplaySpeed: 1000,
               breakpoints: {
                 1200: { arrows: true, perPage: 1 },
                 800: { arrows: true, perPage: 1 },
@@ -64,7 +65,12 @@ const Banner = () => {
                   arrows: false,
                   perPage: 1,
                   pagination: false,
-                  height: "9rem",
+                  height: "10rem",
+                  type: "loop",
+                  autoplay: true,
+                  rewind: true,
+                  perMove: 1,
+                  autoplaySpeed: 1000,
                 },
               },
             }}

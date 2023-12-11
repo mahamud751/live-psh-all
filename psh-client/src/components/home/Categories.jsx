@@ -176,7 +176,7 @@ export default function Categories() {
       {
         breakpoint: 640,
         settings: {
-          className: `center ms-5 ${
+          className: `center ms-[-8px] ${
             activeTab === "All"
               ? lastSlideIndex >= publishRandomProperty?.length - 1
                 ? "only-forMobile"

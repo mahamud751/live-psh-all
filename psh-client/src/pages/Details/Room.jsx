@@ -224,7 +224,7 @@ const Room = () => {
       {
         breakpoint: 640,
         settings: {
-          className: `center ms-5 ${
+          className: `center ms-[-8px] ${
             lastSlideIndex >= publishedRecomended?.length - 1
               ? "only-forMobile"
               : ""

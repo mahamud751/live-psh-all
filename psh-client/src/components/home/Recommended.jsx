@@ -83,7 +83,7 @@ const Recommended = () => {
       {
         breakpoint: 640,
         settings: {
-          className: `center ms-5 ${
+          className: `center ms-[-8px] ${
             lastSlideIndex >= publishedData?.length - 1 ? "only-forMobile" : ""
           }`,
           afterChange: (index) => {
@@ -94,7 +94,7 @@ const Recommended = () => {
           slidesToScroll: 1,
           infinite: false,
           arrows: false,
-          initialSlide: 1,
+          initialSlide: 0,
           speed: 400,
           cssEase: "ease-out",
           swipeToSlide: true,

@@ -64,7 +64,7 @@ const Platform = () => {
       {
         breakpoint: 640,
         settings: {
-          className: `center ms-5 ${
+          className: `center ms-[-8px] ${
             lastSlideIndex >= 1 ? "only-forMobile" : ""
           }`,
           afterChange: (index) => {
