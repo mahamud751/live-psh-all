@@ -1,25 +1,12 @@
 import React, { useState } from "react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { Carousel } from "@material-tailwind/react";
-import forMobile1 from "../../assets/img/formobile1.png";
-import forMobile2 from "../../assets/img/formobile2.png";
-import forMobile3 from "../../assets/img/formobile3.png";
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-} from "@material-tailwind/react";
+import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
+import Slider from "react-slick";
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
-import Slider from "react-slick";
-
-import "./partner.css";
 import PartnerLastCard from "./PartnerLastCard";
 import PartnerService from "./PartnerService";
-import { ListModal } from "./ListModal";
 import LeaseProperty from "../LeaseProperty/LeaseProperty";
+import "./partner.css";
 
 const Partner = () => {
   const [size, setSize] = React.useState(null);

@@ -8,6 +8,27 @@
   /* 150% */
 }
 
+.requestModal label {
+  font-weight: 400;
+  color: black;
+  margin: 0px;
+  font-size: 0.9rem !important;
+}
+
+.requestModal input {
+  font-size: 0.9rem !important;
+  height: 40px !important;
+  background-color: white;
+  border: 1px solid gray !important;
+}
+
+.requestModal select {
+  font-size: 0.9rem !important;
+  height: 40px !important;
+  background-color: white;
+  border: 1px solid gray !important;
+}
+
 .content {
   color: #646464;
   font-family: Rubik;

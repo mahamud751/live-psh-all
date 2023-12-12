@@ -14,7 +14,10 @@ const RequestRent = new mongoose.Schema(
       type: String,
       required: true,
     },
-
+    totalRoom: {
+      type: String,
+      required: true,
+    },
     position: {
       type: String,
       required: true,

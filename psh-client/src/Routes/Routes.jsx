@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
         element: <List></List>,
       },
       {
-        path: "/leas-property",
+        path: "/lease-property",
         element: <LeaseProperty />,
       },
       {

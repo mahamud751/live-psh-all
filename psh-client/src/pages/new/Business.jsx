@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { Carousel } from "@material-tailwind/react";
+import Slider from "react-slick";
+import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
-import Slider from "react-slick";
-import "./business.css";
+
 import Benefit from "./Benefit";
+import RentRequestModal from "./RentRequestModal";
 
 const Business = () => {
+  const [size, setSize] = React.useState(null);
+  const handleOpen = (value) => setSize(value);
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <img src={LeftArrow} alt="prevArrow" {...props} />
@@ -97,12 +101,13 @@ const Business = () => {
                     needs with Project Second Home.
                   </p>
                   <div className="md:flex  gap-4">
-                    <div
+                    <button
                       className="text-neutral-800 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch bg-white  px-4 py-4 rounded-lg"
                       style={{ width: 220 }}
+                      onClick={() => handleOpen("sm")}
                     >
                       I am interested in
-                    </div>
+                    </button>
                     <div
                       className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white"
                       style={{ width: 220 }}
@@ -117,6 +122,25 @@ const Business = () => {
                       </div>
                     </div>
                   </div>
+                  <Dialog
+                    open={size === "sm" || size === "md"}
+                    size={size || "md"}
+                    handler={handleOpen}
+                    style={{ height: "100vh", overflow: "scroll" }}
+                  >
+                    <DialogHeader>
+                      {" "}
+                      <div
+                        className="flex justify-end text-3xl text-black"
+                        onClick={() => handleOpen(null)}
+                      >
+                        <i className="fa-solid fa-circle-xmark cursor-pointer"></i>
+                      </div>
+                    </DialogHeader>
+                    <DialogBody className="p-2">
+                      <RentRequestModal />
+                    </DialogBody>
+                  </Dialog>
                 </div>
               </div>
             </div>
