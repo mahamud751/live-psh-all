@@ -39,7 +39,7 @@ const RentRequestModal = () => {
         ...data2,
       };
 
-      await axios.post("https://api.psh.com.bd/api/rentRequest", product);
+      await axios.post("https://api.psh.com.bd/api/requestRent", product);
       MySwal.fire("Good job!", "successfully added", "success");
       formRef.current.reset();
     } catch (err) {
