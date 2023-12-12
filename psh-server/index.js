@@ -22,6 +22,7 @@ import IssueRouter from "./routes/issue.js";
 import reviewRouter from "./routes/review.js";
 import wishlistRouter from "./routes/wishlist.js";
 import leasePropertyRouter from "./routes/leaseProperty.js";
+import requestRentRouter from "./routes/requestRent.js";
 import extraCharge from "./routes/extraCharge.js";
 import transaction from "./routes/Transaction.js";
 
@@ -80,6 +81,7 @@ app.use("/api/issue", IssueRouter);
 app.use("/api/review", reviewRouter);
 app.use("/api/wishlist", wishlistRouter);
 app.use("/api/leaseProperty", leasePropertyRouter);
+app.use("/api/requestRent", requestRentRouter);
 app.use("/api/extraCharge", extraCharge);
 app.use("/api/transaction", transaction);
 app.use("/api/dynamic", dynamicRoute);

@@ -34,6 +34,7 @@ const LeaseProperty = new mongoose.Schema(
       enum: ["Share Room", "Private Room", "Apartment"],
       required: true,
     },
+
     propertySize: {
       type: String,
       required: true,
