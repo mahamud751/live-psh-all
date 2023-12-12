@@ -110,7 +110,7 @@ const RentRequestModal = () => {
                       type="number"
                       className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
                       placeholder="Phone Number*"
-                      name="email"
+                      name="phone"
                     />
                   </div>
                 </div>
