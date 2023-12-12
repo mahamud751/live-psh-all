@@ -46,6 +46,7 @@ import Svg7 from "../../assets/img/SVG (7).svg";
 import Svg8 from "../../assets/img/SVG (8).svg";
 import Svg9 from "../../assets/img/SVG (9).svg";
 import pshLogo from "../../assets/img/PSH Favicon 1.png";
+import footerImg from "../../assets/img/footer-img.webp";
 
 import "./FaqQuestion.css";
 import Faq1 from "./Faq1";
@@ -54,6 +55,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { placeFaqMenu } from "../../redux/reducers/smProfileMenuSlice";
 import { HiArrowNarrowLeft } from "react-icons/hi";
 import Faq3 from "./Faq.3";
+import Faq4 from "./Faq4";
+import Faq5 from "./Faq5";
+import Faq6 from "./Faq6";
+import Faq7 from "./Faq7";
+import Faq8 from "./Faq8";
+import Faq9 from "./Faq9";
+import Faq10 from "./Faq10";
+import Faq11 from "./Faq11";
 
 export default function FaqQuestions() {
   const [activeTab, setActiveTab] = useState("Search and Order");
@@ -130,82 +139,57 @@ export default function FaqQuestions() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 faq-part ">
-      <div className="mx-auto max-w-2xl lg:py-5 md:py-5 sm:py-0 lg:max-w-none lg:py-12 ">
-        <div className=" ">
-          <h3 className="px-1 mt-2 md:mb-10 sm:mb:2 font-bold md:text-2xl sm:text-sm md:text-left sm:text-center">
-            FAQs
-          </h3>
+    <>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 faq-part ">
+        <div className="mx-auto max-w-2xl lg:py-5 md:py-5 sm:py-0 lg:max-w-none lg:py-12 ">
+          <div className=" ">
+            <h3 className="px-1 mt-2 md:mb-10 sm:mb:2 font-bold md:text-2xl sm:text-sm md:text-left sm:text-center">
+              FAQs
+            </h3>
 
-          <Tabs
-            value="search"
-            className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 gap-x-5 "
-          >
-            <div className=" col-span-1 ">
-              <TabsHeader
-                className={`flex-col w-full profile-left md:border  rounded p-0 lg:block md:block
+            <Tabs
+              value="search"
+              className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 gap-x-5 "
+            >
+              <div className=" col-span-1 ">
+                <TabsHeader
+                  className={`flex-col w-full profile-left md:border  rounded p-0 lg:block md:block
 
                   sm:${!isFaqMenu ? "hidden" : "block"}
 
               `}
-              >
-                {data2.map((tab, idx) => (
-                  <span>
-                    <Tab
-                      key={idx}
-                      onClick={() => {
-                        setActive(idx), dispatch(placeFaqMenu(false));
-                      }}
-                      value={tab.value}
-                      className={`${active === idx ? "text-[#35b0a7] " : ""}
+                >
+                  {data2.map((tab, idx) => (
+                    <span>
+                      <Tab
+                        key={idx}
+                        onClick={() => {
+                          setActive(idx), dispatch(placeFaqMenu(false));
+                        }}
+                        value={tab.value}
+                        className={`${active === idx ? "text-[#35b0a7] " : ""}
 
                           flex justify-start py-1 `}
-                    >
-                      <div
-                        className=" gap-2 p-2 flex items-center "
-                        // onClick={() => dispatch(placeFaqMenu(false))}
                       >
-                        <div>{tab.icon}</div>
+                        <div
+                          className=" gap-2 p-2 flex items-center "
+                          // onClick={() => dispatch(placeFaqMenu(false))}
+                        >
+                          <div>{tab.icon}</div>
 
-                        <div className="single-tab text-left">
-                          <span>{tab.label}</span>
+                          <div className="single-tab text-left">
+                            <span>{tab.label}</span>
+                          </div>
                         </div>
-                      </div>
-                    </Tab>
-                  </span>
-                ))}
-              </TabsHeader>
-            </div>
+                      </Tab>
+                    </span>
+                  ))}
+                </TabsHeader>
+              </div>
 
-            {/* For Desktop */}
+              {/* For Desktop */}
 
-            <div className="w-full lg:col-span-3 md:col-span-3 sm:col-span-1 md:mt-0 sm:mt-3 md:block sm:hidden ">
-              <TabsBody>
-                <TabPanel value="search" className="py-0">
-                  <Faq1 />
-                </TabPanel>
-                <TabPanel value="Regarding Check-in" className="py-0">
-                  <Faq2 />
-                </TabPanel>
-                <TabPanel value="Check-out and Deposit Refund" className="py-0">
-                  <Faq3 />
-                </TabPanel>
-              </TabsBody>
-            </div>
-
-            {/* For Mobile */}
-            {isFaqMenu ? (
-              ""
-            ) : (
-              <div className="w-full lg:col-span-3 md:col-span-3 sm:col-span-1 md:mt-0 sm:mt-3 md:hidden sm:block ">
-                <div
-                  className="absolute top-[130px] left-5 md:hidden sm:block"
-                  onClick={() => dispatch(placeFaqMenu(true))}
-                >
-                  <HiArrowNarrowLeft
-                    style={{ width: "24px", height: "24px" }}
-                  />
-                </div>
+              <div className="w-full lg:col-span-3 md:col-span-3 sm:col-span-1 md:mt-0 sm:mt-3 md:block sm:hidden ">
                 <TabsBody>
                   <TabPanel value="search" className="py-0">
                     <Faq1 />
@@ -219,12 +203,114 @@ export default function FaqQuestions() {
                   >
                     <Faq3 />
                   </TabPanel>
+                  <TabPanel
+                    value="Order Cancellations and Changes"
+                    className="py-0"
+                  >
+                    <Faq4 />
+                  </TabPanel>
+                  <TabPanel value="Prices and Promotions" className="py-0">
+                    <Faq5 />
+                  </TabPanel>
+                  <TabPanel value="Live in PSH" className="py-0">
+                    <Faq6 />
+                  </TabPanel>
+                  <TabPanel value="Loyalty Program" className="py-0">
+                    <Faq7 />
+                  </TabPanel>
+                  <TabPanel value="Accounts and Security" className="py-0">
+                    <Faq8 />
+                  </TabPanel>
+                  <TabPanel value="Property Owner" className="py-0">
+                    <Faq9 />
+                  </TabPanel>
+                  <TabPanel value="PSH Business" className="py-0">
+                    <Faq10 />
+                  </TabPanel>
+                  <TabPanel value="About PSH" className="py-0">
+                    <Faq11 />
+                  </TabPanel>
                 </TabsBody>
               </div>
-            )}
-          </Tabs>
+
+              {/* For Mobile */}
+              {isFaqMenu ? (
+                ""
+              ) : (
+                <div className="w-full lg:col-span-3 md:col-span-3 sm:col-span-1 md:mt-0 sm:mt-3 md:hidden sm:block ">
+                  <div
+                    className="absolute top-[130px] left-5 md:hidden sm:block"
+                    onClick={() => dispatch(placeFaqMenu(true))}
+                  >
+                    <HiArrowNarrowLeft
+                      style={{ width: "24px", height: "24px" }}
+                    />
+                  </div>
+                  <TabsBody>
+                    <TabPanel value="search" className="py-0">
+                      <Faq1 />
+                    </TabPanel>
+                    <TabPanel value="Regarding Check-in" className="py-0">
+                      <Faq2 />
+                    </TabPanel>
+                    <TabPanel
+                      value="Check-out and Deposit Refund"
+                      className="py-0"
+                    >
+                      <Faq3 />
+                    </TabPanel>
+                    <TabPanel
+                      value="Order Cancellations and Changes"
+                      className="py-0"
+                    >
+                      <Faq4 />
+                    </TabPanel>
+                    <TabPanel value="Prices and Promotions" className="py-0">
+                      <Faq5 />
+                    </TabPanel>
+                    <TabPanel value="Live in PSH" className="py-0">
+                      <Faq6 />
+                    </TabPanel>
+                    <TabPanel value="Loyalty Program" className="py-0">
+                      <Faq7 />
+                    </TabPanel>
+                    <TabPanel value="Accounts and Security" className="py-0">
+                      <Faq8 />
+                    </TabPanel>
+                    <TabPanel value="Property Owner" className="py-0">
+                      <Faq9 />
+                    </TabPanel>
+                    <TabPanel value="PSH Business" className="py-0">
+                      <Faq10 />
+                    </TabPanel>
+                    <TabPanel value="About PSH" className="py-0">
+                      <Faq11 />
+                    </TabPanel>
+                  </TabsBody>
+                </div>
+              )}
+            </Tabs>
+          </div>
         </div>
       </div>
-    </div>
+      <div className="grid md:grid-cols-2 sm:grid-cols-1">
+        <div className="md:block sm:hidden">
+          <img src={footerImg} alt="" />
+        </div>
+        <div className="bg-[#e0dada] px-20 pt-28 rounded-tr-[100px]">
+          <h2 className="md:text-[36px] sm:text-[1rem] md:w-3/4 sm:w-full">
+            Let's find a home for you now!
+          </h2>
+          <p className="mt-2 sm:pb-10 md:pb-0">
+            <button
+              className=" px-5 py-3 rounded-lg text-white"
+              style={{ background: "linear-gradient(to right, #000, #061c34)" }}
+            >
+              Search Now
+            </button>
+          </p>
+        </div>
+      </div>
+    </>
   );
 }

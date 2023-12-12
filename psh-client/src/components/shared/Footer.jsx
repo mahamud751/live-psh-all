@@ -122,17 +122,15 @@ const Footer = () => {
                 <li className="">
                   <div className="text-start">
                     <h2
-                      className=" dark:text-gray-200 text-md uppercase mb-4"
+                      className=" dark:text-gray-200 text-md uppercase mb-4 text-[1rem]"
                       style={{ color: "rgba(40, 255, 239, 1)" }}
                     >
                       Partner With Us
                     </h2>
                     <ul className="footer_li">
-                    
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Lease your Property</a>
-                        </li>
-                     
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <a>Lease your Property</a>
+                      </li>
 
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">PSH Finance</a>
@@ -146,17 +144,16 @@ const Footer = () => {
                 <li className="">
                   <div className="text-start">
                     <h2
-                      className=" dark:text-gray-200 text-md uppercase mb-4"
+                      className=" dark:text-gray-200 text-md uppercase mb-4 text-[1rem]"
                       style={{ color: "rgba(40, 255, 239, 1)" }}
                     >
                       PSH FOR Business
                     </h2>
                     <ul className="footer_li">
-                      
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Corporate Housing</a>
-                        </li>
-                      
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <a>Corporate Housing</a>
+                      </li>
+
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Brand Collaboration</a>
                       </li>
@@ -170,7 +167,7 @@ const Footer = () => {
                 <li className="">
                   <div className="text-start">
                     <h2
-                      className=" dark:text-gray-200 text-md uppercase mb-4"
+                      className=" dark:text-gray-200 text-md uppercase mb-4 text-[1rem]"
                       style={{ color: "rgba(40, 255, 239, 1)" }}
                     >
                       Resource
@@ -193,7 +190,7 @@ const Footer = () => {
                 <li className="">
                   <div className="text-start">
                     <h2
-                      className=" dark:text-gray-200 text-md uppercase mb-4"
+                      className=" dark:text-gray-200 text-md uppercase mb-4 text-[1rem]"
                       style={{ color: "rgba(40, 255, 239, 1)" }}
                     >
                       Connect with us

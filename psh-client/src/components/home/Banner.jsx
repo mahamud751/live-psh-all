@@ -58,6 +58,7 @@ const Banner = () => {
               height: "25rem",
               perMove: 1,
               autoplaySpeed: 1000,
+              pagination: false,
               breakpoints: {
                 1200: { arrows: true, perPage: 1 },
                 800: { arrows: true, perPage: 1 },
