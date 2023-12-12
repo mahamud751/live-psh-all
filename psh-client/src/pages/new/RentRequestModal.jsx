@@ -23,11 +23,10 @@ const RentRequestModal = () => {
     const data2 = {
       firstName: formData.get("firstName"),
       phone: formData.get("phone"),
-      email: formData.get("email"),
       propertyType: formData.get("propertyType"),
       position: formData.get("position"),
-      totalRoom: parseInt(formData.get("totalRoom")),
-      company: parseInt(formData.get("company")),
+      totalRoom: formData.get("totalRoom"),
+      company: formData.get("company"),
       companyEmail: formData.get("companyEmail"),
       location: formData.get("location"),
       availabilityForVisit: formData.get("availabilityForVisit"),
