@@ -1,12 +1,12 @@
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
-import React, { useState, useRef, useContext } from "react";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import React, { useRef, useContext } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import UseFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../contexts/UserProvider";
-import { Link } from "react-router-dom";
+
 import "./business.css";
 const RentRequestModal = () => {
   const MySwal = withReactContent(Swal);
@@ -48,7 +48,7 @@ const RentRequestModal = () => {
   };
   return (
     <div className=" mt-5  custom-container">
-      <h3 className="text-[32px] font-bold whitespace-normal		">
+      <h3 className="text-[32px] font-bold whitespace-normal">
         Tell us your needs
       </h3>
       <div>
