@@ -123,8 +123,8 @@ const Business = () => {
                     </div>
                   </div>
                   <Dialog
-                    open={size === "sm" || size === "md"}
-                    size={size || "md"}
+                    open={size === "sm"}
+                    size={size || "sm"}
                     handler={handleOpen}
                     style={{ height: "100vh", overflow: "scroll" }}
                   >

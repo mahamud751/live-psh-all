@@ -5,8 +5,8 @@ import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
 import PartnerLastCard from "./PartnerLastCard";
 import PartnerService from "./PartnerService";
-import LeaseProperty from "../LeaseProperty/LeaseProperty";
 import "./partner.css";
+import PartnerModal from "./PartnerModal";
 
 const Partner = () => {
   const [size, setSize] = React.useState(null);
@@ -109,7 +109,7 @@ const Partner = () => {
                       <button
                         className="text-neutral-800 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch bg-white  px-4 py-4 rounded-lg"
                         style={{ width: 220 }}
-                        onClick={() => handleOpen("md")}
+                        onClick={() => handleOpen("sm")}
                       >
                         List Your Property
                       </button>
@@ -129,8 +129,8 @@ const Partner = () => {
                     </div>
                   </div>
                   <Dialog
-                    open={size === "sm" || size === "md"}
-                    size={size || "md"}
+                    open={size === "sm"}
+                    size={size || "sm"}
                     handler={handleOpen}
                     style={{ height: "100vh", overflow: "scroll" }}
                   >
@@ -144,7 +144,7 @@ const Partner = () => {
                       </div>
                     </DialogHeader>
                     <DialogBody className="p-2">
-                      <LeaseProperty />
+                      <PartnerModal />
                     </DialogBody>
                   </Dialog>
                 </div>
