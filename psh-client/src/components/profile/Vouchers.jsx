@@ -5,7 +5,7 @@ import UseFetch from "../../hooks/useFetch";
 // import MenuList from "./MenuList";
 const Vouchers = () => {
   const { data, loading, error, reFetch } = UseFetch(`promo`);
-  console.log(data);
+
   return (
     <div className="md:p-0 sm:p-2">
       {/* <div className="md:hidden sm:block">

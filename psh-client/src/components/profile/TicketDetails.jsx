@@ -4,7 +4,7 @@ import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
 import { AiOutlineClose } from "react-icons/ai";
 
 export function TicketDetails({ handleDetailsShow, detailsShow, seeTicket }) {
-  const formattedDate = new Date(seeTicket?.createdAt).toLocaleString();
+  const formattedDate = new Date(seeTicket?.createdAt)?.toLocaleString();
 
   return (
     <>

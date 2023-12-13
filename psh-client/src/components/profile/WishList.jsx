@@ -4,7 +4,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../contexts/UserProvider";
 
 import { Link } from "react-router-dom";
-import MenuList from "./MenuList";
 
 export default function WishList() {
   const { data, loading, error, reFetch } = UseFetch(`wishlist`);

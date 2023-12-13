@@ -20,8 +20,8 @@ import MenuList from "./MenuList";
 export default function TicketList() {
   const { data, loading, error, reFetch } = UseFetch(`issue`);
   const { user } = useContext(AuthContext);
-  const email = user.email;
-  const main = data.filter((pd) => pd.email === email);
+  const email = user?.email;
+  const main = data?.filter((pd) => pd?.email === email);
   const [seeTicket, setSeeTicket] = useState(null);
 
   // modal

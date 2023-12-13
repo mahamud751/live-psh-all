@@ -21,7 +21,6 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { TbReport } from "react-icons/tb";
 import { BsPerson } from "react-icons/bs";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { FaRegHourglass } from "react-icons/fa";
 import { BsGift } from "react-icons/bs";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
@@ -33,13 +32,12 @@ import Setting from "../../components/profile/Setting";
 import Vouchers from "../../components/profile/Vouchers";
 import Referral from "../../components/profile/Referral";
 import Community from "../../components/profile/Community";
-import JoinWaitingList from "../../components/profile/JoinWaitingList";
 import UseFetch from "../../hooks/useFetch";
 import WishList from "../../components/profile/WishList";
 import userEndOrder from "../../hooks/userEndOrder";
 import { useDispatch, useSelector } from "react-redux";
 import { placeProfileMenu } from "../../redux/reducers/smProfileMenuSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import MenuList from "../../components/profile/MenuList";
 
 export default function Profile() {
@@ -62,8 +60,8 @@ export default function Profile() {
     }
   }, [userOrder, user, endOrder?.bookingInfo?.branch]);
 
-  const email = user.email;
-  const main = data.filter((pd) => pd.email === email);
+  const email = user?.email;
+  const main = data.filter((pd) => pd?.email === email);
   const [active, setActive] = useState(0);
   const data2 = [
     {

@@ -15,7 +15,7 @@ function Setting() {
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
   const { user } = useContext(AuthContext);
-  console.log(user.email, "ss");
+
   const MySwal = withReactContent(Swal);
 
   const handlePasswordUpdate = async (e) => {
