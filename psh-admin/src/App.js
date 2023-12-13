@@ -55,6 +55,7 @@ import Update_Terms from "./components/Pages/Update_Terms";
 import Update_Privacy from "./components/Pages/Update_Privacy";
 import Add_Dynamic from "./pages/Add_Dynamic";
 import Dynamic from "./pages/Dynamic";
+import Finance from "./pages/Finance/Finance";
 
 function App() {
   return (
@@ -109,6 +110,7 @@ function App() {
           <Route path="orders" element={<AdminOrders />} />
           <Route path="transaction" element={<TransactionAdmin />} />
           <Route path="transaction-m" element={<TransactionManager />} />
+          <Route path="finance" element={<Finance />} />
           <Route path="user-manage" element={<UserManage />} />
 
           <Route path="issue" element={<Issue />} />

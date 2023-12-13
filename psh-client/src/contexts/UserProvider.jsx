@@ -2,6 +2,7 @@ import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
+import toast, { Toaster } from "react-hot-toast";
 export const AuthContext = createContext();
 
 export const UserProvider = ({ children }) => {
@@ -42,6 +43,7 @@ export const UserProvider = ({ children }) => {
           title: "Login Error",
           text: errorMessage || "Invalid email or password. Please try again.",
         });
+        toast.error(errorMessage);
       } else if (error.response && error.response.status === 404) {
         const errorMessage = error.response.data.message;
         MySwal.fire({

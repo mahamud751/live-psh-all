@@ -39,6 +39,7 @@ import Partner from "../pages/new/Partner";
 import Collaberation from "../pages/new/Collaberation";
 import PshFinance from "../pages/PshFinance/PshFinance";
 import LeaseProperty from "../pages/LeaseProperty/LeaseProperty";
+import ExtraForm from "../pages/ExtraForm/ExtraForm";
 
 export const router = createBrowserRouter([
   {
@@ -137,6 +138,10 @@ export const router = createBrowserRouter([
       {
         path: "/collaberation",
         element: <Collaberation />,
+      },
+      {
+        path: "/extra-form",
+        element: <ExtraForm />,
       },
     ],
   },

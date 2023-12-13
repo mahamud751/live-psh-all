@@ -288,7 +288,7 @@ const Room = () => {
           </div>
 
           <div className="mt-2 text-start ">
-            <div className="sticky md:top-[72px] sm:top-[50px] bg-white py-1">
+            <div className="sticky md:top-[72px] sm:top-[70px] bg-white py-1">
               <div className="flex text-[24px]  font-medium ">
                 <div onClick={() => setKeyValue(0)}>
                   <a

@@ -24,6 +24,7 @@ import wishlistRouter from "./routes/wishlist.js";
 import leasePropertyRouter from "./routes/leaseProperty.js";
 import requestRentRouter from "./routes/requestRent.js";
 import extraCharge from "./routes/extraCharge.js";
+import extraForm from "./routes/extraForm.js";
 import transaction from "./routes/Transaction.js";
 
 import cookieParser from "cookie-parser";
@@ -83,6 +84,7 @@ app.use("/api/wishlist", wishlistRouter);
 app.use("/api/leaseProperty", leasePropertyRouter);
 app.use("/api/requestRent", requestRentRouter);
 app.use("/api/extraCharge", extraCharge);
+app.use("/api/extraForm", extraForm);
 app.use("/api/transaction", transaction);
 app.use("/api/dynamic", dynamicRoute);
 

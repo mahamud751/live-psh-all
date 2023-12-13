@@ -1,0 +1,53 @@
+import mongoose from "mongoose";
+
+const extraFormSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+    },
+    email: {
+      type: String,
+    },
+    phone: {
+      type: String,
+    },
+    birthDate: {
+      type: String,
+    },
+    profession: {
+      type: String,
+    },
+    maritalStatus: {
+      type: String,
+    },
+    investorIncome: {
+      type: String,
+    },
+    investAmount: {
+      type: String,
+    },
+    investTime: {
+      type: String,
+    },
+    returnTime: {
+      type: String,
+    },
+    knowAbout: {
+      type: String,
+    },
+    reference: {
+      type: String,
+    },
+    address: {
+      type: String,
+    },
+    image: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
+
+const ExtraForm = mongoose.model("ExtraForm", extraFormSchema);
+
+export default ExtraForm;

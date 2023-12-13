@@ -70,7 +70,7 @@ const Footer = () => {
                   <form className="flex">
                     <input
                       className="rounded md:px-4 sm:py-3 border-t md:w-full outline-0 sm:w-full"
-                      placeholder="your@mail.com"
+                      placeholder="Your Email Address Here"
                     />
                     <button className="ml-1 rounded bg-[#FEBD59] font-bold md:p-4 uppercase border-yellow-500 border-t border-b border-r p-2 ">
                       Subscribe

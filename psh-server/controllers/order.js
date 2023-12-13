@@ -46,7 +46,7 @@ export const createOrder = async (req, res) => {
     const gardianImg = req?.files?.gardianImg[0].path;
     const image = req?.files?.image[0].path;
     const branch = bookingInfo?.branch;
-    console.log(bookingInfo);
+
     const newOrder = new OrderModel({
       // seat: seatId,
       bookingInfo,

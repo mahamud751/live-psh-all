@@ -863,6 +863,20 @@ const Navbar = () => {
                 {(user && user.role === "SuperAdmin") ||
                 user.role === "admin" ? (
                   <>
+                    <Link to={"/finance"}>
+                      <li className="main_nav-link">
+                        <div className="menu_flex nav-link">
+                          <span className="span_text">Finance</span>
+                        </div>
+                      </li>
+                    </Link>
+                  </>
+                ) : (
+                  ""
+                )}
+                {(user && user.role === "SuperAdmin") ||
+                user.role === "admin" ? (
+                  <>
                     <Link to={"/user-manage"}>
                       <li className="main_nav-link">
                         <div className="menu_flex nav-link">
