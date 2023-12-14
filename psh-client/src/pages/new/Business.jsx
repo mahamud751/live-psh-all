@@ -109,7 +109,7 @@ const Business = () => {
                       I am interested in
                     </button>
                     <div
-                      className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white"
+                      className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white md:mt-0 sm:mt-2"
                       style={{ width: 220 }}
                     >
                       <img
@@ -260,14 +260,11 @@ const Business = () => {
               <p className="header3">
                 Find complete accommodation for your company in PSH!
               </p>
-              <div className="flex justify-center items-center gap-4">
-                <div
-                  className="text-neutral-800 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch bg-white  px-4 py-4 rounded-lg"
-                  style={{ width: 220 }}
-                >
+              <div className="md:flex justify-center items-center gap-4">
+                <div className="text-neutral-800 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch bg-white  px-4 py-4 rounded-lg md:w-[220px]">
                   I am interested in
                 </div>
-                <div className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white">
+                <div className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white md:mt-0 sm:mt-4">
                   <img
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/5acafaceab7794f50dc75a52aade2c6ed5eabd94dd1236c337c5bddd85becb4d?apiKey=e4c55b3835e0471b869cabb50a0b8cd9&"

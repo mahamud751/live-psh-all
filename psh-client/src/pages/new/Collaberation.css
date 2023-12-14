@@ -14,7 +14,7 @@
   position: relative;
 }
 
-.btn-color-mode-switch > label.btn-color-mode-switch-inner {
+.btn-color-mode-switch>label.btn-color-mode-switch-inner {
   margin: 0px;
   width: 340px;
   height: 40px;
@@ -28,7 +28,7 @@
   display: block;
 }
 
-.btn-color-mode-switch > label.btn-color-mode-switch-inner:before {
+.btn-color-mode-switch>label.btn-color-mode-switch-inner:before {
   content: attr(data-on);
   position: absolute;
   top: 10px;
@@ -40,7 +40,7 @@
   line-height: 20px;
 }
 
-.btn-color-mode-switch > label.btn-color-mode-switch-inner:after {
+.btn-color-mode-switch>label.btn-color-mode-switch-inner:after {
   content: attr(data-off);
   width: 170px;
   height: 35px;
@@ -73,22 +73,16 @@
   margin: 0px;
 }
 
-.btn-color-mode-switch
-  input[type="checkbox"]:checked
-  + label.btn-color-mode-switch-inner {
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner {
   background-color: white;
 }
 
-.btn-color-mode-switch
-  input[type="checkbox"]:checked
-  + label.btn-color-mode-switch-inner:after {
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:after {
   content: attr(data-on);
   left: 168px;
 }
 
-.btn-color-mode-switch
-  input[type="checkbox"]:checked
-  + label.btn-color-mode-switch-inner:before {
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:before {
   content: attr(data-off);
   right: auto;
   left: 20px;
@@ -130,6 +124,31 @@
   box-shadow: 0 0 20px 5px rgba(35, 35, 35, 0.5);
 }
 
+.card-slider3 .slick-slider .slick-arrow {
+  /* display: none !important; */
+
+  margin: 140px 555px 150px 720px;
+  z-index: 999;
+  border-radius: 10%;
+  cursor: pointer;
+  width: 55px;
+  height: 46px;
+  padding: 12px 12.5px;
+  background-color: #fff;
+
+  box-shadow: 0 0 20px 5px rgba(35, 35, 35, 0.5);
+}
+
+.feedback_p {
+  color: #FFF;
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 150% */
+}
+
 .only-forMobile .slick-list {
   padding: 0 105px !important;
   transition: padding 0.5s ease-in-out;
@@ -141,6 +160,50 @@
 
 .card-slider2 .slick-slider:hover .slick-arrow {
   display: block !important;
+}
+
+.card-slider3 .slick-slider:hover .slick-arrow {
+  display: block !important;
+}
+
+.feedback_pic {
+  margin-top: 64px;
+}
+
+@media only screen and (min-width: 760px) and (max-width: 1200px) {
+  .card-slider2 .slick-slider .slick-arrow {
+    /* display: none !important; */
+
+    margin: 150px 450px 50px 600px;
+    z-index: 999;
+    border-radius: 10%;
+    cursor: pointer;
+    width: 55px;
+    height: 46px;
+    padding: 12px 12.5px;
+    background-color: #fff;
+
+    box-shadow: 0 0 20px 5px rgba(35, 35, 35, 0.5);
+  }
+
+  .card-slider3 .slick-slider .slick-arrow {
+    /* display: none !important; */
+
+    margin: 90px 450px 50px 600px;
+    z-index: 999;
+    border-radius: 10%;
+    cursor: pointer;
+    width: 55px;
+    height: 46px;
+    padding: 12px 12.5px;
+    background-color: #fff;
+
+    box-shadow: 0 0 20px 5px rgba(35, 35, 35, 0.5);
+  }
+
+  .feedback_pic {
+    margin-top: 12px;
+  }
 }
 
 @media screen and (max-width: 600px) {

@@ -128,13 +128,18 @@ const Footer = () => {
                       Partner With Us
                     </h2>
                     <ul className="footer_li">
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a>Lease your Property</a>
-                      </li>
+                      <Link to={"/lease-property"}>
+                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                          <a>Lease your Property</a>
+                        </li>
+                      </Link>
 
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">PSH Finance</a>
-                      </li>
+                      <Link to={"/psh-finance"}>
+                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                          <a>PSH Finance</a>
+                        </li>
+                      </Link>
+
                       {/* <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Build for Rent</a>
                       </li> */}
@@ -150,17 +155,23 @@ const Footer = () => {
                       PSH FOR Business
                     </h2>
                     <ul className="footer_li">
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a>Corporate Housing</a>
-                      </li>
+                      <Link to={"/business"}>
+                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                          <a>Corporate Housing</a>
+                        </li>
+                      </Link>
 
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Brand Collaboration</a>
-                      </li>
+                      <Link to={"/collaberation"}>
+                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                          <a>Brand Collaboration</a>
+                        </li>
+                      </Link>
 
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a>Community</a>
-                      </li>
+                      <Link to={"/partner"}>
+                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                          <a>Community</a>
+                        </li>
+                      </Link>
                     </ul>
                   </div>
                 </li>
@@ -173,9 +184,11 @@ const Footer = () => {
                       Resource
                     </h2>
                     <ul className="footer_li">
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">FAQ</a>
-                      </li>
+                      <Link to={"/faq-question"}>
+                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                          <a>FAQ</a>
+                        </li>
+                      </Link>
 
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a>Career</a>

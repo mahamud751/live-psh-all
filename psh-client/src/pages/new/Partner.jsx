@@ -7,6 +7,7 @@ import PartnerLastCard from "./PartnerLastCard";
 import PartnerService from "./PartnerService";
 import "./partner.css";
 import PartnerModal from "./PartnerModal";
+import PartnerFeedback from "./PartnerFeedback";
 
 const Partner = () => {
   const [size, setSize] = React.useState(null);
@@ -479,6 +480,7 @@ const Partner = () => {
       <div className="w-full">
         <PartnerLastCard />
       </div>
+      <PartnerFeedback />
     </div>
   );
 };

@@ -46,14 +46,14 @@ const RentRequestModal = () => {
     }
   };
   return (
-    <div className=" mt-5  custom-container">
-      <h3 className="text-[32px] font-bold whitespace-normal">
+    <div className=" mt-5 mb-5 custom-container">
+      <h3 className="md:text-[32px] sm:text-[22px] font-bold whitespace-normal">
         Tell us your needs
       </h3>
       <div>
         {main.length <= 0 ? (
           <>
-            <div className="mt-5 font-bold text-xl border-b pb-1">
+            <div className="mt-3 font-bold text-xl border-b pb-1">
               <span>Company data</span>
             </div>
             <div className="px-5">

@@ -160,7 +160,7 @@ const PshFinance = () => {
                   </h4>
                 </div>
                 <p className="md:text-[1rem] sm:text-sm">
-                  Renovation by Rukita design team
+                  Renovation by Psh design team
                 </p>
               </div>
             </div>
@@ -180,7 +180,7 @@ const PshFinance = () => {
                   </h4>
                 </div>
                 <p className="md:text-[1rem] sm:text-sm">
-                  Renovation by Rukita design team
+                  Renovation by Psh design team
                 </p>
               </div>
             </div>
@@ -200,7 +200,7 @@ const PshFinance = () => {
                   </h4>
                 </div>
                 <p className="md:text-[1rem] sm:text-sm">
-                  Renovation by Rukita design team
+                  Renovation by Psh design team
                 </p>
               </div>
             </div>
@@ -220,7 +220,7 @@ const PshFinance = () => {
                   </h4>
                 </div>
                 <p className="md:text-[1rem] sm:text-sm">
-                  Renovation by Rukita design team
+                  Renovation by Psh design team
                 </p>
               </div>
             </div>

@@ -94,7 +94,7 @@
     padding: 10px;
   }
 
-  .form > label {
+  .form>label {
     font-size: 14px !important;
     margin: 2px 0px !important;
   }
@@ -158,6 +158,7 @@
     margin-left: auto;
     margin-right: auto;
   }
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -180,4 +181,19 @@
 
 .footer-part {
   font-family: "Rubik", sans-serif !important;
+}
+
+@media only screen and (min-width: 760px) and (max-width: 1200px) {
+  .footer_btn {
+    width: 200px;
+    height: 48px;
+    background: black;
+    border: 1px solid white;
+    color: white;
+    padding: 15.5px, 61px, 15.5px, 61.34px;
+    border-radius: 4;
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+  }
 }

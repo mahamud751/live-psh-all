@@ -56,10 +56,7 @@ const PartnerModal = () => {
     }
   };
   return (
-    <div className=" mt-5  custom-container">
-      <h3 className="text-[32px] font-bold whitespace-normal		">
-        Lease Your Property{" "}
-      </h3>
+    <div className=" mt-5 mb-5 custom-container">
       <div>
         {main.length <= 0 ? (
           <>
