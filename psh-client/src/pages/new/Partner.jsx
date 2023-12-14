@@ -84,7 +84,7 @@ const Partner = () => {
   };
   return (
     <div>
-      <div className="banner-left">
+      <div className="banner-left ">
         <div className="grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16 ">
           <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6">
             <div className="2xl:ms-72">

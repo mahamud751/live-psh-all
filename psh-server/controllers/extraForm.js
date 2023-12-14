@@ -72,3 +72,12 @@ export const createExtraForm = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+export const getExtraForm = async (req, res, next) => {
+  try {
+    const extraForm = await ExtraForm.find({});
+    res.status(200).json(extraForm);
+  } catch (err) {
+    next(err);
+  }
+};

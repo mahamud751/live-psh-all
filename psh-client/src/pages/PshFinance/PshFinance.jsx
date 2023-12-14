@@ -16,19 +16,25 @@ import financeHome from "../../../src/assets/img/finance-home.png";
 import financeDeposit from "../../../src/assets/img/finace-deposit.png";
 import financeFunds from "../../../src/assets/img/finace-funds.png";
 import pshLogo from "../../../src/assets/img/PSH Favicon 1.png";
-
+import financeBanner from "../../../src/assets/img/finance.png";
 import tickSvg from "../../../src/assets/img/tik-svg.png";
 import "./PshFinance.css";
 import { Link } from "react-router-dom";
 const PshFinance = () => {
   return (
-    <div className="finance-page">
-      <div className="finance md:h-screen sm:h-[460px]">
-        <div className="custom-container">
+    <div className="finance-page ">
+      <img
+        src={financeBanner}
+        className=" xl:h-fit lg:h-screen md:h-screen sm:h-screen	"
+        alt=""
+      />
+
+      <div className="finance">
+        <div className="custom-container absolute top-8 xl:left-[300px] lg:left-20 sm:left-5  sm:px-2  md:px-0">
           <div className="grid grid-cols-2">
-            <div className="md:pt-20 sm:pt-14 ">
+            <div className="md:pt-20 sm:pt-14">
               <p className="md:text-3xl sm:text-xl font-bold">PSH Finance</p>
-              <h2 className="md:text-[48px] sm:text-[24px] font-black md:mt-14 sm:mt-5">
+              <h2 className="md:text-[48px] sm:text-[24px] font-black md:mt-14 sm:mt-4">
                 Property Business Financing Solutions
               </h2>
               <p className="md:text-[24px] sm:text-[12px]">
@@ -39,11 +45,13 @@ const PshFinance = () => {
                 </span>
               </p>
               <div className="">
-                <button className="md:mt-10 sm:mt-5 md:text-[1rem] sm:text-[14px] md:px-[36px] md:py-[15px] sm:px-[16px] sm:py-[10px]">
-                  From now on
-                </button>
+                <a href="/extra-form" target="_blank">
+                  <button className="md:mt-10 sm:mt-5 md:text-[1rem] sm:text-[14px] md:px-[36px] md:py-[15px] sm:px-[16px] sm:py-[10px]">
+                    From now on
+                  </button>
+                </a>
               </div>
-              <p className="md:mt-10 sm:mt-6 md:text-sm sm:text-[8px]">
+              <p className="md:mt-10 sm:mt-5 md:text-sm sm:text-[8px]">
                 PT Bank OCBC NISP, Tbk is licensed and supervised by the
                 Financial Services Authority (OJK) and is an LPS guarantee
                 participant
@@ -54,7 +62,7 @@ const PshFinance = () => {
         </div>
       </div>
       {/* Profitable */}
-      <div className="custom-container">
+      <div className="custom-container sm:px-2  md:px-0">
         <div className="grid grid-cols-12 items-center my-14  md:gap-x-10 ms:gap-x-0">
           <div className="md:col-span-3 sm:col-span-12 md:text-left sm:text-center">
             <p className="md:text-2xl sm:text-xl font-[700]">
@@ -67,7 +75,7 @@ const PshFinance = () => {
           <div className="col-span-1 sm:hidden md:block">
             <img src={financeArrow} alt="" />
           </div>
-          <div className="flex md:gap-x-10 sm:gap-x-5 md:col-span-8 sm:col-span-12">
+          <div className="flex md:gap-x-10 sm:gap-x-0 md:col-span-8 sm:col-span-12 md:mx-0 sm:mx-2">
             <div className="flex relative">
               <img src={uppArrow} className=" md:w-[35px] sm:w-[15px]" alt="" />
               <p className="absolute md:top-0 sm:top-5 md:left-14 sm:left-5">
@@ -77,12 +85,12 @@ const PshFinance = () => {
                 <h1 className="until-percent md:text-[64px] sm:text-[32px] md:ms-5 sm:ms-1 ">
                   85%
                 </h1>
-                <p className="ms-5 md:text-[1rem] sm:text-sm font-bold">
+                <p className="md:ms-5 sm:ms-0 md:text-[1rem] sm:text-sm font-bold md:w-full sm:w-2/3">
                   Average Residential Occupancy Rate
                 </p>
               </div>
             </div>
-            <div className="flex  relative">
+            <div className="flex relative md:mr-0 sm:mr-5">
               <img className=" md:w-[35px] sm:w-[15px]" src={uppArrow} alt="" />
 
               <p className="absolute md:top-0 sm:top-5 md:left-14 sm:left-5">
@@ -92,7 +100,7 @@ const PshFinance = () => {
                 <h1 className="until-percent md:ms-5 sm:ms-1 md:text-[64px] sm:text-[32px]">
                   30%
                 </h1>
-                <p className="ms-5  md:text-[1rem] sm:text-sm font-bold">
+                <p className="md:ms-5 sm:ms-0  md:text-[1rem] sm:text-sm font-bold">
                   Average Income Increase
                 </p>
               </div>
@@ -106,7 +114,7 @@ const PshFinance = () => {
                 <h1 className="until-percent md:ms-5 sm:ms-1  md:text-[64px] sm:text-[32px]">
                   20%
                 </h1>
-                <p className="ms-5  md:text-[1rem] sm:text-sm font-bold">
+                <p className="md:ms-5 sm:ms-0 md:text-[1rem] sm:text-sm font-bold">
                   Potential Returns
                 </p>
               </div>
@@ -115,7 +123,7 @@ const PshFinance = () => {
         </div>
       </div>
       <div style={{ backgroundColor: "#f3f3f3" }} className="">
-        <div className="custom-container  pt-14 pb-10">
+        <div className="custom-container  pt-14 pb-10 sm:px-2  md:px-0">
           <div className="flex justify-center">
             <div>
               <h2 className="text-3xl font-bold text-center"> Why with PSH</h2>
@@ -220,16 +228,16 @@ const PshFinance = () => {
         </div>
       </div>
 
-      <div className="custom-container mt-16">
+      <div className="custom-container mt-16 sm:px-2  md:px-0">
         <div className="grid md:grid-cols-2 sm:grid-cols-1">
-          <div className="easy_steps text-white relative md:h-[670px] sm:h-[500] md:w-[470px] sm:w-full">
-            <p className="px-12 mt-10 text-[40px] font-bold">
+          <div className="easy_steps text-white relative md:h-[670px] sm:h-[300px] md:w-[470px] sm:w-full">
+            <p className="px-12 mt-10 md:text-[40px] sm:text-[20px] font-bold">
               <span className="">5 Easy Steps</span>
             </p>
-            <p className=" ps-12 pr-14 text-[32px]">
+            <p className=" ps-12 pr-14 md:text-[32px] sm:text-[1rem]">
               Starting a Property Business with PSH & OCBC
             </p>
-            <div className="absolute right-[-30px] md:block sm:hidden">
+            <div className="absolute top-80 right-[-30px] md:block sm:hidden">
               <img
                 style={{
                   display: "flex",
@@ -261,7 +269,9 @@ const PshFinance = () => {
                   Click the registration button below, fill out the form, and
                   our team will be in touch shortly.
                 </p>
-                <button className="step-button">List My Property</button>
+                <a href="/extra-form" target="_blank">
+                  <button className="step-button">List My Property</button>
+                </a>
               </div>
             </div>
             <div className="flex gap-x-5 mt-10">
@@ -327,7 +337,7 @@ const PshFinance = () => {
       </div>
 
       {/* Difference between Investing in Psh */}
-      <div className="custom-container mt-20 md:mb-36 sm:mb-20">
+      <div className="custom-container mt-20 md:mb-36 sm:mb-20 sm:px-2  md:px-0">
         <h2 className="md:text-[32px] sm:text-xl font-bold text-center">
           What is the Difference between Investing in PSH and Other Portfolios?
         </h2>
@@ -417,7 +427,7 @@ const PshFinance = () => {
         </div>
       </div>
       {/* Managing Property */}
-      <div className="custom-container ">
+      <div className="custom-container sm:px-2  md:px-0">
         <div className="flex sm:flex-col-reverse md:flex-row gap-x-44 mb-20">
           <div>
             <h2 className="md:text-[32px] sm:text-[1rem] font-bold md:mt-0 sm:mt-5">
@@ -448,14 +458,16 @@ const PshFinance = () => {
         </div>
       </div>
       {/* House Business now */}
-      <div className="custom-container">
+      <div className="custom-container sm:px-2  md:px-0">
         <h4 className="font-bold md:text-[32px] sm:text-[1rem] text-center">
           Start Your Coliving Boarding House Business Now!
         </h4>
         <div className="text-center mt-5 mb-24">
-          <button className="md:px-[36px] md:py-[15px] sm:px-[16px] sm:py-[10px]">
-            From Now on
-          </button>
+          <a href="/extra-form" target="_blank">
+            <button className="md:px-[36px] md:py-[15px] sm:px-[16px] sm:py-[10px]">
+              From Now on
+            </button>
+          </a>
         </div>
       </div>
     </div>

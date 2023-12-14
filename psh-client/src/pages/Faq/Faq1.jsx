@@ -5,16 +5,28 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import { IoIosArrowDown } from "react-icons/io";
+import { HiArrowNarrowLeft } from "react-icons/hi";
+import { placeFaqMenu } from "../../redux/reducers/smProfileMenuSlice";
+import { useDispatch } from "react-redux";
 export default function Faq1() {
   const [open, setOpen] = useState(1);
-
+  const dispatch = useDispatch();
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
   return (
-    <div className="md:ps-20 sm:ps-0 md:pr-32 sm:pr-0 accourding-part">
-      <h3 className="text-xl font-bold md:ms-0 sm:ms-7 md:mb-0 sm:mb-3 ">
-        Search and Order
-      </h3>
+    <div className="md:ps-20 sm:ps-0 md:pr-32 sm:pr-0 accourding-part ">
+      <div className=" cursor-pointer flex items-center">
+        <div
+          className="md:hidden sm:block"
+          onClick={() => dispatch(placeFaqMenu(true))}
+        >
+          <HiArrowNarrowLeft style={{ width: "24px", height: "24px" }} />
+        </div>
+        <h3 className="text-xl font-bold md:ms-0 sm:ms-4 md:mb-0  ">
+          Search and Order
+        </h3>
+      </div>
+
       <Accordion open={open === 1}>
         <AccordionHeader onClick={() => handleOpen(1)} className="">
           <div className="flex justify-between ">

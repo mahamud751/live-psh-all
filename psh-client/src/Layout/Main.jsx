@@ -4,6 +4,7 @@ import Navmenu from "../components/shared/NavMenu";
 import Footer from "../components/shared/Footer";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import "./Main.css";
 
 const Main = () => {
   const location = useLocation();
@@ -26,7 +27,7 @@ const Main = () => {
     <div>
       {isProfileMenu ? "" : noHeaderFooter || <Navmenu></Navmenu>}
 
-      <div className=" sm:p-2 md:p-0">
+      <div className="">
         <Outlet></Outlet>
       </div>
 

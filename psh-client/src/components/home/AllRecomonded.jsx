@@ -47,7 +47,7 @@ const AllRecomonded = ({ item }) => {
   );
   return (
     <>
-      <div className=" mt-3 flex justify-between items-center">
+      <div className=" mt-3 flex justify-between items-center sm:px-1 sm:pt-1 md:px-0 md:pt-0">
         <p className="ms-0 md:ms-72">{paginatedData?.length} Results Found</p>
         <p className="md:mr-[320px] ">
           Search Number{" "}
@@ -67,7 +67,7 @@ const AllRecomonded = ({ item }) => {
         </p>
       </div>
       {paginatedData?.length > 0 ? (
-        <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-x-5 custom-container mt-5">
+        <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-x-5 custom-container mt-5 sm:px-2 sm:pt-2 md:px-0 md:pt-0">
           {paginatedData?.map((item) => {
             // Checking Booking Dates for privet room and apartment
             const currentDate = new Date().toISOString().split("T")[0];

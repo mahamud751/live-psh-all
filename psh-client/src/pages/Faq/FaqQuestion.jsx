@@ -5,35 +5,9 @@ import {
   TabsBody,
   Tab,
   TabPanel,
-  Avatar,
 } from "@material-tailwind/react";
 
-import Booking from "../../components/profile/Booking";
-import Ticket from "../../components/profile/Ticket";
-
-import Personal from "../../components/profile/Personal";
-import Payment from "../../components/profile/Payment";
 import { useState } from "react";
-import { MdPayment } from "react-icons/md";
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { AiOutlineHeart } from "react-icons/ai";
-import { TbReport } from "react-icons/tb";
-import { BsPerson } from "react-icons/bs";
-import { RiLockPasswordLine } from "react-icons/ri";
-
-import { BsGift } from "react-icons/bs";
-import { AiOutlineShareAlt } from "react-icons/ai";
-
-import { IoIosPeople } from "react-icons/io";
-import { AiOutlineLogout } from "react-icons/ai";
-import EditProfile from "../../components/profile/EditProfile";
-import TicketList from "../../components/profile/TicketList";
-import Setting from "../../components/profile/Setting";
-import Vouchers from "../../components/profile/Vouchers";
-import Referral from "../../components/profile/Referral";
-import Community from "../../components/profile/Community";
-
-import WishList from "../../components/profile/WishList";
 
 import Svg from "../../assets/img/SVG.svg";
 import Svg1 from "../../assets/img/SVG (1).svg";
@@ -140,7 +114,7 @@ export default function FaqQuestions() {
 
   return (
     <>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 faq-part ">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-28 faq-part ">
         <div className="mx-auto max-w-2xl lg:py-5 md:py-5 sm:py-0 lg:max-w-none lg:py-12 ">
           <div className=" ">
             <h3 className="px-1 mt-2 md:mb-10 sm:mb:2 font-bold md:text-2xl sm:text-sm md:text-left sm:text-center">
@@ -238,14 +212,6 @@ export default function FaqQuestions() {
                 ""
               ) : (
                 <div className="w-full lg:col-span-3 md:col-span-3 sm:col-span-1 md:mt-0 sm:mt-3 md:hidden sm:block ">
-                  <div
-                    className="absolute top-[130px] left-5 md:hidden sm:block"
-                    onClick={() => dispatch(placeFaqMenu(true))}
-                  >
-                    <HiArrowNarrowLeft
-                      style={{ width: "24px", height: "24px" }}
-                    />
-                  </div>
                   <TabsBody>
                     <TabPanel value="search" className="py-0">
                       <Faq1 />
@@ -293,7 +259,7 @@ export default function FaqQuestions() {
           </div>
         </div>
       </div>
-      <div className="grid md:grid-cols-2 sm:grid-cols-1">
+      <div className="grid md:grid-cols-2 sm:grid-cols-1 md:mt-0 sm:mt-16">
         <div className="md:block sm:hidden">
           <img src={footerImg} alt="" />
         </div>

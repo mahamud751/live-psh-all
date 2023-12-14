@@ -247,7 +247,7 @@ const Room = () => {
   };
 
   return (
-    <div className="custom-container ">
+    <div className="custom-container sm:px-2 sm:pt-2 md:px-0 md:pt-0">
       <div className="mt-2">
         <div className=" ">
           <div>

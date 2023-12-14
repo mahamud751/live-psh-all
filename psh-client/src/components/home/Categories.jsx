@@ -206,7 +206,7 @@ export default function Categories() {
   };
 
   return (
-    <div className="category-item">
+    <div className="category-item ">
       <Header />
 
       <div className=" text-left mt-3">
