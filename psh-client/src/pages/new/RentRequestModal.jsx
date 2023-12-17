@@ -65,13 +65,13 @@ const RentRequestModal = () => {
                 <div className="grid grid-cols-1 md:gap-x-5">
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 ">
                     <label htmlFor="" className="">
-                      First Name
+                      Full Name
                     </label>
                     <input
                       type="text"
                       className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
-                      placeholder="First Name"
-                      name="firstName"
+                      placeholder="Full Name"
+                      name="fullname"
                     />
                   </div>
 
@@ -92,6 +92,15 @@ const RentRequestModal = () => {
                       className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
                       placeholder="Company Name*"
                       name="company"
+                    />
+                  </div>
+                  <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 mt-1">
+                    <label htmlFor="">Address</label>
+                    <input
+                      type="text"
+                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      placeholder="Address*"
+                      name="address"
                     />
                   </div>
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 mt-1">
@@ -158,15 +167,15 @@ const RentRequestModal = () => {
                 {/* Property Location */}
 
                 {/* Emergency Contact */}
-                <div className="border-b pb-1">
+                {/* <div className="border-b pb-1">
                   <div className="mt-7 font-bold text-xl">
                     <span>Property Visit Request *</span>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="grid grid-cols-2 gap-x-5 mt-5">
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 mt-1">
-                    <label htmlFor="">Availability for Visit</label>
+                    <label htmlFor="">Estimated date of arrival</label>
                     <input
                       type="date"
                       className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
@@ -176,7 +185,7 @@ const RentRequestModal = () => {
                   </div>
 
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 mt-1">
-                    <label htmlFor="">Availability for Visit Time</label>
+                    <label htmlFor="">Estimated time of arrival</label>
                     <input
                       type="time"
                       className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
@@ -184,6 +193,15 @@ const RentRequestModal = () => {
                       name="availabilityForVisitTime"
                     />
                   </div>
+                </div>
+                <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 mt-1">
+                  <label htmlFor="">Duration for rent ---</label>
+                  <input
+                    type="text"
+                    className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                    placeholder="Duration for rent"
+                    name="duration"
+                  />
                 </div>
 
                 <div className="flex justify-center mt-12 mb-12">

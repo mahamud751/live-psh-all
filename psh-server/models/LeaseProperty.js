@@ -3,16 +3,16 @@ import mongoose from "mongoose";
 // Define the LeaseProperty Schema
 const LeaseProperty = new mongoose.Schema(
   {
-    purpose: {
-      type: String,
-      enum: ["rent", "franchising", "lease", "partnership"],
-      default: "pending",
-    },
-    firstName: {
-      type: String,
-      required: true,
-    },
-    lastName: {
+    // purpose: {
+    //   type: String,
+    //   enum: ["rent", "franchising", "lease", "partnership"],
+    //   default: "pending",
+    // },
+    // firstName: {
+    //   type: String,
+    //   required: true,
+    // },
+    fullname: {
       type: String,
       required: true,
     },
@@ -31,7 +31,7 @@ const LeaseProperty = new mongoose.Schema(
     },
     propertyType: {
       type: String,
-      enum: ["Share Room", "Private Room", "Apartment"],
+      enum: ["Building", "Flat", "Villa"],
       required: true,
     },
 
@@ -69,10 +69,10 @@ const LeaseProperty = new mongoose.Schema(
       type: String,
       required: true,
     },
-    stateRegion: {
-      type: String,
-      required: true,
-    },
+    // stateRegion: {
+    //   type: String,
+    //   required: true,
+    // },
     postCode: {
       type: String,
       required: true,
@@ -81,11 +81,15 @@ const LeaseProperty = new mongoose.Schema(
       type: String,
       required: true,
     },
-    country: {
+    division: {
       type: String,
       required: true,
-      default: "Bangladesh",
     },
+    // country: {
+    //   type: String,
+    //   required: true,
+    //   default: "Bangladesh",
+    // },
     availabilityForVisit: {
       type: Date,
       required: true,

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
+import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 import Slider from "react-slick";
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
@@ -8,6 +9,7 @@ import PartnerService from "./PartnerService";
 import "./partner.css";
 import PartnerModal from "./PartnerModal";
 import PartnerFeedback from "./PartnerFeedback";
+import { Link } from "react-router-dom";
 
 const Partner = () => {
   const [size, setSize] = React.useState(null);
@@ -161,7 +163,6 @@ const Partner = () => {
           </div>
         </div>
       </div>
-      <PartnerService />
       <div className="custom-container">
         <h2 className="text-xl font-bold mb-5 mt-12">
           PSH's choice of housing for companies
@@ -172,7 +173,7 @@ const Partner = () => {
               <div className="overflow-hidden">
                 <div className="m-0 rounded-none">
                   <img
-                    src="assets/img/jadi_partner_Project Second Home.png.png"
+                    src="assets/img2/jadi_partner_rukita.png (1).png"
                     alt="ui/ux review check"
                     style={{ height: 269, width: "100%" }}
                   />
@@ -183,8 +184,9 @@ const Partner = () => {
                     Register your boarding, coliving or apartment business to be
                     part of Project Second Home.
                   </p>
-
-                  <button className="partner_btn">View More</button>
+                  <button className="partner_btn">
+                    Register your property{" "}
+                  </button>
                 </div>
               </div>
             </div>
@@ -205,7 +207,12 @@ const Partner = () => {
                     Turn your passive assets into a profitable property
                     business.
                   </p>
-                  <button className="partner_btn">View More</button>
+                  <button
+                    className="partner_btn"
+                    onClick={() => handleOpen("sm")}
+                  >
+                    connect with us
+                  </button>
                 </div>
               </div>
             </div>
@@ -226,13 +233,18 @@ const Partner = () => {
                     PSH Finance is ready to help with financing, construction,
                     renovation and operations.
                   </p>
-                  <button className="partner_btn">View More</button>
+                  <Link to={"/psh-finance"}>
+                    <button className="partner_btn">
+                      Investment opportunities
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
           </Slider>
         </div>
       </div>
+      <PartnerService />
 
       <div className="banner2 mt-5">
         <div className="custom-container">
@@ -477,10 +489,46 @@ const Partner = () => {
           </Slider>
         </div>
       </div>
-      <div className="w-full">
+      {/* <div className="w-full">
         <PartnerLastCard />
-      </div>
+      </div> */}
       <PartnerFeedback />
+      <div>
+        <Card shadow={false} className="overflow-hidden text-center">
+          <CardHeader
+            floated={false}
+            shadow={false}
+            color="transparent"
+            className="absolute inset-0 m-0  w-full  bg-[url('https://i.ibb.co/PC0Jpyv/Background-Section-CTA-jpg.png')]"
+            style={{
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
+          >
+            <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
+          </CardHeader>
+          <CardBody
+            className="relative flex justify-center items-center"
+            style={{ height: 420 }}
+          >
+            <div>
+              <p className="header3">List Your Property & Enjoy the Benefits</p>
+              <div className="md:flex justify-center items-center gap-4">
+                <div className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white md:mt-0 sm:mt-4">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/5acafaceab7794f50dc75a52aade2c6ed5eabd94dd1236c337c5bddd85becb4d?apiKey=e4c55b3835e0471b869cabb50a0b8cd9&"
+                    className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
+                  />
+                  <div className="text-white text-center text-sm leading-5 self-center grow whitespace-nowrap my-auto">
+                    Contact the PSH Team
+                  </div>
+                </div>
+              </div>
+            </div>
+          </CardBody>
+        </Card>
+      </div>
     </div>
   );
 };
