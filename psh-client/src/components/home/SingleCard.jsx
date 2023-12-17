@@ -109,7 +109,7 @@ const SingleCard = ({ item }) => {
   };
   return (
     <>
-      <Link to={`/room/${item._id}`} className="single-card ">
+      <Link to={`/${item?.name}/${item._id}`} className="single-card ">
         <Card className="mb-5 w-full ">
           <CardHeader
             floated={false}

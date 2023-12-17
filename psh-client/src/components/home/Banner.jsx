@@ -53,7 +53,7 @@ const Banner = () => {
               rewind: true,
 
               autoplay: true,
-              arrows: true,
+              arrows: data?.length > 0 ? true : false,
               perPage: 1,
               height: "25rem",
               perMove: 1,

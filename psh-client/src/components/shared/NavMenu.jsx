@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Navbar,
   MobileNav,
@@ -161,26 +161,31 @@ export default function Navmenu() {
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
+  const { pathname } = useLocation();
+
+  const [navVlaue, setNaValue] = useState(pathname);
+
+  useEffect(() => {
+    setNaValue(pathname);
+  }, [pathname]);
 
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 ">
-      {/* {user && (
-        <Typography as="li" className="p-1 font-normal sm:block md:hidden">
-          <Link to={"/personal-info/m-info"} className=" text-black">
-            Dashboard
-          </Link>
-        </Typography>
-      )} */}
-      <Typography as="li" className="p-1 font-normal ">
+      <Typography
+        as="li"
+        className="p-1 font-normal "
+        onClick={() => setNaValue("/")}
+      >
         <Link
           to={"/"}
           className=" flex items-center text-black hover:text-[#00bbb4] md:ml-0 sm:ml-5"
+          style={{ color: navVlaue === "/" ? "#00bbb4" : "black" }}
         >
           <div className="md:hidden sm:block">
             <AiOutlineHome
@@ -191,10 +196,15 @@ export default function Navmenu() {
           Home
         </Link>
       </Typography>
-      <Typography as="li" className="p-1 font-normal ">
+      <Typography
+        as="li"
+        className="p-1 font-normal "
+        onClick={() => setNaValue(1)}
+      >
         <Link
-          to={"/leas-property"}
+          to={"/"}
           className=" flex items-center text-black hover:text-[#00bbb4] md:ml-0 sm:ml-5"
+          style={{ color: navVlaue === 1 ? "#00bbb4" : "black" }}
         >
           <div className="md:hidden sm:block">
             <MdOutlineMapsHomeWork
@@ -205,24 +215,16 @@ export default function Navmenu() {
           Lease Your Property
         </Link>
       </Typography>
-      {/* <Typography as="li" className="p-1 font-normal">
+
+      <Typography
+        as="li"
+        className="p-1 font-normal"
+        onClick={() => setNaValue(2)}
+      >
         <Link
           to={"/"}
           className="flex items-center hover:text-[#00bbb4] md:ml-0 sm:ml-5"
-        >
-          <div className="md:hidden sm:block">
-            <MdOutlineAddLocationAlt
-              style={{ width: "24px", height: "24px" }}
-              className="mr-2"
-            />
-          </div>
-          Popular Area
-        </Link>
-      </Typography> */}
-      <Typography as="li" className="p-1 font-normal">
-        <Link
-          to={"/"}
-          className="flex items-center hover:text-[#00bbb4] md:ml-0 sm:ml-5"
+          style={{ color: navVlaue === 2 ? "#00bbb4" : "black" }}
         >
           <div className="md:hidden sm:block">
             <FaHandsHelping
@@ -230,14 +232,19 @@ export default function Navmenu() {
               className="mr-2"
             />
           </div>
-          PSH for Business
+          Investment opportunities
         </Link>
       </Typography>
 
-      <Typography as="li" className="p-1 font-normal">
+      <Typography
+        as="li"
+        className="p-1 font-normal"
+        onClick={() => setNaValue("/about")}
+      >
         <Link
           to={"/about"}
           className="flex items-center hover:text-[#00bbb4] md:ml-0 sm:ml-5"
+          style={{ color: navVlaue === "/about" ? "#00bbb4" : "black" }}
         >
           <div className="md:hidden sm:block">
             <AiOutlineFileUnknown
@@ -248,10 +255,15 @@ export default function Navmenu() {
           About us
         </Link>
       </Typography>
-      <Typography as="li" className="p-1 font-normal">
+      <Typography
+        as="li"
+        className="p-1 font-normal"
+        onClick={() => setNaValue("/contact")}
+      >
         <Link
           to={"/contact"}
           className="flex items-center hover:text-[#00bbb4] md:ml-0 sm:ml-5"
+          style={{ color: navVlaue === "/contact" ? "#00bbb4" : "black" }}
         >
           <div className="md:hidden sm:block">
             <BsTelephonePlus
@@ -262,21 +274,6 @@ export default function Navmenu() {
           Contact
         </Link>
       </Typography>
-
-      {/* <Typography as="li" className="p-1 font-normal">
-        <Link
-          to={"/promo"}
-          className="flex items-center hover:text-[#00bbb4] md:ml-0 sm:ml-5"
-        >
-          <div className="md:hidden sm:block">
-            <BsGift
-              style={{ width: "24px", height: "24px" }}
-              className="mr-2"
-            />
-          </div>
-          Promo
-        </Link>
-      </Typography> */}
     </ul>
   );
 
@@ -285,11 +282,13 @@ export default function Navmenu() {
       <div className=" flex custom-container ">
         <Navbar className="py-2 lg:py-2 shadow-none px-0 border-none">
           <div className="flex items-center justify-between text-blue-gray-900 ">
-            <div className="md:ms-0 sm:ms-[15px]">
-              <Link
-                to={"/"}
-                //  onClick={() => window.location.reload()}
-              >
+            <div
+              className="md:ms-0 sm:ms-[15px]"
+              onClick={() => {
+                window.location.reload(), window.scrollTo(0, 0);
+              }}
+            >
+              <Link to={"/"}>
                 <img
                   src={"https://i.ibb.co/GpqY8tQ/PSH-web-logo-1.png"}
                   alt=""
@@ -389,7 +388,7 @@ export default function Navmenu() {
                     <div className="md:block">
                       <button
                         className="sign_btn uppercase"
-                        onClick={() => handleOpen("xl")}
+                        onClick={() => handleOpen("xs")}
                       >
                         Sign Up/Login
                       </button>

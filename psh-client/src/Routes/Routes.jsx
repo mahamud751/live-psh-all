@@ -67,7 +67,7 @@ export const router = createBrowserRouter([
         element: <LeaseProperty />,
       },
       {
-        path: "/room/:id",
+        path: "/:room/:id",
         element: <Room></Room>,
       },
       {

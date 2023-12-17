@@ -337,7 +337,7 @@ const SearchBoxSm = () => {
                   </div>
                   <input
                     type="text"
-                    placeholder="Search..."
+                    placeholder="Looking for best place to live"
                     required
                     value={query}
                     className="input_main rounded"

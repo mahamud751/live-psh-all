@@ -289,7 +289,7 @@ const SearchBox = () => {
           <div className="input-filed-area" ref={inputRef}>
             <input
               type="text"
-              placeholder="Search..."
+              placeholder="Looking for best place to live"
               value={query}
               className="input_main"
               ref={inputRef}

@@ -156,12 +156,10 @@ const Room = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, id]);
 
-  // // For Recomended House
-  // const scrollToTop = () => {
-  //   window.scrollTo(0, 0); // Scroll to the top of the page
-  // };
+  // For Recomended House
+
   const [keyValue, setKeyValue] = useState("");
 
   // For Slider

@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Custom.css";
 import MessengerCustomerChat from "react-messenger-customer-chat";
 import { Link } from "react-router-dom";
 import UseFetch from "../../hooks/useFetch";
-import { HiOutlineLocationMarker } from "react-icons/hi";
 
+import { AiOutlineMail } from "react-icons/ai";
+import { FaWhatsapp } from "react-icons/fa";
+import LoginModal from "./LoginModal";
 const Footer = () => {
   const { data } = UseFetch(`dynamic`);
-  console.log("ssss", data);
+  const [size, setSize] = useState(null);
+
+  const handleOpen = (value) => setSize(value);
+
   return (
     <div className="footer-part">
       <div>
@@ -70,7 +75,7 @@ const Footer = () => {
                   <form className="flex">
                     <input
                       className="rounded md:px-4 sm:py-3 border-t md:w-full outline-0 sm:w-full"
-                      placeholder="Your Email Address Here"
+                      placeholder="Looking for best place to live"
                     />
                     <button className="ml-1 rounded bg-[#FEBD59] font-bold md:p-4 uppercase border-yellow-500 border-t border-b border-r p-2 ">
                       Subscribe
@@ -208,30 +213,34 @@ const Footer = () => {
                     >
                       Connect with us
                     </h2>
-                    <div className="flex ">
-                      <div>
-                        <HiOutlineLocationMarker className="text-white font-bold" />
-                      </div>
-                      <p
-                        className="text-white md:ms-1 sm:ms-[0] text-[11px]"
-                        style={{ marginTop: -3 }}
-                      >
-                        House: 23, Road: 3, Dhanmondi, <br />
-                        Dhaka, Bangladesh
-                      </p>
-                      <p></p>
-                    </div>
-                    {/* <div className="flex mx-auto">
-                    
 
-                      <p
-                        className="text-white ms-3 text-[14px]"
+                    <div className="flex flex-col gap-y-2">
+                      <div
+                        className="text-white  text-[14px] flex items-center gap-x-1"
                         style={{ marginTop: -3 }}
                       >
-                        info@psh.com.bd
-                      </p>
-                    </div> */}
-                    <p className="text-white text-[14px]">Operational Hour</p>
+                        <div>
+                          <FaWhatsapp
+                            style={{ width: "16px", height: "16px" }}
+                          />
+                        </div>
+                        <p>+880170000000</p>
+                      </div>
+                      <div
+                        className="text-white text-[14px] flex items-center gap-x-1"
+                        style={{ marginTop: -3 }}
+                      >
+                        <div>
+                          <AiOutlineMail
+                            style={{ width: "16px", height: "16px" }}
+                          />
+                        </div>
+                        <p>info@psh.com.bd</p>
+                      </div>
+                    </div>
+                    <p className="text-white text-[14px] mt-2">
+                      Operational Hour
+                    </p>
                     <p
                       className=" text-[12px]"
                       style={{
@@ -258,7 +267,10 @@ const Footer = () => {
                       <img src="assets/img/Link → twitter.svg.png" alt="" />
                     </div> */}
                     <div className="mt-6 md:px-0 sm:px-12">
-                      <button className="footer_btn">
+                      <button
+                        className="footer_btn"
+                        onClick={() => handleOpen("xs")}
+                      >
                         <p className="mt-2 text-[14px]"> Login / Signup</p>
                       </button>
                     </div>
@@ -350,6 +362,8 @@ const Footer = () => {
         pageId="103815078546069"
         appId=" 570469815108233"
       />
+      {/* Signup, login modal */}
+      <LoginModal handleOpen={handleOpen} size={size} />
     </div>
   );
 };
