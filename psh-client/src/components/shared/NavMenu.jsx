@@ -202,7 +202,7 @@ export default function Navmenu() {
         onClick={() => setNaValue(1)}
       >
         <Link
-          to={"/"}
+          to={"/partner"}
           className=" flex items-center text-black hover:text-[#00bbb4] md:ml-0 sm:ml-5"
           style={{ color: navVlaue === 1 ? "#00bbb4" : "black" }}
         >
@@ -212,14 +212,33 @@ export default function Navmenu() {
               className="mr-2"
             />
           </div>
-          Lease Your Property
+          Register a property
+        </Link>
+      </Typography>
+      <Typography
+        as="li"
+        className="p-1 font-normal "
+        onClick={() => setNaValue(2)}
+      >
+        <Link
+          to={"/corporate-housing"}
+          className=" flex items-center text-black hover:text-[#00bbb4] md:ml-0 sm:ml-5"
+          style={{ color: navVlaue === 1 ? "#00bbb4" : "black" }}
+        >
+          <div className="md:hidden sm:block">
+            <MdOutlineMapsHomeWork
+              style={{ width: "24px", height: "24px" }}
+              className="mr-2"
+            />
+          </div>
+          Corporate Housing
         </Link>
       </Typography>
 
       <Typography
         as="li"
         className="p-1 font-normal"
-        onClick={() => setNaValue(2)}
+        onClick={() => setNaValue(3)}
       >
         <Link
           to={"/"}
