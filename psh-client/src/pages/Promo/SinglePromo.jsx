@@ -5,7 +5,7 @@ const SinglePromo = ({ promo }) => {
   console.log(promo);
   return (
     <div className="group relative">
-      <Link to={`/promo/${promo._id}`}>
+      <Link to={`/promo/${promo._id}`} className="hover:text-black">
         <div className="relative w-full overflow-hidden rounded-lg group-hover:opacity-75">
           <img
             src={promo?.photos[0]}
@@ -14,7 +14,7 @@ const SinglePromo = ({ promo }) => {
             style={{ width: "100%", height: "200px" }}
           />
         </div>
-        <p className="mt-1">{promo?.promoName}</p>
+        <p className="mt-1 ">{promo?.promoName}</p>
       </Link>
     </div>
   );
