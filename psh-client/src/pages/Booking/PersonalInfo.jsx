@@ -527,9 +527,7 @@ const PersonalInfo = () => {
                 required
                 name="gardianImg"
                 id=""
-                // style={{
-                //   width: "350px",
-                // }}
+              
               />
             </div>
           </div>

@@ -38,6 +38,7 @@ const PartnerModal = () => {
       stateRegion: formData.get("stateRegion"),
       postCode: formData.get("postCode"),
       district: formData.get("district"),
+      division: formData.get("division"),
       country: formData.get("country"),
       availabilityForVisit: formData.get("availabilityForVisit"),
       availabilityForVisitTime: formData.get("availabilityForVisitTime"),
@@ -72,7 +73,7 @@ const PartnerModal = () => {
                 {/* Property Owner Details */}
 
                 <div className="grid grid-cols-1 md:gap-x-5">
-                  <div className="col-span-1  mb-4">
+                  {/* <div className="col-span-1  mb-4">
                     <label htmlFor="">Purpose</label>
 
                     <select
@@ -84,17 +85,17 @@ const PartnerModal = () => {
                       <option value="lease">Lease</option>
                       <option value="partnership">PartnerShip</option>
                     </select>
-                  </div>
+                  </div> */}
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  ">
-                    <label htmlFor="">First Name</label>
+                    <label htmlFor="">Full Name</label>
                     <input
                       type="text"
                       className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
-                      placeholder="First Name"
-                      name="firstName"
+                      placeholder="Full Name"
+                      name="fullname"
                     />
                   </div>
-                  <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  ">
+                  {/* <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  ">
                     <label htmlFor="">Last Name</label>
                     <input
                       type="text"
@@ -102,7 +103,7 @@ const PartnerModal = () => {
                       placeholder="Last Name"
                       name="lastName"
                     />
-                  </div>
+                  </div> */}
 
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
                     <label htmlFor="">Phone Number</label>
@@ -144,9 +145,9 @@ const PartnerModal = () => {
                       name="propertyType"
                       className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
                     >
-                      <option value="Share Room">Share Room</option>
-                      <option value="Private Room">Private Room</option>
-                      <option value="Apartment">Apartment</option>
+                      <option value="Building">Building</option>
+                      <option value="Flat">Flat</option>
+                      <option value="Villa">Villa</option>
                     </select>
                   </div>
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
@@ -236,7 +237,7 @@ const PartnerModal = () => {
                       name="city"
                     />
                   </div>
-                  <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
+                  {/* <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
                     <label htmlFor="">State/Region</label>
                     <input
                       type="text"
@@ -244,7 +245,7 @@ const PartnerModal = () => {
                       placeholder="State/Region"
                       name="stateRegion"
                     />
-                  </div>
+                  </div> */}
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
                     <label htmlFor="">Post Code</label>
                     <input
@@ -329,7 +330,27 @@ const PartnerModal = () => {
                       <option>Sylhet</option>
                     </select>
                   </div>
+
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
+                    <label htmlFor="">Division</label>
+
+                    <select
+                      name="division"
+                      id=""
+                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                    >
+                      <option disabled>Select Your District</option>
+                      <option value="Dhaka">Dhaka</option>
+                      <option value="Chittagong">Chittagong</option>
+                      <option value="Rajshahi">Rajshahi</option>
+                      <option value="Khulna">Khulna</option>
+                      <option value="Barisal">Barisal</option>
+                      <option value="Sylhet">Sylhet</option>
+                      <option value="Rangpur">Rangpur</option>
+                      <option value="Mymensingh">Mymensingh</option>
+                    </select>
+                  </div>
+                  {/* <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
                     <label htmlFor="">Country</label>
 
                     <select
@@ -339,7 +360,7 @@ const PartnerModal = () => {
                       <option disabled>Select Your Country</option>
                       <option value="Bangladesh">Bangladesh</option>
                     </select>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Emergency Contact */}

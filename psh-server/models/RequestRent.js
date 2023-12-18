@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const RequestRent = new mongoose.Schema(
   {
-    firstName: {
+    fullname: {
       type: String,
       required: true,
     },
@@ -19,6 +19,10 @@ const RequestRent = new mongoose.Schema(
       required: true,
     },
     company: {
+      type: String,
+      required: true,
+    },
+    address: {
       type: String,
       required: true,
     },
@@ -41,6 +45,10 @@ const RequestRent = new mongoose.Schema(
       required: true,
     },
     availabilityForVisitTime: {
+      type: String,
+      required: true,
+    },
+    duration: {
       type: String,
       required: true,
     },
