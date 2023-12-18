@@ -17,20 +17,10 @@ import PersonalInfo from "../pages/Booking/PersonalInfo";
 import BookNow from "../pages/Booking/BookNow";
 import Invoice from "../pages/Invoice/Invoice";
 
-import Promo from "../pages/Details/Promo";
 import PromoList from "../pages/Promo/Promo";
 import Privacy from "../pages/Privacy/Privacy";
 import Terms from "../pages/Terms/Terms";
-import Booking from "../components/profile/Booking";
-import Personal from "../components/profile/Personal";
-import Payment from "../components/profile/Payment";
-import WishList from "../components/profile/WishList";
-import TicketList from "../components/profile/TicketList";
-import Setting from "../components/profile/Setting";
-import Vouchers from "../components/profile/Vouchers";
-import Community from "../components/profile/Community";
-import EditProfile from "../components/profile/EditProfile";
-import Referral from "../components/profile/Referral";
+
 import AllRecomonded from "../components/home/AllRecomonded";
 import FaqQuestions from "../pages/Faq/FaqQuestion";
 import Business from "../pages/new/Business";
@@ -40,6 +30,7 @@ import Collaberation from "../pages/new/Collaberation";
 import PshFinance from "../pages/PshFinance/PshFinance";
 import LeaseProperty from "../pages/LeaseProperty/LeaseProperty";
 import ExtraForm from "../pages/ExtraForm/ExtraForm";
+import PromoDetails from "../pages/Promo/PromoDetails";
 
 export const router = createBrowserRouter([
   {
@@ -80,7 +71,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/promo/:id",
-        element: <Promo></Promo>,
+        element: <PromoDetails></PromoDetails>,
       },
       {
         path: "/branch/:id",

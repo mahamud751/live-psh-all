@@ -23,8 +23,8 @@ const Footer = () => {
               background: "linear-gradient(to right, #070e1b, #07182b)",
             }}
           >
-            <div className="dark:text-gray-300 custom-container">
-              <ul className="py-4 grid md:grid-cols-6">
+            <div className="dark:text-gray-300 custom-container ">
+              <ul className="py-4  grid md:grid-cols-6">
                 <li className=" col-span-1">
                   <div className="md:flex">
                     <div className="sm:flex sm:justify-center sm:mb-2">
@@ -50,9 +50,7 @@ const Footer = () => {
                       <h2 className="text-white dark:text-gray-200 text-sm sm:hidden">
                         Phone Support
                       </h2>
-                      <h5 className="text-white text-sm mt-2">
-                        08147758883, 08100591556
-                      </h5>
+                      <h5 className="text-white text-sm mt-2">08147758883</h5>
                     </div>
                   </div>
                 </li>
@@ -71,13 +69,13 @@ const Footer = () => {
                   </div>
                 </li>
 
-                <li className="col-span-3 sm:p-2 md:p-0 ">
+                <li className="col-span-3 sm:p-2 md:p-0 md:ms-20 sm:ms-0">
                   <form className="flex">
                     <input
-                      className="rounded md:px-4 sm:py-3 border-t md:w-full outline-0 sm:w-full"
-                      placeholder="Looking for best place to live"
+                      className="rounded md:px-4 sm:py-3 border-t md:w-full outline-0 sm:w-full h-10 text-sm px-1"
+                      placeholder="Looking for best place to live "
                     />
-                    <button className="ml-1 rounded bg-[#FEBD59] font-bold md:p-4 uppercase border-yellow-500 border-t border-b border-r p-2 ">
+                    <button className="ml-1 rounded bg-[#00bbb4] font-bold px-4 uppercase text-white text-sm">
                       Subscribe
                     </button>
                   </form>

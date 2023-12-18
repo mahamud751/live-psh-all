@@ -8,39 +8,42 @@ import {
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import UseFetch from "../../hooks/useFetch";
-function Icon({ id, open }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={2}
-      stroke="currentColor"
-      className={`${
-        id === open ? "rotate-180" : ""
-      } h-5 w-5 transition-transform`}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-      />
-    </svg>
-  );
-}
+import SinglePromo from "./SinglePromo";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+
 const PromoList = () => {
   const { data } = UseFetch(`promo`);
-  const [expandedItems, setExpandedItems] = useState({});
 
-  const handleToggleExpand = (itemId) => {
-    setExpandedItems((prevExpandedItems) => ({
-      ...prevExpandedItems,
-      [itemId]: !prevExpandedItems[itemId],
-    }));
-  };
   return (
-    <div>
-      <div>
+    <div className="custom-container mb-20 md:mx-0 sm:mx-5">
+      <div className="flex items-center gap-x-3 md:mt-8 sm:mt-5">
+        <Link to="/" className="hover:text-[#00bbb4] md:block sm:hidden">
+          <p>Home</p>
+        </Link>
+        <p className="sm:hidden md:block">
+          <MdKeyboardArrowRight className="w-[20px] h-[20px]" />
+        </p>
+        <Link to="/" className="md:hidden sm:block">
+          <p>
+            <MdKeyboardArrowLeft className="w-[20px] h-[20px]" />
+          </p>
+        </Link>
+        <p>Promo</p>
+      </div>
+      <h4 className=" md:my-5 sm:my-2 font-bold text-xl">Ongoing promotion</h4>
+      {data?.length > 0 ? (
+        <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 gap-x-4">
+          {data.map((promo) => (
+            <div className="sm:mt-4 md:mt-0">
+              <SinglePromo promo={promo} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-center">Loading...</p>
+      )}
+
+      {/* <div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-gray-900">
           <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-12">
             <h2 className="text-2xl font-bold text-gray-900">
@@ -133,13 +136,13 @@ const PromoList = () => {
                       </div>
                     )}
                   </div>
-                  {/* ... (your existing JSX) */}
+   
                 </Card>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

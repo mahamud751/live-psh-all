@@ -1,287 +1,119 @@
 import React from "react";
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 import "./About.css";
+import aboutHero from "../../assets/img/aboutHero.webp";
+
 const About = () => {
   return (
     <div>
-      <div className="mx-auto max-w-7xl md:px-4  lg:px-8 text-gray-900">
-        <div className="mx-auto max-w-2xl lg:max-w-none ">
-          <div className="my-12">
-            <div className="grid grid-cols-12 sm:px-5 md:gap-x-8 gap-y-16">
-              <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 xl:col-span-6">
-                <h1 className="text-5xl font-bold text-gray-900 md:p-5">
-                  Your <span className="span_name">Comfortable Page</span>{" "}
-                  Retreat Away From Home
-                </h1>
-              </div>
-              <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 xl:col-span-6">
-                <p>
-                  Discover a comfortable retreat at Project Second Home. Our
-                  well-furnished rooms are designed with your comfort in mind,
-                  providing a peaceful environment where you can relax and
-                  recharge. Enjoy amenities such as cozy beds, ample storage,
-                  and study areas to create your personal haven. We strive to
-                  ensure that every aspect of your stay contributes to a
-                  positive experience.
-                </p>
-              </div>
+      <div className=" bg-gradient-to-t from-[#f2eee5] h-screen about-hero ">
+        <div className="grid grid-cols-2 ">
+          <div className=" xl:mt-48 lg:mt-16 md:mt-14 sm:mt-14 xl:ms-72 lg:ms-20">
+            <h2 className="text-[60px] font-bold">Home That Grows With You</h2>
+            <p className="text-xl mr-10">
+              Creating quality and affordable housing for everyone, at every
+              phase of life.
+            </p>
+            <div className="mt-8">
+              <button
+                className="text-white text-sm px-5 py-3 rounded-lg"
+                style={{
+                  background: "linear-gradient(to right, #000, #061c34)",
+                }}
+              >
+                Search for Housing Now
+              </button>
             </div>
+          </div>
+          <div className=" ">
+            <img
+              src={aboutHero}
+              className="h-screen w-full xl:ms-16 lg:ms-0 md:ms-0 sm:ms-0"
+              alt=""
+            />
           </div>
         </div>
       </div>
-      <img src="https://i.ibb.co/Qf5gQG0/unsplash-Q-Sei-Tq-Slc.png" alt="" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-1 lg:px-8 text-gray-900">
-        <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-12">
-          <div className="my-12">
-            <div className="grid grid-cols-12 sm:px-5 md:gap-x-8 gap-y-16">
-              <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:col-span-12 xl:col-span-12">
-                <div className="text-center">
-                  <h4 className="text-2xl">
-                    Empowering Women Through Safe Accommodation
-                  </h4>
-                  <p className="mt-5">
-                    At Project Second Home, we believe in empowering women to
-                    reach their full potential. Our mission is to provide a safe
-                    and secure living space that fosters personal growth and
-                    development. We offer various programs and resources to
-                    support your educational and career aspirations. From study
-                    areas to networking opportunities, we are committed to
-                    helping you succeed.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="my-12">
-            <div className="grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16">
-              <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 xl:col-span-3">
+      <div className="bg-white mb-10 rounded-tl-[100px] mt-[-90px] product-ecosystem">
+        <div className="custom-container">
+          <h4 className="text-[32px] font-bold mb-10 pt-16">
+            PSH Product Ecosystem
+          </h4>
+          <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-x-6">
+            <div className="">
+              <div>
                 <img
-                  src="https://i.ibb.co/Wk9d5Pb/Frame-3741.png"
+                  className="rounded-t-lg"
+                  src="https://images.rukita.co/web/static/img/landing-page/about-us/rukita_apartment.png?tr=c-at_max%2Cw-400"
                   alt=""
-                  height={300}
-                  width={300}
-                />
-                <img
-                  src="https://i.ibb.co/QnsKxgD/Frame-3743.png"
-                  alt=""
-                  height={300}
-                  width={300}
                 />
               </div>
-              <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:col-span-12 xl:col-span-9">
-                <h1 className="md:text-5xl sm:text-xl font-bold text-gray-900 md:p-5 sm:w-[120px] md:w-[500px]">
-                  Join Our Community of
-                  <span className="span_name ms-3">Empowered Women</span>
-                </h1>
-                <p className="sm:p-5 md:p-0">
-                  Connect with like-minded individuals and foster lifelong
-                  friendships within our vibrant community. Experience the
-                  support and encouragement that comes from being part of
-                  Project Second Home.
+              <div className="text-center bg-[#faf9f6] pt-3 h-48 rounded-b-lg">
+                <h5 className="font-bold pt-7 pb-3">PSH Apartment</h5>
+                <p className="text-sm px-6">
+                  Serviced apartment with complete furniture and comprehensive
+                  service.
                 </p>
+              </div>
+            </div>
+            <div>
+              <div>
                 <img
-                  src="https://i.ibb.co/D4KjKmv/Frame-3742.png"
+                  className="rounded-t-lg"
+                  src="https://images.rukita.co/web/static/img/landing-page/about-us/rukita_coliving.png?tr=c-at_max%2Cw-400"
                   alt=""
-                  className="sm:w-[320px]"
                 />
               </div>
-            </div>
-          </div>
-          <div className="my-12">
-            <div className="grid grid-cols-12 sm:px-5 md:gap-x-8 gap-y-16">
-              <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:col-span-12 xl:col-span-12">
-                <div className="text-center">
-                  <h4 className="meet text-2xl">MEET WITH OUR BEST TEAM</h4>
-                  <p className="mt-5">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry is
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged.
-                  </p>
-                </div>
+              <div className="text-center bg-[#faf9f6] pt-3 h-48 rounded-b-lg">
+                <h5 className="font-bold pt-7 pb-3">PSH Coliving</h5>
+                <p className="text-sm px-6">
+                  Coliving exclusive with five star facilities in a strategic
+                  location.
+                </p>
               </div>
             </div>
-            <div className="my-12">
-              <div className="grid grid-cols-12 sm:px-5 md:gap-x-8 gap-y-16">
-                <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 xl:col-span-3 ">
-                  <Card className="max-w-[24rem] overflow-hidden">
-                    <CardHeader
-                      floated={false}
-                      shadow={false}
-                      color="transparent"
-                      className="m-0 rounded-none"
-                    >
-                      <img
-                        src="https://i.ibb.co/GkDxDJ0/Rectangle-96-1.png
-                
-                    "
-                        alt="ui/ux review check"
-                      />
-                    </CardHeader>
-                    <CardBody className="p-4">
-                      <h6 className="text-black font-bold">Jon Smith</h6>
-
-                      <p>Co- Worker</p>
-                    </CardBody>
-                  </Card>
-                </div>
-                <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-3 ">
-                  <Card className="max-w-[24rem] overflow-hidden">
-                    <CardHeader
-                      floated={false}
-                      shadow={false}
-                      color="transparent"
-                      className="m-0 rounded-none"
-                    >
-                      <img
-                        src="https://i.ibb.co/GkDxDJ0/Rectangle-96-1.png
-                
-                    "
-                        alt="ui/ux review check"
-                      />
-                    </CardHeader>
-                    <CardBody className="p-4">
-                      <h6 className="text-black font-bold">Jon Smith</h6>
-
-                      <p>Co- Worker</p>
-                    </CardBody>
-                  </Card>
-                </div>
-                <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-3 ">
-                  <Card className="max-w-[24rem] overflow-hidden">
-                    <CardHeader
-                      floated={false}
-                      shadow={false}
-                      color="transparent"
-                      className="m-0 rounded-none"
-                    >
-                      <img
-                        src="https://i.ibb.co/GkDxDJ0/Rectangle-96-1.png
-                
-                    "
-                        alt="ui/ux review check"
-                      />
-                    </CardHeader>
-                    <CardBody className="p-4">
-                      <h6 className="text-black font-bold">Jon Smith</h6>
-
-                      <p>Co- Worker</p>
-                    </CardBody>
-                  </Card>
-                </div>
-                <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-3 ">
-                  <Card className="max-w-[24rem] overflow-hidden">
-                    <CardHeader
-                      floated={false}
-                      shadow={false}
-                      color="transparent"
-                      className="m-0 rounded-none"
-                    >
-                      <img
-                        src="https://i.ibb.co/GkDxDJ0/Rectangle-96-1.png
-                
-                    "
-                        alt="ui/ux review check"
-                      />
-                    </CardHeader>
-                    <CardBody className="p-4">
-                      <h6 className="text-black font-bold">Jon Smith</h6>
-
-                      <p>Co- Worker</p>
-                    </CardBody>
-                  </Card>
-                </div>
-                <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-3 ">
-                  <Card className="max-w-[24rem] overflow-hidden">
-                    <CardHeader
-                      floated={false}
-                      shadow={false}
-                      color="transparent"
-                      className="m-0 rounded-none"
-                    >
-                      <img
-                        src="https://i.ibb.co/GkDxDJ0/Rectangle-96-1.png
-                
-                    "
-                        alt="ui/ux review check"
-                      />
-                    </CardHeader>
-                    <CardBody className="p-4">
-                      <h6 className="text-black font-bold">Jon Smith</h6>
-
-                      <p>Co- Worker</p>
-                    </CardBody>
-                  </Card>
-                </div>
-                <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-3 ">
-                  <Card className="max-w-[24rem] overflow-hidden">
-                    <CardHeader
-                      floated={false}
-                      shadow={false}
-                      color="transparent"
-                      className="m-0 rounded-none"
-                    >
-                      <img
-                        src="https://i.ibb.co/GkDxDJ0/Rectangle-96-1.png
-                
-                    "
-                        alt="ui/ux review check"
-                      />
-                    </CardHeader>
-                    <CardBody className="p-4">
-                      <h6 className="text-black font-bold">Jon Smith</h6>
-
-                      <p>Co- Worker</p>
-                    </CardBody>
-                  </Card>
-                </div>
-                <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-3 ">
-                  <Card className="max-w-[24rem] overflow-hidden">
-                    <CardHeader
-                      floated={false}
-                      shadow={false}
-                      color="transparent"
-                      className="m-0 rounded-none"
-                    >
-                      <img
-                        src="https://i.ibb.co/GkDxDJ0/Rectangle-96-1.png
-                
-                    "
-                        alt="ui/ux review check"
-                      />
-                    </CardHeader>
-                    <CardBody className="p-4">
-                      <h6 className="text-black font-bold">Jon Smith</h6>
-
-                      <p>Co- Worker</p>
-                    </CardBody>
-                  </Card>
-                </div>
-                <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-3 ">
-                  <Card className="max-w-[24rem] overflow-hidden">
-                    <CardHeader
-                      floated={false}
-                      shadow={false}
-                      color="transparent"
-                      className="m-0 rounded-none"
-                    >
-                      <img
-                        src="https://i.ibb.co/GkDxDJ0/Rectangle-96-1.png
-                
-                    "
-                        alt="ui/ux review check"
-                      />
-                    </CardHeader>
-                    <CardBody className="p-4">
-                      <h6 className="text-black font-bold">Jon Smith</h6>
-
-                      <p>Co- Worker</p>
-                    </CardBody>
-                  </Card>
-                </div>
+            <div>
+              <div>
+                <img
+                  className="rounded-t-lg"
+                  src="https://images.rukita.co/web/static/img/landing-page/about-us/rukita_residence.png?tr=c-at_max%2Cw-400"
+                  alt=""
+                />
+              </div>
+              <div className="text-center bg-[#faf9f6] pt-3 h-48  rounded-b-lg">
+                <h5 className="font-bold pt-7 pb-3">PSH Residence</h5>
+                <p className="text-sm">Comming Soon!</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <img
+                  className="rounded-t-lg"
+                  src="https://images.rukita.co/web/static/img/landing-page/about-us/rukita_rupartner.png?tr=c-at_max%2Cw-400"
+                  alt=""
+                />
+              </div>
+              <div className="text-center bg-[#faf9f6] pt-3 h-48  rounded-b-lg">
+                <h5 className="font-bold pt-7 pb-3">PSH Partner</h5>
+                <p className="text-sm px-7">
+                  Marketing services for exclusive apartments and boarding
+                  houses throughout Bangladesh
+                </p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <img
+                  className="rounded-t-lg"
+                  src="https://images.rukita.co/web/static/img/landing-page/about-us/rukita_rufinance.png?tr=c-at_max%2Cw-400"
+                  alt=""
+                />
+              </div>
+              <div className="text-center bg-[#faf9f6] pt-3 h-48  rounded-b-lg">
+                <h5 className="font-bold pt-7 pb-3 ">PSH Finance</h5>
+                <p className="text-sm px-6">
+                  Financing assistance for property business expansion.
+                </p>
               </div>
             </div>
           </div>

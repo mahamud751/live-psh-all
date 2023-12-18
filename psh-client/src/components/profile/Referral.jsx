@@ -15,7 +15,7 @@ const Referral = () => {
   const handleCopy = () => {
     navigator.clipboard.writeText(inviteLink); // Copy invite link to clipboard
     setIsCopied(true);
-    toast("Copied");
+    toast.success("Copied");
   };
   return (
     <div className="md:p-0 sm:p-2">
