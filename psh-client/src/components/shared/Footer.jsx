@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import UseFetch from "../../hooks/useFetch";
 
 import { AiOutlineMail } from "react-icons/ai";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import LoginModal from "./LoginModal";
 const Footer = () => {
   const { data } = UseFetch(`dynamic`);
@@ -139,7 +139,7 @@ const Footer = () => {
 
                       <Link to={"/psh-finance"}>
                         <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>PSH Finance</a>
+                          <a>Investment opportunities</a>
                         </li>
                       </Link>
 
@@ -253,17 +253,32 @@ const Footer = () => {
                 </li>
                 <li className="">
                   <div className="text-start">
-                    {/* <div className="flex justify-center">
-                      <img src="assets/img/facebook.svg.png" alt="" />
+                    <div className="flex justify-center gap-x-3">
+                      <a
+                        href="https://www.facebook.com/pshbd?mibextid=eHce3h"
+                        target="_blank"
+                      >
+                        <img src="/assets/img/facebook.svg.png" alt="" />
+                      </a>
 
-                      <img
-                        src="assets/img/Link → instagram.svg.png"
-                        alt=""
-                        className="mx-2"
-                      />
+                      <a
+                        href="https://www.instagram.com/projectsecondhome.bd/?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"
+                        target="_blank"
+                      >
+                        <img
+                          src="/assets/img/Link → instagram.svg.png"
+                          alt=""
+                          className="mx-2"
+                        />
+                      </a>
 
-                      <img src="assets/img/Link → twitter.svg.png" alt="" />
-                    </div> */}
+                      <a
+                        href="https://www.linkedin.com/company/project-second-home/"
+                        target="_blank"
+                      >
+                        <FaLinkedin className="text-white" />
+                      </a>
+                    </div>
                     <div className="mt-6 md:px-0 sm:px-12">
                       <button
                         className="footer_btn"
@@ -316,7 +331,7 @@ const Footer = () => {
             </Link>
           </div>
           <div
-            className=" flex  justify-center text-white py-3 sm:text-[12px]"
+            className=" flex justify-between text-white sm:text-[12px] custom-container"
             style={{
               background: "linear-gradient(to right, #020304, #071e37)",
             }}
@@ -330,7 +345,7 @@ const Footer = () => {
                   fontWeight: "300px",
                 }}
               >
-                Terms & Conditions
+                Terms of use
               </Link>
               <Link
                 to={"/privacy"}
@@ -339,7 +354,7 @@ const Footer = () => {
                   fontWeight: "300px",
                 }}
               >
-                Privacy & Policy
+                Privacy Policy
               </Link>
             </div>
             {/* <div className="sm:hidden md:flex md:ms-4 footer_social ms-2 mr-2">

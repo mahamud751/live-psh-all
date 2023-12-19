@@ -100,7 +100,10 @@
   font-weight: 600;
   column-gap: 0 !important;
 }
-
+.nav_Link a {
+  font-family: "Rubik", sans-serif !important;
+  font-size: 1rem;
+}
 /* .for-mobile-nav {
   height: 100vh !important;
 } */

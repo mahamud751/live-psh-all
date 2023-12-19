@@ -376,10 +376,10 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
               <div>
                 <img src={brachLocationIcon} alt="" />
               </div>
-              <p className="text-black">{data?.branch?.name}</p>
+              <p className="text-black text-sm">{data?.branch?.name}</p>
             </div>
             <p
-              className=" flex justify-start "
+              className=" flex justify-start text-sm"
               style={{
                 backgroundColor: "#FCA22A",
                 color: "white",
@@ -393,12 +393,12 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
         </div>
         <div className="mx-2">
           <ul className="flex justify-evenly text-sm">
-            <li className="list-none border py-1 ">
+            <li className="list-none border h-7 py-1 ">
               <span
                 onClick={() =>
                   dispatch(rightDate(addDays(new Date(startDate), 1)))
                 }
-                className={` md:px-11 sm:px-3 cursor-pointer py-2 ${
+                className={` md:px-11 sm:px-3 cursor-pointer py-1 ${
                   customerRent.remainingDays < getLastDayOfMonth() &&
                   customerRent.years === undefined
                     ? "dmyActive "
@@ -408,12 +408,12 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                 Day
               </span>
             </li>
-            <li className="list-none border py-1">
+            <li className="list-none border h-7 py-1">
               <span
                 onClick={() =>
                   dispatch(rightDate(addMonths(new Date(startDate), 1)))
                 }
-                className={` md:px-11 sm:px-3 cursor-pointer py-2 ${
+                className={` md:px-11 sm:px-3 cursor-pointer py-1 ${
                   customerRent.remainingDays >= getLastDayOfMonth() &&
                   customerRent.years === undefined
                     ? "dmyActive "
@@ -423,14 +423,14 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                 Month
               </span>
             </li>
-            <li className="list-none border py-1">
+            <li className="list-none border h-7 py-1">
               <span
                 onClick={() =>
                   customerRent.years === undefined
                     ? dispatch(rightDate(addYears(new Date(endDate), 1)))
                     : ""
                 }
-                className={` md:px-11 sm:px-3 cursor-pointer py-2 ${
+                className={` md:px-11 sm:px-3 cursor-pointer py-1 ${
                   customerRent.years >= 1 ? "dmyActive " : "text-black"
                 }`}
               >
@@ -459,7 +459,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                   };
                 })}
                 minDate={subDays(new Date(), 0)}
-                className="ps-7 w-36"
+                className="ps-7 w-28"
               />
             </div>
           </div>
@@ -483,12 +483,29 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                   };
                 })}
                 minDate={subDays(new Date(startDate), -1)}
-                className="ps-7 w-36"
+                className="ps-7 w-28"
               />
             </div>
           </div>
+          <div className="mt-[29px] w-full px-1 py-[0.5px] sm:hidden md:block">
+            <p className=" duraion-count font-normal ps-1 text-sm ">
+              {customerRent?.daysDifference >= 0
+                ? `${customerRent?.daysDifference} days`
+                : "" ||
+                  (customerRent?.months &&
+                    customerRent?.days >= 0 &&
+                    !customerRent?.years)
+                ? `${customerRent?.months} months, ${customerRent?.days} days`
+                : "" ||
+                  (customerRent?.years &&
+                    customerRent?.months >= 0 &&
+                    customerRent?.days >= 0)
+                ? `${customerRent?.years} year`
+                : ""}
+            </p>
+          </div>
         </div>
-        <div className="flex justify-center mt-2 md:ms-16 sm:ms-0">
+        <div className="flex justify-center mt-2 md:ms-16 sm:ms-0 md:hidden sm:block">
           <p className="font-bold">Duration = </p>
           <div>
             <input
@@ -514,19 +531,19 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
         </div>
 
         <form onSubmit={handlePromoCode}>
-          <div className="md:flex m-2 total-area relative md:ms-10 sm:ms-0">
+          <div className="md:flex total-area relative my-3 md:mx-5 sm:mx-0">
             <div>
               <input
                 className="sm:px-14 md:px-12"
                 type="text"
                 name="promoCode"
                 onChange={(e) => setPromoCode(e.target.value)}
-                style={{ height: "27px", width: "100%" }}
+                style={{ height: "25px", width: "100%" }}
                 placeholder="Pormo Code"
                 disabled={promoCodeCheck ? true : false}
                 required
               />
-              <div className="absolute top-2 left-3">
+              <div className="absolute top-1 left-3">
                 <img src={promoIcon} alt="" />
               </div>
             </div>
@@ -539,6 +556,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                   color: "white",
                   borderRadius: "0px 2px 2px 0px",
                   padding: "1px 10px",
+                  fontSize: "14px",
                 }}
                 disabled={promoCodeCheck ? true : false}
               >
@@ -548,7 +566,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
           </div>
         </form>
 
-        <div className="text-black font-bold text-[16px] pr-5 ">
+        <div className="text-black text-sm pr-5 ">
           <div className="flex justify-between ">
             <div className="ml-16 flex items-center">
               <p>Rent</p>
@@ -924,7 +942,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
           </div>
         </div>
         <div
-          className={`bg-[#35B0A7]  flex justify-center items-center mt-2 ${
+          className={`bg-[#35B0A7] h-[35px] flex justify-center items-center mt-2 ${
             data?.endDate === endDate ||
             data?.endDate > endDate ||
             data?.endDate > startDate
@@ -935,7 +953,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
         >
           <div>
             <button
-              className={`text-xl p-2 text-white bg-transparent cursor-pointer  ${
+              className={`text-[16px] p-2 text-white bg-transparent  cursor-pointer  ${
                 data?.endDate === endDate ||
                 data?.endDate > endDate ||
                 data?.endDate > startDate

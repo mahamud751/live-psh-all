@@ -21,7 +21,6 @@ import StarRatings from "react-star-ratings";
 import profileIcon from "../../assets/img/profile.png";
 
 export function ReviewAll({ handleDetailsShow, detailsShow, activeReviews }) {
-  console.log(activeReviews);
   return (
     <>
       <Dialog open={detailsShow} size="md" className="px-5">

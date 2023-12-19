@@ -2,6 +2,9 @@ import React from "react";
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 import "./About.css";
 import aboutHero from "../../assets/img/aboutHero.webp";
+import PartnerFeedback from "../new/PartnerFeedback";
+import OurClientFeadBack from "./OurClientFeadBack";
+import footerImg from "../../assets/img/footer-img.webp";
 
 const About = () => {
   return (
@@ -116,6 +119,130 @@ const About = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      {/* Benefits of Psh */}
+      <div className="bg-[#f5f3ed] rounded-tr-[100px] pb-16 mt-16">
+        <div className="custom-container">
+          <h2 className="text-[32px] font-bold pt-10 pb-9">
+            Benefits of Living in PSH
+          </h2>
+          <div className="grid grid-cols-3 gap-9">
+            <div>
+              <img
+                className="rounded-lg"
+                src="https://images.rukita.co/web/static/img/landing-page/about-us/IMG-Advantage.png?tr=c-at_max%2Cw-1920"
+                alt=""
+              />
+              <div className="pt-4 ">
+                <h4 className="text-xl font-bold">Fully furnished</h4>
+                <p className="mt-2 text-sm">
+                  The residence is equipped with complete furniture including
+                  AC, Wi-Fi, and water heater.
+                </p>
+              </div>
+            </div>
+            <div>
+              <img
+                className="rounded-lg"
+                src="https://images.rukita.co/web/static/img/landing-page/about-us/IMG-Advantage-1.png?tr=c-at_max%2Cw-1920"
+                alt=""
+              />
+              <div className="pt-4 ">
+                <h4 className="text-xl font-bold">Comprehensive Service</h4>
+                <p className="mt-2 text-sm">
+                  Room cleaning, laundry, maintenance, and Customer Service are
+                  ready to help.
+                </p>
+              </div>
+            </div>
+            <div>
+              <img
+                className="rounded-lg"
+                src="https://images.rukita.co/web/static/img/landing-page/about-us/IMG-Advantage-2.png?tr=c-at_max%2Cw-1920"
+                alt=""
+              />
+              <div className="pt-4 ">
+                <h4 className="text-xl font-bold">Monthly Payments</h4>
+                <p className="mt-2 text-sm">
+                  It's easier with practical monthly payments via the Rukita
+                  Application.
+                </p>
+              </div>
+            </div>
+            <div>
+              <img
+                className="rounded-lg"
+                src="https://images.rukita.co/web/static/img/landing-page/about-us/IMG-Advantage-3.png?tr=c-at_max%2Cw-1920"
+                alt=""
+              />
+              <div className="pt-4 ">
+                <h4 className="text-xl font-bold">
+                  Multifunctional Application
+                </h4>
+                <p className="mt-2 text-sm">
+                  Request services, room requirements and monthly payments
+                  directly from one application.
+                </p>
+              </div>
+            </div>
+            <div>
+              <img
+                className="rounded-lg"
+                src="https://images.rukita.co/web/static/img/landing-page/about-us/IMG-Advantage-4.png?tr=c-at_max%2Cw-1920"
+                alt=""
+              />
+              <div className="pt-4 ">
+                <h4 className="text-xl font-bold">Aesthetic Design</h4>
+                <p className="mt-2 text-sm">
+                  A dream residence that is comfortable, stylish and modern.
+                </p>
+              </div>
+            </div>
+            <div>
+              <img
+                className="rounded-lg"
+                src="https://images.rukita.co/web/static/img/landing-page/about-us/IMG-Advantage-5.png?tr=c-at_max%2Cw-1920"
+                alt=""
+              />
+              <div className="pt-4 ">
+                <h4 className="text-xl font-bold">Warm & Exciting</h4>
+                <p className="mt-2 text-sm">
+                  Expand connections by joining Community Events with other
+                  Rukees (Rukita residents).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Our Client Feadback */}
+      <div className="mt-16">
+        <OurClientFeadBack />
+      </div>
+      {/* Find a home now */}
+      <div className="mt-16">
+        <div className="grid md:grid-cols-2 sm:grid-cols-1 md:mt-0 sm:mt-16">
+          <div className="md:block sm:hidden">
+            <img src={footerImg} alt="" />
+          </div>
+          <div className="bg-[#e0dada] px-20 pt-28 rounded-tr-[100px]">
+            <h2 className="md:text-[36px] sm:text-[1rem] md:w-3/4 sm:w-full">
+              Let's find a home for you now!
+            </h2>
+            <p className="mt-2 sm:pb-10 md:pb-0">
+              <a href="https://psh.com.bd/" target="_blank">
+                <button
+                  className=" px-5 py-3 rounded-lg text-white"
+                  style={{
+                    background: "linear-gradient(to right, #000, #061c34)",
+                  }}
+                >
+                  Search Now
+                </button>
+              </a>
+            </p>
           </div>
         </div>
       </div>

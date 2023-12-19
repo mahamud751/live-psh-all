@@ -15,7 +15,7 @@ const Map = ({ branch }) => {
       <div>
         <iframe
           src={branch?.locationLink}
-          width="810"
+          width="100%"
           height="400"
           style={{ border: 0 }}
           // allowfullscreen=""

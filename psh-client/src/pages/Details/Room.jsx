@@ -42,7 +42,15 @@ const Room = () => {
   const { id } = useParams();
   const [extraCharge] = useExtraCharge(id);
   const { user } = useContext(AuthContext);
+
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
+
+  // For See More Button
+  const [keyDetails, setKeyDetails] = useState(false);
+  const [amenities, setAmenities] = useState(false);
+  const [furnishing, setFurnishing] = useState(false);
+  const [services, setServices] = useState(false);
+  // end
 
   const userName = user?.firstName;
   const email = user?.email;
@@ -58,7 +66,7 @@ const Room = () => {
   const { data2 } = UseFetch(`review`);
 
   const { data: facality } = UseFetch("facilityCategory");
-  const branch = allBranch?.find((branch) => branch._id === data?.branch);
+  const branch = allBranch?.find((branch) => branch._id === data?.branch?._id);
   // Recomended Data
 
   const { data: recomended } = UseFetch(`property/properties/recommended`);
@@ -302,7 +310,7 @@ const Room = () => {
                     Key Details
                   </a>
                 </div>
-                <div className="sm:flex  ">
+                <div className="sm:flex">
                   {facality?.slice(0, 3).map((pd, index) => (
                     <div key={pd?._id} onClick={() => setKeyValue(index + 1)}>
                       <span>
@@ -356,7 +364,7 @@ const Room = () => {
                 <div className="grid md:grid-cols-12 sm:grid-cols-6">
                   <div className="col-span-10">
                     <div>
-                      <h1 className="text-2xl font-bold text-gray-900 px-2">
+                      <h1 className="text-xl font-bold text-gray-900 px-2">
                         {data?.name}
                       </h1>
                       {/* 
@@ -479,12 +487,12 @@ const Room = () => {
                   <div className="facility_h1 p-2 mt-3">
                     <h2
                       id="keyDetails"
-                      className="text-2xl font-bold text-gray-900 "
+                      className="text-xl font-bold text-gray-900 "
                     >
                       Key Details
                     </h2>
                   </div>
-                  <div className="grid grid-cols-12 gap-x-4 md:gap-y-16 sm:gap-y-4 py-5">
+                  <div className="grid grid-cols-12 gap-x-4 md:gap-y-16 sm:gap-y-4 py-5 text-sm">
                     <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
                       <p className="font-bold">Type</p>
                       <p>{data.category?.name}</p>
@@ -505,83 +513,147 @@ const Room = () => {
                       <p className="font-bold">Furnishing</p>
                       {data.furnitured === "yes" ? <p>Yes</p> : <p>No</p>}
                     </div>
-                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
-                      <p className="font-bold">Balcony</p>
-                      <p>{data.balcony}</p>
-                    </div>
+                    {keyDetails ? (
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                        <p className="font-bold">Balcony</p>
+                        <p>{data.balcony}</p>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {keyDetails ? (
+                      ""
+                    ) : (
+                      <div
+                        className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 mt-5 cursor-pointer"
+                        onClick={() => setKeyDetails(true)}
+                      >
+                        <p className="bg-[#F4F4F4] px-5 py-3 font-bold">+3</p>
+                      </div>
+                    )}
                   </div>
-                  <div className="grid grid-cols-12 gap-x-4 md:gap-y-16 sm:gap-y-4 md:py-5">
-                    {/* <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
-                        <p className="font-bold">Bedroom</p>
-                        <p>{data.bedroom} Bedroom</p>
-                      </div> */}
-                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
-                      <p className="font-bold"> Wi-Fi</p>
-                      {data.WiFi === "yes" ? <p>Yes</p> : <p>No</p>}
+                  {keyDetails ? (
+                    <div className="grid grid-cols-12 gap-x-4 md:gap-y-16 sm:gap-y-4 md:py-5">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                        <p className="font-bold"> Wi-Fi</p>
+                        {data.WiFi === "yes" ? <p>Yes</p> : <p>No</p>}
+                      </div>
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                        <p className="font-bold"> CCTV</p>
+                        {data.CCTV === "yes" ? <p>Yes</p> : <p>No</p>}
+                      </div>
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                        <p className="font-bold">Meal</p>
+                        <p>
+                          {/* {data.meal
+                      }  */}
+                          3 Times a day
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
-                      <p className="font-bold"> CCTV</p>
-                      {data.CCTV === "yes" ? <p>Yes</p> : <p>No</p>}
-                    </div>
-                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
-                      <p className="font-bold">Meal</p>
-                      <p>
-                        {/* {data.meal
-                        }  */}
-                        3 Times a day
-                      </p>
-                    </div>
-                  </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
 
-                {facality?.slice(0, 3).map((pd) => (
-                  <div style={{ width: "100%" }} key={pd._id}>
-                    <div className="facility_h1 p-2">
-                      <h2
-                        id={pd?.name}
-                        className="text-2xl font-bold text-gray-900"
-                      >
-                        {pd.name}
-                      </h2>
-                    </div>
-                    <div className="grid grid-cols-12 md:gap-x-4 md:gap-y-16 sm:gap-y-4 py-5 md:px-12">
-                      {data.facility
-                        ? data.facility
-                            .filter((item) => item.facilityCategory === pd._id)
-                            .map((item) => (
-                              <React.Fragment key={item._id}>
-                                <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
-                                  <div>
-                                    <div className="flex md:justify-center sm:justify-start">
-                                      <img
-                                        src={item.photos[0]}
-                                        alt=""
-                                        style={{ maxWidth: "none" }}
-                                        className="sm:w-[22px]"
-                                      />
-                                    </div>
+                {facality?.slice(0, 3).map((pd) => {
+                  const specificFacility = data?.facility?.filter(
+                    (item) => item.facilityCategory === pd._id
+                  );
+                  console.log(specificFacility);
+                  return (
+                    <div
+                      style={{ width: "100%" }}
+                      key={pd._id}
+                      className="text-sm"
+                    >
+                      <div className="facility_h1 p-2">
+                        <h2
+                          id={pd?.name}
+                          className="text-xl font-bold text-gray-900"
+                        >
+                          {pd.name}
+                        </h2>
+                      </div>
+                      <div className="grid grid-cols-12 md:gap-x-4 md:gap-y-16 sm:gap-y-4 py-5 md:px-2">
+                        {pd.name === "Amenities" && !amenities
+                          ? specificFacility?.slice(0, 5).map((item) => {
+                              return (
+                                <React.Fragment key={item._id}>
+                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
+                                    <div>
+                                      <div className="flex md:justify-center sm:justify-start">
+                                        <img
+                                          src={item.photos[0]}
+                                          alt=""
+                                          style={{ maxWidth: "none" }}
+                                          className="sm:w-[22px]"
+                                        />
+                                      </div>
 
-                                    <h2 className="mt-3 text-gray-900">
-                                      {item.name ? item.name : ""}
-                                    </h2>
+                                      <h2 className="mt-3 text-gray-900">
+                                        {item.name ? item.name : ""}
+                                      </h2>
+                                    </div>
                                   </div>
-                                </div>
-                              </React.Fragment>
-                            ))
-                        : ""}
+                                </React.Fragment>
+                              );
+                            })
+                          : specificFacility?.map((item) => {
+                              return (
+                                <React.Fragment key={item._id}>
+                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
+                                    <div>
+                                      <div className="flex md:justify-center sm:justify-start">
+                                        <img
+                                          src={item.photos[0]}
+                                          alt=""
+                                          style={{ maxWidth: "none" }}
+                                          className="sm:w-[22px]"
+                                        />
+                                      </div>
+
+                                      <h2 className="mt-3 text-gray-900">
+                                        {item.name ? item.name : ""}
+                                      </h2>
+                                    </div>
+                                  </div>
+                                </React.Fragment>
+                              );
+                            })}
+
+                        {specificFacility?.length > 5 ? (
+                          <div
+                            className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 mt-5 cursor-pointer"
+                            onClick={() => {
+                              pd.name === "Amenities" ? setAmenities(true) : "";
+                              pd.name === "Furnishing"
+                                ? setFurnishing(true)
+                                : "";
+                              pd.name === "Services" ? setServices(true) : "";
+                            }}
+                          >
+                            <p className="bg-[#F4F4F4] px-5 py-3 font-bold">
+                              +{specificFacility?.slice(5).length}
+                            </p>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
 
                 {data?.category?.name !== "Apartment" ? (
                   <div className="w-full">
                     <h2
                       id="apartmentDetails"
-                      className="text-2xl font-bold text-gray-900 mb-5 facility_h1 p-2 mt-5"
+                      className="text-xl font-bold text-gray-900 mb-5 facility_h1 p-2 mt-5"
                     >
                       Facilities
                     </h2>
-                    <div className="leading-8">
+                    <div className="leading-8 text-sm">
                       <p>1. 24hours Emergency Service and Medical Support.</p>
                       <p> 2. Daily Housekeeping.</p>
                       <p>
@@ -603,13 +675,13 @@ const Room = () => {
                     <div className="facility_h1 p-2">
                       <h2
                         id="priceDetails"
-                        className="text-2xl font-bold text-gray-900"
+                        className="text-xl font-bold text-gray-900"
                       >
                         Price Details
                       </h2>
                     </div>
                     <div className="flex gap-x-24">
-                      <div className=" mt-5 text-[18px] font-bold">
+                      <div className=" mt-5 text-sm font-bold">
                         <p className=" ">Rent/Month</p>
                         <p>Service Charge</p>
                         <p>Security Deposit</p>
@@ -633,13 +705,13 @@ const Room = () => {
                     <div className="facility_h1 p-2 mt-5">
                       <h2
                         id="priceDetails"
-                        className="text-2xl font-bold text-gray-900"
+                        className="text-xl font-bold text-gray-900"
                       >
                         Apartment Details
                       </h2>
                     </div>
                     <div className="flex">
-                      <div className=" mt-5 text-xl font-bold w-2/4">
+                      <div className=" mt-5 text-sm font-bold w-2/4">
                         <p className=" ">Address & Area</p>
                         <p>Flat Size</p>
                         <p>Floor</p>
@@ -710,11 +782,11 @@ const Room = () => {
                 <div>
                   <h2
                     id="apartmentDetails"
-                    className="text-2xl font-bold text-gray-900 mb-5  facility_h1 p-2 mt-5"
+                    className="text-xl font-bold text-gray-900 mb-5  facility_h1 p-2 mt-5"
                   >
                     {data?.category?.name} Rules
                   </h2>
-                  <div className="leading-8">
+                  <div className="leading-8 text-sm">
                     <p>
                       1. Respect Others: Treat your fellow residents with
                       kindness, consideration, and respect.
@@ -751,7 +823,7 @@ const Room = () => {
                   {branch?.locationLink ? (
                     <>
                       <div className="facility_h1 p-2">
-                        <h2 className="text-2xl font-bold text-gray-900">
+                        <h2 className="text-xl font-bold text-gray-900">
                           Location
                         </h2>
                       </div>
@@ -766,12 +838,12 @@ const Room = () => {
 
                   <div>
                     <div className="facility_h1 p-2 mt-5">
-                      <h2 className="text-2xl font-bold text-gray-900">
+                      <h2 className="text-xl font-bold text-gray-900">
                         Around the Building
                       </h2>
                     </div>
 
-                    <div className="grid grid-cols-2 sm:text-[12px] md:text-[20px]">
+                    <div className="grid grid-cols-2 sm:text-sm ">
                       <div className="flex mt-3">
                         <img src={arroundIcon} alt="" />
                         <p className="ms-4">Dhanmondi Lake</p>
@@ -804,7 +876,7 @@ const Room = () => {
 
                 <div className="w-full">
                   <div className="facility_h1 p-2 flex mt-5">
-                    <h2 className="text-2xl font-bold text-gray-900 ">
+                    <h2 className="text-xl font-bold text-gray-900 ">
                       Reviews {activeReviews?.length}
                     </h2>
                     {activeReviews?.length > 0 && (
@@ -921,7 +993,7 @@ const Room = () => {
               </div>
             </div>
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mt-5">
+          <h2 className="text-xl font-bold text-gray-900 mt-5">
             Recommended Room
           </h2>
         </div>

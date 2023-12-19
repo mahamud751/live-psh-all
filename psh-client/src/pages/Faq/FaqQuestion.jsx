@@ -37,6 +37,7 @@ import Faq8 from "./Faq8";
 import Faq9 from "./Faq9";
 import Faq10 from "./Faq10";
 import Faq11 from "./Faq11";
+import { Link } from "react-router-dom";
 
 export default function FaqQuestions() {
   const [activeTab, setActiveTab] = useState("Search and Order");
@@ -268,12 +269,16 @@ export default function FaqQuestions() {
             Let's find a home for you now!
           </h2>
           <p className="mt-2 sm:pb-10 md:pb-0">
-            <button
-              className=" px-5 py-3 rounded-lg text-white"
-              style={{ background: "linear-gradient(to right, #000, #061c34)" }}
-            >
-              Search Now
-            </button>
+            <a href="https://psh.com.bd/" target="_blank">
+              <button
+                className=" px-5 py-3 rounded-lg text-white"
+                style={{
+                  background: "linear-gradient(to right, #000, #061c34)",
+                }}
+              >
+                Search Now
+              </button>
+            </a>
           </p>
         </div>
       </div>

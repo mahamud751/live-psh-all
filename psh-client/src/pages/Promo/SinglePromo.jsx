@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SinglePromo = ({ promo }) => {
-  console.log(promo);
   return (
     <div className="group relative">
       <Link to={`/promo/${promo._id}`} className="hover:text-black">

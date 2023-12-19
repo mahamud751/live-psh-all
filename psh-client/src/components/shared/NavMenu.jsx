@@ -176,7 +176,7 @@ export default function Navmenu() {
   }, [pathname]);
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 ">
+    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
         as="li"
         className="p-1 font-normal "
@@ -199,12 +199,12 @@ export default function Navmenu() {
       <Typography
         as="li"
         className="p-1 font-normal "
-        onClick={() => setNaValue(1)}
+        onClick={() => setNaValue("/partner")}
       >
         <Link
           to={"/partner"}
           className=" flex items-center text-black hover:text-[#00bbb4] md:ml-0 sm:ml-5"
-          style={{ color: navVlaue === 1 ? "#00bbb4" : "black" }}
+          style={{ color: navVlaue === "/partner" ? "#00bbb4" : "black" }}
         >
           <div className="md:hidden sm:block">
             <MdOutlineMapsHomeWork
@@ -218,12 +218,14 @@ export default function Navmenu() {
       <Typography
         as="li"
         className="p-1 font-normal "
-        onClick={() => setNaValue(2)}
+        onClick={() => setNaValue("/corporate-housing")}
       >
         <Link
           to={"/corporate-housing"}
           className=" flex items-center text-black hover:text-[#00bbb4] md:ml-0 sm:ml-5"
-          style={{ color: navVlaue === 1 ? "#00bbb4" : "black" }}
+          style={{
+            color: navVlaue === "/corporate-housing" ? "#00bbb4" : "black",
+          }}
         >
           <div className="md:hidden sm:block">
             <MdOutlineMapsHomeWork
@@ -238,12 +240,12 @@ export default function Navmenu() {
       <Typography
         as="li"
         className="p-1 font-normal"
-        onClick={() => setNaValue(3)}
+        onClick={() => setNaValue("/psh-finance")}
       >
         <Link
-          to={"/"}
+          to={"/psh-finance"}
           className="flex items-center hover:text-[#00bbb4] md:ml-0 sm:ml-5"
-          style={{ color: navVlaue === 2 ? "#00bbb4" : "black" }}
+          style={{ color: navVlaue === "/psh-finance" ? "#00bbb4" : "black" }}
         >
           <div className="md:hidden sm:block">
             <FaHandsHelping
@@ -315,7 +317,7 @@ export default function Navmenu() {
               </Link>
             </div>
             <div className="contents">
-              <div className="mr-4 hidden lg:block ">{navList}</div>
+              <div className="mr-4 hidden lg:block nav_Link">{navList}</div>
 
               <div className="flex justify-end sm:w-full md:w-auto">
                 <div className="sm:block md:hidden">

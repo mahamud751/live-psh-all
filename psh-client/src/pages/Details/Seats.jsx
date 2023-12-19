@@ -36,7 +36,7 @@ const Seats = ({ data, handleSubmit }) => {
   return (
     <>
       <div className="facility_h1 p-2">
-        <h2 className="text-2xl font-bold text-gray-900">
+        <h2 className="text-xl font-bold text-gray-900">
           Seat Type <span className="text-sm">(Choose one Seat)</span>
         </h2>
       </div>
@@ -62,16 +62,16 @@ const Seats = ({ data, handleSubmit }) => {
                 borderRadius: "0px 0px 5px 5px",
               }}
             >
-              <div className=" sm:block md:flex justify-between">
+              <div className=" sm:block md:flex justify-between items-center">
                 <div className="seat-section">
-                  <div className="md:flex gap-x-7 ">
+                  <div className="md:flex items-center gap-x-7 ">
                     <img
                       src={item.photos ? item.photos[0] : ""}
                       alt=""
                       // style={{ width: "208px", height: "160px" }}
                       className="rounded seat-img"
                     />
-                    <div className=" w-full">
+                    <div className=" w-full ">
                       <p className="text-start font-bold">
                         {item?.name}
                         {/* {bookedSeat?._id === item?._id ? (
@@ -105,7 +105,7 @@ const Seats = ({ data, handleSubmit }) => {
                           <p className="text-start ms-2">Window outside view</p>
                         </div>
                       </div> */}
-                      <div className="flex mt-2">
+                      <div className="flex mt-2 text-sm">
                         <div>
                           <span>Rent</span>
                         </div>
@@ -123,9 +123,9 @@ const Seats = ({ data, handleSubmit }) => {
                 </div>
 
                 <div>
-                  <div className="seatNumer text-center font-bold rounded mt-5 ">
-                    <p> Seat Number</p>
-                    <div className="text-center w-full font-bold text-xl">
+                  <div className="seatNumer text-center font-bold rounded mt-5">
+                    <p className="text-sm"> Seat Number</p>
+                    <div className="text-center w-full font-bold text-sm">
                       <span> {item.seatNumber}</span>
                     </div>
                   </div>
