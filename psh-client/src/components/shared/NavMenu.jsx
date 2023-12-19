@@ -199,12 +199,12 @@ export default function Navmenu() {
       <Typography
         as="li"
         className="p-1 font-normal "
-        onClick={() => setNaValue(1)}
+        onClick={() => setNaValue("/partner")}
       >
         <Link
           to={"/partner"}
           className=" flex items-center text-black hover:text-[#00bbb4] md:ml-0 sm:ml-5"
-          style={{ color: navVlaue === 1 ? "#00bbb4" : "black" }}
+          style={{ color: navVlaue === "/partner" ? "#00bbb4" : "black" }}
         >
           <div className="md:hidden sm:block">
             <MdOutlineMapsHomeWork
@@ -218,12 +218,14 @@ export default function Navmenu() {
       <Typography
         as="li"
         className="p-1 font-normal "
-        onClick={() => setNaValue(2)}
+        onClick={() => setNaValue("/corporate-housing")}
       >
         <Link
           to={"/corporate-housing"}
           className=" flex items-center text-black hover:text-[#00bbb4] md:ml-0 sm:ml-5"
-          style={{ color: navVlaue === 1 ? "#00bbb4" : "black" }}
+          style={{
+            color: navVlaue === "/corporate-housing" ? "#00bbb4" : "black",
+          }}
         >
           <div className="md:hidden sm:block">
             <MdOutlineMapsHomeWork
@@ -238,12 +240,12 @@ export default function Navmenu() {
       <Typography
         as="li"
         className="p-1 font-normal"
-        onClick={() => setNaValue(3)}
+        onClick={() => setNaValue("/")}
       >
         <Link
           to={"/"}
           className="flex items-center hover:text-[#00bbb4] md:ml-0 sm:ml-5"
-          style={{ color: navVlaue === 2 ? "#00bbb4" : "black" }}
+          style={{ color: navVlaue === "/" ? "#00bbb4" : "black" }}
         >
           <div className="md:hidden sm:block">
             <FaHandsHelping

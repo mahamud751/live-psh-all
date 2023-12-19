@@ -49,13 +49,10 @@ const Banner = () => {
           <Splide
             options={{
               type: "loop",
-
               rewind: true,
-
               autoplay: true,
               arrows: data?.length > 0 ? true : false,
               perPage: 1,
-              height: "25rem",
               perMove: 1,
               autoplaySpeed: 1000,
               pagination: false,
