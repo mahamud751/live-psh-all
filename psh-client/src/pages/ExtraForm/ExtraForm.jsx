@@ -1,42 +1,11 @@
-import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import withReactContent from "sweetalert2-react-content";
-import { AuthContext } from "../../contexts/UserProvider";
-import Swal from "sweetalert2";
-
-import { IoIosArrowBack } from "react-icons/io";
+import React, { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useLocation } from "react-router-dom";
 import "./ExtraForm.css";
 
-import useBranch from "../../hooks/useBranch";
 const ExtraForm = () => {
-  const [bookingItem, setBookingItem] = useState({});
-
-  //cart
-  const { user } = useContext(AuthContext);
-  const MySwal = withReactContent(Swal);
-
-  // Booking Manage
-  const navigate = useNavigate();
-
-  // find branch
-  const [allBranch] = useBranch();
-  const branch = allBranch?.find(
-    (branch) => branch?._id === bookingItem?.branch
-  );
-  useEffect(() => {
-    const bookingItem = localStorage.getItem("bookingItem");
-    if (bookingItem) {
-      const parseToJson = JSON.parse(localStorage.getItem("bookingItem"));
-      setBookingItem(parseToJson);
-    }
-  }, []);
-
-  // ?
-
   const [image, setImage] = useState([]);
 
   const handleExtraForm = async (e) => {
@@ -107,7 +76,7 @@ const ExtraForm = () => {
     formData.append("address", address);
     // save order information to the database
     try {
-      await axios.post("http://localhost:8000/api/extraForm", formData);
+      await axios.post("https://api.psh.com.bd/api/extraForm", formData);
 
       toast.success("Form Uploaded successfully done");
     } catch (error) {
@@ -122,19 +91,16 @@ const ExtraForm = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
   return (
-    <form
-      onSubmit={handleExtraForm}
-      className="custom-container md:mx-0 sm:mx-3 extra-form"
-    >
+    <form onSubmit={handleExtraForm} className="md:mx-5 sm:mx-3 extra-form">
       <div className="grid lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1 mb-10">
         <div className="">
           <div>
-            {/* <p className="text-black flex justify-left mt-5 font-bold">
-              User Information
-            </p> */}
+            <p className="text-black flex justify-left font-bold border-b pb-2">
+              PSH Finance - Already Own Property
+            </p>
 
-            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-10 gap-y-3 md:mx-48 sm:mx-0 md:mt-10 sm:mt-3">
-              <div className="lg:col-span-1 md:col-span-1 sm:col-span-2">
+            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-y-3 md:mt-5 sm:mt-3">
+              <div className="col-span-2">
                 <label htmlFor="">Name</label>
                 <input
                   placeholder="Your Name *"
@@ -149,7 +115,7 @@ const ExtraForm = () => {
                 />
               </div>
 
-              <div className="lg:col-span-1 md:col-span-1 sm:col-span-2">
+              <div className="col-span-2 ">
                 <label htmlFor="">Email</label>
                 <input
                   type="email"
@@ -164,7 +130,7 @@ const ExtraForm = () => {
                 />
               </div>
 
-              <div className="lg:col-span-1 md:col-span-1 sm:col-span-2">
+              <div className="col-span-2">
                 <label htmlFor="">Mobile Number</label>
                 <input
                   type="text"
@@ -178,8 +144,22 @@ const ExtraForm = () => {
                   }}
                 />
               </div>
-
-              <div className="lg:col-span-1 md:col-span-1 sm:col-span-2">
+              <div className=" col-span-2 ">
+                <label htmlFor="">Address</label>
+                <textarea
+                  placeholder="Details Address *"
+                  className="text-black personal-info rounded w-full"
+                  name="address"
+                  cols="30"
+                  required
+                  rows="3"
+                  maxLength={100}
+                  style={{
+                    padding: "2px 10px",
+                  }}
+                />
+              </div>
+              <div className="  col-span-2">
                 <label htmlFor="">Date Of Birth</label>
                 <input
                   type="date"
@@ -192,13 +172,14 @@ const ExtraForm = () => {
                   }}
                 />
               </div>
-              <div className="lg:col-span-1 md:col-span-1 sm:col-span-2">
+              <div className=" col-span-2">
                 <label htmlFor="">Profession</label>
                 <input
                   type="text"
                   placeholder="Profession *"
                   className="text-black personal-info rounded w-full"
                   name="profession"
+                  required
                   style={{
                     height: "45px",
                     padding: "0px 10px",
@@ -207,7 +188,7 @@ const ExtraForm = () => {
                 />
               </div>
 
-              <div className="lg:col-span-1 md:col-span-1 sm:col-span-2">
+              <div className="col-span-2">
                 <label htmlFor="">Marital Status</label>
                 <select
                   className="personal-info w-full h-[45px] rounded"
@@ -220,7 +201,7 @@ const ExtraForm = () => {
                   <option>Married, without Children</option>
                 </select>
               </div>
-              <div className="lg:col-span-1 md:col-span-1 sm:col-span-2">
+              <div className="col-span-2">
                 <label className=" flex justify-left  ">Income Per Month</label>
                 <select
                   name="investorIncome"
@@ -237,7 +218,7 @@ const ExtraForm = () => {
                   <option>Upto 1000000+</option>
                 </select>
               </div>
-              <div className="lg:col-span-1 md:col-span-1 sm:col-span-2">
+              <div className="col-span-2">
                 <label className=" flex justify-left  ">
                   Amount of Investment
                 </label>
@@ -256,7 +237,7 @@ const ExtraForm = () => {
                   <option>Upto 1000000+</option>
                 </select>
               </div>
-              <div className="lg:col-span-1 md:col-span-1 sm:col-span-2">
+              <div className="col-span-2">
                 <label className=" flex justify-left  ">Investment Time</label>
                 <select
                   name="investTime"
@@ -271,7 +252,7 @@ const ExtraForm = () => {
                   <option>12 months</option>
                 </select>
               </div>
-              <div className="lg:col-span-1 md:col-span-1 sm:col-span-2">
+              <div className="col-span-2">
                 <label className=" flex justify-left ">
                   Expected Return Time
                 </label>
@@ -288,7 +269,7 @@ const ExtraForm = () => {
                   <option>12 months</option>
                 </select>
               </div>
-              <div className=" lg:col-span-1 md:col-span-1 sm:col-span-2">
+              <div className=" col-span-2">
                 <label htmlFor="">Visiting Card</label>
                 <input
                   multiple
@@ -303,7 +284,7 @@ const ExtraForm = () => {
                 />
               </div>
 
-              <div className="lg:col-span-1 md:col-span-1 sm:col-span-2">
+              <div className="col-span-2">
                 <label className=" flex justify-left  ">
                   How did you know about us?
                 </label>
@@ -323,7 +304,7 @@ const ExtraForm = () => {
                   <option>Others</option>
                 </select>
               </div>
-              <div className=" lg:col-span-1 md:col-span-2 sm:col-span-2">
+              <div className=" col-span-2">
                 <label htmlFor="">Reference</label>
                 <input
                   type="text"
@@ -337,25 +318,11 @@ const ExtraForm = () => {
                   // required
                 />
               </div>
-              <div className="lg:col-span-1 md:col-span-1 sm:col-span-2 ">
-                <label htmlFor="">Address</label>
-                <textarea
-                  placeholder="Details Address *"
-                  className="text-black personal-info rounded w-full"
-                  name="address"
-                  cols="30"
-                  rows="4"
-                  maxLength={100}
-                  style={{
-                    padding: "2px 10px",
-                  }}
-                />
-              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex justify-center mb-10">
+      <div className="flex justify-center mb-7">
         <div className="bg-[#00bbb4] text-white rounded cursor-pointer">
           <input
             type="submit"

@@ -7,6 +7,7 @@ import "@splidejs/react-splide/css/core";
 import { format } from "date-fns";
 import "./Room.css";
 import { useLocation, useParams } from "react-router-dom";
+
 import UseFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../contexts/UserProvider";
 import DetailsModal from "./DetailsModal";
@@ -160,11 +161,12 @@ const Room = () => {
   const handleDetailsShow = () => setDetailsShow(!detailsShow);
 
   // Page location top to path dependency
-  const { pathname } = useLocation();
+
+  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname, id]);
+  }, [location?.pathname]);
 
   // For Recomended House
 
@@ -528,7 +530,7 @@ const Room = () => {
                         className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 mt-5 cursor-pointer"
                         onClick={() => setKeyDetails(true)}
                       >
-                        <p className="bg-[#F4F4F4] px-5 py-3 font-bold">+3</p>
+                        <p className="bg-[#F4F4F4] px-5 py-3 font-bold">+4</p>
                       </div>
                     )}
                   </div>
@@ -557,10 +559,18 @@ const Room = () => {
                 </div>
 
                 {facality?.slice(0, 3).map((pd) => {
-                  const specificFacility = data?.facility?.filter(
-                    (item) => item.facilityCategory === pd._id
+                  // console.log(specificFacility);
+
+                  const findAmenities = facality?.find(
+                    (facility) => facility?.name === "Amenities"
                   );
-                  console.log(specificFacility);
+                  const findFurnishing = facality?.find(
+                    (facility) => facility?.name === "Furnishing"
+                  );
+                  const findServices = facality?.find(
+                    (facility) => facility?.name === "Services"
+                  );
+
                   return (
                     <div
                       style={{ width: "100%" }}
@@ -576,8 +586,9 @@ const Room = () => {
                         </h2>
                       </div>
                       <div className="grid grid-cols-12 md:gap-x-4 md:gap-y-16 sm:gap-y-4 py-5 md:px-2">
-                        {pd.name === "Amenities" && !amenities
-                          ? specificFacility?.slice(0, 5).map((item) => {
+                        {/* Show 5 amenities Facility*/}
+                        {pd?.name === "Amenities" && !amenities
+                          ? findAmenities?.facility?.slice(0, 5).map((item) => {
                               return (
                                 <React.Fragment key={item._id}>
                                   <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
@@ -599,7 +610,10 @@ const Room = () => {
                                 </React.Fragment>
                               );
                             })
-                          : specificFacility?.map((item) => {
+                          : ""}
+                        {/* Show All Amenities Facility*/}
+                        {pd?.name === "Amenities" && amenities
+                          ? findAmenities?.facility?.map((item) => {
                               return (
                                 <React.Fragment key={item._id}>
                                   <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
@@ -620,21 +634,152 @@ const Room = () => {
                                   </div>
                                 </React.Fragment>
                               );
-                            })}
+                            })
+                          : ""}
+                        {/* Show 5 Furnishing Facility */}
+                        {pd?.name === "Furnishing" && !furnishing
+                          ? findFurnishing?.facility
+                              ?.slice(0, 5)
+                              .map((item) => {
+                                return (
+                                  <React.Fragment key={item._id}>
+                                    <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
+                                      <div>
+                                        <div className="flex md:justify-center sm:justify-start">
+                                          <img
+                                            src={item.photos[0]}
+                                            alt=""
+                                            style={{ maxWidth: "none" }}
+                                            className="sm:w-[22px]"
+                                          />
+                                        </div>
 
-                        {specificFacility?.length > 5 ? (
+                                        <h2 className="mt-3 text-gray-900">
+                                          {item.name ? item.name : ""}
+                                        </h2>
+                                      </div>
+                                    </div>
+                                  </React.Fragment>
+                                );
+                              })
+                          : ""}
+                        {/* Show All Furnishing Facility */}
+                        {pd?.name === "Furnishing" && furnishing
+                          ? findFurnishing?.facility?.map((item) => {
+                              return (
+                                <React.Fragment key={item._id}>
+                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
+                                    <div>
+                                      <div className="flex md:justify-center sm:justify-start">
+                                        <img
+                                          src={item.photos[0]}
+                                          alt=""
+                                          style={{ maxWidth: "none" }}
+                                          className="sm:w-[22px]"
+                                        />
+                                      </div>
+
+                                      <h2 className="mt-3 text-gray-900">
+                                        {item.name ? item.name : ""}
+                                      </h2>
+                                    </div>
+                                  </div>
+                                </React.Fragment>
+                              );
+                            })
+                          : ""}
+                        {/* Show 5 Services Facility*/}
+                        {pd?.name === "Services" && !services
+                          ? findServices?.facility?.slice(0, 5).map((item) => {
+                              return (
+                                <React.Fragment key={item._id}>
+                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
+                                    <div>
+                                      <div className="flex md:justify-center sm:justify-start">
+                                        <img
+                                          src={item.photos[0]}
+                                          alt=""
+                                          style={{ maxWidth: "none" }}
+                                          className="sm:w-[22px]"
+                                        />
+                                      </div>
+
+                                      <h2 className="mt-3 text-gray-900">
+                                        {item.name ? item.name : ""}
+                                      </h2>
+                                    </div>
+                                  </div>
+                                </React.Fragment>
+                              );
+                            })
+                          : ""}
+                        {/* Show All Services Facility*/}
+                        {pd?.name === "Services" && services
+                          ? findServices?.facility?.map((item) => {
+                              return (
+                                <React.Fragment key={item._id}>
+                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
+                                    <div>
+                                      <div className="flex md:justify-center sm:justify-start">
+                                        <img
+                                          src={item.photos[0]}
+                                          alt=""
+                                          style={{ maxWidth: "none" }}
+                                          className="sm:w-[22px]"
+                                        />
+                                      </div>
+
+                                      <h2 className="mt-3 text-gray-900">
+                                        {item.name ? item.name : ""}
+                                      </h2>
+                                    </div>
+                                  </div>
+                                </React.Fragment>
+                              );
+                            })
+                          : ""}
+
+                        {/* For Amenities */}
+                        {findAmenities?.facility?.length > 5 &&
+                        pd?.name === "Amenities" &&
+                        !amenities ? (
                           <div
                             className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 mt-5 cursor-pointer"
-                            onClick={() => {
-                              pd.name === "Amenities" ? setAmenities(true) : "";
-                              pd.name === "Furnishing"
-                                ? setFurnishing(true)
-                                : "";
-                              pd.name === "Services" ? setServices(true) : "";
-                            }}
+                            onClick={() => setAmenities(true)}
                           >
                             <p className="bg-[#F4F4F4] px-5 py-3 font-bold">
-                              +{specificFacility?.slice(5).length}
+                              +{findAmenities?.facility?.slice(5)?.length}
+                            </p>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+
+                        {/* For Furnishing */}
+                        {findFurnishing?.facility?.length > 5 &&
+                        pd?.name === "Furnishing" &&
+                        !furnishing ? (
+                          <div
+                            className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 mt-5 cursor-pointer"
+                            onClick={() => setFurnishing(true)}
+                          >
+                            <p className="bg-[#F4F4F4] px-5 py-3 font-bold">
+                              +{findFurnishing?.facility?.slice(5)?.length}
+                            </p>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                        {/* For Service */}
+                        {findServices?.facility?.length > 5 &&
+                        pd?.name === "Services" &&
+                        !services ? (
+                          <div
+                            className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 mt-5 cursor-pointer"
+                            onClick={() => setServices(true)}
+                          >
+                            <p className="bg-[#F4F4F4] px-5 py-3 font-bold">
+                              +{findServices?.facility?.slice(5)?.length}
                             </p>
                           </div>
                         ) : (

@@ -251,9 +251,9 @@ const Footer = () => {
                     </p>
                   </div>
                 </li>
-                <li className="">
-                  <div className="text-start">
-                    <div className="flex justify-center gap-x-3">
+                <li className=" sm:mt-5 md:mt-0 flex">
+                  <div>
+                    <div className="flex gap-x-3 items-center justify-center">
                       <a
                         href="https://www.facebook.com/pshbd?mibextid=eHce3h"
                         target="_blank"
@@ -268,7 +268,6 @@ const Footer = () => {
                         <img
                           src="/assets/img/Link → instagram.svg.png"
                           alt=""
-                          className="mx-2"
                         />
                       </a>
 
@@ -279,31 +278,33 @@ const Footer = () => {
                         <FaLinkedin className="text-white" />
                       </a>
                     </div>
-                    <div className="mt-6 md:px-0 sm:px-12">
-                      <button
-                        className="footer_btn"
-                        onClick={() => handleOpen("xs")}
-                      >
-                        <p className="mt-2 text-[14px]"> Login / Signup</p>
-                      </button>
-                    </div>
-                    <div className="mt-6 md:px-0 sm:px-12">
-                      <button className="footer_btn">
-                        <img
-                          src="assets/img/appstore.svg.png"
-                          alt=""
-                          className="mt-2 text-[14px] ms-3"
-                        />
-                        <img
-                          src="assets/img/playstore.svg.png"
-                          alt=""
-                          className="mt-2 text-[14px] "
-                        />
-                        <span className="mt-2 text-[14px] ms-3">
-                          {" "}
-                          Download Aplikasi
-                        </span>
-                      </button>
+                    <div>
+                      <div className="mt-6">
+                        <button
+                          className="footer_btn"
+                          onClick={() => handleOpen("xs")}
+                        >
+                          <p className="mt-2 text-[14px]"> Login / Signup</p>
+                        </button>
+                      </div>
+                      <div className="mt-6 ">
+                        <button className="footer_btn">
+                          <img
+                            src="/assets/img/appstore.svg.png"
+                            alt=""
+                            className="mt-2 text-[14px] ms-3"
+                          />
+                          <img
+                            src="/assets/img/playstore.svg.png"
+                            alt=""
+                            className="mt-2 text-[14px] "
+                          />
+                          <span className="mt-2 text-[14px] ms-3">
+                            {" "}
+                            Download Aplikasi
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </li>

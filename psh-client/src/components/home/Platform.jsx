@@ -103,10 +103,10 @@ const Platform = () => {
                 />
               </CardHeader>
               <CardBody className="md:p-4 sm:p-2  ">
-                <h6 className="text-sm text-black font-bold">
+                <h5 className="text-[1rem] text-black font-bold">
                   Fully furnished Room
-                </h6>
-                <p className="mt-3">
+                </h5>
+                <p className="mt-3 text-sm">
                   All rooms are equipped with AC, WiFi, and full furnishing.
                   Ready to move in!
                 </p>
@@ -129,9 +129,11 @@ const Platform = () => {
                 />
               </CardHeader>
               <CardBody className="md:p-4 sm:p-2 ">
-                <h6 className="text-sm text-black font-bold">Full services</h6>
+                <h5 className="text-[1rem] text-black font-bold">
+                  Full services
+                </h5>
 
-                <p className="mt-3">
+                <p className="mt-3 text-sm">
                   All rooms are equipped with AC, WiFi, and full furnishing.
                   Ready to move in!
                 </p>
@@ -154,11 +156,11 @@ const Platform = () => {
                 />
               </CardHeader>
               <CardBody className="md:p-4 sm:p-2  ">
-                <h6 className="text-sm text-black font-bold">
+                <h5 className="text-[1rem] text-black font-bold">
                   Fully furnished Room
-                </h6>
+                </h5>
 
-                <p className="mt-3">
+                <p className="mt-3 text-sm">
                   All rooms are equipped with AC, WiFi, and full furnishing.
                   Ready to move in!
                 </p>
@@ -181,11 +183,11 @@ const Platform = () => {
                 />
               </CardHeader>
               <CardBody className="md:p-4 sm:p-2  ">
-                <h6 className="text-sm text-black font-bold">
+                <h5 className="text-[1rem] text-black font-bold">
                   Fully furnished Room
-                </h6>
+                </h5>
 
-                <p className="mt-3">
+                <p className="mt-3 text-sm">
                   All rooms are equipped with AC, WiFi, and full furnishing.
                   Ready to move in!
                 </p>

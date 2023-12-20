@@ -194,7 +194,7 @@ const AllBranch = () => {
                             <i className="fa-solid fa-location-dot text-white me-3 mt-1"></i>
                             <Typography
                               variant="h5"
-                              className="mb-4 text-white "
+                              className="mb-4 text-white text-[1rem]"
                             >
                               {item.name}
                             </Typography>

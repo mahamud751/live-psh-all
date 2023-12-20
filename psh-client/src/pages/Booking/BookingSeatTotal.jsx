@@ -587,8 +587,13 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
                         <span>
                           {customerRent?.remainingDays + " day"} X{" "}
                           {seatBooking?.perDay} = {""}
-                          {seatBooking?.perDay * customerRent?.remainingDays +
-                            " Tk"}
+                          {isNaN(
+                            seatBooking?.perDay * customerRent?.remainingDays
+                          )
+                            ? 0
+                            : seatBooking?.perDay *
+                                customerRent?.remainingDays +
+                              " Tk"}
                         </span>
                       ) : (
                         ""

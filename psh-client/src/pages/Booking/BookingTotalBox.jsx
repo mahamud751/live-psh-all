@@ -21,7 +21,7 @@ import "./BookingTotalBox.css";
 
 import { addDays, addMonths, addYears, subDays } from "date-fns";
 import { toast } from "react-hot-toast";
-import useExtraCharge from "../../hooks/useExtraCharge";
+
 import useBranch from "../../hooks/useBranch";
 import usePromos from "../../hooks/usePromos";
 import LoginModal from "../../components/shared/LoginModal";
@@ -505,7 +505,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
             </p>
           </div>
         </div>
-        <div className="flex justify-center mt-2 md:ms-16 sm:ms-0 md:hidden sm:block">
+        <div className="sm:flex justify-center mt-2 md:ms-16 sm:ms-16 md:hidden sm:block text-sm">
           <p className="font-bold">Duration = </p>
           <div>
             <input
@@ -531,7 +531,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
         </div>
 
         <form onSubmit={handlePromoCode}>
-          <div className="md:flex total-area relative my-3 md:mx-5 sm:mx-0">
+          <div className="md:flex total-area relative my-3 mx-5">
             <div>
               <input
                 className="sm:px-14 md:px-12"

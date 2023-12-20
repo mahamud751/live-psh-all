@@ -16,11 +16,14 @@ import axios from "axios";
 import { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useLocation } from "react-router-dom";
-
+import DatePicker from "react-datepicker";
 import useBranch from "../../hooks/useBranch";
+import { Tooltip, Typography } from "@material-tailwind/react";
+import useExtraCharge from "../../hooks/useExtraCharge";
 
 const PersonalInfo = () => {
   const [bookingItem, setBookingItem] = useState({});
+  const [extraCharge] = useExtraCharge(bookingItem);
   // get month Last Day
   function getLastDayOfMonth() {
     const today = new Date(bookingItem?.rentDate?.bookStartDate);
@@ -527,7 +530,6 @@ const PersonalInfo = () => {
                 required
                 name="gardianImg"
                 id=""
-              
               />
             </div>
           </div>
@@ -611,12 +613,12 @@ const PersonalInfo = () => {
             </p>
           </div>
           {/* Payment Option */}
-          <h2 className="flex justify-left font-bold mb-5 text-3xl mt-10">
+          <h2 className="flex justify-left font-bold mb-5 text-xl mt-10">
             Payment Options :
           </h2>
           <div className="text-left">
             <button
-              className={`summary text-[1rem] font-bold ${toggleClassCheck1} `}
+              className={`summary text-sm font-bold ${toggleClassCheck1} `}
               onClick={() => {
                 return (
                   setShowMobile(true),
@@ -636,7 +638,7 @@ const PersonalInfo = () => {
               MOBILE BANKING
             </button>
             <button
-              className={`specification text-[1rem] font-bold ${toggleClassCheck2}`}
+              className={`specification text-sm font-bold ${toggleClassCheck2}`}
               onClick={() => {
                 return (
                   setShowMobile(false),
@@ -656,7 +658,7 @@ const PersonalInfo = () => {
               PAYMENT ON ARRIVE
             </button>
             <button
-              className={`author text-[1rem] font-bold ${toggleClassCheck3}`}
+              className={`author text-sm font-bold ${toggleClassCheck3}`}
               onClick={() => {
                 return (
                   setShowMobile(false),
@@ -676,7 +678,7 @@ const PersonalInfo = () => {
               CREDIT CARD
             </button>
             <button
-              className={`customer-review text-[1rem] font-bold ${toggleClassCheck4}`}
+              className={`customer-review text-sm font-bold ${toggleClassCheck4}`}
               onClick={() => {
                 return (
                   setShowMobile(false),
@@ -757,10 +759,12 @@ const PersonalInfo = () => {
                     <div>
                       <img src={brachLocationIcon} alt="" />
                     </div>
-                    <p className="text-black">{bookingItem?.branch?.name}</p>
+                    <p className="text-black text-sm">
+                      {bookingItem?.branch?.name}
+                    </p>
                   </div>
                   <p
-                    className=" flex justify-start "
+                    className=" flex justify-start text-sm"
                     style={{
                       backgroundColor: "#FCA22A",
                       color: "white",
@@ -776,9 +780,9 @@ const PersonalInfo = () => {
               <div className="mx-5">
                 <div className="flex justify-evenly text-sm">
                   <ul className="flex justify-evenly ">
-                    <li className="list-none border py-1">
+                    <li className="list-none border py-1 h-7">
                       <span
-                        className={` md:px-11 sm:px-3 py-2 ${
+                        className={` md:px-11 sm:px-3 py-1 ${
                           bookingItem?.customerRent?.remainingDays <
                             getLastDayOfMonth() &&
                           bookingItem?.customerRent?.years === undefined
@@ -789,9 +793,9 @@ const PersonalInfo = () => {
                         Day
                       </span>
                     </li>
-                    <li className="list-none border py-1">
+                    <li className="list-none border py-1 h-7">
                       <span
-                        className={` md:px-11 sm:px-3 py-2 ${
+                        className={` md:px-11 sm:px-3 py-1 ${
                           bookingItem?.customerRent?.remainingDays >=
                             getLastDayOfMonth() &&
                           bookingItem?.customerRent?.years === undefined
@@ -802,9 +806,9 @@ const PersonalInfo = () => {
                         Month
                       </span>
                     </li>
-                    <li className="list-none border py-1">
+                    <li className="list-none border py-1 h-7">
                       <span
-                        className={` md:px-11 sm:px-3 py-2 ${
+                        className={` md:px-11 sm:px-3 py-1 ${
                           bookingItem?.customerRent?.years >= 1
                             ? "dmyActive "
                             : "text-black"
@@ -829,7 +833,7 @@ const PersonalInfo = () => {
                       style={{ color: "#00bbb4", marginTop: -3 }}
                     ></i>
                     <input
-                      className="ps-7 input_main md:w-full sm:w-36"
+                      className="ps-7 w-36"
                       type="date"
                       defaultValue={bookingItem?.rentDate?.bookStartDate}
                       disabled
@@ -848,7 +852,7 @@ const PersonalInfo = () => {
                       style={{ color: "#00bbb4", marginTop: -3 }}
                     ></i>
                     <input
-                      className="ps-7 md:w-full sm:w-36"
+                      className="ps-7 w-36"
                       type="date"
                       defaultValue={bookingItem?.rentDate?.bookEndDate}
                       disabled
@@ -856,8 +860,8 @@ const PersonalInfo = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center mt-2 items-center">
-                <p className="font-bold mb-1 md:ms-20 sm:sm-0">Duration = </p>
+              <div className="flex justify-center mt-2 text-sm">
+                <p className="font-bold mb-1 md:ms-28 sm:sm-0">Duration = </p>
                 <div>
                   <input
                     className="px-2 "
@@ -930,11 +934,195 @@ const PersonalInfo = () => {
                 <p>BDT {bookingItem?.totalAmount}</p>
               </div>
             </div> */}
-              <div className="text-black font-bold text-[16px] pr-5">
+              <div className="text-black text-sm pr-5">
                 <div className="flex justify-between ">
                   <div className="ml-16 flex items-center">
                     <p>Rent</p>
-                    {/* <div className="ml-2">
+                    <div className="ml-2">
+                      {bookingItem?.roomType === "Shared Room" ? (
+                        <Tooltip
+                          content={
+                            <div>
+                              <Typography
+                                variant="small"
+                                style={{
+                                  color: "white",
+                                  backgroundColor: "black",
+                                  width: "200px",
+                                }}
+                                className="font-normal opacity-75 px-5 py-2 rounded"
+                              >
+                                {bookingItem?.customerRent?.months ===
+                                  undefined &&
+                                bookingItem?.customerRent?.years ===
+                                  undefined ? (
+                                  <span>
+                                    {bookingItem?.customerRent?.remainingDays +
+                                      " day"}{" "}
+                                    X {bookingItem?.seatBooking?.perDay} = {""}
+                                    {bookingItem?.seatBooking?.perDay *
+                                      bookingItem?.customerRent?.remainingDays +
+                                      " Tk"}
+                                  </span>
+                                ) : (
+                                  ""
+                                )}
+
+                                {bookingItem?.customerRent?.months >= 1 &&
+                                bookingItem?.customerRent?.years ===
+                                  undefined ? (
+                                  <span>
+                                    {bookingItem?.customerRent.months +
+                                      " month"}{" "}
+                                    = {""}
+                                    {bookingItem?.seatBooking?.perMonth *
+                                      bookingItem?.customerRent.months +
+                                      " Tk"}
+                                    {bookingItem?.customerRent?.days > 0 ? (
+                                      <span>
+                                        +{" "}
+                                        {bookingItem?.customerRent?.days +
+                                          " Days"}{" "}
+                                        = {""}
+                                        {bookingItem?.seatBooking?.perDay *
+                                          bookingItem?.customerRent?.days +
+                                          " Tk"}
+                                      </span>
+                                    ) : (
+                                      ""
+                                    )}
+                                  </span>
+                                ) : (
+                                  ""
+                                )}
+
+                                {bookingItem?.customerRent?.years === 1 ? (
+                                  <span>
+                                    {bookingItem?.customerRent?.years + " Year"}{" "}
+                                    = {""}
+                                    {bookingItem?.seatBooking?.perYear *
+                                      bookingItem?.customerRent?.years +
+                                      " Tk"}
+                                  </span>
+                                ) : (
+                                  ""
+                                )}
+                              </Typography>
+                            </div>
+                          }
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            className="h-5 w-5 cursor-pointer text-blue-gray-500"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+                            />
+                          </svg>
+                        </Tooltip>
+                      ) : (
+                        <Tooltip
+                          content={
+                            <div>
+                              <Typography
+                                variant="small"
+                                style={{
+                                  color: "white",
+                                  backgroundColor: "black",
+                                  width: "200px",
+                                }}
+                                className="font-normal opacity-75 px-5 py-2 rounded"
+                              >
+                                {bookingItem?.customerRent?.months ===
+                                  undefined &&
+                                bookingItem?.customerRent?.years ===
+                                  undefined ? (
+                                  <span>
+                                    {bookingItem?.customerRent?.remainingDays +
+                                      " day"}{" "}
+                                    X {bookingItem?.data?.perDay} = {""}
+                                    {bookingItem?.data?.perDay *
+                                      bookingItem?.customerRent?.remainingDays +
+                                      " Tk"}
+                                  </span>
+                                ) : (
+                                  ""
+                                )}
+
+                                {bookingItem?.customerRent?.months >= 1 &&
+                                bookingItem?.customerRent?.years ===
+                                  undefined ? (
+                                  <span>
+                                    {bookingItem?.customerRent.months +
+                                      " month"}{" "}
+                                    = {""}
+                                    {bookingItem?.data?.perMonth *
+                                      bookingItem?.customerRent.months +
+                                      " Tk"}
+                                    {bookingItem?.customerRent?.days > 0 ? (
+                                      <span>
+                                        +{" "}
+                                        {bookingItem?.customerRent?.days +
+                                          " Days"}{" "}
+                                        = {""}
+                                        {bookingItem?.data?.perDay *
+                                          bookingItem?.customerRent?.days +
+                                          " Tk"}
+                                      </span>
+                                    ) : (
+                                      ""
+                                    )}
+                                  </span>
+                                ) : (
+                                  ""
+                                )}
+
+                                {bookingItem?.customerRent?.years === 1 ? (
+                                  <span>
+                                    {bookingItem?.customerRent?.years + " Year"}{" "}
+                                    = {""}
+                                    {bookingItem?.data?.perYear *
+                                      bookingItem?.customerRent?.years +
+                                      " Tk"}
+                                  </span>
+                                ) : (
+                                  ""
+                                )}
+                              </Typography>
+                            </div>
+                          }
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            className="h-5 w-5 cursor-pointer text-blue-gray-500"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+                            />
+                          </svg>
+                        </Tooltip>
+                      )}
+                    </div>
+                  </div>
+                  <p>BDT {bookingItem?.subTotal}</p>
+                </div>
+
+                <div className="flex justify-between">
+                  <div className="ml-16 flex items-center">
+                    <p>VAT</p>
+                    <div className="ml-2">
                       <Tooltip
                         content={
                           <div>
@@ -947,7 +1135,8 @@ const PersonalInfo = () => {
                               }}
                               className="font-normal opacity-75 px-5 py-2 rounded"
                             >
-                   
+                              {extraCharge[0]?.vatTax}% VAT added based on
+                              subtotal
                             </Typography>
                           </div>
                         }
@@ -967,14 +1156,7 @@ const PersonalInfo = () => {
                           />
                         </svg>
                       </Tooltip>
-                    </div> */}
-                  </div>
-                  <p>BDT {bookingItem?.subTotal}</p>
-                </div>
-
-                <div className="flex justify-between">
-                  <div className="ml-16 flex items-center">
-                    <p>VAT</p>
+                    </div>
                   </div>
 
                   <p> + BDT {bookingItem?.vatTax}</p>
@@ -984,6 +1166,40 @@ const PersonalInfo = () => {
                   <div className="flex justify-between ">
                     <div className="ml-16 flex items-center">
                       <p>Admission Fee</p>
+                      <div className="ml-2">
+                        <Tooltip
+                          content={
+                            <div>
+                              <Typography
+                                variant="small"
+                                style={{
+                                  color: "white",
+                                  backgroundColor: "black",
+                                  width: "200px",
+                                }}
+                                className="font-normal opacity-75 px-5 py-2 rounded"
+                              >
+                                This amount will not be refunded
+                              </Typography>
+                            </div>
+                          }
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            className="h-5 w-5 cursor-pointer text-blue-gray-500"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+                            />
+                          </svg>
+                        </Tooltip>
+                      </div>
                     </div>
                     <p>
                       BDT{" "}
@@ -1001,6 +1217,41 @@ const PersonalInfo = () => {
                   <div className="flex justify-between ">
                     <div className="ml-16 flex items-center">
                       <p>Security Fee</p>
+                      <div className="ml-2">
+                        <Tooltip
+                          content={
+                            <div>
+                              <Typography
+                                variant="small"
+                                style={{
+                                  color: "white",
+                                  backgroundColor: "black",
+                                  width: "200px",
+                                }}
+                                className="font-normal opacity-80 px-5 py-2 rounded"
+                              >
+                                This amount will be refunded Or Adjust last
+                                Month when you leave the Room
+                              </Typography>
+                            </div>
+                          }
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            className="h-5 w-5 cursor-pointer text-blue-gray-500"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+                            />
+                          </svg>
+                        </Tooltip>
+                      </div>
                     </div>
                     <p>
                       BDT{" "}
@@ -1038,6 +1289,52 @@ const PersonalInfo = () => {
                   <div className="flex justify-between">
                     <div className="ml-16 flex items-center payment-check">
                       <p className="text-red-500">Advance Payment</p>
+                      <div className="ml-2">
+                        <Tooltip
+                          content={
+                            <div>
+                              <Typography
+                                variant="small"
+                                style={{
+                                  color: "white",
+                                  backgroundColor: "black",
+                                  width: "200px",
+                                }}
+                                className="font-normal opacity-75 px-5 py-2 rounded"
+                              >
+                                {bookingItem?.customerRent?.months >= 2 ||
+                                bookingItem?.customerRent?.years ? (
+                                  <p>
+                                    If you want to confirm the booking, you have
+                                    to pay the minimum Admission Fee ={" "}
+                                    {minimumPayment},
+                                  </p>
+                                ) : (
+                                  <p>
+                                    This payment is required if you book for 2
+                                    months or more
+                                  </p>
+                                )}
+                              </Typography>
+                            </div>
+                          }
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            className="h-5 w-5 cursor-pointer text-blue-gray-500"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+                            />
+                          </svg>
+                        </Tooltip>
+                      </div>
                     </div>
                     <p>
                       {" "}
@@ -1063,6 +1360,41 @@ const PersonalInfo = () => {
                 >
                   <div className="ml-16 flex items-center payment-check">
                     <p className="text-red-500">Minimum Payment</p>
+                    <div className="ml-2">
+                      <Tooltip
+                        content={
+                          <div>
+                            <Typography
+                              variant="small"
+                              style={{
+                                color: "white",
+                                backgroundColor: "black",
+                                width: "200px",
+                              }}
+                              className="font-normal opacity-75 px-5 py-2 rounded"
+                            >
+                              If More Than of 3 days Booking, Then 3 Days
+                              payment is required to confirm the booking
+                            </Typography>
+                          </div>
+                        }
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                          className="h-5 w-5 cursor-pointer text-blue-gray-500"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+                          />
+                        </svg>
+                      </Tooltip>
+                    </div>
                   </div>
                   <p>
                     {" "}
@@ -1097,7 +1429,7 @@ const PersonalInfo = () => {
 
               <input
                 type="submit"
-                className="text-xl p-2 cursor-pointer bg-[#35B0A7] w-full text-white"
+                className="text-[1rem] p-2 cursor-pointer bg-[#35B0A7] w-full text-white h-[35px]"
                 value="Confirm Booking"
               />
             </div>

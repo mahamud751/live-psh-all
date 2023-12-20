@@ -52,7 +52,7 @@ const Review = () => {
   };
 
   return (
-    <div>
+    <div className="text-sm">
       <h3 className=" text-xl mt-10 font-bold">Listening to Our Clients</h3>
       <div className=" my-12">
         <Slider {...settings}>

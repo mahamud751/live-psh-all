@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import financeArrow from "../../../src/assets/img/arrow-finance.png";
 import financeArrow2 from "../../../src/assets/img/financeArrow2.svg";
 import uppArrow from "../../../src/assets/img/upp-arrow.svg";
@@ -20,7 +20,13 @@ import financeBanner from "../../../src/assets/img/finance.png";
 import tickSvg from "../../../src/assets/img/tik-svg.png";
 import "./PshFinance.css";
 import { Link } from "react-router-dom";
+import { Dialog, DialogBody, DialogHeader } from "@material-tailwind/react";
+import PartnerModal from "../new/PartnerModal";
+import ExtraForm from "../ExtraForm/ExtraForm";
 const PshFinance = () => {
+  const [size, setSize] = useState(null);
+  const handleOpen = (value) => setSize(value);
+
   return (
     <div className="finance-page ">
       <img
@@ -45,11 +51,12 @@ const PshFinance = () => {
                 </span>
               </p>
               <div className="">
-                <a href="/extra-form" target="_blank">
-                  <button className="md:mt-10 sm:mt-5 md:text-[1rem] sm:text-[14px] md:px-[36px] md:py-[15px] sm:px-[16px] sm:py-[10px]">
-                    From now on
-                  </button>
-                </a>
+                <button
+                  className="md:mt-10 sm:mt-5 md:text-[1rem] sm:text-[14px] md:px-[36px] md:py-[15px] sm:px-[16px] sm:py-[10px]"
+                  onClick={() => handleOpen("sm")}
+                >
+                  From now on
+                </button>
               </div>
               <p className="md:mt-10 sm:mt-5 md:text-sm sm:text-[8px]">
                 PT Bank OCBC NISP, Tbk is licensed and supervised by the
@@ -269,9 +276,13 @@ const PshFinance = () => {
                   Click the registration button below, fill out the form, and
                   our team will be in touch shortly.
                 </p>
-                <a href="/extra-form" target="_blank">
-                  <button className="step-button">List My Property</button>
-                </a>
+
+                <button
+                  className="step-button"
+                  onClick={() => handleOpen("sm")}
+                >
+                  List My Property
+                </button>
               </div>
             </div>
             <div className="flex gap-x-5 mt-10">
@@ -438,9 +449,11 @@ const PshFinance = () => {
               from marketing to operations.
             </p>
             <div className="mt-4">
-              <button className="md:px-[36px] md:py-[15px] sm:px-[16px] sm:py-[10px]">
-                More Information
-              </button>
+              <a href="/partner" target="_blank">
+                <button className="md:px-[36px] md:py-[15px] sm:px-[16px] sm:py-[10px]">
+                  More Information
+                </button>
+              </a>
             </div>
           </div>
           <div>
@@ -463,12 +476,33 @@ const PshFinance = () => {
           Start Your Coliving Boarding House Business Now!
         </h4>
         <div className="text-center mt-5 mb-24">
-          <a href="/extra-form" target="_blank">
-            <button className="md:px-[36px] md:py-[15px] sm:px-[16px] sm:py-[10px]">
-              From Now on
-            </button>
-          </a>
+          <button
+            className="md:px-[36px] md:py-[15px] sm:px-[16px] sm:py-[10px]"
+            onClick={() => handleOpen("sm")}
+          >
+            From Now on
+          </button>
         </div>
+
+        <Dialog
+          open={size === "sm"}
+          size={size || "sm"}
+          handler={handleOpen}
+          style={{ height: "100vh", overflow: "scroll" }}
+        >
+          <DialogHeader>
+            {" "}
+            <div
+              className="flex justify-end text-3xl text-black"
+              onClick={() => handleOpen(null)}
+            >
+              <i className="fa-solid fa-circle-xmark cursor-pointer"></i>
+            </div>
+          </DialogHeader>
+          <DialogBody className="p-2">
+            <ExtraForm />
+          </DialogBody>
+        </Dialog>
       </div>
     </div>
   );

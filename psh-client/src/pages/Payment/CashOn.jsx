@@ -32,14 +32,14 @@ const CashOn = () => {
                 <img src={cod} alt="" />
               </div>
               <div>
-                <h5 className="ms-3 text-black text-lg">PAYMENT ON ARRIVE</h5>
+                <h5 className="ms-3 text-black text-sm">PAYMENT ON ARRIVE</h5>
               </div>
             </div>
           </label>
         </div>
         {showCashOn ? (
           <div>
-            <h6>Cash to be paid after Comming.</h6>
+            <h5 className="text-[1rem]">Cash to be paid after Comming.</h5>
           </div>
         ) : null}
       </div>

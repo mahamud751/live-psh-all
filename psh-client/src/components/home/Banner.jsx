@@ -45,7 +45,7 @@ const Banner = () => {
   return (
     <>
       <div style={{ zIndex: "000" }}>
-        <div className=" p-0 banner-slider  all_recommended">
+        <div className=" p-0 banner-slider all_recommended">
           <Splide
             options={{
               type: "loop",
