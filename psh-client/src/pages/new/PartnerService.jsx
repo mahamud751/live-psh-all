@@ -177,53 +177,50 @@ const PartnerService = () => {
           <h2 className="text-xl font-bold mb-5 mt-12 text-center py-12">
             Property Rental Investment Proven to be More Profitable
           </h2>
-          <div className="all_promo slider_margin card-slider">
-            <Slider {...settings}>
-              <div>
-                <p className=" text-black text-center text-xl font-medium ">
-                  House Renting
-                </p>
-                <p className=" text-black text-5xl text-center font-medium w-full mt-4">
-                  2.5 - 5%
-                </p>
-                <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
-                  returns per year
-                </p>
-              </div>
-              <div>
-                <p className=" text-black text-center text-xl font-medium ">
-                  Deposit
-                </p>
-                <p className=" text-black text-5xl text-center font-medium w-full mt-4">
-                  3-6%
-                </p>
-                <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
-                  returns per year
-                </p>
-              </div>
-              <div>
-                <p className=" text-black text-center text-xl font-medium ">
-                  Stock Mutual Funds
-                </p>
-                <p className=" text-black text-5xl text-center font-medium w-full mt-4">
-                  8-15%
-                </p>
-                <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
-                  returns per year
-                </p>
-              </div>
-              <div>
-                <p className="text-teal-700 text-center text-xl font-medium">
-                  Partner with Project Second Home
-                </p>
-                <p className="text-teal-700 text-5xl text-center font-medium w-full mt-4">
-                  15-20%
-                </p>
-                <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
-                  returns per year
-                </p>
-              </div>
-            </Slider>
+
+          <div>
+            <p className=" text-black text-center text-xl font-medium ">
+              House Renting
+            </p>
+            <p className=" text-black text-5xl text-center font-medium w-full mt-4">
+              2.5 - 5%
+            </p>
+            <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
+              returns per year
+            </p>
+          </div>
+          <div>
+            <p className=" text-black text-center text-xl font-medium ">
+              Deposit
+            </p>
+            <p className=" text-black text-5xl text-center font-medium w-full mt-4">
+              3-6%
+            </p>
+            <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
+              returns per year
+            </p>
+          </div>
+          <div>
+            <p className=" text-black text-center text-xl font-medium ">
+              Stock Mutual Funds
+            </p>
+            <p className=" text-black text-5xl text-center font-medium w-full mt-4">
+              8-15%
+            </p>
+            <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
+              returns per year
+            </p>
+          </div>
+          <div>
+            <p className="text-teal-700 text-center text-xl font-medium">
+              Partner with Project Second Home
+            </p>
+            <p className="text-teal-700 text-5xl text-center font-medium w-full mt-4">
+              15-20%
+            </p>
+            <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
+              returns per year
+            </p>
           </div>
         </div>
       </div>

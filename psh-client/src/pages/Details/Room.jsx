@@ -312,6 +312,7 @@ const Room = () => {
                     Key Details
                   </a>
                 </div>
+
                 <div className="sm:flex">
                   {facality?.slice(0, 3).map((pd, index) => (
                     <div key={pd?._id} onClick={() => setKeyValue(index + 1)}>
@@ -358,6 +359,20 @@ const Room = () => {
                 ) : (
                   ""
                 )}
+                <div onClick={() => setKeyValue(4)}>
+                  <a
+                    href="#seatTypes"
+                    onClick={anchorClickHandler}
+                    className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-10 sm:px-2 py-1  border ${
+                      // typeof keyValue !== "string" &&
+                      typeof keyValue === "number" && keyValue === 4
+                        ? "bg-[#00bbb4] text-white hover:text-white"
+                        : ""
+                    }`}
+                  >
+                    Seat Types
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -913,12 +928,14 @@ const Room = () => {
                   )} */}
 
                 {data?.category?.name === "Shared Room" ? (
-                  <div className="mb-5 w-full" id="seat">
-                    {data.seats && data.seats.length > 0 ? (
-                      <Seats data={data} handleSubmit={handleSubmit} />
-                    ) : (
-                      ""
-                    )}
+                  <div id="seatTypes">
+                    <div className="mb-5 w-full" id="seat">
+                      {data.seats && data.seats.length > 0 ? (
+                        <Seats data={data} handleSubmit={handleSubmit} />
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   </div>
                 ) : (
                   ""

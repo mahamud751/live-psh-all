@@ -223,10 +223,32 @@ const SearchBoxSm = () => {
   const [size, setSize] = React.useState(null);
 
   const handleOpen = (value) => setSize(value);
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isTop = window.scrollY === 0;
+      setIsScrolled(!isTop);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div className="searchBoxSm mt-5">
       <div className="searchButton" onClick={() => handleOpen("xxl")}>
-        <h5 className="text-black text-[1rem] "> Find Your Accommodation</h5>
+        <h5
+          className={
+            isScrolled
+              ? "text-black text-[14px] mt-1"
+              : "text-black text-[1rem]"
+          }
+        >
+          {" "}
+          Find Your Accommodation
+        </h5>
 
         <i className="fa fa-search mt-2" />
       </div>

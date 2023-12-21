@@ -34,6 +34,7 @@ import { FaHandsHelping } from "react-icons/fa";
 import { MdOutlineAddLocationAlt, MdOutlineMapsHomeWork } from "react-icons/md";
 import { AiOutlineFileUnknown, AiOutlineHome } from "react-icons/ai";
 import UseFetch from "../../hooks/useFetch";
+import SearchBoxSm from "../home/SearchBoxSm";
 
 function ProfileMenu(id) {
   const { data } = UseFetch(`users/${id}`);
@@ -97,14 +98,14 @@ function ProfileMenu(id) {
       {/* For Mobile */}
       <Link to="/profile">
         <div
-          className=" md:hidden sm:block "
+          className=" md:hidden sm:block mt-3"
           onClick={() => dispatch(placeProfileMenu(true))}
         >
           <Menu>
             <Button
               variant="text"
               color="blue-gray"
-              className="flex items-center gap-1 rounded-full "
+              className="flex items-center gap-1 rounded-full"
             >
               <Avatar
                 variant="circular"
@@ -297,14 +298,29 @@ export default function Navmenu() {
       </Typography>
     </ul>
   );
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const isTop = window.scrollY === 0;
+      setIsScrolled(!isTop);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div className="bg-white navbar_sticky shadow-md">
       <div className=" flex custom-container ">
         <Navbar className="py-2 lg:py-2 shadow-none px-0 border-none">
-          <div className="flex items-center justify-between text-blue-gray-900 ">
+          <div className="flex items-center justify-between text-blue-gray-900 md:m-0 sm:-m-3">
             <div
-              className="md:ms-0 sm:ms-[15px]"
+              className={
+                isScrolled
+                  ? "sm:w-24 md:w-40 md:ms-0 sm:ms-[15px]"
+                  : "md:ms-0 sm:ms-[15px]"
+              }
               onClick={() => {
                 window.location.reload(), window.scrollTo(0, 0);
               }}
@@ -315,20 +331,28 @@ export default function Navmenu() {
                   alt=""
                 />
               </Link>
-            </div>
-            <div className="contents">
+            </div>{" "}
+            {isScrolled && (
+              <div style={{ marginTop: -24 }}>
+                <SearchBoxSm />
+              </div>
+            )}
+            <div className={isScrolled ? "" : "contents"}>
               <div className="mr-4 hidden lg:block nav_Link">{navList}</div>
-
               <div className="flex justify-end sm:w-full md:w-auto">
-                <div className="sm:block md:hidden">
-                  {user && <ProfileMenu />}
+                <div className="sm:block md:hidden ms-3">
+                  <div>{user && <ProfileMenu />}</div>
                 </div>
               </div>
               {/* <div className="sm:block md:hidden">
                 {user && <ProfileMenu />} */}
               <IconButton
                 variant="text"
-                className="mr-3 ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+                className={
+                  isScrolled
+                    ? "mr-3 ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden -mt-20"
+                    : "mr-6 ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+                }
                 ripple={false}
                 onClick={() => setOpenNav(!openNav)}
               >

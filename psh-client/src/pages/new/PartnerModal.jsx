@@ -57,7 +57,7 @@ const PartnerModal = () => {
     }
   };
   return (
-    <div className=" mt-5 mb-5 custom-container">
+    <div className=" mt-5 sm:mb-32 md:mb-5 custom-container">
       <div>
         {main.length <= 0 ? (
           <>

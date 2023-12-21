@@ -46,7 +46,7 @@ const RentRequestModal = () => {
     }
   };
   return (
-    <div className=" mt-5 mb-5 custom-container">
+    <div className=" mt-5 md:mb-5 sm:mb-32 custom-container">
       <h3 className="md:text-[32px] sm:text-[22px] font-bold whitespace-normal">
         Tell us your needs
       </h3>

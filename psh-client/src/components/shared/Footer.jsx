@@ -251,7 +251,7 @@ const Footer = () => {
                     </p>
                   </div>
                 </li>
-                <li className=" sm:mt-5 md:mt-0 flex">
+                <li className="sm:mt-5 md:mt-0 md:flex sm:hidden">
                   <div>
                     <div className="flex gap-x-3 items-center justify-center">
                       <a
@@ -288,7 +288,7 @@ const Footer = () => {
                         </button>
                       </div>
                       <div className="mt-6 ">
-                        <button className="footer_btn">
+                        <button className="footer_btn ">
                           <img
                             src="/assets/img/appstore.svg.png"
                             alt=""
@@ -311,7 +311,63 @@ const Footer = () => {
               </ul>
             </div>
           </footer>
-          <div className=" sm:flex sm:justify-center md:hidden">
+          <div className="sm:block md:hidden mb-4">
+            <div className="w-full flex justify-center items-center ">
+              <div>
+                <div className="flex gap-x-3 items-center justify-center">
+                  <a
+                    href="https://www.facebook.com/pshbd?mibextid=eHce3h"
+                    target="_blank"
+                  >
+                    <img src="/assets/img/facebook.svg.png" alt="" />
+                  </a>
+
+                  <a
+                    href="https://www.instagram.com/projectsecondhome.bd/?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"
+                    target="_blank"
+                  >
+                    <img src="/assets/img/Link → instagram.svg.png" alt="" />
+                  </a>
+
+                  <a
+                    href="https://www.linkedin.com/company/project-second-home/"
+                    target="_blank"
+                  >
+                    <FaLinkedin className="text-white" />
+                  </a>
+                </div>
+                <div>
+                  <div className="mt-6">
+                    <button
+                      className="footer_btn"
+                      onClick={() => handleOpen("xs")}
+                    >
+                      <p className="mt-2 text-[14px]"> Login / Signup</p>
+                    </button>
+                  </div>
+                  <div className="mt-6 ">
+                    <button className="footer_btn ">
+                      <img
+                        src="/assets/img/appstore.svg.png"
+                        alt=""
+                        className="mt-2 text-[14px] ms-3"
+                      />
+                      <img
+                        src="/assets/img/playstore.svg.png"
+                        alt=""
+                        className="mt-2 text-[14px] "
+                      />
+                      <span className="mt-2 text-[14px] ms-3">
+                        {" "}
+                        Download Aplikasi
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className=" sm:flex sm:justify-center md:hidden mb-2">
             <Link
               to={"/terms"}
               className="text-white text-[12px] underline hover:text-[#00bbb4]"
@@ -332,7 +388,7 @@ const Footer = () => {
             </Link>
           </div>
           <div
-            className=" flex justify-between text-white sm:text-[12px] custom-container"
+            className=" flex justify-between sm:justify-center text-white sm:text-[12px] custom-container"
             style={{
               background: "linear-gradient(to right, #020304, #071e37)",
             }}

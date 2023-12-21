@@ -77,7 +77,7 @@
     padding: 10px;
   }
 
-  .form > label {
+  .form>label {
     font-size: 14px !important;
     margin: 2px 0px !important;
   }
@@ -100,10 +100,12 @@
   font-weight: 600;
   column-gap: 0 !important;
 }
+
 .nav_Link a {
   font-family: "Rubik", sans-serif !important;
   font-size: 1rem;
 }
+
 /* .for-mobile-nav {
   height: 100vh !important;
 } */
@@ -125,7 +127,10 @@
     max-width: 540px;
     margin-left: auto;
     margin-right: auto;
+
   }
+
+
 }
 
 /* Medium devices (tablets, 768px and up) */
