@@ -30,9 +30,7 @@ export default function Faq3() {
       <Accordion open={open === 1}>
         <AccordionHeader onClick={() => handleOpen(1)} className="">
           <div className="flex justify-between ">
-            <p className="text-sm">
-              How can I search and find a room that suits my preferences?
-            </p>
+            <p className="text-sm">What should I do if I want to check out?</p>
             <div className="absolute right-0">
               {open === 1 ? (
                 <span>
@@ -60,18 +58,18 @@ export default function Faq3() {
           </div>
         </AccordionHeader>
         <AccordionBody className="md:pr-40 sm:pr0">
-          You can search on the psh application or website by entering keywords,
-          your destination location and your check-in date. You can also apply
-          filters to get search results that are more in line with your
-          preferences.
+          You can arrange check-out via the PSH application by following these
+          steps: 1.Go to the "My Home" tab and select your order 2.Select
+          "Check-out settings" and select a check-out date. The nearest
+          check-out date that you can choose is 7 days from today 3.Click
+          "Confirm Check-out Date" If you want to change the check-out date, you
+          can contact PSH Customer Service via WhatsApp at +880170000000.
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 2}>
         <AccordionHeader onClick={() => handleOpen(2)}>
           <div className="flex justify-between ">
-            <p className="text-sm">
-              What if the housing I want is not available?
-            </p>
+            <p className="text-sm">What should I do at check-out?</p>
             <div className="absolute right-0">
               {open === 2 ? (
                 <span>
@@ -99,18 +97,16 @@ export default function Faq3() {
           </div>
         </AccordionHeader>
         <AccordionBody className="md:pr-40 sm:pr0">
-          You can search on the psh application or website by entering keywords,
-          your destination location and your check-in date. You can also apply
-          filters to get search results that are more in line with your
-          preferences.
+          1. A room inspection will be carried out with the PSH team before you
+          check-out to ensure the room is in good condition and no items are
+          left behind 2.The PSH team will help you with the key return process
+          3.Deposit refunds will be made a maximum of 14 days after check-out
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 3}>
         <AccordionHeader onClick={() => handleOpen(3)} className="">
           <div className="flex justify-between ">
-            <p className="text-sm">
-              How can I search and find a room that suits my preferences?
-            </p>
+            <p className="text-sm">How do I get a deposit refund?</p>
             <div className="absolute right-0">
               {open === 3 ? (
                 <span>
@@ -138,10 +134,123 @@ export default function Faq3() {
           </div>
         </AccordionHeader>
         <AccordionBody className="md:pr-40 sm:pr0">
-          You can search on the psh application or website by entering keywords,
-          your destination location and your check-in date. You can also apply
-          filters to get search results that are more in line with your
-          preferences.
+          The deposit will be returned after you check-out, following PSH's
+          deposit policy. It will take 14 working days to return the deposit.
+        </AccordionBody>
+      </Accordion>
+      <Accordion open={open === 4}>
+        <AccordionHeader onClick={() => handleOpen(4)} className="">
+          <div className="flex justify-between ">
+            <p className="text-sm">Will I get my entire deposit back?</p>
+            <div className="absolute right-0">
+              {open === 4 ? (
+                <span>
+                  <IoIosArrowDown
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      rotate: "180deg",
+                      transition: "rotate 0.2s ease-in-out",
+                    }}
+                  />
+                </span>
+              ) : (
+                <span>
+                  <IoIosArrowDown
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      transition: "rotate 0.2s ease-in-out",
+                    }}
+                  />
+                </span>
+              )}
+            </div>
+          </div>
+        </AccordionHeader>
+        <AccordionBody className="md:pr-40 sm:pr0">
+          Deposit reductions may occur if things do not occur which include but
+          are not limited to: 1.Check-out confirmation is made less than 7 days
+          before the check-out date 2.There are fees still owed to PSH 3.There
+          are costs for damage caused by residents 4.There is a late rental fee
+          5.There is a unit damage fee at check-in which was not notified to PSH
+          6.There is a cancellation fee according to PSH's policy 7.There is a
+          violation of PSH's occupancy policy
+        </AccordionBody>
+      </Accordion>
+      <Accordion open={open === 5}>
+        <AccordionHeader onClick={() => handleOpen(5)} className="">
+          <div className="flex justify-between ">
+            <p className="text-sm">
+              What if there are additional fees or damages to be paid from the
+              deposit?
+            </p>
+            <div className="absolute right-0">
+              {open === 5 ? (
+                <span>
+                  <IoIosArrowDown
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      rotate: "180deg",
+                      transition: "rotate 0.2s ease-in-out",
+                    }}
+                  />
+                </span>
+              ) : (
+                <span>
+                  <IoIosArrowDown
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      transition: "rotate 0.2s ease-in-out",
+                    }}
+                  />
+                </span>
+              )}
+            </div>
+          </div>
+        </AccordionHeader>
+        <AccordionBody className="md:pr-40 sm:pr0">
+          If there is damage, additional costs will be charged to the occupants
+          by reducing the deposit refund amount.
+        </AccordionBody>
+      </Accordion>
+      <Accordion open={open === 6}>
+        <AccordionHeader onClick={() => handleOpen(6)} className="">
+          <div className="flex justify-between ">
+            <p className="text-sm">
+              What if I have questions or problems during check-out?
+            </p>
+            <div className="absolute right-0">
+              {open === 6 ? (
+                <span>
+                  <IoIosArrowDown
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      rotate: "180deg",
+                      transition: "rotate 0.2s ease-in-out",
+                    }}
+                  />
+                </span>
+              ) : (
+                <span>
+                  <IoIosArrowDown
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      transition: "rotate 0.2s ease-in-out",
+                    }}
+                  />
+                </span>
+              )}
+            </div>
+          </div>
+        </AccordionHeader>
+        <AccordionBody className="md:pr-40 sm:pr0">
+          You can contact the Community Associate at your residence or PSH
+          Customer Service via WhatsApp at +880170000000 .
         </AccordionBody>
       </Accordion>
     </div>

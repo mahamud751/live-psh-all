@@ -30,7 +30,7 @@ export default function Faq9() {
         <AccordionHeader onClick={() => handleOpen(1)} className="">
           <div className="flex justify-between ">
             <p className="text-sm">
-              How can I search and find a room that suits my preferences?
+              What services does PSH provide to property owners?
             </p>
             <div className="absolute right-0">
               {open === 1 ? (
@@ -59,17 +59,19 @@ export default function Faq9() {
           </div>
         </AccordionHeader>
         <AccordionBody className="md:pr-40 sm:pr-0">
-          You can search on the psh application or website by entering keywords,
-          your destination location and your check-in date. You can also apply
-          filters to get search results that are more in line with your
-          preferences.
+          PSH provides services: <br />
+          1.Property management <br />
+          2.Design and Build (Planning, architectural, design to construction
+          services)
+          <br />
+          3.Room Make Over (interior design & photography services)
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 2}>
         <AccordionHeader onClick={() => handleOpen(2)}>
           <div className="flex justify-between ">
             <p className="text-sm">
-              What if the housing I want is not available?
+              What are the advantages of registering property with PSH?
             </p>
             <div className="absolute right-0">
               {open === 2 ? (
@@ -98,18 +100,16 @@ export default function Faq9() {
           </div>
         </AccordionHeader>
         <AccordionBody className="md:pr-40 sm:pr0">
-          You can search on the psh application or website by entering keywords,
-          your destination location and your check-in date. You can also apply
-          filters to get search results that are more in line with your
-          preferences.
+          By registering your property with PSH, you can enjoy various PSH
+          services to help you increase property occupancy rates and get
+          hassle-free profits. PSH can help you manage, maintain and increase
+          the value of your property so you can enjoy maximum profits.
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 3}>
         <AccordionHeader onClick={() => handleOpen(3)} className="">
           <div className="flex justify-between ">
-            <p className="text-sm">
-              How can I search and find a room that suits my preferences?
-            </p>
+            <p className="text-sm">How do I register my property on PSH?</p>
             <div className="absolute right-0">
               {open === 3 ? (
                 <span>
@@ -137,10 +137,12 @@ export default function Faq9() {
           </div>
         </AccordionHeader>
         <AccordionBody className="md:pr-40 sm:pr0">
-          You can search on the psh application or website by entering keywords,
-          your destination location and your check-in date. You can also apply
-          filters to get search results that are more in line with your
-          preferences.
+          To register your property, take these 3 easy steps: <br />
+          1.Go to the property register page: https://psh.com.bd/partner <br />
+          2.Complete the property registration form. Once finished, click the
+          register property button. <br />
+          3.Our team will review the property information that has been
+          registered and will contact you for the verification process. <br />
         </AccordionBody>
       </Accordion>
     </div>
