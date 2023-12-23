@@ -12,7 +12,13 @@ const Footer = () => {
   const [size, setSize] = useState(null);
 
   const handleOpen = (value) => setSize(value);
+  const handleSubscribe = (e) => {
+    // Prevent the default form submission behavior
+    e.preventDefault();
 
+    // Scroll to the top of the page
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <div className="footer-part">
       <div>
@@ -23,9 +29,9 @@ const Footer = () => {
               background: "linear-gradient(to right, #070e1b, #07182b)",
             }}
           >
-            <div className="dark:text-gray-300 custom-container ">
-              <ul className="py-4  grid md:grid-cols-6">
-                <li className=" col-span-1">
+            <div className="dark:text-gray-300 custom-container md:flex justify-center">
+              <ul className="py-4  md:w-1/2">
+                {/* <li className=" col-span-1">
                   <div className="md:flex">
                     <div className="sm:flex sm:justify-center sm:mb-2">
                       <i className="fa-solid fa-envelope md:text-2xl text-white"></i>
@@ -53,9 +59,9 @@ const Footer = () => {
                       <h5 className="text-white text-sm mt-2">08147758883</h5>
                     </div>
                   </div>
-                </li>
+                </li> */}
 
-                <li className="col-span-1 md:block sm:hidden">
+                {/* <li className="col-span-1 md:block sm:hidden">
                   <div className="md:flex sm:mr-4">
                     <div className="sm:flex sm:justify-center sm:mb-2">
                       <i className="fa-brands fa-whatsapp md:text-3xl text-white "></i>
@@ -67,16 +73,20 @@ const Footer = () => {
                       <h5 className="text-white text-sm mt-2">08147758883</h5>
                     </div>
                   </div>
-                </li>
+                </li> */}
 
                 <li className="col-span-3 sm:p-2 md:p-0 md:ms-20 sm:ms-0">
                   <form className="flex">
                     <input
                       className="rounded md:px-4 sm:py-3 border-t md:w-full outline-0 sm:w-full h-10 text-sm px-1"
                       placeholder="Looking for best place to live "
+                      readOnly
                     />
-                    <button className="ml-1 rounded bg-[#00bbb4] font-bold px-4 uppercase text-white text-sm">
-                      Subscribe
+                    <button
+                      className="ml-1 rounded bg-[#00bbb4] font-bold px-4 uppercase text-white text-sm"
+                      onClick={handleSubscribe}
+                    >
+                      Search
                     </button>
                   </form>
                 </li>
@@ -133,7 +143,7 @@ const Footer = () => {
                     <ul className="footer_li">
                       <Link to={"/partner"}>
                         <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Lease your Property</a>
+                          <a>Register a Property</a>
                         </li>
                       </Link>
 
@@ -301,7 +311,7 @@ const Footer = () => {
                           />
                           <span className="mt-2 text-[14px] ms-3">
                             {" "}
-                            Download Aplikasi
+                            Download PSH
                           </span>
                         </button>
                       </div>
@@ -359,7 +369,7 @@ const Footer = () => {
                       />
                       <span className="mt-2 text-[14px] ms-3">
                         {" "}
-                        Download Aplikasi
+                        Download PSH
                       </span>
                     </button>
                   </div>
