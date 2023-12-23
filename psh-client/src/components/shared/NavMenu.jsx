@@ -561,17 +561,6 @@ export default function Navmenu() {
                       {user ? (
                         ""
                       ) : (
-                        // <>
-                        //   <NavLink onClick={handleLogOut}>
-                        //     <MenuItem
-                        //       className={`flex items-center gap-2 rounded `}
-                        //     >
-                        //       <button className="sign_out uppercase ">
-                        //         Log Out
-                        //       </button>
-                        //     </MenuItem>
-                        //   </NavLink>
-                        // </>
                         <div className="md:block">
                           <button
                             className="sign_btn uppercase"
