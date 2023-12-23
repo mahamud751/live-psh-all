@@ -226,32 +226,59 @@ const SearchBoxSm = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const [scrollY, setScrollY] = useState(0);
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
   useEffect(() => {
-    const handleScroll = () => {
-      const isTop = window.scrollY === 0;
-      setIsScrolled(!isTop);
-    };
+    // Add scroll event listener when the component mounts
     window.addEventListener("scroll", handleScroll);
+
+    // Remove the event listener when the component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (scrollY > 230) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  }, [scrollY]);
+  console.log(scrollY);
   return (
     <div className="searchBoxSm mt-5">
-      <div className="searchButton" onClick={() => handleOpen("xxl")}>
-        <h5
-          className={
-            isScrolled
-              ? "text-black text-[14px] mt-1"
-              : "text-black text-[1rem]"
-          }
+      {isScrolled ? (
+        <div
+          className=" searchButtonTop flex gap-x-5 items-center"
+          onClick={() => handleOpen("xxl")}
         >
-          {" "}
-          Find Your Accommodation
-        </h5>
+          <h5 className={"text-black text-[12px] mt-1"}> Find Accommodation</h5>
 
-        <i className="fa fa-search mt-2" />
-      </div>
+          <div>
+            <i className="fa fa-search mt-2" />
+          </div>
+        </div>
+      ) : (
+        <div className="searchButton" onClick={() => handleOpen("xxl")}>
+          <h5
+            className={
+              isScrolled
+                ? "text-black text-[14px] mt-1"
+                : "text-black text-[1rem]"
+            }
+          >
+            {" "}
+            Find Your Accommodation
+          </h5>
+
+          <i className="fa fa-search mt-2" />
+        </div>
+      )}
 
       <Dialog open={size === "xxl"} size={size || "xxl"} handler={handleOpen}>
         <div>

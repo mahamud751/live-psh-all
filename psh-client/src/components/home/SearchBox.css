@@ -244,6 +244,20 @@
   font-size: 20px;
   overflow: auto;
 }
+.searchButtonTop {
+  width: 100%;
+  border: 1px solid #00b4cc;
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  text-align: center;
+  color: #00b4cc;
+  border-radius: 20px;
+  padding: 0 8px;
+  cursor: pointer;
+  font-size: 20px;
+  overflow: auto;
+}
 
 @media screen and (max-width: 600px) {
   .title-search li span {

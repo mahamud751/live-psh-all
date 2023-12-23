@@ -385,7 +385,7 @@ const Footer = () => {
                 fontWeight: "300px",
               }}
             >
-              Terms & Conditions
+              Terms of use
             </Link>
             <Link
               to={"/privacy"}
@@ -394,14 +394,14 @@ const Footer = () => {
                 fontWeight: "300px",
               }}
             >
-              Privacy & Policy
+              Privacy Policy
             </Link>
           </div>
           <div
-            className=" flex justify-between sm:justify-center text-white sm:text-[12px] custom-container"
-            style={{
-              background: "linear-gradient(to right, #020304, #071e37)",
-            }}
+            className=" flex md:justify-between sm:justify-center text-white sm:text-[12px] custom-container pb-5"
+            // style={{
+            //   background: "linear-gradient(to right, #020304, #071e37)",
+            // }}
           >
             © 2023 Project Second Home. All rights reserved
             <div className="flex ms-5 sm:hidden md:block">
