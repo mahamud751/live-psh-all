@@ -328,7 +328,9 @@ export default function Navmenu() {
   return (
     <>
       {isScrolled ? (
-        <div className={`bg-white md:pt-0 navbar_sticky pt-1 shadow-md `}>
+        <div
+          className={`bg-white md:pt-0 navbar_sticky pt-1 shadow-md md:hidden sm:block`}
+        >
           <div className=" flex custom-container ">
             <Navbar className="py-2 lg:py-2 shadow-none px-0 border-none">
               <div className="flex items-center justify-between text-blue-gray-900 md:m-0 sm:-m-3">
@@ -461,7 +463,7 @@ export default function Navmenu() {
           </div>
         </div>
       ) : (
-        <div className="bg-white navbar_sticky md:pt-0 sm:pt-1 shadow-md">
+        <div className="bg-white navbar_sticky md:pt-0 sm:pt-1 shadow-md md:hidden sm:block">
           <div className=" flex custom-container ">
             <Navbar className="py-2 lg:py-2 shadow-none px-0 border-none">
               <div className="flex items-center justify-between text-blue-gray-900 md:m-0 sm:-m-3">
@@ -587,6 +589,132 @@ export default function Navmenu() {
           </div>
         </div>
       )}
+
+      <div className="bg-white navbar_sticky md:pt-0 sm:pt-1 shadow-md md:block sm:hidden">
+        <div className=" flex custom-container ">
+          <Navbar className="py-2 lg:py-2 shadow-none px-0 border-none">
+            <div className="flex items-center justify-between text-blue-gray-900 md:m-0 sm:-m-3">
+              <div
+                className={"md:ms-0 sm:ms-[15px]"}
+                onClick={() => {
+                  window.location.reload(), window.scrollTo(0, 0);
+                }}
+              >
+                <Link to={"/"}>
+                  <img
+                    src={"https://i.ibb.co/GpqY8tQ/PSH-web-logo-1.png"}
+                    alt=""
+                  />
+                </Link>
+              </div>
+
+              <div className={"contents"}>
+                <div className="mr-4 hidden lg:block nav_Link">{navList}</div>
+                <div className="flex justify-end sm:w-full md:w-auto">
+                  <div className="sm:block md:hidden ms-3">
+                    <div>{user && <ProfileMenu />}</div>
+                  </div>
+                </div>
+                {/* <div className="sm:block md:hidden">
+                {user && <ProfileMenu />} */}
+                <IconButton
+                  variant="text"
+                  className={
+                    "mr-6 ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+                  }
+                  ripple={false}
+                  onClick={() => setOpenNav(!openNav)}
+                >
+                  {openNav ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      className="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16"
+                      />
+                    </svg>
+                  )}
+                </IconButton>
+              </div>
+              <div className="flex items-center gap-x-1">
+                <div className="sm:hidden md:block">
+                  {user ? (
+                    <ProfileMenu />
+                  ) : (
+                    <>
+                      <div className="md:block">
+                        <button
+                          className="sign_btn sm:text-[14px] md:text-[16px]"
+                          onClick={() => handleOpen("xs")}
+                        >
+                          Sign Up/Login
+                        </button>
+                      </div>
+                      <>
+                        <LoginModal handleOpen={handleOpen} size={size} />
+                      </>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <Collapse open={openNav}>
+                <div onClick={() => setOpenNav(!openNav)}>{navList}</div>
+                <div className="">
+                  <div className="flex justify-center items-center gap-x-1 w-full ">
+                    {user ? (
+                      ""
+                    ) : (
+                      // <>
+                      //   <NavLink onClick={handleLogOut}>
+                      //     <MenuItem
+                      //       className={`flex items-center gap-2 rounded `}
+                      //     >
+                      //       <button className="sign_out uppercase ">
+                      //         Log Out
+                      //       </button>
+                      //     </MenuItem>
+                      //   </NavLink>
+                      // </>
+                      <div className="md:block">
+                        <button
+                          className="sign_btn uppercase"
+                          onClick={() => handleOpen("xs")}
+                        >
+                          Sign Up/Login
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </Collapse>
+            </div>
+          </Navbar>
+        </div>
+      </div>
     </>
   );
 }
