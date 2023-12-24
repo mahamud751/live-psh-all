@@ -2,6 +2,7 @@ import ExtraForm from "../models/ExtraForm.js";
 export const createExtraForm = async (req, res) => {
   console.log(req.body);
   const {
+    purpose,
     name,
     email,
     phone,
@@ -20,6 +21,7 @@ export const createExtraForm = async (req, res) => {
     const image = req?.files?.image[0].path;
 
     const extraFormData = new ExtraForm({
+      purpose,
       name,
       email,
       phone,

@@ -11,6 +11,7 @@ const ExtraForm = () => {
   const handleExtraForm = async (e) => {
     e.preventDefault();
 
+    const purpose = e.target.purpose.value;
     const name = e.target.name.value;
     const email = e.target.email.value;
     const phone = e.target.phone.value;
@@ -61,6 +62,7 @@ const ExtraForm = () => {
 
     // Form Data Append
 
+    formData.append("purpose", purpose);
     formData.append("name", name);
     formData.append("email", email);
     formData.append("phone", phone);
@@ -100,6 +102,16 @@ const ExtraForm = () => {
             </p>
 
             <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-y-3 md:mt-5 sm:mt-3">
+              <div className="col-span-2">
+                <label htmlFor="">Purpose</label>
+                <select
+                  className="personal-info w-full h-[45px] rounded"
+                  name="purpose"
+                >
+                  <option>Investment</option>
+                  <option>⁠Franchise</option>
+                </select>
+              </div>
               <div className="col-span-2">
                 <label htmlFor="">Name</label>
                 <input

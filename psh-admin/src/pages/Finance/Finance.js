@@ -34,6 +34,17 @@ const Finance = () => {
 
   const columns = [
     {
+      text: <span>Purpose</span>,
+      formatter: (cellContent, row, index) => {
+        return (
+          <>
+            {" "}
+            <p>{row?.purpose}</p>
+          </>
+        );
+      },
+    },
+    {
       text: "name",
       formatter: (cellContent, row, index) => {
         const formattedDate = new Date(row?.createdAt).toLocaleString();
