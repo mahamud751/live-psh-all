@@ -338,6 +338,34 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
       toast.error("Sorry ! You Select Already Booking Dates");
     }
   };
+
+  // handle Scrooled
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const [scrollY, setScrollY] = useState(0);
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    // Add scroll event listener when the component mounts
+    window.addEventListener("scroll", handleScroll);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (scrollY > 230) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  }, [scrollY]);
+
   return (
     <>
       <LoginModal handleOpen={handleOpen} size={size} />
@@ -973,21 +1001,25 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
             </button>
           </div>
         </div>
-        <div>
-          <div
-            className="flex justify-center mb-4 fixed bottom-0 z-40"
-            style={{ width: "95%" }}
-          >
-            <a
-              href="#cart2"
-              className="filter md:invisible ms-3 text-white hover:text-white"
-              onClick={anchorClickHandler}
+        {scrollY > 3000 ? (
+          ""
+        ) : (
+          <div>
+            <div
+              className="flex justify-center mb-4 fixed bottom-0 z-40"
+              style={{ width: "95%" }}
             >
-              <i className="fas fa-shopping-cart mr-2 mt-2"></i>
-              Booking Cart
-            </a>
+              <a
+                href="#cart2"
+                className="filter md:invisible ms-3 text-white hover:text-white "
+                onClick={anchorClickHandler}
+              >
+                <i className="fas fa-shopping-cart mr-2 mt-2 text-[16px]"></i>
+                Booking Cart
+              </a>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );

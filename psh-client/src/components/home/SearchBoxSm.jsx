@@ -254,10 +254,10 @@ const SearchBoxSm = () => {
     <div className="searchBoxSm mt-5">
       {isScrolled ? (
         <div
-          className=" searchButtonTop flex gap-x-5 items-center"
+          className=" searchButtonTop items-center ms-10"
           onClick={() => handleOpen("xxl")}
         >
-          <h5 className={"text-black text-[12px] mt-1"}> Find Accommodation</h5>
+          <h5 className={"text-black text-[12px] mt-1"}> Search</h5>
 
           <div>
             <i className="fa fa-search mt-2" />
