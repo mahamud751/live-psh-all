@@ -328,14 +328,12 @@ export default function Navmenu() {
   return (
     <>
       {isScrolled ? (
-        <div
-          className={`bg-white md:pt-0 navbar_sticky pt-1 shadow-md md:hidden sm:block`}
-        >
+        <div className={`bg-white navbar_sticky  shadow-md hidden sm:block`}>
           <div className=" flex custom-container ">
-            <Navbar className="py-2 lg:py-2 shadow-none px-0 border-none">
-              <div className="flex items-center justify-between text-blue-gray-900 md:m-0 sm:-m-3">
+            <Navbar className="py-2 shadow-none px-0 border-none">
+              <div className="flex items-center justify-between text-blue-gray-900 ">
                 <div
-                  className={"md:ms-0 sm:ms-[15px]"}
+                  className={"md:ms-0 sm:ms-[10px]"}
                   onClick={() => {
                     window.location.reload(), window.scrollTo(0, 0);
                   }}
@@ -344,16 +342,16 @@ export default function Navmenu() {
                     <img
                       src={pshIcon}
                       alt=""
-                      style={{ width: "40px", height: "40px" }}
+                      style={{ width: "50px", height: "50px" }}
                     />
                   </Link>
                 </div>{" "}
                 {isScrolled && (
-                  <div style={{ marginTop: -24 }}>
+                  <div style={{ marginTop: -15 }}>
                     <SearchBoxSm />
                   </div>
                 )}
-                <div className={isScrolled ? "" : "contents"}>
+                <div className={"contents"}>
                   <div className="mr-4 hidden lg:block nav_Link">{navList}</div>
                   <div className="flex justify-end sm:w-full md:w-auto">
                     <div className="sm:block md:hidden ms-3">
@@ -361,13 +359,11 @@ export default function Navmenu() {
                     </div>
                   </div>
                   {/* <div className="sm:block md:hidden">
-              {user && <ProfileMenu />} */}
+                {user && <ProfileMenu />} */}
                   <IconButton
                     variant="text"
                     className={
-                      isScrolled
-                        ? "mr-3 ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden -mt-20"
-                        : "mr-6 ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+                      "mr-6 ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
                     }
                     ripple={false}
                     onClick={() => setOpenNav(!openNav)}
@@ -435,17 +431,6 @@ export default function Navmenu() {
                       {user ? (
                         ""
                       ) : (
-                        // <>
-                        //   <NavLink onClick={handleLogOut}>
-                        //     <MenuItem
-                        //       className={`flex items-center gap-2 rounded `}
-                        //     >
-                        //       <button className="sign_out uppercase ">
-                        //         Log Out
-                        //       </button>
-                        //     </MenuItem>
-                        //   </NavLink>
-                        // </>
                         <div className="md:block">
                           <button
                             className="sign_btn uppercase"
@@ -463,10 +448,14 @@ export default function Navmenu() {
           </div>
         </div>
       ) : (
-        <div className="bg-white navbar_sticky md:pt-0 sm:pt-1 shadow-md md:hidden sm:block">
+        <div className="bg-white navbar_sticky  shadow-md md:hidden sm:block">
           <div className=" flex custom-container ">
-            <Navbar className="py-2 lg:py-2 shadow-none px-0 border-none">
-              <div className="flex items-center justify-between text-blue-gray-900 md:m-0 sm:-m-3">
+            <Navbar
+              className={` ${
+                user ? "sm:py-0" : "sm:py-3"
+              }  md:py-2 shadow-none px-0 border-none`}
+            >
+              <div className="flex items-center justify-between text-blue-gray-900">
                 <div
                   className={"md:ms-0 sm:ms-[15px]"}
                   onClick={() => {
@@ -578,11 +567,10 @@ export default function Navmenu() {
           </div>
         </div>
       )}
-
-      <div className="bg-white navbar_sticky md:pt-0 sm:pt-1 shadow-md md:block sm:hidden">
+      <div className="bg-white navbar_sticky shadow-md sm:hidden md:block">
         <div className=" flex custom-container ">
-          <Navbar className="py-2 lg:py-2 shadow-none px-0 border-none">
-            <div className="flex items-center justify-between text-blue-gray-900 md:m-0 sm:-m-3">
+          <Navbar className="sm:py-0 md:py-2 shadow-none px-0 border-none">
+            <div className="flex items-center justify-between text-blue-gray-900 ">
               <div
                 className={"md:ms-0 sm:ms-[15px]"}
                 onClick={() => {

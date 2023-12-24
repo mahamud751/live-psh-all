@@ -336,6 +336,33 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
     }
   };
 
+  // handle Scrooled
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const [scrollY, setScrollY] = useState(0);
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    // Add scroll event listener when the component mounts
+    window.addEventListener("scroll", handleScroll);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (scrollY > 230) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  }, [scrollY]);
+
   return (
     <div
       style={{
@@ -981,37 +1008,41 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
           </button>
         </div>
       </div>
-      <div>
-        <div
-          className="flex justify-center mb-4 fixed bottom-0"
-          style={{ zIndex: 9999, width: "92%" }}
-        >
-          {data?.category?.name === "Shared Room" && (
+      {scrollY > 4700 ? (
+        ""
+      ) : (
+        <div>
+          <div
+            className="flex justify-center mb-4 fixed bottom-0"
+            style={{ zIndex: 9999, width: "92%" }}
+          >
+            {data?.category?.name === "Shared Room" && (
+              <a
+                href="#seat"
+                onClick={anchorClickHandler}
+                className="filter md:invisible ms-2 hover:text-white py-2"
+                style={{ fontSize: 14 }}
+              >
+                <FaBed style={{ fontSize: 20 }} className="mr-2" />
+                Choose Seat
+              </a>
+            )}
+
             <a
-              href="#seat"
+              href="#cart"
               onClick={anchorClickHandler}
               className="filter md:invisible ms-2 hover:text-white py-2"
               style={{ fontSize: 14 }}
             >
-              <FaBed style={{ fontSize: 20 }} className="mr-2" />
-              Choose Seat
+              <i
+                className="fas fa-shopping-cart mt-1 mr-2"
+                style={{ fontSize: 14 }}
+              ></i>
+              Booking Now
             </a>
-          )}
-
-          <a
-            href="#cart"
-            onClick={anchorClickHandler}
-            className="filter md:invisible ms-2 hover:text-white py-2"
-            style={{ fontSize: 14 }}
-          >
-            <i
-              className="fas fa-shopping-cart mt-1 mr-2"
-              style={{ fontSize: 14 }}
-            ></i>
-            Booking Now
-          </a>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
