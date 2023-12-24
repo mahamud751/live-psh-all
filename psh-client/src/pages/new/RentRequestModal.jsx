@@ -46,32 +46,39 @@ const RentRequestModal = () => {
     }
   };
   return (
-    <div className=" mt-5 md:mb-5 sm:mb-32 custom-container">
-      <h3 className="md:text-[32px] sm:text-[22px] font-bold whitespace-normal">
+    <div className="md:mb-5 sm:mb-32 custom-container">
+      {/* <h3 className="md:text-[32px] sm:text-[22px] font-bold whitespace-normal">
         Tell us your needs
-      </h3>
+      </h3> */}
       <div>
         {main.length <= 0 ? (
           <>
-            <div className="mt-3 font-bold text-xl border-b pb-1">
-              <span>Company data</span>
-            </div>
             <div className="px-5">
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="requestModal"
+                className="extra-form"
               >
+                <h3 className="text-black flex justify-left font-bold pb-2 text-2xl">
+                  Tell us your needs
+                </h3>
+                <p className="text-black flex justify-left font-bold border-b pb-2">
+                  Company data
+                </p>
                 <div className="grid grid-cols-1 md:gap-x-5">
-                  <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 ">
+                  <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 md:mt-5">
                     <label htmlFor="" className="">
                       Full Name
                     </label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Full Name"
                       name="fullname"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
 
@@ -79,9 +86,13 @@ const RentRequestModal = () => {
                     <label htmlFor="">Position</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Position*"
                       name="position"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
 
@@ -89,36 +100,52 @@ const RentRequestModal = () => {
                     <label htmlFor="">Company Name</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Company Name*"
                       name="company"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 mt-1">
                     <label htmlFor="">Address</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Address*"
                       name="address"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 mt-1">
                     <label htmlFor="">Company Email Address</label>
                     <input
                       type="email"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Company email address*"
                       name="companyEmail"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 mt-1">
                     <label htmlFor="">Phone Number</label>
                     <input
                       type="number"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Phone Number*"
                       name="phone"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                 </div>
@@ -131,9 +158,13 @@ const RentRequestModal = () => {
                   <label htmlFor="">Enter Your Location</label>
                   <input
                     type="text"
-                    className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                    className="text-black personal-info rounded w-full"
                     placeholder="Enter your location"
                     name="location"
+                    style={{
+                      height: "45px",
+                      padding: "0px 10px",
+                    }}
                   />
                 </div>
                 {/* Property Information */}
@@ -146,7 +177,11 @@ const RentRequestModal = () => {
 
                     <select
                       name="propertyType"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     >
                       <option value="Share Room">Share Room</option>
                       <option value="Private Room">Private Room</option>
@@ -157,30 +192,29 @@ const RentRequestModal = () => {
                     <label htmlFor="">Number of Room</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Number of Room"
                       name="totalRoom"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                 </div>
-
-                {/* Property Location */}
-
-                {/* Emergency Contact */}
-                {/* <div className="border-b pb-1">
-                  <div className="mt-7 font-bold text-xl">
-                    <span>Property Visit Request *</span>
-                  </div>
-                </div> */}
 
                 <div className="grid grid-cols-2 gap-x-5 mt-5">
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2 mt-1">
                     <label htmlFor="">Estimated date of arrival</label>
                     <input
                       type="date"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Availability for Visit"
                       name="availabilityForVisit"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
 
@@ -188,9 +222,13 @@ const RentRequestModal = () => {
                     <label htmlFor="">Estimated time of arrival</label>
                     <input
                       type="time"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Availability for Visit Time"
                       name="availabilityForVisitTime"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                 </div>
@@ -198,9 +236,13 @@ const RentRequestModal = () => {
                   <label htmlFor="">Duration for rent ---</label>
                   <input
                     type="text"
-                    className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                    className="text-black personal-info rounded w-full"
                     placeholder="Duration for rent"
                     name="duration"
+                    style={{
+                      height: "45px",
+                      padding: "0px 10px",
+                    }}
                   />
                 </div>
 

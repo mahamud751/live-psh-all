@@ -57,70 +57,59 @@ const PartnerModal = () => {
     }
   };
   return (
-    <div className=" mt-5 sm:mb-32 md:mb-5 custom-container">
+    <div className="sm:mb-32 md:mb-5 custom-container">
       <div>
         {main.length <= 0 ? (
-          <>
-            <div className="mt-5 font-bold text-xl border-b ">
-              <span>Property Owner Details *</span>
-            </div>
-            <div className="mt-5 px-5">
+          <div>
+            <div className="px-5">
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="requestModal"
+                className="extra-form"
               >
                 {/* Property Owner Details */}
-
-                <div className="grid grid-cols-1 md:gap-x-5">
-                  {/* <div className="col-span-1  mb-4">
-                    <label htmlFor="">Purpose</label>
-
-                    <select
-                      name="purpose"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
-                    >
-                      <option value="rent">Rent</option>
-                      <option value="franchising">Franchising</option>
-                      <option value="lease">Lease</option>
-                      <option value="partnership">PartnerShip</option>
-                    </select>
-                  </div> */}
+                <p className="text-black flex justify-left font-bold border-b pb-2">
+                  Property Owner Details *
+                </p>
+                <div className="grid grid-cols-1 md:gap-x-5 md:mt-5">
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  ">
                     <label htmlFor="">Full Name</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Full Name"
                       name="fullname"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
-                  {/* <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  ">
-                    <label htmlFor="">Last Name</label>
-                    <input
-                      type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
-                      placeholder="Last Name"
-                      name="lastName"
-                    />
-                  </div> */}
 
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
                     <label htmlFor="">Phone Number</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Phone Number"
                       name="phoneNumber"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
                     <label htmlFor="">Email Address</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Email Address"
                       name="email"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                 </div>
@@ -133,9 +122,13 @@ const PartnerModal = () => {
                     <label htmlFor="">Property Name</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Property Name"
                       name="propertyName"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
@@ -143,7 +136,11 @@ const PartnerModal = () => {
 
                     <select
                       name="propertyType"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     >
                       <option value="Building">Building</option>
                       <option value="Flat">Flat</option>
@@ -154,36 +151,52 @@ const PartnerModal = () => {
                     <label htmlFor="">Property Size</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Property Size"
                       name="propertySize"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
                     <label htmlFor="">Floor Number</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Floor Number"
                       name="floorNumber"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
                     <label htmlFor="">Number Of Rooms</label>
                     <input
                       type="number"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Number Of Rooms"
                       name="totalRooms"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
                     <label htmlFor="">Number Of Bathrooms</label>
                     <input
                       type="number"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Number Of Bathrooms"
                       name="totalBathrooms"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
 
@@ -192,7 +205,11 @@ const PartnerModal = () => {
 
                     <select
                       name="parking"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     >
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
@@ -203,7 +220,11 @@ const PartnerModal = () => {
 
                     <select
                       name="elevator"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     >
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
@@ -223,36 +244,40 @@ const PartnerModal = () => {
                     <label htmlFor="">Address</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Permanent Address"
                       name="address"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
                     <label htmlFor="">City</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="City"
                       name="city"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
-                  {/* <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
-                    <label htmlFor="">State/Region</label>
-                    <input
-                      type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
-                      placeholder="State/Region"
-                      name="stateRegion"
-                    />
-                  </div> */}
+
                   <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
                     <label htmlFor="">Post Code</label>
                     <input
                       type="text"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Post Code"
                       name="postCode"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
 
@@ -262,7 +287,11 @@ const PartnerModal = () => {
                     <select
                       name="district"
                       id=""
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     >
                       <option disabled>Select Your District</option>
                       <option>Dhaka</option>
@@ -337,7 +366,11 @@ const PartnerModal = () => {
                     <select
                       name="division"
                       id=""
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     >
                       <option disabled>Select Your District</option>
                       <option value="Dhaka">Dhaka</option>
@@ -350,17 +383,6 @@ const PartnerModal = () => {
                       <option value="Mymensingh">Mymensingh</option>
                     </select>
                   </div>
-                  {/* <div className="xl:col-span-1 lg:col-span-1 md:col-span-1 sm:col-span-2  mt-3">
-                    <label htmlFor="">Country</label>
-
-                    <select
-                      name="country"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
-                    >
-                      <option disabled>Select Your Country</option>
-                      <option value="Bangladesh">Bangladesh</option>
-                    </select>
-                  </div> */}
                 </div>
 
                 {/* Emergency Contact */}
@@ -375,9 +397,13 @@ const PartnerModal = () => {
                     <label htmlFor="">Availability for Visit</label>
                     <input
                       type="date"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Availability for Visit"
                       name="availabilityForVisit"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
 
@@ -385,9 +411,13 @@ const PartnerModal = () => {
                     <label htmlFor="">Availability for Visit Time</label>
                     <input
                       type="time"
-                      className="w-full h-10 bg-[#F7F7F7] rounded pl-2"
+                      className="text-black personal-info rounded w-full"
                       placeholder="Availability for Visit Time"
                       name="availabilityForVisitTime"
+                      style={{
+                        height: "45px",
+                        padding: "0px 10px",
+                      }}
                     />
                   </div>
                 </div>
@@ -414,7 +444,7 @@ const PartnerModal = () => {
                 toastOptions={{ position: "top-center" }}
               ></Toaster>
             </div>
-          </>
+          </div>
         ) : (
           <div
             style={{
