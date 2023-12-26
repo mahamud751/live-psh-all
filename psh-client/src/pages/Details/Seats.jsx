@@ -32,7 +32,7 @@ const Seats = ({ data, handleSubmit }) => {
       }
     }
   }
-  console.log(isSeatIntoDate);
+
   return (
     <>
       <div className="facility_h1 p-2">
@@ -107,7 +107,7 @@ const Seats = ({ data, handleSubmit }) => {
                       </div> */}
                       <div className="flex mt-2 text-sm">
                         <div>
-                          <span>Rent</span>
+                          <span>Rent : </span>
                         </div>
                         <div className="flex gap-x-2">
                           <p className="text-start ms-2 bg-[#27B3B1] text-white px-2 rounded">

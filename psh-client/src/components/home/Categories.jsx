@@ -20,6 +20,7 @@ import { settings } from "../../slider/Slider";
 import SearchBoxSm from "./SearchBoxSm";
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
+import { GridLoader } from "react-spinners";
 export default function Categories() {
   const { data, loading, error, reFetch } = UseFetch(`property`);
 
@@ -89,7 +90,9 @@ export default function Categories() {
     return (
       <div className="flex justify-center mt-5">
         <div>
-          <Spinner color="green" className="h-10 w-10" />
+          {/* <Spinner color="green" className="h-10 w-10" /> */}
+
+          <GridLoader size={8} color="#36d7b7" />
         </div>
       </div>
     ); // Placeholder for initial loading state
