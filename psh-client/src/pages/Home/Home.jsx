@@ -12,11 +12,14 @@ import SearchBoxSm from "../../components/home/SearchBoxSm";
 function Home() {
   return (
     <>
-      <div className="custom-container sm:px-2 sm:pt-2 md:px-0 md:pt-0">
+      <div className="banner_custom_container ">
         <Banner />
+      </div>
+      <div className="custom-container sm:px-2 sm:pt-2 md:px-0 md:pt-0">
         <SearchBoxSm />
         <Categories />
       </div>
+
       <Facility />
       <div className="custom-container sm:px-2 sm:pt-2 md:px-0 md:pt-0">
         <PromoOffer />

@@ -139,6 +139,58 @@
   margin-top: 3px;
 }
 
+/* For Banner */
+@media (min-width: 576px) {
+  .banner_custom_container {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .banner_custom_container {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .banner_custom_container {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .nav_Link a {
+    font-size: 14px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .banner_custom_container {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .nav_Link a {
+    font-size: 1rem;
+  }
+}
+
+/* Extra extra large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .banner_custom_container {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* For Full Website */
 @media (min-width: 576px) {
   .custom-container {
     max-width: 540px;

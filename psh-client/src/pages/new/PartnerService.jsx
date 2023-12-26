@@ -91,13 +91,14 @@ const PartnerService = () => {
                   />
                 </div>
                 <div className="md:p-4 sm:p-2  ">
-                  <p className="business font-bold">Planning</p>
+                  <p className="business font-bold">Angel Investor</p>
                   <div className="text-stone-500 text-sm leading-5">
                     <ul className="partner_li mt-4">
-                      <li>Market insight</li>
-                      <li>Studi kelayakan</li>
-                      <li>Penentuan harga</li>
-                      <li>Product proposition</li>
+                      <li>Special Discount of PSH</li>
+                      <li>Discount in Rtemis Ltd</li>
+                      <li>Dedicated PR Manager</li>
+                      <li>Greetings and Gifts</li>
+                      <li>Tax Cetification</li>
                     </ul>
                   </div>
                 </div>
@@ -114,12 +115,19 @@ const PartnerService = () => {
                   />
                 </div>
                 <div className="md:p-4 sm:p-2  ">
-                  <p className="business font-bold">Architecture & Design </p>
+                  <p className="business font-bold">Project Director </p>
                   <div className="text-stone-500 text-sm leading-5">
                     <ul className="partner_li mt-3">
-                      <li>Schematic plan</li>
-                      <li>Drawings</li>
-                      <li>Desain interior</li>
+                      <li>Fixed Remuneration</li>
+                      <li>Yearly Profit</li>
+                      <li>NOC Provide from Rtemis</li>
+                      <li>Social Recognization</li>
+                      <li>Official ID Card and Visiting Card of Rtemis Ltd</li>
+                      <li>Greetings and Gifts</li>
+                      <li>Discount in Rtemis Ltd</li>
+                      <li>Dedicated PR Manager</li>
+                      <li>Yearly Domestic and Foreign tour with Familes </li>
+                      <li> Yearly 7 Days Accomondation free of cost in PSH</li>
                     </ul>
                   </div>
                 </div>
@@ -135,13 +143,15 @@ const PartnerService = () => {
                   />
                 </div>
                 <div className="md:p-4 sm:p-2  ">
-                  <p className="business font-bold">Construction</p>
+                  <p className="business font-bold">Franchise Partner</p>
                   <div className="text-stone-500 text-sm leading-5">
                     <ul className="partner_li mt-3">
-                      <li>RAB</li>
-                      <li>Kontraktor</li>
-                      <li>Manajemen proyek</li>
-                      <li>Manajemen konstruksi</li>
+                      <li>High Profit</li>
+                      <li> Yearly 7 Days Accomondation free of cost in PSH</li>
+
+                      <li>Personal Recognizatio</li>
+                      <li>Brand Recognization</li>
+                      <li>Business Assistance</li>
                     </ul>
                   </div>
                 </div>
@@ -157,13 +167,14 @@ const PartnerService = () => {
                   />
                 </div>
                 <div className="md:p-4 sm:p-2  ">
-                  <p className="business font-bold">Marketing & Operations</p>
+                  <p className="business font-bold">Share Holders</p>
                   <div className="text-stone-500 text-sm leading-5">
                     <ul className="partner_li mt-3">
-                      <li> Marketing & sales</li>
-                      <li>Layanan penghuni</li>
-                      <li>Maintenance gedung</li>
-                      <li>Revenue management</li>
+                      <li> High Remuneretion</li>
+                      <li>Active Participation</li>
+                      <li>Yearly Domestic and Foreign tour with Familes </li>
+                      <li>Discount in Rtemis Ltd</li>
+                      <li> Yearly 10 Days Accomondation free of cost in PSH</li>
                     </ul>
                   </div>
                 </div>
@@ -175,52 +186,57 @@ const PartnerService = () => {
       <div className="banner3">
         <div className="custom-container pb-20">
           <h2 className="text-xl font-bold mb-5 mt-12 text-center py-12">
-            Property Rental Investment Proven to be More Profitable
+            Investment Opportunities in Project Second Home
           </h2>
 
-          <div>
-            <p className=" text-black text-center text-xl font-medium ">
-              House Renting
-            </p>
-            <p className=" text-black text-5xl text-center font-medium w-full mt-4">
-              2.5 - 5%
-            </p>
-            <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
-              returns per year
-            </p>
-          </div>
-          <div>
-            <p className=" text-black text-center text-xl font-medium ">
-              Deposit
-            </p>
-            <p className=" text-black text-5xl text-center font-medium w-full mt-4">
-              3-6%
-            </p>
-            <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
-              returns per year
-            </p>
-          </div>
-          <div>
-            <p className=" text-black text-center text-xl font-medium ">
-              Stock Mutual Funds
-            </p>
-            <p className=" text-black text-5xl text-center font-medium w-full mt-4">
-              8-15%
-            </p>
-            <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
-              returns per year
-            </p>
-          </div>
-          <div>
-            <p className="text-teal-700 text-center text-xl font-medium">
-              Partner with Project Second Home
-            </p>
-            <p className="text-teal-700 text-5xl text-center font-medium w-full mt-4">
-              15-20%
-            </p>
-            <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
-              returns per year
-            </p>
+          <div className="grid grid-cols-4">
+            <div>
+              <p className=" text-black text-center text-xl font-medium ">
+                Angel Investment
+              </p>
+              <p className=" text-black text-xl text-center font-medium w-full mt-4">
+                <span className="text-sm">(500000 to 1000000 TK)</span>
+              </p>
+              <p className=" text-black text-xl text-center font-medium w-full mt-4">
+                (12 - 18% Returns per year)
+              </p>
+            </div>
+            <div>
+              <p className=" text-black text-center text-xl font-medium ">
+                Project Director
+              </p>
+              <p className=" text-black text-xl text-center font-medium w-full mt-4">
+                <span className="text-sm">(1000000 to upto Project Value)</span>
+              </p>
+              <p className=" text-black text-5xl text-center font-medium w-full mt-4">
+                3-6%
+              </p>
+              <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
+                returns per year
+              </p>
+            </div>
+            <div>
+              <p className=" text-black text-center text-xl font-medium ">
+                Stock Mutual Funds
+              </p>
+              <p className=" text-black text-5xl text-center font-medium w-full mt-4">
+                8-15%
+              </p>
+              <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
+                returns per year
+              </p>
+            </div>
+            <div>
+              <p className="text-teal-700 text-center text-xl font-medium">
+                Partner with Project Second Home
+              </p>
+              <p className="text-teal-700 text-5xl text-center font-medium w-full mt-4">
+                15-20%
+              </p>
+              <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
+                returns per year
+              </p>
+            </div>
           </div>
         </div>
       </div>

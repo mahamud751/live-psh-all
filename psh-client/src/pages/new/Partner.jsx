@@ -100,11 +100,13 @@ const Partner = () => {
                     Become Project Second Home's partner
                   </p>
                   <h1 className="banner_h1">
-                    Increase Income with Project Second Home (PSH)
+                    Invest and Grow with Project Second Home (PSH)
                   </h1>
-                  <p className="banner_partner_p2 my-4">
-                    Become a PSH partner to maximize your property profits and
-                    enjoy hassle-free profits.
+                  <p className=" my-4 text-sm text-white">
+                    Become a PSH Angel Investor / Project Director / Franchise
+                    Partner / Share Holder to Maximize your Idle money /
+                    increase your Property Valuation to get a social recognition
+                    and hassle-free income
                   </p>
 
                   <div className="md:flex  gap-4">
@@ -165,7 +167,7 @@ const Partner = () => {
       </div>
       <div className="custom-container">
         <h2 className="text-xl font-bold mb-5 mt-12">
-          PSH's choice of housing for companies
+          PSH's choice of Housing for companies
         </h2>
         <div className="all_promo slider_margin card-slider ">
           <Slider {...settings}>
@@ -179,10 +181,10 @@ const Partner = () => {
                   />
                 </div>
                 <div className="md:p-4 sm:p-2  ">
-                  <p className="business font-bold">Become PSH's partner</p>
+                  <p className="business font-bold">Partnership with PSH</p>
                   <p className="content my-3">
-                    Register your boarding, coliving or apartment business to be
-                    part of Project Second Home.
+                    Introducing and Registering your Ideal money, Co-living or
+                    Apartment Business to be a part of Project Second Home
                   </p>
                   <button className="partner_btn">
                     Register your property{" "}
@@ -201,11 +203,11 @@ const Partner = () => {
                   />
                 </div>
                 <div className="md:p-4 sm:p-2 ">
-                  <p className="business font-bold">Build for Rent</p>
+                  <p className="business font-bold">Lease for Property</p>
 
                   <p className="content my-3" style={{ width: "90%" }}>
-                    Turn your passive assets into a profitable property
-                    business.
+                    Turn Your Inactive / Lazy assets into a profitable Property
+                    Business effectively by generating growths
                   </p>
                   <button
                     className="partner_btn"
@@ -230,8 +232,9 @@ const Partner = () => {
                   <p className="business font-bold ">PSH Finance</p>
 
                   <p className="content my-3">
-                    PSH Finance is ready to help with financing, construction,
-                    renovation and operations.
+                    PSH Finance is ready to assist in potential financing,
+                    Constructing, Renovating Business and operating efficient
+                    ideas
                   </p>
                   <Link to={"/psh-finance"}>
                     <button className="partner_btn">

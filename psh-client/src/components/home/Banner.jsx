@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "./Banner.css";
 const Banner = () => {
   const { data } = UseFetch(`banner`);
 
@@ -45,7 +46,7 @@ const Banner = () => {
   return (
     <>
       <div style={{ zIndex: "000" }}>
-        <div className=" p-0 banner-slider all_recommended">
+        <div className=" p-0 banner-slider ">
           <Splide
             options={{
               type: "loop",

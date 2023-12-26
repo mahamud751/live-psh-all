@@ -178,7 +178,7 @@ export default function Navmenu() {
   }, [pathname]);
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="mb-4 mt-2 flex flex-col lg:mb-0 lg:mt-0 lg:flex-row lg:items-center xl:gap-6 lg:gap-4 md:gap-0 sm:gap-0 text-sm">
       <Typography
         as="li"
         className="p-1 font-normal "
@@ -224,7 +224,7 @@ export default function Navmenu() {
       >
         <Link
           to={"/corporate-housing"}
-          className=" flex items-center text-black hover:text-[#00bbb4] md:ml-0 sm:ml-5"
+          className=" flex items-center text-black hover:text-[#00bbb4] md:ml-0 sm:ml-5 "
           style={{
             color: navVlaue === "/corporate-housing" ? "#00bbb4" : "black",
           }}
@@ -355,7 +355,9 @@ export default function Navmenu() {
                 </div>
 
                 <div className={"contents"}>
-                  <div className="mr-4 hidden lg:block nav_Link">{navList}</div>
+                  <div className="mr-4 hidden lg:block nav_Link ">
+                    {navList}
+                  </div>
                   <div className="flex justify-end sm:w-full md:w-auto">
                     <div className="sm:block md:hidden ">
                       <div>{user && <ProfileMenu />}</div>

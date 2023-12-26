@@ -232,7 +232,7 @@ const Footer = () => {
                             style={{ width: "16px", height: "16px" }}
                           />
                         </div>
-                        <p>+880170000000</p>
+                        <p>+8801647647404</p>
                       </div>
                       <div
                         className="text-white text-[14px] flex items-center gap-x-1"
