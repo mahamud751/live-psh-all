@@ -318,7 +318,7 @@ export default function Navmenu() {
   }, []);
 
   useEffect(() => {
-    if (scrollY > 230) {
+    if (scrollY > 250) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
