@@ -23,8 +23,11 @@ import UseFetch from "../../hooks/useFetch";
 import { useRef } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import durationImg from "../../assets/img/clock-01.png";
+import { AuthContext } from "../../contexts/UserProvider";
 
 const SearchBoxSm = () => {
+  const { user, logoutUser } = useContext(AuthContext);
+
   const reduxDispatch = useDispatch();
   const startDate = useSelector((state) => state.dateCount.startDate);
 
@@ -249,37 +252,35 @@ const SearchBoxSm = () => {
       setIsScrolled(false);
     }
   }, [scrollY]);
-  console.log(scrollY);
+
   return (
     <div className="searchBoxSm mt-5">
       {isScrolled ? (
         <div
-          className=" searchButtonTop items-center ms-10"
+          className={` flex searchButtonTop items-center ms-5 ${
+            user ? "w-[110px]" : "w-[150px]"
+          }`}
           onClick={() => handleOpen("xxl")}
         >
           <h5 className={"text-black text-[12px] mt-1"}> Search</h5>
 
           <div>
-            <i className="fa fa-search mt-2" />
+            <i className="fa fa-search mt-3" />
           </div>
         </div>
       ) : (
+        ""
+      )}
+
+      {isScrolled ? (
+        ""
+      ) : (
         <div className="searchButton" onClick={() => handleOpen("xxl")}>
-          <h5
-            className={
-              isScrolled
-                ? "text-black text-[14px] mt-1"
-                : "text-black text-[1rem]"
-            }
-          >
-            {" "}
-            Find Your Accommodation
-          </h5>
+          <h5 className="text-black text-[1rem]"> Find Your Accommodation</h5>
 
           <i className="fa fa-search mt-2" />
         </div>
       )}
-
       <Dialog open={size === "xxl"} size={size || "xxl"} handler={handleOpen}>
         <div>
           <Button

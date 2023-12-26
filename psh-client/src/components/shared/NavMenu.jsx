@@ -328,33 +328,35 @@ export default function Navmenu() {
   return (
     <>
       {isScrolled ? (
-        <div className={`bg-white navbar_sticky  shadow-md hidden sm:block`}>
+        <div
+          className={`bg-white navbar_sticky_search shadow-md md:hidden sm:block`}
+        >
           <div className=" flex custom-container ">
             <Navbar className="py-2 shadow-none px-0 border-none">
               <div className="flex items-center justify-between text-blue-gray-900 ">
                 <div
-                  className={"md:ms-0 sm:ms-[10px]"}
+                  className={"ms-[8px]"}
                   onClick={() => {
                     window.location.reload(), window.scrollTo(0, 0);
                   }}
                 >
                   <Link to={"/"}>
                     <img
-                      src={pshIcon}
+                      src={"https://i.ibb.co/GpqY8tQ/PSH-web-logo-1.png"}
                       alt=""
-                      style={{ width: "50px", height: "50px" }}
+                      style={{ width: "250px", height: "30px" }}
                     />
                   </Link>
-                </div>{" "}
-                {isScrolled && (
-                  <div style={{ marginTop: -15 }}>
-                    <SearchBoxSm />
-                  </div>
-                )}
+                </div>
+
+                <div style={{ marginTop: -15 }}>
+                  <SearchBoxSm />
+                </div>
+
                 <div className={"contents"}>
                   <div className="mr-4 hidden lg:block nav_Link">{navList}</div>
                   <div className="flex justify-end sm:w-full md:w-auto">
-                    <div className="sm:block md:hidden ms-3">
+                    <div className="sm:block md:hidden ">
                       <div>{user && <ProfileMenu />}</div>
                     </div>
                   </div>
@@ -363,7 +365,7 @@ export default function Navmenu() {
                   <IconButton
                     variant="text"
                     className={
-                      "mr-6 ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+                      "mr-6 mt-3 ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
                     }
                     ripple={false}
                     onClick={() => setOpenNav(!openNav)}
