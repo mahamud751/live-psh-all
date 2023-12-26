@@ -35,6 +35,7 @@ import { MdOutlineAddLocationAlt, MdOutlineMapsHomeWork } from "react-icons/md";
 import { AiOutlineFileUnknown, AiOutlineHome } from "react-icons/ai";
 import UseFetch from "../../hooks/useFetch";
 import SearchBoxSm from "../home/SearchBoxSm";
+import SearchBoxWithNav from "../home/SearchBoxWithNav";
 
 function ProfileMenu(id) {
   const { data } = UseFetch(`users/${id}`);
@@ -318,7 +319,7 @@ export default function Navmenu() {
   }, []);
 
   useEffect(() => {
-    if (scrollY > 250) {
+    if (scrollY > 260) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
@@ -350,7 +351,7 @@ export default function Navmenu() {
                 </div>
 
                 <div style={{ marginTop: -15 }}>
-                  <SearchBoxSm />
+                  <SearchBoxWithNav />
                 </div>
 
                 <div className={"contents"}>

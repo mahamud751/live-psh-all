@@ -25,7 +25,7 @@ import { BsArrowRight } from "react-icons/bs";
 import durationImg from "../../assets/img/clock-01.png";
 import { AuthContext } from "../../contexts/UserProvider";
 
-const SearchBoxSm = () => {
+const SearchBoxWithNav = () => {
   const { user, logoutUser } = useContext(AuthContext);
 
   const reduxDispatch = useDispatch();
@@ -227,12 +227,45 @@ const SearchBoxSm = () => {
 
   const handleOpen = (value) => setSize(value);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const [scrollY, setScrollY] = useState(0);
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    // Add scroll event listener when the component mounts
+    window.addEventListener("scroll", handleScroll);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (scrollY > 230) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  }, [scrollY]);
+
   return (
     <div className="searchBoxSm mt-5">
-      <div className="searchButton" onClick={() => handleOpen("xxl")}>
-        <h5 className="text-black text-[1rem]"> Find Your Accommodation</h5>
+      <div
+        className={` searchButtonTop items-center ms-5 ${
+          user ? "w-[110px]" : "w-[150px]"
+        }`}
+        onClick={() => handleOpen("xxl")}
+      >
+        <h5 className={"text-black text-[12px] mt-1"}> Search</h5>
 
-        <i className="fa fa-search mt-2" />
+        <div>
+          <i className="fa fa-search mt-3" />
+        </div>
       </div>
 
       <Dialog open={size === "xxl"} size={size || "xxl"} handler={handleOpen}>
@@ -631,4 +664,4 @@ const SearchBoxSm = () => {
   );
 };
 
-export default SearchBoxSm;
+export default SearchBoxWithNav;
