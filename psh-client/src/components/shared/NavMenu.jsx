@@ -129,7 +129,9 @@ export default function Navmenu() {
   const [size, setSize] = React.useState(null);
   const [showSignIn, setShowSignIn] = useState(true);
   const [showSignUp, setShowSignUp] = useState(false);
-  const handleOpen = (value) => setSize(value);
+  // const handleOpen = (value) => setSize(value);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen((cur) => !cur);
   const handleLogOut = () => {
     logoutUser();
   };
@@ -414,7 +416,7 @@ export default function Navmenu() {
                         <div className="md:block">
                           <button
                             className="sign_btn sm:text-[14px] md:text-[16px]"
-                            onClick={() => handleOpen("xs")}
+                            onClick={handleOpen}
                           >
                             Sign Up/Login
                           </button>
@@ -439,7 +441,7 @@ export default function Navmenu() {
                         <div className="md:block">
                           <button
                             className="sign_btn uppercase"
-                            onClick={() => handleOpen("xs")}
+                            onClick={handleOpen}
                           >
                             Sign Up/Login
                           </button>
@@ -533,7 +535,7 @@ export default function Navmenu() {
                         <div className="md:block">
                           <button
                             className="sign_btn sm:text-[14px] md:text-[16px]"
-                            onClick={() => handleOpen("xs")}
+                            onClick={handleOpen}
                           >
                             Sign Up/Login
                           </button>
@@ -558,7 +560,7 @@ export default function Navmenu() {
                         <div className="md:block">
                           <button
                             className="sign_btn uppercase"
-                            onClick={() => handleOpen("xs")}
+                            onClick={handleOpen}
                           >
                             Sign Up/Login
                           </button>
@@ -648,13 +650,13 @@ export default function Navmenu() {
                       <div className="md:block">
                         <button
                           className="sign_btn sm:text-[14px] md:text-[16px]"
-                          onClick={() => handleOpen("xs")}
+                          onClick={handleOpen}
                         >
                           Sign Up/Login
                         </button>
                       </div>
                       <>
-                        <LoginModal handleOpen={handleOpen} size={size} />
+                        <LoginModal handleOpen={handleOpen} open={open} />
                       </>
                     </>
                   )}
@@ -684,7 +686,7 @@ export default function Navmenu() {
                       <div className="md:block">
                         <button
                           className="sign_btn uppercase"
-                          onClick={() => handleOpen("xs")}
+                          onClick={handleOpen}
                         >
                           Sign Up/Login
                         </button>
