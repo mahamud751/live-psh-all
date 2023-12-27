@@ -20,7 +20,7 @@ import { settings } from "../../slider/Slider";
 import SearchBoxSm from "./SearchBoxSm";
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
-import { GridLoader } from "react-spinners";
+
 export default function Categories() {
   const { data, loading, error, reFetch } = UseFetch(`property`);
 
