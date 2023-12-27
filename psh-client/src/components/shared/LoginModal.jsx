@@ -51,7 +51,7 @@ const LoginModal = ({ open, handleOpen }) => {
         <CardBody className=" border mx-auto w-full max-w-[24rem] bg-white rounded-lg">
           <div
             className="flex justify-end text-3xl text-black"
-            onClick={() => handleOpen()}
+            onClick={handleOpen}
           >
             <i className="fa-solid fa-circle-xmark cursor-pointer"></i>
           </div>
@@ -154,7 +154,10 @@ const LoginModal = ({ open, handleOpen }) => {
                       </div>
                     </div>
                     <div className="mt-5">
-                      <button className="w-full p-3 border-0 rounded-lg uppercase bg-[#00BBB4] text-white font-bold w-full text-sm">
+                      <button
+                        className="w-full p-3 border-0 rounded-lg uppercase bg-[#00BBB4] text-white font-bold w-full text-sm"
+                        onClick={handleOpen}
+                      >
                         Log In
                       </button>
                     </div>
@@ -407,7 +410,10 @@ const LoginModal = ({ open, handleOpen }) => {
                   </div>
 
                   <div className="  sm:mt-1">
-                    <button className="w-full py-2  border-0 font-bold rounded uppercase bg-[#00BBB4] text-white text-sm">
+                    <button
+                      className="w-full py-2  border-0 font-bold rounded uppercase bg-[#00BBB4] text-white text-sm"
+                      onClick={handleOpen}
+                    >
                       Sign Up
                     </button>
                   </div>

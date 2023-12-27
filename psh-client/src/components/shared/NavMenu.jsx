@@ -422,7 +422,7 @@ export default function Navmenu() {
                           </button>
                         </div>
                         <>
-                          <LoginModal handleOpen={handleOpen} size={size} />
+                          {/* <LoginModal handleOpen={handleOpen} open={open} /> */}
                         </>
                       </>
                     )}
@@ -541,7 +541,7 @@ export default function Navmenu() {
                           </button>
                         </div>
                         <>
-                          <LoginModal handleOpen={handleOpen} size={size} />
+                          {/* <LoginModal handleOpen={handleOpen} open={open} /> */}
                         </>
                       </>
                     )}
@@ -656,7 +656,7 @@ export default function Navmenu() {
                         </button>
                       </div>
                       <>
-                        <LoginModal handleOpen={handleOpen} open={open} />
+                        {/* <LoginModal handleOpen={handleOpen} open={open} /> */}
                       </>
                     </>
                   )}
@@ -699,6 +699,7 @@ export default function Navmenu() {
           </Navbar>
         </div>
       </div>
+      <LoginModal handleOpen={handleOpen} open={open} />
     </>
   );
 }
