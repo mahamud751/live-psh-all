@@ -10,8 +10,8 @@ import LoginModal from "./LoginModal";
 const Footer = () => {
   const { data } = UseFetch(`dynamic`);
   const [size, setSize] = useState(null);
-
-  const handleOpen = (value) => setSize(value);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen((cur) => !cur);
   const handleSubscribe = (e) => {
     // Prevent the default form submission behavior
     e.preventDefault();
@@ -290,10 +290,7 @@ const Footer = () => {
                     </div>
                     <div>
                       <div className="mt-6">
-                        <button
-                          className="footer_btn"
-                          onClick={() => handleOpen("xs")}
-                        >
+                        <button className="footer_btn" onClick={handleOpen}>
                           <p className="mt-2 text-[14px]"> Login / Signup</p>
                         </button>
                       </div>
@@ -348,10 +345,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="mt-6">
-                    <button
-                      className="footer_btn"
-                      onClick={() => handleOpen("xs")}
-                    >
+                    <button className="footer_btn" onClick={handleOpen}>
                       <p className="mt-2 text-[14px]"> Login / Signup</p>
                     </button>
                   </div>
@@ -443,7 +437,7 @@ const Footer = () => {
         appId=" 570469815108233"
       />
       {/* Signup, login modal */}
-      <LoginModal handleOpen={handleOpen} size={size} />
+      <LoginModal handleOpen={handleOpen} open={open} />
     </div>
   );
 };

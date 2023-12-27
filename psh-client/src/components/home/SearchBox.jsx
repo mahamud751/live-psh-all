@@ -454,7 +454,7 @@ const SearchBox = () => {
                   }
 
                   return (
-                    <li key={index}>
+                    <li key={index} className="search_md_bed">
                       <span
                         onClick={() => handleBedSelection(index)}
                         className={`${
@@ -487,7 +487,7 @@ const SearchBox = () => {
                 />
               </li>
               {furnitures.map((furniture, index) => (
-                <li key={index}>
+                <li key={index} className="search_md_bed">
                   <span
                     onClick={() => handleFurnitureSelection(index)}
                     className={`${
@@ -512,7 +512,7 @@ const SearchBox = () => {
                 />
               </li>
               {gender.map((gender, index) => (
-                <li key={index}>
+                <li key={index} className="search_md_bed">
                   <span
                     onClick={() => handleGenderSelection(index)}
                     className={`${

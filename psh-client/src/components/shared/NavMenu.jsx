@@ -180,7 +180,7 @@ export default function Navmenu() {
   }, [pathname]);
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col lg:mb-0 lg:mt-0 lg:flex-row lg:items-center xl:gap-6 lg:gap-4 md:gap-0 sm:gap-0 text-sm">
+    <ul className="mb-4 mt-2 flex flex-col lg:mb-0 lg:mt-0 lg:flex-row lg:items-center xl:gap-6 lg:gap-4 md:gap-0 sm:gap-0 text-sm navbar_md">
       <Typography
         as="li"
         className="p-1 font-normal "
@@ -472,7 +472,7 @@ export default function Navmenu() {
                   <Link to={"/"}>
                     <img
                       src={"https://i.ibb.co/GpqY8tQ/PSH-web-logo-1.png"}
-                      alt=""
+                      alt="PSH Logo"
                     />
                   </Link>
                 </div>
@@ -587,7 +587,8 @@ export default function Navmenu() {
                 <Link to={"/"}>
                   <img
                     src={"https://i.ibb.co/GpqY8tQ/PSH-web-logo-1.png"}
-                    alt=""
+                    alt="PSH logo"
+                    className="navbar_m_logo"
                   />
                 </Link>
               </div>

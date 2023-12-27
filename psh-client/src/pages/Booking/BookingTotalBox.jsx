@@ -290,8 +290,8 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
     },
     customerRent: customerRent,
   };
-  const [size, setSize] = React.useState(null);
-  const handleOpen = (value) => setSize(value);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen((cur) => !cur);
   const handleAddItem = () => {
     // If show minimum payment and full Payment Option
 
@@ -330,7 +330,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
         dispatch(placeBooking(bookingData));
       }
       if (!user) {
-        handleOpen("xs");
+        handleOpen();
       } else {
         navigate("/personal-info");
       }
@@ -368,7 +368,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
 
   return (
     <>
-      <LoginModal handleOpen={handleOpen} size={size} />
+      <LoginModal handleOpen={handleOpen} open={open} />
       <div
         style={{
           // height: "650px",

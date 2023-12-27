@@ -285,8 +285,8 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
 
     customerRent: customerRent,
   };
-  const [size, setSize] = React.useState(null);
-  const handleOpen = (value) => setSize(value);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen((cur) => !cur);
   const handleAddItem = () => {
     // If show minimum payment and full Payment Option
 
@@ -327,7 +327,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
         dispatch(placeBooking(bookingData));
       }
       if (!user) {
-        handleOpen("xs");
+        handleOpen();
       } else {
         navigate("/personal-info");
       }
@@ -374,7 +374,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
       }}
       className="sticky md:top-20 w-full"
     >
-      <LoginModal handleOpen={handleOpen} size={size} />
+      <LoginModal handleOpen={handleOpen} open={open} />
 
       <div
         style={{
