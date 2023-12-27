@@ -90,9 +90,7 @@ export default function Categories() {
     return (
       <div className="flex justify-center mt-5">
         <div>
-          {/* <Spinner color="green" className="h-10 w-10" /> */}
-
-          <GridLoader size={8} color="#36d7b7" />
+          <Spinner color="green" className="h-10 w-10" />
         </div>
       </div>
     ); // Placeholder for initial loading state
