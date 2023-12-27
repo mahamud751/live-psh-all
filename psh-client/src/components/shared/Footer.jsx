@@ -94,7 +94,7 @@ const Footer = () => {
           </div>
           <footer className="pt-4 pb-8 xl:pt-8 custom-container sm:p-5 ">
             <div className="  dark:text-gray-300">
-              <ul className="grid lg:grid-cols-5 md:grid-cols-5 sm:grid-cols-2 pb-8 text-lg font-light gap-x-10">
+              <ul className="grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-2 pb-8 text-lg font-light gap-x-10">
                 {/* <li className="w-1/2 md:w-1/6 lg:w-1/6">
                   <div className="text-start">
                     <h2
