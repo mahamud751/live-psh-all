@@ -107,6 +107,7 @@ const Room = () => {
       });
     }
   };
+
   const activeReviews = data?.review?.filter(
     (item) => item.status === "active"
   );
@@ -406,7 +407,7 @@ const Room = () => {
             </div>
 
             <div className="grid grid-cols-12 lg:gap-x-5 gap-y-16 ">
-              <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 lg:col-span-8  pt-2">
+              <div className="flex flex-col items-start space-y-3 sm:col-span-12 lg:col-span-8  pt-2">
                 <div className="grid md:grid-cols-12 sm:grid-cols-6">
                   <div className="col-span-10">
                     <div>

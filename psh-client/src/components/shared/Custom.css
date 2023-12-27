@@ -191,11 +191,20 @@
 }
 
 /* For Full Website */
-@media (min-width: 576px) {
+@media (max-width: 576px) {
   .custom-container {
     max-width: 540px;
     margin-left: auto;
     margin-right: auto;
+  }
+  .duration-select {
+    padding: 4px 25px;
+  }
+  .duration_small {
+    display: block;
+  }
+  .duration_large_screen {
+    display: none;
   }
 }
 
@@ -206,6 +215,15 @@
     margin-left: auto;
     margin-right: auto;
   }
+  .duration-select {
+    padding: 4px 20px;
+  }
+  .duration_small {
+    display: block;
+  }
+  .duration_large_screen {
+    display: none;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -214,6 +232,15 @@
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
+  }
+  .duration-select {
+    padding: 4px 25px;
+  }
+  .duration_small {
+    display: block;
+  }
+  .duration_large_screen {
+    display: none;
   }
 }
 
@@ -224,6 +251,15 @@
     margin-left: auto;
     margin-right: auto;
   }
+  .duration-select {
+    padding: 4px 44px;
+  }
+  .duration_small {
+    display: none;
+  }
+  .duration_large_screen {
+    display: block;
+  }
 }
 
 /* Extra extra large devices (larger desktops, 1400px and up) */
@@ -232,6 +268,15 @@
     max-width: 1320px;
     margin-left: auto;
     margin-right: auto;
+  }
+  .duration-select {
+    padding: 4px 44px;
+  }
+  .duration_small {
+    display: none;
+  }
+  .duration_large_screen {
+    display: block;
   }
 }
 

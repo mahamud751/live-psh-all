@@ -425,7 +425,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
               onClick={() =>
                 dispatch(rightDate(addDays(new Date(startDate), 1)))
               }
-              className={` md:px-11 sm:px-3  cursor-pointer py-1 ${
+              className={` duration-select cursor-pointer py-1 ${
                 customerRent.remainingDays < getLastDayOfMonth() &&
                 customerRent.years === undefined
                   ? "dmyActive "
@@ -440,7 +440,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
               onClick={() =>
                 dispatch(rightDate(addMonths(new Date(startDate), 1)))
               }
-              className={` md:px-11 sm:px-3 cursor-pointer py-1 ${
+              className={` duration-select cursor-pointer py-1 ${
                 customerRent.remainingDays >= getLastDayOfMonth() &&
                 customerRent.years === undefined
                   ? "dmyActive "
@@ -457,7 +457,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
                   ? dispatch(rightDate(addYears(new Date(endDate), 1)))
                   : ""
               }
-              className={` md:px-11 sm:px-3 cursor-pointer py-1 ${
+              className={` duration-select cursor-pointer py-1 ${
                 customerRent.years >= 1 ? "dmyActive " : "text-black"
               }`}
             >
@@ -513,8 +513,8 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
             />
           </div>
         </div>
-        <div className="mt-[29px] w-full px-1 py-[0.5px] sm:hidden md:block">
-          <p className=" duraion-count font-normal   ps-1 text-sm ">
+        <div className="mt-[29px] w-full px-1 py-[0.5px] duration_large_screen">
+          <p className=" duraion-count font-normal ps-1 text-sm ">
             {customerRent?.daysDifference >= 0
               ? `${customerRent?.daysDifference} days`
               : "" ||
@@ -531,28 +531,30 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
           </p>
         </div>
       </div>
-      <div className="sm:flex justify-center mt-2 md:ms-16 md:hidden sm:block sm:ms-16  text-sm">
-        <p className="font-bold ">Duration = </p>
-        <div>
-          <input
-            type="text"
-            value={`${
-              customerRent?.daysDifference >= 0
-                ? `${customerRent?.daysDifference} days`
-                : "" ||
-                  (customerRent?.months &&
-                    customerRent?.days >= 0 &&
-                    !customerRent?.years)
-                ? `${customerRent?.months} months, ${customerRent?.days} days`
-                : "" ||
-                  (customerRent?.years &&
-                    customerRent?.months >= 0 &&
-                    customerRent?.days >= 0)
-                ? `${customerRent?.years} year`
-                : ""
-            }`}
-            disabled
-          />
+      <div className="duration_small">
+        <div className="sm:flex justify-center mt-2 md:ms-16 sm:ms-16 text-sm">
+          <p className="font-bold ">Duration = </p>
+          <div>
+            <input
+              type="text"
+              value={`${
+                customerRent?.daysDifference >= 0
+                  ? `${customerRent?.daysDifference} days`
+                  : "" ||
+                    (customerRent?.months &&
+                      customerRent?.days >= 0 &&
+                      !customerRent?.years)
+                  ? `${customerRent?.months} months, ${customerRent?.days} days`
+                  : "" ||
+                    (customerRent?.years &&
+                      customerRent?.months >= 0 &&
+                      customerRent?.days >= 0)
+                  ? `${customerRent?.years} year`
+                  : ""
+              }`}
+              disabled
+            />
+          </div>
         </div>
       </div>
 

@@ -278,7 +278,7 @@ const PersonalInfo = () => {
   }, [pathname]);
 
   return (
-    <form onSubmit={bookingOrder} className="custom-container md:mx-0 sm:mx-3">
+    <form onSubmit={bookingOrder} className="custom-container md:mx-0 sm:mx-3 ">
       <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mb-20">
         <div className="">
           <h2 className="text-black flex justify-left font-bold mt-2">
@@ -289,8 +289,9 @@ const PersonalInfo = () => {
               User Information
             </p>
 
-            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-36 gap-y-3 mt-5">
+            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-36 gap-y-3 mt-5 personal-info-page">
               <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
+                <label htmlFor="">Full Name</label>
                 <input
                   placeholder="Your Full Name *"
                   type="text"
@@ -305,6 +306,7 @@ const PersonalInfo = () => {
                 />
               </div>
               <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
+                <label htmlFor="">Father Name</label>
                 <input
                   placeholder="Your Father Name *"
                   type="text"
@@ -318,6 +320,7 @@ const PersonalInfo = () => {
                 />
               </div>
               <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
+                <label htmlFor="">Mother Name</label>
                 <input
                   placeholder="Your Mother Name *"
                   type="text"
@@ -332,6 +335,7 @@ const PersonalInfo = () => {
               </div>
 
               <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
+                <label htmlFor="">Email</label>
                 <input
                   type="email"
                   placeholder="Email *"
@@ -347,6 +351,7 @@ const PersonalInfo = () => {
               </div>
 
               <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
+                <label htmlFor="">Gender</label>
                 <select
                   className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   style={{
@@ -361,6 +366,7 @@ const PersonalInfo = () => {
                 </select>
               </div>
               <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
+                <label htmlFor="">Phone Number</label>
                 <input
                   type="text"
                   placeholder="Phone Number *"
@@ -376,6 +382,7 @@ const PersonalInfo = () => {
               </div>
 
               <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
+                <label htmlFor="">Birth Day</label>
                 <input
                   type="date"
                   placeholder="Date of Birth *"
@@ -388,6 +395,7 @@ const PersonalInfo = () => {
                 />
               </div>
               <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
+                <label htmlFor="">NID</label>
                 <input
                   type="text"
                   placeholder="NID *"
@@ -402,6 +410,7 @@ const PersonalInfo = () => {
               </div>
 
               <div className="lg:col-span-2 md:col-span-2 sm:col-span-2">
+                <label htmlFor="">Passport</label>
                 <input
                   type="text"
                   placeholder="if you have Passport "
@@ -415,6 +424,7 @@ const PersonalInfo = () => {
               </div>
 
               <div className="lg:col-span-2 md:col-span-2 sm:col-span-2">
+                <label htmlFor="">Address</label>
                 <textarea
                   placeholder="Details Address *"
                   className="text-black personal-info rounded lg:w-[718px] md:w-[300px] sm:w-full"
@@ -782,7 +792,7 @@ const PersonalInfo = () => {
                   <ul className="flex justify-evenly ">
                     <li className="list-none border py-1 h-7">
                       <span
-                        className={` md:px-11 sm:px-3 py-1 ${
+                        className={` duration-select py-1 ${
                           bookingItem?.customerRent?.remainingDays <
                             getLastDayOfMonth() &&
                           bookingItem?.customerRent?.years === undefined
@@ -795,7 +805,7 @@ const PersonalInfo = () => {
                     </li>
                     <li className="list-none border py-1 h-7">
                       <span
-                        className={` md:px-11 sm:px-3 py-1 ${
+                        className={` duration-select py-1 ${
                           bookingItem?.customerRent?.remainingDays >=
                             getLastDayOfMonth() &&
                           bookingItem?.customerRent?.years === undefined
@@ -808,7 +818,7 @@ const PersonalInfo = () => {
                     </li>
                     <li className="list-none border py-1 h-7">
                       <span
-                        className={` md:px-11 sm:px-3 py-1 ${
+                        className={` duration-select py-1 ${
                           bookingItem?.customerRent?.years >= 1
                             ? "dmyActive "
                             : "text-black"
@@ -860,9 +870,9 @@ const PersonalInfo = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center mt-2 text-sm">
-                <p className="font-bold mb-1 md:ms-28 sm:sm-0">Duration = </p>
+              <div className="flex justify-center mt-2 text-sm ms-28">
                 <div>
+                  <span className="font-bold mb-1">Duration = </span>
                   <input
                     className="px-2 "
                     type="text"
