@@ -409,12 +409,13 @@ const PersonalInfo = () => {
                 />
               </div>
 
-              <div className="lg:col-span-2 md:col-span-2 sm:col-span-2">
+              <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
                 <label htmlFor="">Passport</label>
                 <input
                   type="text"
                   placeholder="if you have Passport "
-                  className="text-black personal-info rounded lg:w-[718px] md:w-[300px] sm:w-full"
+                  className="text-black personal-info rounded 
+                  lg:w-[350px] md:w-[300px] sm:w-full"
                   name="passport"
                   style={{
                     height: "45px",
@@ -423,11 +424,12 @@ const PersonalInfo = () => {
                 />
               </div>
 
-              <div className="lg:col-span-2 md:col-span-2 sm:col-span-2">
+              <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
                 <label htmlFor="">Address</label>
                 <textarea
                   placeholder="Details Address *"
-                  className="text-black personal-info rounded lg:w-[718px] md:w-[300px] sm:w-full"
+                  className="text-black personal-info rounded 
+                  lg:w-[350px] md:w-[300px] sm:w-full"
                   name="address"
                   defaultValue={user ? user.address : ""}
                   cols="20"
@@ -443,9 +445,11 @@ const PersonalInfo = () => {
 
           <div>
             {/* Uplaod User Id card */}
+
             <p className="text-black flex justify-left mt-5 font-bold">
               User Verifiacation
             </p>
+
             <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-36 gap-y-3 mt-5">
               <div>
                 <select className="personal-info lg:w-[350px] md:w-[300px] sm:w-full h-[45px] rounded">
@@ -462,9 +466,10 @@ const PersonalInfo = () => {
                     setImage(e.target.files);
                   }}
                   type="file"
-                  className="mt-2 personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
+                  className=" personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full py-2 px-2"
                   required
                   name="image"
+                  style={{ height: "45px" }}
                   id=""
                 />
               </div>
@@ -475,8 +480,9 @@ const PersonalInfo = () => {
               Gardian details
             </p>
 
-            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-36 gap-y-3 mt-5">
+            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-36 gap-y-3 mt-5 personal-info-page">
               <div>
+                <label htmlFor="">Contact Name</label>
                 <input
                   placeholder="Gardian Contact Name *"
                   type="text"
@@ -489,6 +495,7 @@ const PersonalInfo = () => {
                 />
               </div>
               <div>
+                <label htmlFor="">Relationship</label>
                 <input
                   placeholder="Relationship *"
                   className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
@@ -501,6 +508,7 @@ const PersonalInfo = () => {
                 />
               </div>
               <div>
+                <label htmlFor="">Contact Number</label>
                 <input
                   type="text"
                   placeholder="Gardian Contact Number *"
@@ -536,10 +544,11 @@ const PersonalInfo = () => {
                   setGardianImg(e.target.files);
                 }}
                 type="file"
-                className="mt-2 personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
+                className=" personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full px-2 py-2"
                 required
                 name="gardianImg"
                 id=""
+                style={{ height: "45px" }}
               />
             </div>
           </div>
@@ -553,7 +562,7 @@ const PersonalInfo = () => {
                 </p>
                 <select
                   name="employeeStatus"
-                  className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
+                  className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full mt-2"
                   style={{
                     height: "45px",
                     padding: "0px 10px",
@@ -571,7 +580,7 @@ const PersonalInfo = () => {
                 </p>
                 <select
                   name="emplyeeIncome"
-                  className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
+                  className="mt-2 text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   style={{
                     height: "45px",
                     padding: "0px 10px",
@@ -608,12 +617,13 @@ const PersonalInfo = () => {
             </div>
             <div className="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-36 gap-y-3 mt-5">
               <div>
+                <p className="mb-2">Special Request</p>
                 <textarea
                   placeholder="Special Request Optional"
-                  className="personal-info rounded pl-3 lg:w-[718px] md:w-[300px] sm:w-full"
+                  className="personal-info rounded pl-3 lg:w-[750px] md:w-[300px] sm:w-full"
                   name="request"
                   cols="30"
-                  rows="5"
+                  rows="3"
                 ></textarea>
               </div>
             </div>

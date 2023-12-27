@@ -303,7 +303,7 @@ const Room = () => {
                   <a
                     href="#keyDetails"
                     onClick={anchorClickHandler}
-                    className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-10 sm:px-2 py-1  border ${
+                    className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-10 custom_key sm:px-2 py-1  border ${
                       // typeof keyValue !== "string" &&
                       typeof keyValue === "number" && keyValue === 0
                         ? "bg-[#00bbb4] text-white hover:text-white"
@@ -321,7 +321,7 @@ const Room = () => {
                         <a
                           href={`#${pd?.name}`}
                           onClick={anchorClickHandler}
-                          className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem] md:px-10 sm:px-2 py-1 border ${
+                          className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem] md:px-10 custom_key sm:px-2 py-1 border ${
                             keyValue === index + 1
                               ? "bg-[#00bbb4] text-white hover:text-white"
                               : ""
@@ -369,7 +369,7 @@ const Room = () => {
                     <a
                       href="#seatTypes"
                       onClick={anchorClickHandler}
-                      className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-10 sm:px-2 py-1  border ${
+                      className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-10 custom_key sm:px-2 py-1  border ${
                         // typeof keyValue !== "string" &&
                         typeof keyValue === "number" && keyValue === 4
                           ? "bg-[#00bbb4] text-white hover:text-white"
@@ -391,7 +391,7 @@ const Room = () => {
                   <a
                     href="#seatTypes"
                     onClick={anchorClickHandler}
-                    className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-10 sm:px-2 py-1  border ${
+                    className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-10 custom_key sm:px-2 py-1  border ${
                       // typeof keyValue !== "string" &&
                       typeof keyValue === "number" && keyValue === 4
                         ? "bg-[#00bbb4] text-white hover:text-white"
@@ -414,12 +414,18 @@ const Room = () => {
                       <h1 className="text-xl font-bold text-gray-900 px-2">
                         {data?.name}
                       </h1>
+                      <div className="flex text-[#9A9A9A] items-center custom_room_name2">
+                        <div>
+                          <img src="/images/icon/marker-02.png" alt="" />
+                        </div>
+                        <p className="ms-1"> {data.branch?.name} -</p>
+                      </div>
                       {/* 
                       <p className="text-xl font-bold mt-1">
                         {data.branch?.name}
                       </p> */}
                       <div className="md:flex mt-2">
-                        <div className="flex text-[#9A9A9A] items-center">
+                        <div className="flex text-[#9A9A9A] items-center custom_room_name">
                           <div>
                             <img src="/images/icon/marker-02.png" alt="" />
                           </div>

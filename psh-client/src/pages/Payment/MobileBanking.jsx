@@ -67,7 +67,7 @@ const MobileBanking = () => {
             <p className="text-left">bKash Personal Number : 01622738449</p>
             <div className="flex items-center mt-5">
               <div>
-                <label>Bkash Number</label>
+                <label>Bkash Number :</label>
               </div>
               <div>
                 <input
@@ -81,7 +81,7 @@ const MobileBanking = () => {
             </div>
             <div className="flex items-center">
               <div>
-                <label>bKash Tranx ID </label>
+                <label>bKash Tranx ID :</label>
               </div>
               <div>
                 <input

@@ -9,13 +9,13 @@ import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import LoginModal from "./LoginModal";
 const Footer = () => {
   const { data } = UseFetch(`dynamic`);
-  const [open, setOpen] = useState(false);
+  const [size, setSize] = useState(null);
+  const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
   const handleSubscribe = (e) => {
     // Prevent the default form submission behavior
     e.preventDefault();
 
-    // Scroll to the top of the page
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
