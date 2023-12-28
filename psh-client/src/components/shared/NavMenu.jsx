@@ -183,7 +183,7 @@ export default function Navmenu() {
   }, [pathname]);
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col lg:mb-0 lg:mt-0 lg:flex-row lg:items-center xl:gap-6 lg:gap-4 md:gap-0 sm:gap-0 text-sm navbar_md">
+    <ul className="mb-4 mt-2 flex flex-col lg:mb-0 lg:mt-0 lg:flex-row lg:items-center xl:gap-6 lg:gap-4 md:gap-0 sm:gap-0 navbar_md">
       <Typography
         as="li"
         className="p-1 font-normal "

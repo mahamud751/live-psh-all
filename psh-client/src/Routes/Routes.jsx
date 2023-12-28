@@ -12,7 +12,7 @@ import Checkout from "../pages/Checkout/Checkout";
 import Category from "../pages/Single/Category";
 import List from "../pages/List/List";
 import PrivateRoute from "./PrivateRoute";
-import Branch from "../pages/Details/BranchDetails";
+import BranchDetails from "../pages/Details/BranchDetails";
 import PersonalInfo from "../pages/Booking/PersonalInfo";
 import BookNow from "../pages/Booking/BookNow";
 import Invoice from "../pages/Invoice/Invoice";
@@ -75,7 +75,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/branch/:id",
-        element: <Branch></Branch>,
+        element: <BranchDetails></BranchDetails>,
       },
       {
         path: "/category",

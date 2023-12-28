@@ -9,16 +9,15 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import UseFetch from "../../hooks/useFetch";
 
-import BranchDetails from "./BrachList";
-import BranchList from "./BrachList";
-const Branch = () => {
+// import BranchDetails from "./BrachList";
+
+const BranchDetails = () => {
   const { id } = useParams();
   const { data } = UseFetch(`branch/${id}`);
-
+  console.log(data);
   return (
     <div>
-      <div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-gray-900">
+      {/* <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-gray-900">
           <h1 className="my-5 text-center">
             Welcome to <span style={{ color: "#00bbb4" }}>{data.name}</span>
           </h1>
@@ -35,10 +34,9 @@ const Branch = () => {
               </div>
             )}
           </div>
-        </div>
-      </div>
+        </div> */}
     </div>
   );
 };
 
-export default Branch;
+export default BranchDetails;
