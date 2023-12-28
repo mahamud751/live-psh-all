@@ -151,9 +151,12 @@ const Contact = () => {
                 />
               </div>
               <div className="flex justify-center ">
-                <button className=" mt-6 bg-[#00bbb4] text-white md:px-28 sm:px-16 py-3 rounded-lg">
-                  Contact Us
-                </button>
+                <input
+                  type="submit"
+                  value="Contact Us"
+                  className=" mt-6 bg-[#00bbb4] text-white md:px-28 sm:px-16 py-3 rounded-lg"
+                  style={{ cursor: "pointer" }}
+                />
               </div>
             </form>
           </div>
