@@ -278,7 +278,7 @@ const PersonalInfo = () => {
   }, [pathname]);
 
   return (
-    <form onSubmit={bookingOrder} className="custom-container md:mx-0 sm:mx-3 ">
+    <form onSubmit={bookingOrder} className="custom-container user_info_page">
       <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mb-20">
         <div className="">
           <h2 className="text-black flex justify-left font-bold mt-2">
@@ -451,7 +451,7 @@ const PersonalInfo = () => {
             </p>
 
             <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-36 gap-y-3 mt-5">
-              <div>
+              <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
                 <select className="personal-info lg:w-[350px] md:w-[300px] sm:w-full h-[45px] rounded">
                   <option>National Id Card</option>
                   <option>Passport</option>
@@ -459,7 +459,7 @@ const PersonalInfo = () => {
                   <option>Birth Certificate</option>
                 </select>
               </div>
-              <div>
+              <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
                 <input
                   multiple
                   onChange={(e) => {
@@ -481,7 +481,7 @@ const PersonalInfo = () => {
             </p>
 
             <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-36 gap-y-3 mt-5 personal-info-page">
-              <div>
+              <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
                 <label htmlFor="">Contact Name</label>
                 <input
                   placeholder="Gardian Contact Name *"
@@ -494,7 +494,7 @@ const PersonalInfo = () => {
                   }}
                 />
               </div>
-              <div>
+              <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
                 <label htmlFor="">Relationship</label>
                 <input
                   placeholder="Relationship *"
@@ -529,7 +529,7 @@ const PersonalInfo = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-36 gap-y-3 mt-5">
-            <div>
+            <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
               <select className="personal-info lg:w-[350px] md:w-[300px] sm:w-full h-[45px] rounded">
                 <option>National Id Card</option>
                 <option>Passport</option>
@@ -537,7 +537,7 @@ const PersonalInfo = () => {
                 <option>Birth Certificate</option>
               </select>
             </div>
-            <div>
+            <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
               <input
                 multiple
                 onChange={(e) => {
@@ -556,7 +556,7 @@ const PersonalInfo = () => {
           {/* Employment details*/}
           <div>
             <div className="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-x-36  mt-5">
-              <div>
+              <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
                 <p className="text-black flex justify-left mt-5 font-bold">
                   Employment details
                 </p>
@@ -574,7 +574,7 @@ const PersonalInfo = () => {
                   <option>UnEmpolyee</option>
                 </select>
               </div>
-              <div>
+              <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
                 <p className="text-black flex justify-left mt-5 font-bold">
                   Income Range
                 </p>

@@ -212,7 +212,7 @@ export const getUserTransactions = async (req, res, next) => {
   try {
     const email = req.params.email;
 
-    const transaction = await Transaction.find({ email: email }).sort({
+    const transaction = await Transaction.find({ userEmail: email }).sort({
       createdAt: -1,
     });
 

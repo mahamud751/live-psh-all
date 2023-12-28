@@ -67,11 +67,11 @@ const MobileBanking = () => {
             <p className="text-left">bKash Personal Number : 01622738449</p>
             <div className="flex items-center mt-5">
               <div>
-                <label>Bkash Number :</label>
+                <p className="text-[1rem]">Bkash Number :</p>
               </div>
               <div>
                 <input
-                  className="ms-3 bkash-info-input"
+                  className="ms-3 mt-4"
                   name="bkashNumber"
                   required
                   type="text"
@@ -81,11 +81,11 @@ const MobileBanking = () => {
             </div>
             <div className="flex items-center">
               <div>
-                <label>bKash Tranx ID :</label>
+                <p className="text-[1rem]">bKash Tranx ID :</p>
               </div>
               <div>
                 <input
-                  className="ms-3 mt-1 bkash-info-input"
+                  className="ms-3 mt-4 "
                   name="bkashTrx"
                   required
                   type="text"
@@ -141,11 +141,11 @@ const MobileBanking = () => {
             <p className="text-left">Nagad Personal Number : 01622738449</p>
             <div className="flex items-center mt-5">
               <div>
-                <label>Nagad Number</label>
+                <p>Nagad Number :</p>
               </div>
               <div>
                 <input
-                  className="ms-3 bkash-info-input"
+                  className="ms-3 border ps-2"
                   name="nagadNumber"
                   required
                   type="text"
@@ -155,11 +155,11 @@ const MobileBanking = () => {
             </div>
             <div className="flex items-center">
               <div>
-                <label>Nagad Tranx ID </label>
+                <p>Nagad Tranx ID :</p>
               </div>
               <div>
                 <input
-                  className="ms-3 mt-1 bkash-info-input"
+                  className="ms-3 mt-1 border ps-2"
                   name="nagadTrx"
                   required
                   type="text"
@@ -218,11 +218,11 @@ const MobileBanking = () => {
             </p>
             <div className="flex items-center mt-5">
               <div>
-                <label>Dutch Bangla Number</label>
+                <p>Dutch Bangla No :</p>
               </div>
               <div>
                 <input
-                  className="ms-3 bkash-info-input"
+                  className="ms-3 border ps-2"
                   name="dutchNumber"
                   required
                   type="text"
@@ -232,11 +232,11 @@ const MobileBanking = () => {
             </div>
             <div className="flex items-center">
               <div>
-                <label>Ducth-Bangla Tranx ID </label>
+                <p>Trx ID : </p>
               </div>
-              <div>
+              <div className="ms-20">
                 <input
-                  className="ms-3 mt-1 bkash-info-input"
+                  className="ms-3 mt-1 border ps-2"
                   name="dutchTrx"
                   required
                   type="text"

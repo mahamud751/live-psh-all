@@ -38,6 +38,7 @@ import userEndOrder from "../../hooks/userEndOrder";
 import { useDispatch, useSelector } from "react-redux";
 import { placeProfileMenu } from "../../redux/reducers/smProfileMenuSlice";
 import { useNavigate } from "react-router-dom";
+import { HiOutlineUserCircle } from "react-icons/hi";
 // import MenuList from "../../components/profile/MenuList";
 
 export default function Profile() {
@@ -155,7 +156,7 @@ export default function Profile() {
                 >
                   <div className="flex gap-x-2 p-3 border-b">
                     <div>
-                      <Avatar
+                      {/* <Avatar
                         src="https://i.ibb.co/jwYHgqz/Rectangle-97.png"
                         alt="avatar"
                         style={{
@@ -163,6 +164,9 @@ export default function Profile() {
                           height: "50px",
                           borderRadius: "50px",
                         }}
+                      /> */}
+                      <HiOutlineUserCircle
+                        style={{ width: "30px", height: "30px" }}
                       />
                     </div>
 
@@ -190,38 +194,36 @@ export default function Profile() {
                       </div>
                     </div>
                   </div>
-                  <div className="text-center my-5">
-                    {endOrder?.paymentStatus ? (
-                      <span
-                        className="mt-3 mb-3 text-sm py-4 font-medium text-center"
-                        style={{
-                          backgroundColor: "rgba(53, 176, 167, 0.20)",
-                        }}
-                      >
-                        Payment Status:
+                  {endOrder?.paymentStatus ? (
+                    <div className="text-center my-5 border-b pb-2">
+                      {endOrder?.paymentStatus ? (
                         <span
-                          className=" text-sm text-white px-3 rounded py-1 ml-2"
+                          className="mt-3 mb-3 text-sm py-2 font-medium text-center"
                           style={{
-                            backgroundColor:
-                              endOrder?.paymentStatus === "Unpaid"
-                                ? "#e34234"
-                                : "#35B0A7",
+                            backgroundColor: "rgba(53, 176, 167, 0.20)",
                           }}
                         >
-                          {endOrder?.paymentStatus}
+                          Payment Status:
+                          <span
+                            className=" text-sm text-white px-3 rounded py-1 ml-2"
+                            style={{
+                              backgroundColor:
+                                endOrder?.paymentStatus === "Unpaid"
+                                  ? "#e34234"
+                                  : "#35B0A7",
+                            }}
+                          >
+                            {endOrder?.paymentStatus}
+                          </span>
                         </span>
-                      </span>
-                    ) : (
-                      <span
-                        className="mt-3  text-center  mb-3 text-sm py-1 font-medium"
-                        style={{
-                          backgroundColor: "rgba(53, 176, 167, 0.20)",
-                        }}
-                      >
-                        {" "}
-                      </span>
-                    )}
-                  </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+
                   {data2.map((tab, idx) => (
                     <span onClick={tab.label === "Log-out" ? handleLogOut : ""}>
                       <Tab
@@ -230,7 +232,7 @@ export default function Profile() {
                         value={tab.value}
                         className={`${active === idx ? "text-[#35b0a7]" : ""} ${
                           isProfileMenu ? "" : "profileTab"
-                        }  flex justify-start py-1 pl-14`}
+                        }  flex justify-start py-1 lg:pl-14 md:pl-0 sm:pl-14`}
                       >
                         <div
                           className=" gap-2 p-2 flex items-center "

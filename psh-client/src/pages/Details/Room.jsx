@@ -297,13 +297,13 @@ const Room = () => {
           </div>
 
           <div className="mt-2 text-start ">
-            <div className="sticky md:top-[72px] sm:top-[75px] bg-white py-1">
+            <div className="sticky lg:top-[70px] sm:top-[75px] bg-white py-1">
               <div className="flex text-[24px]  font-medium ">
                 <div onClick={() => setKeyValue(0)}>
                   <a
                     href="#keyDetails"
                     onClick={anchorClickHandler}
-                    className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-10 custom_key sm:px-2 py-1  border ${
+                    className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-8 custom_key sm:px-2 py-1  border ${
                       // typeof keyValue !== "string" &&
                       typeof keyValue === "number" && keyValue === 0
                         ? "bg-[#00bbb4] text-white hover:text-white"
@@ -321,7 +321,7 @@ const Room = () => {
                         <a
                           href={`#${pd?.name}`}
                           onClick={anchorClickHandler}
-                          className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem] md:px-10 custom_key sm:px-2 py-1 border ${
+                          className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem] md:px-8 custom_key sm:px-2 py-1 border ${
                             keyValue === index + 1
                               ? "bg-[#00bbb4] text-white hover:text-white"
                               : ""
@@ -369,7 +369,7 @@ const Room = () => {
                     <a
                       href="#seatTypes"
                       onClick={anchorClickHandler}
-                      className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-10 custom_key sm:px-2 py-1  border ${
+                      className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-8 custom_key sm:px-2 py-1  border ${
                         // typeof keyValue !== "string" &&
                         typeof keyValue === "number" && keyValue === 4
                           ? "bg-[#00bbb4] text-white hover:text-white"
@@ -391,7 +391,7 @@ const Room = () => {
                   <a
                     href="#seatTypes"
                     onClick={anchorClickHandler}
-                    className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-10 custom_key sm:px-2 py-1  border ${
+                    className={`hover:text-black hover:border-b-2 border-[#27b3b1] sm:text-[12px] md:text-[1rem]  md:px-8 custom_key sm:px-2 py-1  border ${
                       // typeof keyValue !== "string" &&
                       typeof keyValue === "number" && keyValue === 4
                         ? "bg-[#00bbb4] text-white hover:text-white"
@@ -546,28 +546,28 @@ const Room = () => {
                     </h2>
                   </div>
                   <div className="grid grid-cols-12 gap-x-4 md:gap-y-16 sm:gap-y-4 py-5 text-sm">
-                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 md:col-span-3">
                       <p className="font-bold">Type</p>
                       <p>{data.category?.name}</p>
                     </div>
-                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 md:col-span-3">
                       <p className="font-bold">Bed Type</p>
                       <p>{data?.bedType} Bed</p>
                     </div>
-                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 md:col-span-3">
                       <p className="font-bold">Floor</p>
                       <p>{data.floor}th Floor</p>
                     </div>
-                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 md:col-span-3">
                       <p className="font-bold">Room Size</p>
                       <p>{data.area} SQ Feet</p>
                     </div>
-                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                    <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 md:col-span-3">
                       <p className="font-bold">Furnishing</p>
                       {data.furnitured === "yes" ? <p>Yes</p> : <p>No</p>}
                     </div>
                     {keyDetails ? (
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 md:col-span-3">
                         <p className="font-bold">Balcony</p>
                         <p>{data.balcony}</p>
                       </div>
@@ -587,7 +587,7 @@ const Room = () => {
                   </div>
                   {keyDetails ? (
                     <div className="grid grid-cols-12 gap-x-4 md:gap-y-16 sm:gap-y-4 md:py-5">
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 md:col-span-3 ">
                         <p className="font-bold"> Wi-Fi</p>
                         {data.WiFi === "yes" ? <p>Yes</p> : <p>No</p>}
                       </div>
@@ -595,7 +595,7 @@ const Room = () => {
                         <p className="font-bold"> CCTV</p>
                         {data.CCTV === "yes" ? <p>Yes</p> : <p>No</p>}
                       </div>
-                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2">
+                      <div className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 md:col-span-3">
                         <p className="font-bold">Meal</p>
                         <p>
                           {/* {data.meal
@@ -642,7 +642,7 @@ const Room = () => {
                           ? findAmenities?.facility?.slice(0, 5).map((item) => {
                               return (
                                 <React.Fragment key={item._id}>
-                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
+                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2 md:col-span-3">
                                     <div>
                                       <div className="flex md:justify-center sm:justify-start">
                                         <img
@@ -667,7 +667,7 @@ const Room = () => {
                           ? findAmenities?.facility?.map((item) => {
                               return (
                                 <React.Fragment key={item._id}>
-                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
+                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2 md:col-span-3">
                                     <div>
                                       <div className="flex md:justify-center sm:justify-start">
                                         <img
@@ -694,7 +694,7 @@ const Room = () => {
                               .map((item) => {
                                 return (
                                   <React.Fragment key={item._id}>
-                                    <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
+                                    <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2 md:col-span-3">
                                       <div>
                                         <div className="flex md:justify-center sm:justify-start">
                                           <img
@@ -719,7 +719,7 @@ const Room = () => {
                           ? findFurnishing?.facility?.map((item) => {
                               return (
                                 <React.Fragment key={item._id}>
-                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
+                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2 md:col-span-3">
                                     <div>
                                       <div className="flex md:justify-center sm:justify-start">
                                         <img
@@ -744,7 +744,7 @@ const Room = () => {
                           ? findServices?.facility?.slice(0, 5).map((item) => {
                               return (
                                 <React.Fragment key={item._id}>
-                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
+                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2 md:col-span-3">
                                     <div>
                                       <div className="flex md:justify-center sm:justify-start">
                                         <img
@@ -769,7 +769,7 @@ const Room = () => {
                           ? findServices?.facility?.map((item) => {
                               return (
                                 <React.Fragment key={item._id}>
-                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2">
+                                  <div className="flex flex-col items-start col-span-12 sm:col-span-6 lg:col-span-2 md:col-span-3">
                                     <div>
                                       <div className="flex md:justify-center sm:justify-start">
                                         <img
@@ -795,7 +795,7 @@ const Room = () => {
                         pd?.name === "Amenities" &&
                         !amenities ? (
                           <div
-                            className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 mt-5 cursor-pointer"
+                            className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 md:col-span-3 mt-5 cursor-pointer"
                             onClick={() => setAmenities(true)}
                           >
                             <p className="bg-[#F4F4F4] px-5 py-3 font-bold">
@@ -811,7 +811,7 @@ const Room = () => {
                         pd?.name === "Furnishing" &&
                         !furnishing ? (
                           <div
-                            className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 mt-5 cursor-pointer"
+                            className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 md:col-span-3 mt-5 cursor-pointer"
                             onClick={() => setFurnishing(true)}
                           >
                             <p className="bg-[#F4F4F4] px-5 py-3 font-bold">
@@ -826,7 +826,7 @@ const Room = () => {
                         pd?.name === "Services" &&
                         !services ? (
                           <div
-                            className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 mt-5 cursor-pointer"
+                            className="flex flex-col items-start col-span-12 md:space-y-3 sm:space-y-1 sm:col-span-6 lg:col-span-2 mt-5 md:col-span-3 cursor-pointer"
                             onClick={() => setServices(true)}
                           >
                             <p className="bg-[#F4F4F4] px-5 py-3 font-bold">
@@ -1174,7 +1174,7 @@ const Room = () => {
               </div>
               {/* Total Box */}
 
-              <div className="flex flex-col items-start space-y-3 sm:col-span-12 md:col-span-4 lg:col-span-4 ">
+              <div className="flex flex-col items-start space-y-3 sm:col-span-12 md:col-span-6 lg:col-span-4 ">
                 {data.seats && data.seats.length > 0 ? (
                   <BookingSeatTotal
                     data={data}

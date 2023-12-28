@@ -9,6 +9,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import UseFetch from "../../hooks/useFetch";
 
+import BranchDetails from "./BrachList";
 import BranchList from "./BrachList";
 const Branch = () => {
   const { id } = useParams();
@@ -23,7 +24,7 @@ const Branch = () => {
           </h1>
           <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-12">
             {data.property ? (
-              data.property.map((item, i) => <BranchList item={item} />)
+              data?.property?.map((item, i) => <BranchList item={item} />)
             ) : (
               <div className="d-flex justify-content-center text-bg-danger not_found">
                 <img
