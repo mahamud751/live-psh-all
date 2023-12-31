@@ -32,7 +32,8 @@ export function UserBooking({
     setSelectedCategory(category);
   };
   const MySwal = withReactContent(Swal);
-  const propertyId = endOrder?.bookingInfo?.data?._id;
+  const propertyId = endOrder?.bookingInfo?.roomType==='Shared Room' ? endOrder?.bookingInfo?.roomId : endOrder?.bookingInfo?.data?._id;
+  console.log('propertyId', propertyId);
   const formRef = useRef(null);
   const handleSubmit = async (event) => {
     event.preventDefault();
