@@ -76,13 +76,9 @@ const Footer = () => {
 
                 <li className="col-span-3 sm:p-2 md:p-0 md:ms-20 sm:ms-0">
                   <form className="flex">
-                    <input
-                      className="rounded md:px-4 sm:py-3 border-t md:w-full outline-0 sm:w-full h-10 text-sm px-1"
-                      placeholder="Looking for best place to live "
-                      readOnly
-                    />
+                    <p className="looking_text">Looking for best place to live</p>
                     <button
-                      className="ml-1 rounded bg-[#00bbb4] font-bold px-4 uppercase text-white text-sm"
+                      className="ml-1 rounded bg-[#00bbb4] font-bold px-5 py-3 uppercase text-white text-sm"
                       onClick={handleSubscribe}
                     >
                       Search

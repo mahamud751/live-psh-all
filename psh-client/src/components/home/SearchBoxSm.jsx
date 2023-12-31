@@ -380,7 +380,7 @@ const SearchBoxSm = () => {
                   )}
                 </div>
                 {/* Date Picker */}
-                <div className="flex mt-5 px-2 py-1 border border-[#00bbb4] rounded ">
+                <div className="flex mt-5 px-2 py-1 border border-[#00bbb4] rounded">
                   <div className="flex sm-date">
                     <i
                       className="fa-solid fa-calendar-days me-2 mt-1"
@@ -392,13 +392,14 @@ const SearchBoxSm = () => {
                       onChange={(date) => reduxDispatch(leftDate(date))}
                       minDate={subDays(new Date(), 0)}
                     />
+                    
                   </div>
-                  <div className="arrow-icon-sm">
+                  <div className="arrow-icon-sm" >
                     <BsArrowRight />
                   </div>
-                  <div className="flex sm-date ml-[-28px]">
+                  <div className="flex sm-date ">
                     <i
-                      className="fa-solid fa-calendar-days me-2 mt-1"
+                      className="fa-solid fa-calendar-days me-1 mt-1"
                       style={{ color: "#00bbb4" }}
                     ></i>
                     <DatePicker

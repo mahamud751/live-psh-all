@@ -105,10 +105,11 @@ const Recommended = () => {
 
   return (
     <div className="md:mt-5 sm:mt-2">
-      <div className="flex justify-between items-center">
         <h2 className="text-xl font-bold text-gray-900 mb-2">
           Our Best Recommend
         </h2>
+      <div className="flex justify-between items-center">
+      <span className="text-[1rem]">Our best rooms available for you</span>
         <p>
           <Link
             to="/recomended"
@@ -122,7 +123,6 @@ const Recommended = () => {
         </p>
       </div>
 
-      <span className="text-[1rem]">Our best rooms available for you</span>
       {publishedData?.length > 0 ? (
         <div className="all_recommended mt-4 slider_margin card-slider">
           {/* <Splide

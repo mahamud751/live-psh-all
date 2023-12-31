@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import {
@@ -296,13 +296,22 @@ function List({ type }) {
                 </div>
               </>
             ) : (
-              <div className="d-flex justify-content-center text-bg-danger not_found">
-                <img
-                  className="img-fluid"
-                  src="https://i.ibb.co/Jr6dcW7/Figma.png"
-                  alt=""
-                />
-              </div>
+              <>
+                <div className="d-flex justify-content-center text-bg-danger not_found">
+                  <img
+                    className="img-fluid"
+                    src="https://i.ibb.co/Jr6dcW7/Figma.png"
+                    alt=""
+                  />
+                  <div className="flex justify-center mt-12">
+                    <Link to={"/"}>
+                      <button className="ml-1 rounded bg-[#00bbb4] font-bold px-8 py-3 uppercase text-white text-sm">
+                        GO TO HOME
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </>
             )}
           </div>
           <div className="flex flex-col items-start col-span-12  sm:col-span-12 right-side lg:col-span-4">

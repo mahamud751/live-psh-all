@@ -85,7 +85,7 @@ const TicketCreate = ({ handleOpen, open }) => {
         </DialogHeader>
         <DialogBody
           divider
-          className=" md:h-[450px] sm:h-[300px]  overflow-y-auto xl:overflow-hidden mb-5"
+          className=" md:h-[450px] sm:h-[300px]  overflow-y-auto  mb-5"
         >
           <div className="md:px-10 sm:px-3 ">
             <h3 className="text-xl mt-1">Issue For</h3>

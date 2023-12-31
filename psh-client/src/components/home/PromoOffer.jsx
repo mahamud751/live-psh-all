@@ -89,8 +89,9 @@ const PromoOffer = () => {
       <div className="mt-5">
         <div className="">
           <div className="">
+            <h2 className="text-xl font-bold text-gray-900">Promo Offers</h2>
             <div className="flex justify-between items-center">
-              <h2 className="text-xl font-bold text-gray-900">Promo Offers</h2>
+              <p className="mb-2">Our best Discount Offers for you</p>
               <p>
                 <Link
                   to="/promo"
@@ -103,8 +104,6 @@ const PromoOffer = () => {
                 </Link>
               </p>
             </div>
-
-            <p className="mb-2">Our best Discount Offers for you</p>
             <div className="all_recommended slider_margin card-slider">
               {/* <Splide
                 options={{

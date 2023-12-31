@@ -218,10 +218,10 @@ export const updatePassword = async (req, res) => {
     }
 
     // Verify the role of the user
-    if (user.role !== "admin") {
-      res.status(401).json({ message: "Unauthorized access" });
-      return;
-    }
+    // if (user.role !== "admin") {
+    //   res.status(401).json({ message: "Unauthorized access" });
+    //   return;
+    // }
 
     // Update the user's password if a new password is provided
     if (currentPassword) {

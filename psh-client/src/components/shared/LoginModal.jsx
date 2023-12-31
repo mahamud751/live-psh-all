@@ -59,13 +59,7 @@ const LoginModal = ({ open, handleOpen }) => {
             <>
               <div className="flex justify-center">
                 <div className="flex items-center gap-x-5">
-                  <div>
-                    <h2 className="text-[20px] font-[600]">Login</h2>
-                    <p className="my-2">
-                      Welcome Back To{" "}
-                      {/* <span className="font-bold">Project Second Home</span> */}
-                    </p>
-                  </div>
+                  
                   <Link to={"/"}>
                     <img
                       src={"https://i.ibb.co/RNJjy5X/Layer-1.png"}
@@ -75,6 +69,13 @@ const LoginModal = ({ open, handleOpen }) => {
                   </Link>
                 </div>
               </div>
+              <div className="ms-4">
+                    <h2 className="text-[20px] font-[600]">Login</h2>
+                    <p className="my-2">
+                      Welcome Back To{" "}
+                      {/* <span className="font-bold">Project Second Home</span> */}
+                    </p>
+                  </div>
               <form className=" " onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex justify-center">
                   <div>
@@ -389,20 +390,20 @@ const LoginModal = ({ open, handleOpen }) => {
                           />
                         </div> */}
                     </div>
-                    <div className="flex px-4 mt-0 text-black ">
+                    <div className="flex mt-0 text-black ">
                       <div>
                         <input type="checkbox" name="terms" required id="" />
                       </div>
                       <p className="text-left pl-3 text-[12px] mt-1">
                         <Link to="/terms" onClick={() => handleOpen()}>
                           <span className="underline hover:text-[#00bbb4] cursor-pointer">
-                            Terms of use
+                            Terms of Use 
                           </span>
                         </Link>
-                        &{" "}
+                         &{" "}
                         <Link to="/privacy" onClick={() => handleOpen()}>
                           <span className="underline hover:text-[#00bbb4] cursor-pointer">
-                            Pivacy policy
+                             Pivacy Policy
                           </span>
                         </Link>
                       </p>
