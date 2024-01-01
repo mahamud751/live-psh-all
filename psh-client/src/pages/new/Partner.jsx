@@ -4,7 +4,7 @@ import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 import Slider from "react-slick";
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
-import PartnerLastCard from "./PartnerLastCard";
+import partnerImg from "../../assets/img/partner-img1.jpeg";
 import PartnerService from "./PartnerService";
 import "./partner.css";
 import PartnerModal from "./PartnerModal";
@@ -96,19 +96,17 @@ const Partner = () => {
                 style={{ height: "100vh" }}
               >
                 <div className="">
-                  <p className="banner_partner_p">
-                    Become Project Second Home's partner
+                  <h1 className="banner_h1">What we do?</h1>
+                  <p className=" text-sm text-white">
+                    PSH women dormitory which is working on women accommodation,
+                    safety and security who come from outside to Dhaka for
+                    Study, Job and Treatment purpose etc.
                   </p>
-                  <h1 className="banner_h1">
-                    Invest and Grow with Project Second Home (PSH)
-                  </h1>
-                  <p className=" my-4 text-sm text-white">
-                    Become a PSH Angel Investor / Project Director / Franchise
-                    Partner / Share Holder to Maximize your Idle money /
-                    increase your Property Valuation to get a social recognition
-                    and hassle-free income
+                  <p className="text-sm mb-4 text-white">
+                    As well we are here to manage and give you potential
+                    property counseling, Business Collaboration opportunities
+                    and carrying your property maintenance issues.
                   </p>
-
                   <div className="md:flex  gap-4">
                     <div className="sm:mb-3 md:mb-0">
                       <button
@@ -158,7 +156,7 @@ const Partner = () => {
           </div>
           <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6 ">
             <img
-              src="assets/img/partners_hero.png.png"
+              src={partnerImg}
               alt=""
               style={{ height: "100vh", width: "100%" }}
             />

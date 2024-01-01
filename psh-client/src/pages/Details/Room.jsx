@@ -74,7 +74,9 @@ const Room = () => {
 
   // find Published Recommended Property
   const publishedRecomended = recomended?.filter(
-    (property) => property?.isPublished === "Published"
+    (property) =>
+      property?.isPublished === "Published" &&
+      property?.category?.name === data?.category?.name
   );
 
   const main = data2?.filter((pd) => pd.property === id);
@@ -297,7 +299,7 @@ const Room = () => {
           </div>
 
           <div className="mt-2 text-start ">
-            <div className="sticky lg:top-[70px] sm:top-[75px] bg-white py-1">
+            <div className="sticky lg:top-[70px] sm:top-[70px] bg-white py-1 ">
               <div className="flex text-[24px]  font-medium ">
                 <div onClick={() => setKeyValue(0)}>
                   <a

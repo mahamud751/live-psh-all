@@ -32,16 +32,17 @@ const DetailsModal = ({ size, handleOpen, data }) => {
   const style = {
     width: "100%",
     height: "100%",
-    objectFit: "cover",
+    // objectFit: "cover",
   };
 
   const btn_img = {
     width: "200px",
-    height: "120px",
-    overflow: "hidden",
+    height: "80px",
+    // overflow: "hidden",
     listStyle: "none",
-    margin: "0 0.2rem",
+    // margin: "0 0.2rem",
     cursor: "pointer",
+    marginTop: "10px",
   };
 
   const thumbnailsstyle = {

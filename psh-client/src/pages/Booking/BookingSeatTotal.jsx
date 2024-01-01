@@ -469,7 +469,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
 
       <div className="flex justify-evenly mt-3 total-area text-black text-sm">
         <div>
-          <p className="text-center ">Check-In</p>
+          <p className="text-center font-bold">Check-In</p>
           <div className="input-filed-area w-full " style={{ marginTop: 10 }}>
             <i
               className="fa-solid fa-calendar-days location-icon"
@@ -491,7 +491,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
           </div>
         </div>
         <div>
-          <p className="  mb-1 text-center">Check-Out</p>
+          <p className=" font-bold  mb-1 text-center">Check-Out</p>
 
           <div className="input-filed-area w-full" style={{ marginTop: 10 }}>
             <i
@@ -513,7 +513,8 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
             />
           </div>
         </div>
-        <div className="mt-[29px] w-full px-1 py-[0.5px] duration_large_screen">
+        <div className="mt-1.5 w-full px-1 py-[0.5px] duration_large_screen">
+          <p className="text-center font-bold mb-2 mt-[-5px]">Duration</p>
           <p className=" duraion-count font-normal ps-1 text-sm ">
             {customerRent?.daysDifference >= 0
               ? `${customerRent?.daysDifference} days`
@@ -559,7 +560,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
       </div>
 
       <form onSubmit={handlePromoCode}>
-        <div className="md:flex total-area relative mx-5 my-3">
+        <div className="flex total-area relative mx-5 my-3">
           <div>
             <input
               className="sm:px-8 md:px-12"
@@ -575,7 +576,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
               <img src={promoIcon} alt="" />
             </div>
           </div>
-          <div className="sm:flex sm:justify-center md:mt-0 sm:mt-3 text-sm">
+          <div className="flex justify-center  text-sm">
             <button
               type="submit"
               style={{
@@ -1010,7 +1011,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
           </button>
         </div>
       </div>
-      {scrollY > 4700 ? (
+      {scrollY > 4250 ? (
         ""
       ) : (
         <div>

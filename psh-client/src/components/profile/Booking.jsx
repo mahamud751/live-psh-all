@@ -160,7 +160,8 @@ export default function Booking() {
                     </td>
                     <td className="p-2 border">
                       <Typography className="font-normal">
-                        {format(new Date(formattedDate), "dd MMMM, yyyy")}
+                        {/* {format(new Date(formattedDate), "dd MMMM, yyyy")} */}
+                        {formattedDate}
                       </Typography>
                     </td>
                     <td className="p-2 border">

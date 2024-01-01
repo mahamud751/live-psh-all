@@ -270,6 +270,33 @@ const PersonalInfo = () => {
   //   }
   // };
 
+  // handle Scrooled
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const [scrollY, setScrollY] = useState(0);
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    // Add scroll event listener when the component mounts
+    window.addEventListener("scroll", handleScroll);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (scrollY > 230) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  }, [scrollY]);
+
   // Page location top to path dependency
   const { pathname } = useLocation();
 
@@ -841,7 +868,7 @@ const PersonalInfo = () => {
                 </div>
               </div>
 
-              <div className="flex justify-evenly mt-3 total-area text-black text-sm">
+              <div className="flex justify-between mt-3 total-area text-black text-sm">
                 <div>
                   <p className="text-center font-bold">Check-In</p>
                   <div
@@ -879,33 +906,56 @@ const PersonalInfo = () => {
                     />
                   </div>
                 </div>
-              </div>
-              <div className="flex justify-center mt-2 text-sm ms-28">
-                <div>
-                  <span className="font-bold mb-1">Duration = </span>
-                  <input
-                    className="px-2 "
-                    type="text"
-                    value={`${
-                      bookingItem?.customerRent?.daysDifference >= 0
-                        ? `${bookingItem?.customerRent?.daysDifference} Days`
-                        : "" ||
-                          (bookingItem?.customerRent?.months &&
-                            bookingItem?.customerRent?.days >= 0 &&
-                            !bookingItem?.customerRent?.years)
-                        ? `${bookingItem?.customerRent?.months} months, ${bookingItem?.customerRent?.days} Days`
-                        : "" ||
-                          (bookingItem?.customerRent?.years &&
-                            bookingItem?.customerRent?.months >= 0 &&
-                            bookingItem?.customerRent?.days >= 0)
-                        ? `${bookingItem?.customerRent?.years} years, ${bookingItem?.customerRent?.months} months, ${bookingItem?.customerRent?.days} Days`
-                        : ""
-                    }`}
-                    disabled
-                  />
+                <div className="mt-1.5 w-full px-1 py-[0.5px] sm:hidden md:block duration_large_screen">
+                  <p className="text-center font-bold mb-2 mt-[-5px]">
+                    Duration
+                  </p>
+                  <p className=" duraion-count font-normal ps-1 text-sm ">
+                    {bookingItem?.customerRent?.daysDifference >= 0
+                      ? `${bookingItem?.customerRent?.daysDifference} Days`
+                      : "" ||
+                        (bookingItem?.customerRent?.months &&
+                          bookingItem?.customerRent?.days >= 0 &&
+                          !bookingItem?.customerRent?.years)
+                      ? `${bookingItem?.customerRent?.months} months, ${bookingItem?.customerRent?.days} Days`
+                      : "" ||
+                        (bookingItem?.customerRent?.years &&
+                          bookingItem?.customerRent?.months >= 0 &&
+                          bookingItem?.customerRent?.days >= 0)
+                      ? `${bookingItem?.customerRent?.years} years, ${bookingItem?.customerRent?.months} months, ${bookingItem?.customerRent?.days} Days`
+                      : ""}
+                  </p>
                 </div>
               </div>
-              <hr className="my-1 ml-5 text-black mr-5" />
+              <div className=" mt-2 text-sm duration_small">
+                <div className="flex ms-[65px]">
+                  <p className="font-bold mb-1">Duration = </p>
+
+                  <div>
+                    <input
+                      className=""
+                      type="text"
+                      value={`${
+                        bookingItem?.customerRent?.daysDifference >= 0
+                          ? `${bookingItem?.customerRent?.daysDifference} Days`
+                          : "" ||
+                            (bookingItem?.customerRent?.months &&
+                              bookingItem?.customerRent?.days >= 0 &&
+                              !bookingItem?.customerRent?.years)
+                          ? `${bookingItem?.customerRent?.months} months, ${bookingItem?.customerRent?.days} Days`
+                          : "" ||
+                            (bookingItem?.customerRent?.years &&
+                              bookingItem?.customerRent?.months >= 0 &&
+                              bookingItem?.customerRent?.days >= 0)
+                          ? `${bookingItem?.customerRent?.years} years, ${bookingItem?.customerRent?.months} months, ${bookingItem?.customerRent?.days} Days`
+                          : ""
+                      }`}
+                      disabled
+                    />
+                  </div>
+                </div>
+              </div>
+              {/* <hr className="my-1 ml-5 text-black mr-5" /> */}
               {/* <div className="md:flex mx-5  mt-1 mb-2 total-area relative">
                 <div>
                   <input
@@ -954,7 +1004,7 @@ const PersonalInfo = () => {
                 <p>BDT {bookingItem?.totalAmount}</p>
               </div>
             </div> */}
-              <div className="text-black text-sm pr-5">
+              <div className="text-black text-sm pr-5 mt-5">
                 <div className="flex justify-between ">
                   <div className="ml-16 flex items-center">
                     <p>Rent</p>
@@ -1456,21 +1506,27 @@ const PersonalInfo = () => {
           </div>
         </div>
       </div>
-      <div>
-        <div
-          className="flex items-center mb-4 fixed bottom-0"
-          style={{ zIndex: 9999, width: "100%" }}
-        >
-          <a
-            href="#keyDetails"
-            onClick={anchorClickHandler}
-            className="filter md:invisible hover:text-white"
+      {scrollY > 2700 ? (
+        ""
+      ) : (
+        <div>
+          <div
+            className="flex justify-center items-center mb-4 fixed bottom-0"
+            style={{ zIndex: 9999, width: "100%" }}
           >
-            <i className="fas fa-shopping-cart mt-2 mr-2"></i>
-            Booking Cart
-          </a>
+            <a
+              href="#keyDetails"
+              onClick={anchorClickHandler}
+              className="md:invisible hover:text-white text-white px-14 rounded-t-lg py-1"
+              style={{ backgroundColor: "#00bbb4" }}
+            >
+              <i className="fas fa-shopping-cart mt-2 mr-2"></i>
+              Confirm Booking
+            </a>
+          </div>
         </div>
-      </div>
+      )}
+
       <Toaster
         containerStyle={{ top: 300 }}
         toastOptions={{ position: "top-center" }}

@@ -32,8 +32,11 @@ export function UserBooking({
     setSelectedCategory(category);
   };
   const MySwal = withReactContent(Swal);
-  const propertyId = endOrder?.bookingInfo?.roomType==='Shared Room' ? endOrder?.bookingInfo?.roomId : endOrder?.bookingInfo?.data?._id;
-  console.log('propertyId', propertyId);
+  const propertyId =
+    endOrder?.bookingInfo?.roomType === "Shared Room"
+      ? endOrder?.bookingInfo?.roomId
+      : endOrder?.bookingInfo?.data?._id;
+  console.log("propertyId", propertyId);
   const formRef = useRef(null);
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -65,43 +68,41 @@ export function UserBooking({
   };
   return (
     <>
-      <Dialog open={detailsShow} size="md" className="px-5">
+      <Dialog open={detailsShow} size="md" className="">
         <DialogHeader>
-          <h2 className="text-[32px] font-bold" style={{ fontFamily: "inter" }}>
-            Booking Details
-          </h2>
+          <h2 className="text-xl font-bold">Booking Details</h2>
         </DialogHeader>
         <DialogBody
           divider
-          className=" lg:h-[33rem] xl:h-[50rem] md:h-[30rem] sm:h-[30rem] xs:h-[30rem] overflow-y-scroll overflow-x-hidden"
+          className="  lg:h-[33rem] xl:h-[50rem] md:h-[30rem] sm:h-[30rem] xs:h-[30rem] overflow-scroll "
         >
-          <div className="grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16 mt-3">
+          <div className="grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16 mt-3 ">
             <div className="present-box  xl:w-[800px] lg:w-[700px]"></div>
           </div>
           {/* booking summary */}
           <div className="ps-4 w-full mt-2">
             <div className="flex justify-between items-center">
-              <h2 className="text-start text-2xl text-[#00BBB4]">
+              <h2 className="text-start text-xl text-[#00BBB4]">
                 Booking Summary
               </h2>
               <div className="flex">
                 {" "}
                 <p
-                  className="text-lg bg-[#00BBB4] text-white px-3 rounded cursor-pointer"
+                  className="text-sm bg-[#00BBB4] text-white px-2 py-1 rounded cursor-pointer"
                   onClick={getInvoice}
                 >
                   {" "}
                   Get Invoice
                 </p>
                 <Link to={`/room/${propertyId}`} target="_blank">
-                  <p className="text-lg  px-3 rounded hover:text-[#00BBB4]">
+                  <p className="text-sm pt-1  px-3 rounded hover:text-[#00BBB4]">
                     {" "}
                     Visit Room
                   </p>
                 </Link>
               </div>
             </div>
-            <div className="w-full flex justify-between mt-4">
+            <div className="w-full flex justify-between mt-4 text-sm">
               <div className="flex justify-between w-[250px]">
                 <div className="">
                   <span className="block text-start">Booking ID </span>
@@ -133,12 +134,12 @@ export function UserBooking({
                   </span>
                 </div>
               </div>
-              <div className="flex justify-between w-[250px]">
+              <div className="flex justify-between md:w-[250px] sm:w-full">
                 <div className="">
-                  <span className="block text-start">Check In Date</span>
-                  <span className="block text-start">Check Out Date</span>
-                  <span className="block text-start">Duration</span>
-                  <span className="block text-start">Booking Status</span>
+                  <span className="block ">Check In</span>
+                  <span className="block ">Check Out</span>
+                  <span className="block ">Duration</span>
+                  <span className="block ">Booking Status</span>
                 </div>
                 <div className="">
                   <span className="block text-start">: </span>
@@ -184,10 +185,10 @@ export function UserBooking({
           </div>
           {/* payment summary */}
           <div className="ps-4 w-full mt-5">
-            <h2 className="text-start text-2xl text-[#00BBB4] mt-4">
+            <h2 className="text-start text-xl text-[#00BBB4] mt-4 ">
               Payment Summary
             </h2>
-            <div className="w-2/3 flex justify-between gap-10 mt-3">
+            <div className="w-2/3 flex justify-between gap-10 mt-3 text-sm">
               <div className="flex justify-between w-[250px]">
                 <div className="">
                   <span className="block text-start">Payment Status</span>
@@ -274,7 +275,7 @@ export function UserBooking({
           {/* rate your experience */}
 
           <div className="ps-4 w-full mt-5">
-            <h2 className="text-start text-2xl text-[#00BBB4] mt-3">
+            <h2 className="text-start text-xl text-[#00BBB4] mt-3">
               Rate Your Experience
             </h2>
             <div className="text-start flex gap-4 mt-3">

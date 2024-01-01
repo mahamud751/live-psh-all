@@ -217,35 +217,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      {/* Our Client Feadback */}
-      <div className="mt-16">
-        <OurClientFeadBack />
-      </div>
-      {/* Find a home now */}
-      <div className="mt-16">
-        <div className="grid md:grid-cols-2 sm:grid-cols-1 md:mt-0 sm:mt-16">
-          <div className="md:block sm:hidden">
-            <img src={footerImg} alt="" />
-          </div>
-          <div className="bg-[#e0dada] px-20 pt-28 rounded-tr-[100px]">
-            <h2 className="md:text-[36px] sm:text-[1rem] md:w-3/4 sm:w-full">
-              Let's find a home for you now!
-            </h2>
-            <p className="mt-2 sm:pb-10 md:pb-0">
-              <a href="https://psh.com.bd/" target="_blank">
-                <button
-                  className=" px-5 py-3 rounded-lg text-white"
-                  style={{
-                    background: "linear-gradient(to right, #000, #061c34)",
-                  }}
-                >
-                  Search Now
-                </button>
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

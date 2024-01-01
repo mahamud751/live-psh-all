@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Custom.css";
 import MessengerCustomerChat from "react-messenger-customer-chat";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UseFetch from "../../hooks/useFetch";
 
 import { AiOutlineMail } from "react-icons/ai";
@@ -12,11 +12,13 @@ const Footer = () => {
   const [size, setSize] = useState(null);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
+  const navigate = useNavigate();
   const handleSubscribe = (e) => {
     // Prevent the default form submission behavior
     e.preventDefault();
 
     window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate("/");
   };
   return (
     <div className="footer-part">
@@ -76,9 +78,11 @@ const Footer = () => {
 
                 <li className="col-span-3 sm:p-2 md:p-0 md:ms-20 sm:ms-0">
                   <form className="flex">
-                    <p className="looking_text">Looking for best place to live</p>
+                    <p className="looking_text md:text-[24px] sm:text-[14px]">
+                      Looking for best place to live
+                    </p>
                     <button
-                      className="ml-1 rounded bg-[#00bbb4] font-bold px-5 py-3 uppercase text-white text-sm"
+                      className="ml-1 rounded bg-[#00bbb4] font-bold px-5 md:py-3 sm:py-2 uppercase text-white text-sm"
                       onClick={handleSubscribe}
                     >
                       Search

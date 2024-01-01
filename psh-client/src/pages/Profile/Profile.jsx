@@ -195,27 +195,29 @@ export default function Profile() {
                     </div>
                   </div>
                   {endOrder?.paymentStatus ? (
-                    <div className="text-center my-5 border-b pb-2">
+                    <div
+                      className=" border-b py-2 "
+                      style={{
+                        backgroundColor: "rgba(53, 176, 167, 0.20)",
+                      }}
+                    >
                       {endOrder?.paymentStatus ? (
-                        <span
-                          className="mt-3 mb-3 text-sm py-2 font-medium text-center"
-                          // style={{
-                          //   backgroundColor: "rgba(53, 176, 167, 0.20)",
-                          // }}
-                        >
-                          Payment Status:
-                          <span
-                            className=" text-sm text-white px-3 rounded py-1 ml-2"
-                            style={{
-                              backgroundColor:
-                                endOrder?.paymentStatus === "Unpaid"
-                                  ? "#e34234"
-                                  : "#35B0A7",
-                            }}
-                          >
-                            {endOrder?.paymentStatus}
+                        <div className="md:ms-16 sm:ms-2">
+                          <span className="mt-3 mb-3 text-sm py-2 font-medium ">
+                            Payment Status:
+                            <span
+                              className=" text-sm text-white px-3 rounded py-1 ml-2"
+                              style={{
+                                backgroundColor:
+                                  endOrder?.paymentStatus === "Unpaid"
+                                    ? "#e34234"
+                                    : "#35B0A7",
+                              }}
+                            >
+                              {endOrder?.paymentStatus}
+                            </span>
                           </span>
-                        </span>
+                        </div>
                       ) : (
                         ""
                       )}
@@ -232,7 +234,7 @@ export default function Profile() {
                         value={tab.value}
                         className={`${active === idx ? "text-[#35b0a7]" : ""} ${
                           isProfileMenu ? "" : "profileTab"
-                        }  flex justify-start py-1 lg:pl-14 md:pl-0 sm:pl-14 `}
+                        }  flex justify-start py-1 lg:pl-14 md:pl-0 sm:pl-0 `}
                       >
                         <div
                           className=" gap-2 p-2 flex items-center side_bar "

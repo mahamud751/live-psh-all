@@ -515,7 +515,8 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
               />
             </div>
           </div>
-          <div className="mt-[29px] w-full px-1 py-[0.5px] sm:hidden md:block duration_large_screen">
+          <div className=" mt-1.5 w-full px-1 py-[0.5px] sm:hidden md:block duration_large_screen">
+            <p className="text-center font-bold mb-2 mt-[-5px]">Duration</p>
             <p className=" duraion-count font-normal ps-1 text-sm ">
               {customerRent?.daysDifference >= 0
                 ? `${customerRent?.daysDifference} days`
@@ -561,7 +562,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
         </div>
 
         <form onSubmit={handlePromoCode}>
-          <div className="md:flex total-area relative my-3 mx-5">
+          <div className="flex total-area relative my-3 mx-5">
             <div>
               <input
                 className="sm:px-14 md:px-12"
@@ -577,7 +578,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
                 <img src={promoIcon} alt="" />
               </div>
             </div>
-            <div className="sm:flex sm:justify-center md:mt-0 sm:mt-3 ">
+            <div className="flex justify-center ">
               <button
                 type="submit"
                 style={{
@@ -1003,7 +1004,7 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
             </button>
           </div>
         </div>
-        {scrollY > 3000 ? (
+        {scrollY > 2500 ? (
           ""
         ) : (
           <div>
@@ -1013,11 +1014,12 @@ const BookingTotalBox = ({ data, seats, extraCharge }) => {
             >
               <a
                 href="#cart2"
-                className="filter md:invisible ms-3 text-white hover:text-white "
+                className=" md:invisible ms-3 text-white hover:text-white px-14 py-1 rounded-t-lg"
+                style={{ backgroundColor: "#00bbb4" }}
                 onClick={anchorClickHandler}
               >
                 <i className="fas fa-shopping-cart mr-2 mt-2 text-[16px]"></i>
-                Booking Cart
+                Apply for Booking
               </a>
             </div>
           </div>

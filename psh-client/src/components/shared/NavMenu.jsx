@@ -40,7 +40,7 @@ import { HiOutlineUserCircle } from "react-icons/hi";
 
 function ProfileMenu(id) {
   const { data } = UseFetch(`users/${id}`);
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
   const { user, logoutUser } = useContext(AuthContext);
 
