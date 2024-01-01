@@ -201,10 +201,14 @@ const Footer = () => {
                           <a>FAQ</a>
                         </li>
                       </Link>
-
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a>Career</a>
-                      </li>
+                      <a
+                        href="https://www.linkedin.com/company/project-second-home/"
+                        target="_blank"
+                      >
+                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                          <a>Career</a>
+                        </li>
+                      </a>
 
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Stories</a>
