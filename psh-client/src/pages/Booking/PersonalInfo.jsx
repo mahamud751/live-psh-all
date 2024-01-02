@@ -124,6 +124,27 @@ const PersonalInfo = () => {
     const totalReceiveTk = 0;
     const paymentStatus = "Unpaid";
 
+    // Check Phone Number
+
+    if (phone?.length !== 11 || phone?.substring(0, 2) !== "01") {
+      return toast.error("You gave me wrong phone number");
+    }
+
+    // Check NID
+    if (nid) {
+      if (nid?.length !== 10 && nid?.length !== 13) {
+        return toast.error("You gave me the wrong NID number");
+      }
+    }
+
+    // Check Parent Phone Number
+
+    if (
+      emergencyContact?.length !== 11 ||
+      emergencyContact?.substring(0, 2) !== "01"
+    ) {
+      return toast.error("You gave me wrong Gardian phone number");
+    }
     const formData = new FormData();
 
     // image Verify check
@@ -232,7 +253,7 @@ const PersonalInfo = () => {
       await axios.post("https://api.psh.com.bd/api/order", formData);
       MySwal.fire({
         icon: "success",
-        title: "Order successfully done",
+        title: "Booking successfully done",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -541,6 +562,7 @@ const PersonalInfo = () => {
                   placeholder="Gardian Contact Number *"
                   className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   name="ecNumber"
+                  required
                   style={{
                     height: "45px",
                     padding: "0px 10px",

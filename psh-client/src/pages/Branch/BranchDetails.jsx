@@ -16,7 +16,7 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 const BranchDetails = () => {
   const { id } = useParams();
-  const { data: branchData,loading } = UseFetch(`branch/${id}`);
+  const { data: branchData, loading } = UseFetch(`branch/${id}`);
 
   return (
     <div className="custom-container sm:px-5 md:px-0">
@@ -34,42 +34,41 @@ const BranchDetails = () => {
         </Link>
         <p>Property</p>
       </div>
-     
+
       {loading ? (
-              "Loading"
-            ) : branchData?.property?.length > 0 ? (
-              <>
-              <div className="grid lg:grid-cols-4 md:grid-cols-3 lg:gap-x-5 md:gap-x-7 sm:grid-cols-1 mt-2 sm:gap-x-0 z-0 sm:mx-auto md:mx-0">
-        {branchData?.property?.map((item) => (
-          <div className="">
-            <BranchProperty
-              key={item._id}
-              item={item}
-              branchData={branchData}
-            />
+        <p className="text-center my-80">Loading...</p>
+      ) : branchData?.property?.length > 0 ? (
+        <>
+          <div className="grid lg:grid-cols-4 md:grid-cols-3 lg:gap-x-5 md:gap-x-7 sm:grid-cols-1 mt-2 sm:gap-x-0 z-0 sm:mx-auto md:mx-0">
+            {branchData?.property?.map((item) => (
+              <div className="">
+                <BranchProperty
+                  key={item._id}
+                  item={item}
+                  branchData={branchData}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-        
-      </div>
-              </>
-            ) : (
-              <>
-                <div className="d-flex justify-content-center text-bg-danger not_found">
-                  <img
-                    className="img-fluid"
-                    src="https://i.ibb.co/Jr6dcW7/Figma.png"
-                    alt=""
-                  />
-                  <div className="flex justify-center my-12">
-                    <Link to={"/"}>
-                      <button className="ml-1 rounded bg-[#00bbb4] font-bold px-8 py-3 uppercase text-white text-sm">
-                        GO TO HOME
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              </>
-            )}
+        </>
+      ) : (
+        <>
+          <div className="d-flex justify-content-center text-bg-danger not_found">
+            <img
+              className="img-fluid"
+              src="https://i.ibb.co/Jr6dcW7/Figma.png"
+              alt=""
+            />
+            <div className="flex justify-center my-12">
+              <Link to={"/"}>
+                <button className="ml-1 rounded bg-[#00bbb4] font-bold px-8 py-3 uppercase text-white text-sm">
+                  GO TO HOME
+                </button>
+              </Link>
+            </div>
+          </div>
+        </>
+      )}
 
       {/* <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-gray-900">
           <h1 className="my-5 text-center">
