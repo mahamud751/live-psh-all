@@ -140,21 +140,20 @@ const Footer = () => {
                       Partner With Us
                     </h2>
                     <ul className="footer_li">
-                      <Link to={"/partner"}>
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Register a Property</a>
-                        </li>
-                      </Link>
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <Link to={"/partner"} className="hover:text-[#00bbb4]">
+                          Register a Property
+                        </Link>
+                      </li>
 
-                      <Link to={"/psh-finance"}>
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Investment opportunities</a>
-                        </li>
-                      </Link>
-
-                      {/* <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Build for Rent</a>
-                      </li> */}
+                      <li className="mb-4 duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <Link
+                          to={"/psh-finance"}
+                          className="hover:text-[#00bbb4]"
+                        >
+                          Investment opportunities{" "}
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -167,17 +166,23 @@ const Footer = () => {
                       PSH FOR Business
                     </h2>
                     <ul className="footer_li">
-                      <Link to={"/corporate-housing"}>
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Corporate Housing</a>
-                        </li>
-                      </Link>
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <Link
+                          to={"/corporate-housing"}
+                          className="hover:text-[#00bbb4]"
+                        >
+                          Corporate Housing{" "}
+                        </Link>
+                      </li>
 
-                      <Link to={"/collaberation"}>
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Brand Collaboration</a>
-                        </li>
-                      </Link>
+                      <li className="mb-4 duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <Link
+                          to={"/collaberation"}
+                          className="hover:text-[#00bbb4]"
+                        >
+                          Brand Collaboration{" "}
+                        </Link>
+                      </li>
 
                       <Link to={"/community"}>
                         <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">

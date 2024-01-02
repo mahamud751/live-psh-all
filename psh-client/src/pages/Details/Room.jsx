@@ -279,7 +279,7 @@ const Room = () => {
               </div>
               <div className="grid grid-cols-2 gap-3 ml-3 relative">
                 {data?.photos &&
-                  data.photos.slice(0, 4).map((photo, index) => (
+                  data?.photos?.slice(1, 5).map((photo, index) => (
                     <div key={index}>
                       <img
                         src={photo}

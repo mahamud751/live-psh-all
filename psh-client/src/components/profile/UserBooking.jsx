@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import StarRatings from "react-star-ratings";
 import { Link, useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 export function UserBooking({
   handleDetailsShow,
@@ -53,10 +54,11 @@ export function UserBooking({
       };
 
       await axios.post("https://api.psh.com.bd/api/review", product);
-      MySwal.fire("Good job!", "successfully added", "success");
+      toast.success("Thanks ! for Your Review ");
       formRef.current.reset();
+      handleDetailsShow();
     } catch (err) {
-      MySwal.fire("Something Error Found.", "warning");
+      toast.error("Something Error Found.", "warning");
     }
   };
   const navigate = useNavigate();
@@ -334,9 +336,13 @@ export function UserBooking({
                   name="comment"
                   rows="5"
                   placeholder="Tell us what you liked...or didn’t"
+                  required
                   className=" w-full mb-4 rounded pl-4 pt-4 user-review-input"
                 />
-                <div className="flex justify-end" onClick={handleDetailsShow}>
+                <div
+                  className="flex justify-end"
+                  // onClick={handleDetailsShow}
+                >
                   <button
                     type="submit"
                     className="bg-[#35B0A7] rounded px-10 py-3 text-white mt-2"
@@ -356,6 +362,10 @@ export function UserBooking({
             <AiOutlineClose style={{ width: "30px", height: "30px" }} />
           </span>
         </div>
+        <Toaster
+          containerStyle={{ top: 300 }}
+          toastOptions={{ position: "top-center" }}
+        ></Toaster>
       </Dialog>
     </>
   );

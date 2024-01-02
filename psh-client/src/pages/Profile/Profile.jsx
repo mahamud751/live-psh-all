@@ -230,7 +230,10 @@ export default function Profile() {
                     <span onClick={tab.label === "Log-out" ? handleLogOut : ""}>
                       <Tab
                         key={idx}
-                        onClick={() => setActive(idx)}
+                        onClick={() => {
+                          setActive(idx);
+                          dispatch(placeProfileMenu(false));
+                        }}
                         value={tab.value}
                         className={`${active === idx ? "text-[#35b0a7]" : ""} ${
                           isProfileMenu ? "" : "profileTab"
@@ -238,7 +241,7 @@ export default function Profile() {
                       >
                         <div
                           className=" gap-2 p-2 flex items-center side_bar "
-                          onClick={() => dispatch(placeProfileMenu(false))}
+                          // onClick={() => dispatch(placeProfileMenu(false))}
                         >
                           <div>{tab.icon}</div>
 

@@ -47,7 +47,7 @@ const DetailsModal = ({ size, handleOpen, data }) => {
 
   const thumbnailsstyle = {
     display: "flex",
-    justifyContent: "center",
+    // justifyContent: "center",
     alignItems: "center",
     listStyle: "none",
   };
@@ -94,7 +94,7 @@ const DetailsModal = ({ size, handleOpen, data }) => {
           </ul>
         </DialogBody>
 
-        <DialogFooter>
+        <DialogFooter className="p-0">
           <div
             onClick={() => handleOpen(null)}
             className="absolute top-2 right-2 cursor-pointer"
