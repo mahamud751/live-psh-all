@@ -9,7 +9,7 @@
   font-size: 11px !important;
   margin-top: 5px;
 }
-.total-amount-right p span:nth-child(1) {
+.total-amount-right div p:nth-child(1) {
   color: #35b0a7;
 }
 .paid-amount {

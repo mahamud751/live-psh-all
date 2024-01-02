@@ -262,7 +262,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
     const lastDay = new Date(year, month, 0).getDate(); // Setting day to 0 gets the last day of the previous month.
     return lastDay;
   }
-
+  console.log(data);
   const bookingData = {
     roomId: data?._id,
     branch: data?.branch,
@@ -273,7 +273,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
     discount: discountTk,
     vatTax: vatTax,
     totalAmount: totalRentAmount,
-
+    roomName: data?.name,
     roomNumber: data?.roomNumber,
     roomType: data?.category?.name,
     rentDate: {
