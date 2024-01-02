@@ -140,21 +140,20 @@ const Footer = () => {
                       Partner With Us
                     </h2>
                     <ul className="footer_li">
-                      <Link to={"/partner"}>
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Register a Property</a>
-                        </li>
-                      </Link>
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <Link to={"/partner"} className="hover:text-[#00bbb4]">
+                          Register a Property
+                        </Link>
+                      </li>
 
-                      <Link to={"/psh-finance"}>
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Investment opportunities</a>
-                        </li>
-                      </Link>
-
-                      {/* <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Build for Rent</a>
-                      </li> */}
+                      <li className="mb-4 duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <Link
+                          to={"/psh-finance"}
+                          className="hover:text-[#00bbb4]"
+                        >
+                          Investment opportunities{" "}
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -167,23 +166,29 @@ const Footer = () => {
                       PSH FOR Business
                     </h2>
                     <ul className="footer_li">
-                      <Link to={"/corporate-housing"}>
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Corporate Housing</a>
-                        </li>
-                      </Link>
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <Link
+                          to={"/corporate-housing"}
+                          className="hover:text-[#00bbb4]"
+                        >
+                          Corporate Housing{" "}
+                        </Link>
+                      </li>
 
-                      <Link to={"/collaberation"}>
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Brand Collaboration</a>
-                        </li>
-                      </Link>
+                      <li className="mb-4 duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <Link
+                          to={"/collaberation"}
+                          className="hover:text-[#00bbb4]"
+                        >
+                          Brand Collaboration{" "}
+                        </Link>
+                      </li>
 
-                      <Link to={"/partner"}>
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Community</a>
-                        </li>
-                      </Link>
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <Link to={"/partner"} className="hover:text-[#00bbb4]">
+                          Community{" "}
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -196,19 +201,24 @@ const Footer = () => {
                       Resource
                     </h2>
                     <ul className="footer_li">
-                      <Link to={"/faq-question"}>
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>FAQ</a>
-                        </li>
-                      </Link>
-                      <a
-                        href="https://www.linkedin.com/company/project-second-home/"
-                        target="_blank"
-                      >
-                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                          <a>Career</a>
-                        </li>
-                      </a>
+                      <li className="mb-4  duration-200  dark:hover:text-white">
+                        <Link
+                          to={"/faq-question"}
+                          className="hover:text-[#00bbb4]"
+                        >
+                          FAQ{" "}
+                        </Link>
+                      </li>
+
+                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <a
+                          href="https://www.linkedin.com/company/project-second-home/"
+                          target="_blank"
+                          className="hover:text-[#00bbb4]"
+                        >
+                          Career
+                        </a>
+                      </li>
 
                       <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <a href="#">Stories</a>
