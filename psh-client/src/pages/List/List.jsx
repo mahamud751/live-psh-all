@@ -297,18 +297,32 @@ function List({ type }) {
               </>
             ) : (
               <>
-                <div className="d-flex justify-content-center text-bg-danger not_found">
-                  <img
-                    className="img-fluid"
-                    src="https://i.ibb.co/Jr6dcW7/Figma.png"
-                    alt=""
-                  />
-                  <div className="flex justify-center mt-12">
-                    <Link to={"/"}>
-                      <button className="ml-1 rounded bg-[#00bbb4] font-bold px-8 py-3 uppercase text-white text-sm">
-                        GO TO HOME
-                      </button>
-                    </Link>
+                <div className="flex justify-center items-center text-bg-danger not_found h-[800px]">
+                  <div>
+                    <h1 className="sorry_text_h1">
+                      Sorry!
+                      <br />
+                      <span>No Results Found</span>
+                    </h1>
+                    <p className="sorry_text_p">
+                      It looks like we couldn't find any available rooms or
+                      seats matching your criteria.
+                    </p>
+                    <div className="mt-12">
+                      <Link to={"/"}>
+                        <button className="ml-1 rounded bg-[#00bbb4] font-bold px-8 py-3 uppercase text-white text-sm">
+                          GO TO HOME
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                  <div>
+                    <img
+                      className="img-fluid"
+                      src="/assets/img2/Sorry 2.png"
+                      alt="sorry psh"
+                      style={{ width: "100%", height: 600 }}
+                    />
                   </div>
                 </div>
               </>
@@ -333,7 +347,7 @@ function List({ type }) {
           </div>
         </div>
       </div>
-      <div className=" mt-10 flex justify-center items-center mb-10">
+      <div className="mt-10 flex justify-center items-center mb-10">
         <div className="bg-[#399] text-white rounded px-2 py-2">
           <div>
             <button
@@ -346,9 +360,9 @@ function List({ type }) {
           </div>
         </div>
         <div className="flex ml-2 mx-2 text-sm">
-          <p>Page</p>
+          <p className="mt-1">Page</p>
           <select
-            className="border border-black rounded ml-2"
+            className="border border-black rounded ml-2 px-2"
             value={page}
             onChange={handlePageChange}
             style={{ width: 50, height: 26 }}
@@ -361,9 +375,9 @@ function List({ type }) {
               )
             )}
           </select>
-          <p className="ml-2"> of {totalPages}</p>
+          <p className="ml-2 mt-1"> of {totalPages}</p>
         </div>
-        <div className="flex items-center bg-[#399] text-white rounded px-5 py-2">
+        <div className="flex justify-center bg-[#399] text-white rounded px-5 py-2">
           <button
             onClick={() => setPage(page + 1)}
             disabled={page === totalPages}

@@ -112,7 +112,7 @@ const AllRecomonded = ({ item }) => {
       ) : (
         <p className="text-center mt-20 mb-20"> Loading...</p>
       )}
-      <div className=" mt-10 flex justify-center items-center mb-10">
+      <div className="mt-10 flex justify-center items-center mb-10">
         <div className="bg-[#399] text-white rounded px-2 py-2">
           <div>
             <button
@@ -125,9 +125,9 @@ const AllRecomonded = ({ item }) => {
           </div>
         </div>
         <div className="flex ml-2 mx-2 text-sm">
-          <p>Page</p>
+          <p className="mt-1">Page</p>
           <select
-            className="border border-black rounded ml-2"
+            className="border border-black rounded ml-2 px-2"
             value={page}
             onChange={handlePageChange}
             style={{ width: 50, height: 26 }}
@@ -140,9 +140,9 @@ const AllRecomonded = ({ item }) => {
               )
             )}
           </select>
-          <p className="ml-2"> of {totalPages}</p>
+          <p className="ml-2 mt-1"> of {totalPages}</p>
         </div>
-        <div className="flex items-center bg-[#399] text-white rounded px-5 py-2">
+        <div className="flex justify-center bg-[#399] text-white rounded px-5 py-2">
           <button
             onClick={() => setPage(page + 1)}
             disabled={page === totalPages}

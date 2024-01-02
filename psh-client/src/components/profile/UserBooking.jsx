@@ -36,7 +36,6 @@ export function UserBooking({
     endOrder?.bookingInfo?.roomType === "Shared Room"
       ? endOrder?.bookingInfo?.roomId
       : endOrder?.bookingInfo?.data?._id;
-  console.log("propertyId", propertyId);
   const formRef = useRef(null);
   const handleSubmit = async (event) => {
     event.preventDefault();

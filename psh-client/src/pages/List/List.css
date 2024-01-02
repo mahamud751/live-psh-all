@@ -7,7 +7,23 @@
 .left-side {
   flex: 1;
 }
-
+.sorry_text_h1 {
+  color: #08dfc1;
+  font-family: Rubik;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.sorry_text_p {
+  color: #000;
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 .right-side {
   position: sticky;
   top: 80px;

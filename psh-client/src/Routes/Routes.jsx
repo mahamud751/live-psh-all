@@ -31,6 +31,9 @@ import PshFinance from "../pages/PshFinance/PshFinance";
 import LeaseProperty from "../pages/LeaseProperty/LeaseProperty";
 import ExtraForm from "../pages/ExtraForm/ExtraForm";
 import PromoDetails from "../pages/Promo/PromoDetails";
+import Community from "../pages/Community/Community";
+import Stories from "../pages/Stories/Stories";
+import NotFound from "../pages/NotFound/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -115,6 +118,14 @@ export const router = createBrowserRouter([
         element: <Business />,
       },
       {
+        path: "/community",
+        element: <Community />,
+      },
+      {
+        path: "/stories",
+        element: <Stories />,
+      },
+      {
         path: "/faq-question",
         element: <FaqQuestions />,
       },
@@ -134,7 +145,12 @@ export const router = createBrowserRouter([
         path: "/extra-form",
         element: <ExtraForm />,
       },
+      
     ],
+  },
+  {
+    path:'*',
+    element:<NotFound/>
   },
 
   {

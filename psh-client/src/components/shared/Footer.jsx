@@ -179,7 +179,7 @@ const Footer = () => {
                         </li>
                       </Link>
 
-                      <Link to={"/partner"}>
+                      <Link to={"/community"}>
                         <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                           <a>Community</a>
                         </li>
@@ -209,10 +209,11 @@ const Footer = () => {
                           <a>Career</a>
                         </li>
                       </a>
-
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
-                        <a href="#">Stories</a>
-                      </li>
+                      <Link to={"/stories"}>
+                        <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                          <a>Stories</a>
+                        </li>
+                      </Link>
                     </ul>
                   </div>
                 </li>
