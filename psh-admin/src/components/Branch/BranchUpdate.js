@@ -117,7 +117,7 @@ const Branch = ({ data }) => {
             />
           </div>
           {/* Arrount The Building */}
-          <h5>Arround The Building</h5>
+          <h5>Around The Building</h5>
           <div className="col-md-6 form_sub_stream">
             <label htmlFor="inputState" className="form-label profile_label3 ">
               No:1
