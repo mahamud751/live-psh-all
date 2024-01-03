@@ -71,7 +71,7 @@ export function UserBooking({
     <>
       <Dialog open={detailsShow} size="md" className="">
         <DialogHeader>
-          <h2 className="text-xl font-bold">Booking Details</h2>
+          <h2 className="text-xl font-bold md:py-0 sm:py-2">Booking Details</h2>
         </DialogHeader>
         <DialogBody
           divider
@@ -359,7 +359,7 @@ export function UserBooking({
           className="absolute top-2 right-2 cursor-pointer"
         >
           <span>
-            <AiOutlineClose style={{ width: "30px", height: "30px" }} />
+            <AiOutlineClose style={{ width: "24px", height: "24px" }} />
           </span>
         </div>
         <Toaster

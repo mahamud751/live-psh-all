@@ -13,7 +13,12 @@ const Add_Branch = () => {
     const data2 = {
       name: formData.get("name"),
       locationLink: formData.get("locationLink"),
-      // nearLocation: formData.get("nearLocation"),
+      nearLocation1: formData.get("nearLocation1"),
+      nearLocation2: formData.get("nearLocation2"),
+      nearLocation3: formData.get("nearLocation3"),
+      nearLocation4: formData.get("nearLocation4"),
+      nearLocation5: formData.get("nearLocation5"),
+      nearLocation6: formData.get("nearLocation6"),
       branchEmail: formData.get("branchEmail"),
       branchAddress: formData.get("branchAddress"),
       branchMobileNumber: formData.get("branchMobileNumber"),
@@ -84,21 +89,6 @@ const Add_Branch = () => {
                   required
                 />
               </div>
-              {/* <div className="col-md-6 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Near Location
-                </label>
-
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="nearLocation"
-                  placeholder="Near Location"
-                />
-              </div> */}
 
               <div className="col-md-6 form_sub_stream">
                 <label
@@ -132,7 +122,104 @@ const Add_Branch = () => {
                   required
                 />
               </div>
+              {/* Arrount The Building */}
+              <h5>Arround The Building</h5>
+              <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  No:1
+                </label>
 
+                <input
+                  type="text"
+                  className="main_form w-100"
+                  name="nearLocation1"
+                  placeholder="No:1"
+                  required
+                />
+              </div>
+              <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  No:2
+                </label>
+
+                <input
+                  type="text"
+                  className="main_form w-100"
+                  name="nearLocation2"
+                  placeholder="No:2"
+                  required
+                />
+              </div>
+              <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  No:3
+                </label>
+
+                <input
+                  type="text"
+                  className="main_form w-100"
+                  name="nearLocation3"
+                  placeholder="No:3"
+                  required
+                />
+              </div>
+              <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  No:4
+                </label>
+
+                <input
+                  type="text"
+                  className="main_form w-100"
+                  name="nearLocation4"
+                  placeholder="No:4"
+                  required
+                />
+              </div>
+              <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  No:5
+                </label>
+
+                <input
+                  type="text"
+                  className="main_form w-100"
+                  name="nearLocation5"
+                  placeholder="No:5"
+                  required
+                />
+              </div>
+              <div className="col-md-6 form_sub_stream">
+                <label
+                  htmlFor="inputState"
+                  className="form-label profile_label3 "
+                >
+                  No:6
+                </label>
+
+                <input
+                  type="text"
+                  className="main_form w-100"
+                  name="nearLocation6"
+                  placeholder="No:6"
+                  required
+                />
+              </div>
               <div className="col-md-6 form_sub_stream">
                 <label
                   htmlFor="inputState"

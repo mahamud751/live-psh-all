@@ -7,10 +7,24 @@ const BranchSchema = new mongoose.Schema(
     locationLink: {
       type: String,
     },
-    // nearLocation: {
-    //   type: String,
-    //   required: true,
-    // },
+    nearLocation1: {
+      type: String,
+    },
+    nearLocation2: {
+      type: String,
+    },
+    nearLocation3: {
+      type: String,
+    },
+    nearLocation4: {
+      type: String,
+    },
+    nearLocation5: {
+      type: String,
+    },
+    nearLocation6: {
+      type: String,
+    },
     branchAddress: {
       type: String,
     },

@@ -9,7 +9,7 @@ import ToolkitProvider, {
 } from "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
-import Branch from "../../pages/edit/Branch";
+import BranchUpdate from "./BranchUpdate";
 import { Link } from "react-router-dom";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
@@ -81,7 +81,7 @@ const Branch_list = () => {
               <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content" style={{ width: 700 }}>
                   <div className="modal-body">
-                    <Branch data={row} />
+                    <BranchUpdate data={row} />
                   </div>
                 </div>
               </div>

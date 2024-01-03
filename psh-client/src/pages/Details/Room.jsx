@@ -6,7 +6,7 @@ import "@splidejs/react-splide/css/sea-green";
 import "@splidejs/react-splide/css/core";
 import { format } from "date-fns";
 import "./Room.css";
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 import UseFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../contexts/UserProvider";
@@ -38,6 +38,7 @@ import SingleCard from "../../components/home/SingleCard";
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
 import Slider from "react-slick";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 const Room = () => {
   const { id } = useParams();
@@ -259,6 +260,30 @@ const Room = () => {
 
   return (
     <div className="custom-container sm:px-2 sm:pt-2 md:px-0 md:pt-0">
+      {data?.photos?.length > 0 ? (
+        <div className="flex items-center gap-x-3 md:mt-3 sm:mt-0">
+          <Link to="/" className="hover:text-[#00bbb4] md:block sm:hidden">
+            <p>Home</p>
+          </Link>
+          <p className="sm:hidden md:block">
+            <MdKeyboardArrowRight className="w-[20px] h-[20px]" />
+          </p>
+
+          <p className="sm:hidden md:block">{data?.category?.name}</p>
+
+          <p className="sm:hidden md:block">
+            <MdKeyboardArrowRight className="w-[20px] h-[20px]" />
+          </p>
+          <Link to="/" className="md:hidden sm:block">
+            <p>
+              <MdKeyboardArrowLeft className="w-[20px] h-[20px]" />
+            </p>
+          </Link>
+          <p>Room Details</p>
+        </div>
+      ) : (
+        ""
+      )}
       <div className="mt-2">
         <div className=" ">
           <div>

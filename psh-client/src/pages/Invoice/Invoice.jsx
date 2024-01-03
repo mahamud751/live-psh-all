@@ -12,7 +12,8 @@ import { useEffect } from "react";
 
 import { useState } from "react";
 import axios from "axios";
-import InvoiceForMobile from "./InvoiceForMobile";
+
+import InvoiceModal from "./InvoiceModal";
 
 const Invoice = () => {
   const ref = useRef();
@@ -23,6 +24,10 @@ const Invoice = () => {
 
   const [branch, SetBranch] = useState([]);
   const [bookingBranch, SetBookingBranch] = useState({});
+
+  const [size, setSize] = useState(null);
+
+  const handleOpen = (value) => setSize(value);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,7 +46,7 @@ const Invoice = () => {
   }, [userEndOrder?.bookingInfo?.branch, branch]);
 
   const downloadPDF = () => {
-    let downloadInput = pdfRef.current;
+    let downloadInput = ref.current;
 
     html2canvas(downloadInput).then((canvas) => {
       const imgData = canvas.toDataURL("img/png");
@@ -54,7 +59,9 @@ const Invoice = () => {
       const imgHeight = canvas.height;
 
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+
       const imgX = (pdfWidth - imgWidth * ratio) / 2;
+
       const imgY = 30;
 
       pdf.addImage(
@@ -69,16 +76,21 @@ const Invoice = () => {
     });
   };
 
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
-    <div className="md:flex justify-center ">
+    <div className=" flex justify-center ">
       <div className=" ">
         <div className=" ">
-          <div className="flex items-center md:mt-[50px] sm:mt-[20px] ">
+          <div className="flex items-center mt-[50px] ">
             <div className="flex bg-[#A5F8F2] p-[20px] ">
               <div>
                 <img src={right} alt="" />
               </div>
-              <h2 className="md:text-xl sm:text-sm tracking-[0.1px] ml-2">
+              <h2 className="text-xl tracking-[0.1px] ml-2">
                 Thank you. Your reservation has been received! Please check your
                 email for the reservation information
               </h2>
@@ -86,10 +98,10 @@ const Invoice = () => {
           </div>
           {/* Invoice */}
 
-          <div ref={ref} className="">
-            <div ref={pdfRef}>
-              <div className=" md:p-10 sm:p-2 mt-5 payment-info border">
-                <div className="flex md:justify-between sm:justify-normal md:gap-x-0 sm:gap-x-16 ">
+          <div ref={ref} id="invoice " className="hidden md:block">
+            <div ref={pdfRef} className="">
+              <div className=" p-10 mt-5 payment-info border md:w-auto sm:w-[952px] ">
+                <div className="flex justify-between  gap-x-0  ">
                   <div>
                     <img src={logo} alt="" />
                   </div>
@@ -110,7 +122,7 @@ const Invoice = () => {
                   </div>
                 </div>
                 {/* Booking Location */}
-                <div className="flex md:justify-between sm:justify-normal md:gap-x-0 sm:gap-x-3 mt-10 text-left">
+                <div className="flex justify-between   mt-10 text-left">
                   <div>
                     <p className="text-[#35B0A7] font-bold">
                       Booking Location,
@@ -332,7 +344,7 @@ const Invoice = () => {
                         <div className="flex justify-between">
                           <p className="font-bold">Subtotal</p>{" "}
                           <p className="ml-[55px]">:</p>{" "}
-                          <p className="ml-5">
+                          <p className="">
                             BDT {userEndOrder?.bookingInfo?.subTotal}
                           </p>
                         </div>
@@ -340,14 +352,14 @@ const Invoice = () => {
                         <div className="flex justify-between">
                           <p className="font-bold">VAT </p>{" "}
                           <p className="ml-[70px]">:</p>
-                          <p className="ml-5">
+                          <p className="">
                             BDT {userEndOrder?.bookingInfo?.vatTax}
                           </p>
                         </div>
                         <div className="flex justify-between">
                           <p className="font-bold">Addmission Fee</p>
                           <p className="mx-5">:</p>
-                          <p className="ml-5">
+                          <p className="">
                             BDT{" "}
                             {userEndOrder?.bookingInfo?.addMissionFee > 0
                               ? userEndOrder?.bookingInfo?.addMissionFee
@@ -357,7 +369,7 @@ const Invoice = () => {
                         <div className="flex justify-between">
                           <p className="font-bold">Security Fee </p>{" "}
                           <p className="ml-4">:</p>
-                          <p className="ml-5">
+                          <p className="">
                             BDT{" "}
                             {userEndOrder?.bookingInfo?.securityFee > 0
                               ? userEndOrder?.bookingInfo?.securityFee
@@ -368,14 +380,14 @@ const Invoice = () => {
                         <div className="flex justify-between">
                           <p className="font-bold">Total </p>
                           <p className="ml-[68px]">:</p>
-                          <p className="ml-4">
+                          <p className="">
                             BDT {userEndOrder?.bookingInfo?.totalAmount}
                           </p>
                         </div>
                         <div className="flex justify-between">
                           <p className="font-bold">Discount</p>
                           <p className="ml-8">:</p>
-                          <p className="ml-5">
+                          <p className="">
                             BDT {userEndOrder?.bookingInfo?.discount}
                           </p>
                         </div>
@@ -383,7 +395,7 @@ const Invoice = () => {
                         <div className="paid-amount flex justify-between">
                           <p className="font-bold text-[12px]">Paid</p>{" "}
                           <p className="ml-[55px]">:</p>
-                          <p className="ml-5 text-[12px]">
+                          <p className=" text-[12px]">
                             BDT {userEndOrder?.totalReceiveTk}
                           </p>
                         </div>
@@ -398,7 +410,7 @@ const Invoice = () => {
                             Due
                           </p>
                           <p className="ml-[75px]">:</p>
-                          <p className="ml-5 text-[12px]">
+                          <p className=" text-[12px]">
                             BDT {userEndOrder?.dueAmount}
                           </p>
                         </div>
@@ -406,7 +418,7 @@ const Invoice = () => {
                     </div>
                   </div>
                   {/* Note */}
-                  <div className="md:flex justify-between items-center">
+                  <div className="flex justify-between items-center">
                     <div className="note-area">
                       <label className="text-left text-[#35b0a7]">Note:</label>
                       <textarea
@@ -433,7 +445,7 @@ const Invoice = () => {
                 </div>
               </div>
               {/* Invoice Footer */}
-              <div className="flex justify-between bg-[#35B0A7] px-10 py-2 text-white invoice-footer ">
+              <div className="flex justify-between bg-[#35B0A7] px-10 py-2 text-white invoice-footer md:w-auto sm:w-[952px]">
                 <p>Head Office : House-23, Road-03, Dhanmondi, Dhaka</p>
                 <p>Mobile: +880123456789</p>
                 <p>www.psh.com.bd</p>
@@ -441,7 +453,7 @@ const Invoice = () => {
               <h3 className="text-xl px-5 py-2" style={{ marginTop: "50px" }}>
                 Terms And Condition
               </h3>
-              <div className="mt-3 px-5">
+              <div className="mt-3 px-5 md:w-auto sm:w-[952px]">
                 <p>
                   1.Booking and Reservation: All bookings are subject to
                   availability.
@@ -467,8 +479,8 @@ const Invoice = () => {
           </div>
         </div>
 
-        <div className="md:mt-5 text-center ">
-          <div>
+        <div className="mt-5 text-center ">
+          <div className="hidden md:block">
             <ReactToPrint
               trigger={() => (
                 <button className=" bg-[#399] px-5 py-2 rounded text-white font-medium text-xl">
@@ -478,7 +490,7 @@ const Invoice = () => {
               content={() => ref.current}
             />
           </div>
-          <div className="mt-5 mb-28">
+          <div className="mt-5 mb-28 hidden md:block">
             <button
               onClick={downloadPDF}
               className="bg-[#399] px-5 py-2 rounded text-white font-medium text-xl"
@@ -486,6 +498,15 @@ const Invoice = () => {
               Download Invoice
             </button>
           </div>
+          <div className="mt-10 mb-48 md:hidden sm:block ">
+            <button
+              onClick={() => handleOpen("lg")}
+              className="bg-[#399] px-5 py-2 rounded text-white font-medium text-xl"
+            >
+              View invoice
+            </button>
+          </div>
+          <InvoiceModal handleOpen={handleOpen} size={size} />
         </div>
       </div>
     </div>
