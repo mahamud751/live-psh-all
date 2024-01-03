@@ -54,6 +54,7 @@ const Branch = ({ data }) => {
       MySwal.fire("Something Error Found.", "warning");
     }
   };
+  console.log(data);
   return (
     <div>
       <form ref={formRef} onSubmit={handleSubmit}>
@@ -69,6 +70,7 @@ const Branch = ({ data }) => {
               name="name"
               placeholder="Branch Name"
               required
+              defaultValue={data?.name}
             />
           </div>
           <div className="col-md-6 form_sub_stream">
@@ -82,23 +84,9 @@ const Branch = ({ data }) => {
               name="locationLink"
               placeholder="Google Location Link"
               required
+              defaultValue={data?.locationLink}
             />
           </div>
-          {/* <div className="col-md-6 form_sub_stream">
-                <label
-                  htmlFor="inputState"
-                  className="form-label profile_label3 "
-                >
-                  Near Location
-                </label>
-
-                <input
-                  type="text"
-                  className="main_form w-100"
-                  name="nearLocation"
-                  placeholder="Near Location"
-                />
-              </div> */}
 
           <div className="col-md-6 form_sub_stream">
             <label htmlFor="inputState" className="form-label profile_label3 ">
@@ -111,6 +99,7 @@ const Branch = ({ data }) => {
               name="branchMobileNumber"
               placeholder="Mobile Number"
               required
+              defaultValue={data?.branchMobileNumber}
             />
           </div>
           <div className="col-md-6 form_sub_stream">
@@ -124,6 +113,7 @@ const Branch = ({ data }) => {
               name="branchEmail"
               placeholder="Branch Email"
               required
+              defaultValue={data?.branchEmail}
             />
           </div>
           {/* Arrount The Building */}
@@ -138,7 +128,7 @@ const Branch = ({ data }) => {
               className="main_form w-100"
               name="nearLocation1"
               placeholder="No:1"
-              required
+              defaultValue={data?.nearLocation1}
             />
           </div>
           <div className="col-md-6 form_sub_stream">
@@ -151,7 +141,7 @@ const Branch = ({ data }) => {
               className="main_form w-100"
               name="nearLocation2"
               placeholder="No:2"
-              required
+              defaultValue={data?.nearLocation2}
             />
           </div>
           <div className="col-md-6 form_sub_stream">
@@ -164,7 +154,7 @@ const Branch = ({ data }) => {
               className="main_form w-100"
               name="nearLocation3"
               placeholder="No:3"
-              required
+              defaultValue={data?.nearLocation3}
             />
           </div>
           <div className="col-md-6 form_sub_stream">
@@ -177,7 +167,7 @@ const Branch = ({ data }) => {
               className="main_form w-100"
               name="nearLocation4"
               placeholder="No:4"
-              required
+              defaultValue={data?.nearLocation4}
             />
           </div>
           <div className="col-md-6 form_sub_stream">
@@ -190,7 +180,7 @@ const Branch = ({ data }) => {
               className="main_form w-100"
               name="nearLocation5"
               placeholder="No:5"
-              required
+              defaultValue={data?.nearLocation5}
             />
           </div>
           <div className="col-md-6 form_sub_stream">
@@ -203,7 +193,7 @@ const Branch = ({ data }) => {
               className="main_form w-100"
               name="nearLocation6"
               placeholder="No:6"
-              required
+              defaultValue={data?.nearLocation5}
             />
           </div>
           <div className="col-md-6 form_sub_stream">
@@ -219,6 +209,7 @@ const Branch = ({ data }) => {
               name="branchAddress"
               placeholder="Deatails Address"
               required
+              defaultValue={data?.branchAddress}
             />
           </div>
           <div className="col-md-12 form_sub_stream">
@@ -232,7 +223,7 @@ const Branch = ({ data }) => {
               name="img"
               onChange={(e) => setFiles(e.target.files)}
               multiple
-              required
+              // required
             />
           </div>
         </div>

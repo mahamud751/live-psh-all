@@ -13,7 +13,7 @@ import brachLocationIcon from "../../assets/img/branchLocationIcon.png";
 import promoIcon from "../../assets/img/coupon.png";
 import { leftDate, rightDate, toTalRent } from "../../redux/reducers/dateSlice";
 import { placeBooking } from "../../redux/reducers/bookingSlice";
-import useExtraCharge from "../../hooks/useExtraCharge";
+
 import useBranch from "../../hooks/useBranch";
 import usePromos from "../../hooks/usePromos";
 import "../../components/shared/Custom.css";
@@ -262,7 +262,7 @@ const BookingSeatTotal = ({ data, seats, extraCharge }) => {
     const lastDay = new Date(year, month, 0).getDate(); // Setting day to 0 gets the last day of the previous month.
     return lastDay;
   }
-  console.log(data);
+
   const bookingData = {
     roomId: data?._id,
     branch: data?.branch,

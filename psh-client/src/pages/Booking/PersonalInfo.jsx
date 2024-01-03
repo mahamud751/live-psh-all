@@ -44,6 +44,7 @@ const PersonalInfo = () => {
   const [showCreditCard, setShowCreditCard] = useState(false);
   const [showBankTransfer, setShowBankTransfer] = useState(false);
   const [bookingExtend, setBookingExtend] = useState(false);
+  const [birthDay, setBirthDay] = useState(new Date());
 
   const [isActive1, setIsActive1] = useState(true);
   const [isActive2, setIsActive2] = useState(false);
@@ -105,7 +106,8 @@ const PersonalInfo = () => {
     const phone = e.target.phone.value;
     const address = e.target.address.value;
     const gender = e.target.gender.value;
-    const birthDate = e.target.birthDate.value;
+    // const birthDate = e.target.birthDate.value;
+    const birthDate = birthDay?.toISOString()?.split("T")[0];
     const emergencyContactName = e.target.ecName.value;
     const emergencyRelationC = e.target.ecRelation.value;
     const emergencyContact = e.target.ecNumber.value;
@@ -445,7 +447,7 @@ const PersonalInfo = () => {
 
               <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">
                 <label htmlFor="">Birth Day</label>
-                <input
+                {/* <input
                   type="date"
                   placeholder="Date of Birth *"
                   className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
@@ -454,6 +456,12 @@ const PersonalInfo = () => {
                     height: "45px",
                     padding: "0px 10px",
                   }}
+                /> */}
+                <DatePicker
+                  selected={new Date(birthDay)}
+                  dateFormat="dd/MM/yyyy"
+                  onChange={(date) => setBirthDay(date)}
+                  className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full h-[45px] ps-2"
                 />
               </div>
               <div className="lg:col-span-1 md:col-span-2 sm:col-span-2">

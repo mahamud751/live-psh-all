@@ -1069,32 +1069,56 @@ const Room = () => {
                     </div>
 
                     <div className="grid grid-cols-2 sm:text-sm ">
-                      <div className="flex mt-3">
-                        <img src={arroundIcon} alt="" />
-                        <p className="ms-4">Dhanmondi Lake</p>
-                        <p className="ms-4">1.00 km</p>
-                      </div>
-                      <div className="flex mt-3">
-                        <img src={arroundIcon} alt="" />
-                        <p className="ms-4">Dhaka City College</p>
-                        <p className="ms-4">0.26 km</p>
-                      </div>
-                      <div className="flex mt-3">
-                        <img src={arroundIcon} alt="" />
-                        <p className="ms-4">Popular Medical College Hospital</p>
-                        <p className="ms-4">0.26 km</p>
-                      </div>
+                      {data.branch?.nearLocation1 ? (
+                        <div className="flex mt-3">
+                          <img src={arroundIcon} alt="" />
+                          <p className="ms-4">{data.branch?.nearLocation1}</p>
+                        </div>
+                      ) : (
+                        ""
+                      )}
 
-                      <div className="flex mt-3">
-                        <img src={arroundIcon} alt="" />
-                        <p className="ms-4">Dhaka Medical College Hospital</p>
-                        <p className="ms-4">2.26 km</p>
-                      </div>
-                      <div className="flex mt-3">
-                        <img src={arroundIcon} alt="" />
-                        <p className="ms-4">PG Hospital</p>
-                        <p className="ms-4">2.26 km</p>
-                      </div>
+                      {data.branch?.nearLocation2 ? (
+                        <div className="flex mt-3">
+                          <img src={arroundIcon} alt="" />
+                          <p className="ms-4">{data.branch?.nearLocation2}</p>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      {data.branch?.nearLocation3 ? (
+                        <div className="flex mt-3">
+                          <img src={arroundIcon} alt="" />
+                          <p className="ms-4">{data.branch?.nearLocation3}</p>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+
+                      {data.branch?.nearLocation4 ? (
+                        <div className="flex mt-3">
+                          <img src={arroundIcon} alt="" />
+                          <p className="ms-4">{data.branch?.nearLocation4}</p>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      {data.branch?.nearLocation5 ? (
+                        <div className="flex mt-3">
+                          <img src={arroundIcon} alt="" />
+                          <p className="ms-4">{data.branch?.nearLocation5}</p>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      {data.branch?.nearLocation6 ? (
+                        <div className="flex mt-3">
+                          <img src={arroundIcon} alt="" />
+                          <p className="ms-4">{data.branch?.nearLocation6}</p>
+                        </div>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                 </div>
