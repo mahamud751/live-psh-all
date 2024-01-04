@@ -82,7 +82,7 @@ const Invoice = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
   return (
-    <div className=" flex justify-center ">
+    <div className="  md:flex md:justify-center">
       <div className=" ">
         <div className=" ">
           <div className="flex items-center mt-[50px] ">
@@ -98,7 +98,11 @@ const Invoice = () => {
           </div>
           {/* Invoice */}
 
-          <div ref={ref} id="invoice " className="hidden md:block">
+          <div
+            ref={ref}
+            id="invoice "
+            className="md:overflow-hidden sm:overflow-scroll"
+          >
             <div ref={pdfRef} className="">
               <div className=" p-10 mt-5 payment-info border md:w-auto sm:w-[952px] ">
                 <div className="flex justify-between  gap-x-0  ">
@@ -122,7 +126,7 @@ const Invoice = () => {
                   </div>
                 </div>
                 {/* Booking Location */}
-                <div className="flex justify-between   mt-10 text-left">
+                <div className="flex justify-between mt-10 text-left">
                   <div>
                     <p className="text-[#35B0A7] font-bold">
                       Booking Location,
@@ -182,7 +186,7 @@ const Invoice = () => {
 
                 <div>
                   <div className="bg-[#35B0A7] booking-table mt-3 text-white">
-                    <div className="grid xl:gird-cols-2 lg:grid-cols-2 md:grid-cols-2 py-1.5 px-3">
+                    <div className="grid xl:gird-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 py-1.5 px-3">
                       <div className="flex col-span-1 items-center font-medium">
                         <p>No</p>
                         <p className="ml-10">Service Name</p>
@@ -195,9 +199,11 @@ const Invoice = () => {
                   </div>
                   <div
                     className=" booking-table"
-                    style={{ backgroundColor: "rgba(53, 176, 167, 0.10)" }}
+                    style={{
+                      backgroundColor: "rgba(53, 176, 167, 0.10)",
+                    }}
                   >
-                    <div className="grid xl:gird-cols-2 lg:grid-cols-2 md:grid-cols-2 py-1.5 px-3">
+                    <div className="grid xl:gird-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 py-1.5 px-3">
                       <div className="flex col-span-1 items-center font-medium">
                         <p>01.</p>
                         {userEndOrder?.bookingInfo?.roomType ===
@@ -490,6 +496,16 @@ const Invoice = () => {
               content={() => ref.current}
             />
           </div>
+          <div className="md:hidden sm:block mb-20">
+            <ReactToPrint
+              trigger={() => (
+                <button className=" bg-[#399] px-5 py-2 rounded text-white font-medium text-xl">
+                  Download
+                </button>
+              )}
+              content={() => ref.current}
+            />
+          </div>
           <div className="mt-5 mb-28 hidden md:block">
             <button
               onClick={downloadPDF}
@@ -498,7 +514,7 @@ const Invoice = () => {
               Download Invoice
             </button>
           </div>
-          <div className="mt-10 mb-48 md:hidden sm:block ">
+          {/* <div className="mt-10 mb-48 md:hidden sm:block ">
             <button
               onClick={() => handleOpen("lg")}
               className="bg-[#399] px-5 py-2 rounded text-white font-medium text-xl"
@@ -506,7 +522,7 @@ const Invoice = () => {
               View invoice
             </button>
           </div>
-          <InvoiceModal handleOpen={handleOpen} size={size} />
+          <InvoiceModal handleOpen={handleOpen} size={size} /> */}
         </div>
       </div>
     </div>
