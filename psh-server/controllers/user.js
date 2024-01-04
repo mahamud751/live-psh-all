@@ -123,7 +123,7 @@ export const loginUser = async (req, res) => {
         phoneNumber: user?.emergencyContact?.phoneNumber,
       },
     };
-
+    console.log(userData);
     // Generate a JWT token
     const token = jwt.sign({ userId: user._id }, "your-secret-key");
 
