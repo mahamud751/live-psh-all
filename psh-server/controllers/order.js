@@ -43,6 +43,8 @@ export const createOrder = async (req, res) => {
     bookingExtend,
   } = req.body;
   try {
+    // const user = await User.findOne({ email: email });
+
     const bookingInfo = JSON.parse(req.body?.bookingInfo);
     const gardianImg = req?.files?.gardianImg[0].path;
     const image = req?.files?.image[0].path;

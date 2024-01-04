@@ -120,10 +120,10 @@ export const loginUser = async (req, res) => {
       emergencyContact: {
         contactName: user?.emergencyContact?.contactName,
         relation: user?.emergencyContact?.relation,
-        phoneNumber: user?.emergencyContact?.phoneNumber,
+        contactNumber: user?.emergencyContact?.contactNumber,
       },
     };
-    console.log(userData);
+
     // Generate a JWT token
     const token = jwt.sign({ userId: user._id }, "your-secret-key");
 

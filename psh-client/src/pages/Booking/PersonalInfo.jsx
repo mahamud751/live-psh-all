@@ -38,13 +38,13 @@ const PersonalInfo = () => {
   //cart
   const { user } = useContext(AuthContext);
   const MySwal = withReactContent(Swal);
-  console.log(user);
+
   const [showMobile, setShowMobile] = useState(true);
   const [showPaymentArrive, setShowPaymentArrive] = useState(false);
   const [showCreditCard, setShowCreditCard] = useState(false);
   const [showBankTransfer, setShowBankTransfer] = useState(false);
   const [bookingExtend, setBookingExtend] = useState(false);
-  const [birthDay, setBirthDay] = useState(new Date());
+  const [birthDay, setBirthDay] = useState(new Date(user?.dateOfBirth));
 
   const [isActive1, setIsActive1] = useState(true);
   const [isActive2, setIsActive2] = useState(false);
@@ -162,7 +162,7 @@ const PersonalInfo = () => {
         "jpeg",
         "JPEG",
       ];
-      const fileExtension = file.type.split("/")[1];
+      const fileExtension = file?.type?.split("/")[1];
       return validExtensions.includes(fileExtension);
     };
 
@@ -171,7 +171,7 @@ const PersonalInfo = () => {
       return toast.error("please provide 1 Nid File");
     }
     const file = image[0];
-    if (file.size > 5000000) {
+    if (file?.size > 5000000) {
       return toast.error("NID size 5MB more than not allowed");
     } else {
       if (isValidFileUploaded(file)) {
@@ -190,7 +190,7 @@ const PersonalInfo = () => {
 
     const gardinaNid = gardianImg[0];
 
-    if (gardinaNid.size > 5000000) {
+    if (gardinaNid?.size > 5000000) {
       return toast.error("File size 5MB more than not allowed");
     } else {
       if (isValidFileUploaded(gardinaNid)) {
@@ -254,7 +254,7 @@ const PersonalInfo = () => {
 
     // save order information to the database
     try {
-      await axios.post("http://localhost:8000/api/order", formData);
+      await axios.post("https://api.psh.com.bd/api/order", formData);
       MySwal.fire({
         icon: "success",
         title: "Booking successfully done",
@@ -270,7 +270,7 @@ const PersonalInfo = () => {
     }
     e.target.reset();
   };
-  console.log(user);
+
   // const [apiKey] = useState('YOUR_IMG_BB_API_KEY');
 
   // const handleImageUpload = async (file) => {
@@ -377,6 +377,7 @@ const PersonalInfo = () => {
                   className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   name="fatherName"
                   required
+                  defaultValue={user?.fatherName}
                   style={{
                     height: "45px",
                     padding: "0px 10px",
@@ -391,6 +392,7 @@ const PersonalInfo = () => {
                   className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   name="motherName"
                   required
+                  defaultValue={user?.motherName}
                   style={{
                     height: "45px",
                     padding: "0px 10px",
@@ -422,6 +424,7 @@ const PersonalInfo = () => {
                     height: "45px",
                     padding: "0px 10px",
                   }}
+                  defaultValue={user?.gender}
                   name="gender"
                   required
                 >
@@ -471,6 +474,7 @@ const PersonalInfo = () => {
                   placeholder="NID *"
                   className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   name="nid"
+                  defaultValue={user?.nationalId}
                   style={{
                     height: "45px",
                     padding: "0px 10px",
@@ -487,6 +491,7 @@ const PersonalInfo = () => {
                   className="text-black personal-info rounded 
                   lg:w-[350px] md:w-[300px] sm:w-full"
                   name="passport"
+                  defaultValue={user?.passport}
                   style={{
                     height: "45px",
                     padding: "0px 10px",
@@ -501,7 +506,7 @@ const PersonalInfo = () => {
                   className="text-black personal-info rounded 
                   lg:w-[350px] md:w-[300px] sm:w-full"
                   name="address"
-                  defaultValue={user ? user.address : ""}
+                  defaultValue={user ? user.userAddress : ""}
                   cols="20"
                   rows="3"
                   maxLength={100}
@@ -558,6 +563,7 @@ const PersonalInfo = () => {
                   type="text"
                   className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   name="ecName"
+                  defaultValue={user?.emergencyContact?.contactName}
                   style={{
                     height: "45px",
                     padding: "0px 10px",
@@ -575,6 +581,7 @@ const PersonalInfo = () => {
                     height: "45px",
                     padding: "0px 10px",
                   }}
+                  defaultValue={user?.emergencyContact?.relation}
                 />
               </div>
               <div>
@@ -585,6 +592,7 @@ const PersonalInfo = () => {
                   className="text-black personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full"
                   name="ecNumber"
                   required
+                  defaultValue={user?.emergencyContact?.contactNumber}
                   style={{
                     height: "45px",
                     padding: "0px 10px",
@@ -638,6 +646,7 @@ const PersonalInfo = () => {
                     height: "45px",
                     padding: "0px 10px",
                   }}
+                  defaultValue={user?.employmentStatus?.workAs}
                 >
                   <option>Student</option>
                   <option>Job</option>
@@ -656,6 +665,7 @@ const PersonalInfo = () => {
                     height: "45px",
                     padding: "0px 10px",
                   }}
+                  defaultValue={user?.employmentStatus?.monthlyIncome}
                 >
                   <option>0-10000</option>
                   <option>10001-20000</option>
