@@ -97,14 +97,31 @@ export const loginUser = async (req, res) => {
     // Create a user object with limited properties, including the branch
     const userData = {
       _id: user._id,
-      firstName: user.firstName,
+      firstName: user?.firstName,
       lastName: user?.lastName,
-      email: user.email,
-      phone: user.phone,
-      address: user.address,
-      role: user.role,
-      branch: user.branch,
-      photos: user.photos,
+
+      fatherName: user?.fatherName,
+      motherName: user?.motherName,
+      email: user?.email,
+      phone: user?.phone,
+      userAddress: user?.userAddress,
+      passport: user?.passport,
+      dateOfBirth: user?.dateOfBirth,
+      gender: user?.gender,
+      nationalId: user?.nationalId,
+
+      cardImage: user?.cardImage,
+      gardianImg: user?.gardianImg,
+
+      employmentStatus: {
+        workAs: user?.employmentStatus?.workAs,
+        monthlyIncome: user?.employmentStatus?.monthlyIncome,
+      },
+      emergencyContact: {
+        contactName: user?.emergencyContact?.contactName,
+        relation: user?.emergencyContact?.relation,
+        phoneNumber: user?.emergencyContact?.phoneNumber,
+      },
     };
 
     // Generate a JWT token
