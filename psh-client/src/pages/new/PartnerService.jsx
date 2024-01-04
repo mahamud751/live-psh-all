@@ -185,53 +185,62 @@ const PartnerService = () => {
       </div>
       <div className="banner3">
         <div className="custom-container pb-20">
-          <h2 className="text-xl font-bold mb-5 mt-12 text-center py-12">
-            Investment Opportunities in Project Second Home
+          <h2 className="text-[32px] font-bold mb-5 mt-12 text-center py-12">
+            Property Rental Investment Proven to be More Profitable
           </h2>
 
           <div className="grid grid-cols-4">
             <div>
-              <p className=" text-black text-center text-xl font-medium ">
-                Angel Investment
+              <p className=" text-black text-center text-xl font-bold ">
+                Angle Investment
+              </p>
+              <p className=" text-black text-center font-medium w-full mt-4">
+                <span className="text-sm text-xl">(50K to 1,000K)</span>
+              </p>
+              <p className=" text-black text-5xl text-center font-bold w-full mt-4">
+                (12 - 18% )
               </p>
               <p className=" text-black text-xl text-center font-medium w-full mt-4">
-                <span className="text-sm">(500000 to 1000000 TK)</span>
-              </p>
-              <p className=" text-black text-xl text-center font-medium w-full mt-4">
-                (12 - 18% Returns per year)
+                Returns per year
               </p>
             </div>
             <div>
-              <p className=" text-black text-center text-xl font-medium ">
+              <p className=" text-black text-center text-xl font-bold ">
                 Project Director
               </p>
-              <p className=" text-black text-xl text-center font-medium w-full mt-4">
-                <span className="text-sm">(1000000 to upto Project Value)</span>
+              <p className=" text-black text-center font-medium w-full mt-4">
+                <span className="text-xl">(10 Lac to up to Project Value)</span>
               </p>
-              <p className=" text-black text-5xl text-center font-medium w-full mt-4">
-                3-6%
-              </p>
-              <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
-                returns per year
-              </p>
-            </div>
-            <div>
-              <p className=" text-black text-center text-xl font-medium ">
-                Stock Mutual Funds
-              </p>
-              <p className=" text-black text-5xl text-center font-medium w-full mt-4">
-                8-15%
+              <p className=" text-black text-xl text-center font-bold w-full mt-4">
+                5% Net Profit on Particular Project
               </p>
               <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
                 returns per year
               </p>
             </div>
             <div>
-              <p className="text-teal-700 text-center text-xl font-medium">
-                Partner with Project Second Home
+              <p className=" text-black text-center text-xl font-bold ">
+                Share Holder
               </p>
-              <p className="text-teal-700 text-5xl text-center font-medium w-full mt-4">
-                15-20%
+              <p className=" text-black text-center font-medium w-full mt-4">
+                <span className="text-xl">50 Lac per Share</span>
+              </p>
+              <p className=" text-black text-xl text-center font-bold w-full mt-4">
+                1% Net Profit of PSH
+              </p>
+              <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
+                returns per year
+              </p>
+            </div>
+            <div>
+              <p className=" text-black text-center text-xl font-bold ">
+                Franchise Partner
+              </p>
+              <p className=" text-black text-center font-medium w-full mt-4">
+                <span className="text-xl">Based on Branch Value</span>
+              </p>
+              <p className=" text-black text-xl text-center font-bold w-full mt-4">
+                Up to 90% profit on particular project
               </p>
               <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
                 returns per year

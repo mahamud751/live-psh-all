@@ -5,9 +5,15 @@ import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
+import partnerImg from "../../assets/img/corporate-banner.png";
+import choiceImg1 from "../../assets/img/choiceImg1.png";
+import choiceImg2 from "../../assets/img/choiceImg2.png";
+import choiceImg3 from "../../assets/img/choiceImg3.png";
 
 import Benefit from "./Benefit";
-import RentRequestModal from "./RentRequestModal";
+import Platform from "../../components/home/Platform";
+import OtherOpportunities from "./OtherOpportunities";
+// import RentRequestModal from "./RentRequestModal";
 
 const Business = () => {
   const [size, setSize] = React.useState(null);
@@ -84,32 +90,35 @@ const Business = () => {
   };
   return (
     <div>
-      <div className="banner-left">
-        <div className="grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16 ">
-          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6">
-            <div className="2xl:ms-72">
+      <div className="banner-left ">
+        <div className="grid grid-cols-12  gap-x-8 gap-y-16 ">
+          <div className="flex col-span-12 lg:col-span-6 sm:col-span-12 md:col-span-6 relative">
+            <div className="absolute left-24 ">
               <div
                 className="flex justify-center items-center"
                 style={{ height: "100vh" }}
               >
                 <div className="">
-                  <h1 className="banner_h1">
+                  <h1 className="banner_h1 mb-4 text-white">
                     Residential Solutions for Your Company
                   </h1>
-                  <p className="banner_p my-4">
+                  <p className=" text-sm text-white mb-4 text-xl">
                     Find complete & comfortable accommodation for your company's
                     needs with Project Second Home.
                   </p>
+
                   <div className="md:flex  gap-4">
-                    <button
-                      className="text-neutral-800 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch bg-white  px-4 py-4 rounded-lg"
-                      style={{ width: 220 }}
-                      onClick={() => handleOpen("sm")}
-                    >
-                      I am interested in
-                    </button>
+                    <div className="sm:mb-3 md:mb-0">
+                      <button
+                        className="text-neutral-800 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch bg-white  px-4 py-4 rounded-lg"
+                        style={{ width: 220 }}
+                        onClick={() => handleOpen("sm")}
+                      >
+                        List Your Property
+                      </button>
+                    </div>
                     <div
-                      className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white md:mt-0 sm:mt-2"
+                      className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white"
                       style={{ width: 220 }}
                     >
                       <img
@@ -138,31 +147,19 @@ const Business = () => {
                       </div>
                     </DialogHeader>
                     <DialogBody className="p-2">
-                      <RentRequestModal />
+                      {/* <PartnerModal /> */}
                     </DialogBody>
                   </Dialog>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6 ">
-            <Carousel className="rounded-xl">
-              <img
-                src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
-                alt="image 1"
-                className="h-full w-full object-cover"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-                alt="image 2"
-                className="h-full w-full object-cover"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-                alt="image 3"
-                className="h-full w-full object-cover"
-              />
-            </Carousel>
+          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6 w-full">
+            <img
+              src={partnerImg}
+              alt=""
+              style={{ height: "100vh", width: "100%" }}
+            />
           </div>
         </div>
       </div>
@@ -176,7 +173,7 @@ const Business = () => {
               <div className="overflow-hidden">
                 <div className="m-0 rounded-none">
                   <img
-                    src="assets/img/Img.png.png"
+                    src={choiceImg1}
                     alt="ui/ux review check"
                     style={{ height: 269, width: "100%" }}
                   />
@@ -184,8 +181,9 @@ const Business = () => {
                 <div className="md:p-4 sm:p-2  ">
                   <p className="business font-bold">Employee Housing</p>
                   <p className="content">
-                    Coliving housing or apartments near the work site for your
-                    employees to live in.
+                    Comfortable and Residential service near the work station
+                    for your employees to live in with 30+ services that will
+                    make living more
                   </p>
                 </div>
               </div>
@@ -195,17 +193,17 @@ const Business = () => {
               <div className="overflow-hidden ">
                 <div color="transparent" className="m-0 rounded-none">
                   <img
-                    src="assets/img/Img-1.png.png"
+                    src={choiceImg2}
                     alt="ui/ux review check"
                     style={{ height: 269, width: "100%" }}
                   />
                 </div>
                 <div className="md:p-4 sm:p-2 ">
-                  <p className="business font-bold">Custom Coliving</p>
+                  <p className="business font-bold">Custom Co-living</p>
 
                   <p className="content">
-                    Your company's special coliving building that can be
-                    personalized according to your needs. Work, play and live!
+                    Your company’s special Co-living Building that can be
+                    personalized according to your needs work, play and live.
                   </p>
                 </div>
               </div>
@@ -215,19 +213,19 @@ const Business = () => {
               <div className="overflow-hidden">
                 <div color="transparent" className="m-0 rounded-none">
                   <img
-                    src="assets/img/Img-2.png.png"
+                    src={choiceImg3}
                     alt="ui/ux review check"
                     style={{ height: 269, width: "100%" }}
                   />
                 </div>
                 <div className="md:p-4 sm:p-2  ">
                   <p className="business font-bold">
-                    Akomodasi Perjalanan Bisnis
+                    Accommodation Journey with PSH
                   </p>
 
                   <p className="content">
-                    Full-service residence for employees and company guests on
-                    business trips.
+                    Full service accommodation for employees and company guest
+                    on business trips.
                   </p>
                 </div>
               </div>
@@ -235,10 +233,13 @@ const Business = () => {
           </Slider>
         </div>
       </div>
-
-      <Benefit />
-
-      <div>
+      {/* We Offer */}
+      <div className="custom-container">
+        <h2 className="text-xl font-bold mb-5 ">What do we offer?</h2>
+        <Platform />
+      </div>
+      <OtherOpportunities />
+      {/* <div>
         <Card shadow={false} className="overflow-hidden text-center">
           <CardHeader
             floated={false}
@@ -278,7 +279,7 @@ const Business = () => {
             </div>
           </CardBody>
         </Card>
-      </div>
+      </div> */}
     </div>
   );
 };

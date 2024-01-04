@@ -82,10 +82,7 @@ const Platform = () => {
     ],
   };
   return (
-    <div className="md:mt-10 sm:mt-5">
-      <h2 className="text-xl font-bold mb-5">
-        Why this platform better then others?
-      </h2>
+    <div className="md:mt-5 sm:mt-5">
       <div className="all_promo slider_margin card-slider ">
         <Slider {...settings}>
           <div className="group relative">
@@ -130,7 +127,7 @@ const Platform = () => {
               </CardHeader>
               <CardBody className="md:p-4 sm:p-2 ">
                 <h5 className="text-[1rem] text-black font-bold">
-                  Full services
+                  Prayer Room.
                 </h5>
 
                 <p className="mt-3 text-sm">
@@ -157,7 +154,7 @@ const Platform = () => {
               </CardHeader>
               <CardBody className="md:p-4 sm:p-2  ">
                 <h5 className="text-[1rem] text-black font-bold">
-                  Fully furnished Room
+                  Three times food.
                 </h5>
 
                 <p className="mt-3 text-sm">
@@ -184,7 +181,111 @@ const Platform = () => {
               </CardHeader>
               <CardBody className="md:p-4 sm:p-2  ">
                 <h5 className="text-[1rem] text-black font-bold">
-                  Fully furnished Room
+                  High Speed Internet.
+                </h5>
+
+                <p className="mt-3 text-sm">
+                  All rooms are equipped with AC, WiFi, and full furnishing.
+                  Ready to move in!
+                </p>
+              </CardBody>
+            </Card>
+          </div>
+          <div className="group relative">
+            <Card className="overflow-hidden">
+              <CardHeader
+                floated={false}
+                shadow={false}
+                color="transparent"
+                className="m-0 rounded-none"
+              >
+                <img
+                  src="images/fully-furnished@3x.webp-3.png"
+                  alt="ui/ux review check"
+                  style={{ height: 200, width: "100%" }}
+                />
+              </CardHeader>
+              <CardBody className="md:p-4 sm:p-2  ">
+                <h5 className="text-[1rem] text-black font-bold">
+                  Dedicative House Keeping Service.
+                </h5>
+
+                <p className="mt-3 text-sm">
+                  All rooms are equipped with AC, WiFi, and full furnishing.
+                  Ready to move in!
+                </p>
+              </CardBody>
+            </Card>
+          </div>
+          <div className="group relative">
+            <Card className="overflow-hidden">
+              <CardHeader
+                floated={false}
+                shadow={false}
+                color="transparent"
+                className="m-0 rounded-none"
+              >
+                <img
+                  src="images/fully-furnished@3x.webp-3.png"
+                  alt="ui/ux review check"
+                  style={{ height: 200, width: "100%" }}
+                />
+              </CardHeader>
+              <CardBody className="md:p-4 sm:p-2  ">
+                <h5 className="text-[1rem] text-black font-bold">
+                  Full Safety and Security.
+                </h5>
+
+                <p className="mt-3 text-sm">
+                  All rooms are equipped with AC, WiFi, and full furnishing.
+                  Ready to move in!
+                </p>
+              </CardBody>
+            </Card>
+          </div>
+          <div className="group relative">
+            <Card className="overflow-hidden">
+              <CardHeader
+                floated={false}
+                shadow={false}
+                color="transparent"
+                className="m-0 rounded-none"
+              >
+                <img
+                  src="images/fully-furnished@3x.webp-3.png"
+                  alt="ui/ux review check"
+                  style={{ height: 200, width: "100%" }}
+                />
+              </CardHeader>
+              <CardBody className="md:p-4 sm:p-2  ">
+                <h5 className="text-[1rem] text-black font-bold">
+                  AC/Generator , Lift, Geyser.
+                </h5>
+
+                <p className="mt-3 text-sm">
+                  All rooms are equipped with AC, WiFi, and full furnishing.
+                  Ready to move in!
+                </p>
+              </CardBody>
+            </Card>
+          </div>
+          <div className="group relative">
+            <Card className="overflow-hidden">
+              <CardHeader
+                floated={false}
+                shadow={false}
+                color="transparent"
+                className="m-0 rounded-none"
+              >
+                <img
+                  src="images/fully-furnished@3x.webp-3.png"
+                  alt="ui/ux review check"
+                  style={{ height: 200, width: "100%" }}
+                />
+              </CardHeader>
+              <CardBody className="md:p-4 sm:p-2  ">
+                <h5 className="text-[1rem] text-black font-bold">
+                  Parking Space.
                 </h5>
 
                 <p className="mt-3 text-sm">

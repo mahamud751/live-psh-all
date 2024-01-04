@@ -14,7 +14,7 @@
   position: relative;
 }
 
-.btn-color-mode-switch>label.btn-color-mode-switch-inner {
+.btn-color-mode-switch > label.btn-color-mode-switch-inner {
   margin: 0px;
   width: 340px;
   height: 40px;
@@ -28,7 +28,7 @@
   display: block;
 }
 
-.btn-color-mode-switch>label.btn-color-mode-switch-inner:before {
+.btn-color-mode-switch > label.btn-color-mode-switch-inner:before {
   content: attr(data-on);
   position: absolute;
   top: 10px;
@@ -40,7 +40,7 @@
   line-height: 20px;
 }
 
-.btn-color-mode-switch>label.btn-color-mode-switch-inner:after {
+.btn-color-mode-switch > label.btn-color-mode-switch-inner:after {
   content: attr(data-off);
   width: 170px;
   height: 35px;
@@ -73,16 +73,22 @@
   margin: 0px;
 }
 
-.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner {
+.btn-color-mode-switch
+  input[type="checkbox"]:checked
+  + label.btn-color-mode-switch-inner {
   background-color: white;
 }
 
-.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:after {
+.btn-color-mode-switch
+  input[type="checkbox"]:checked
+  + label.btn-color-mode-switch-inner:after {
   content: attr(data-on);
   left: 168px;
 }
 
-.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:before {
+.btn-color-mode-switch
+  input[type="checkbox"]:checked
+  + label.btn-color-mode-switch-inner:before {
   content: attr(data-off);
   right: auto;
   left: 20px;
@@ -140,7 +146,7 @@
 }
 
 .feedback_p {
-  color: #FFF;
+  color: #000000;
   font-family: Rubik;
   font-size: 16px;
   font-style: normal;

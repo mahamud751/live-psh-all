@@ -73,7 +73,7 @@ const PartnerFeedback = () => {
     ],
   };
   return (
-    <div className="text-white" style={{ background: "rgba(0, 94, 90, 1)" }}>
+    <div className="">
       <div className="custom-container pt-16">
         <div className="card-slider3">
           <Slider {...settings}>

@@ -1,108 +1,44 @@
 import React, { useState } from "react";
 import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
-import { Card, CardHeader, CardBody } from "@material-tailwind/react";
-import Slider from "react-slick";
-import LeftArrow from "../../assets/img/left-arrow.svg";
-import RightArrow from "../../assets/img/right-arrow.svg";
+
 import partnerImg from "../../assets/img/partner-img1.jpeg";
-import PartnerService from "./PartnerService";
+import partnerImg2 from "../../assets/img/partner-img2.png";
+import fixedRentImg from "../../assets/img/fixed-rent.png";
+import frameWorkImg from "../../assets/img/Legal Framework 1.png";
+import maintainceImg from "../../assets/img/maintenance 1.png";
+import strongLegalImg from "../../assets/img/legal-document 1.png";
+import safelyImg from "../../assets/img/give 2.png";
+import renewableImg from "../../assets/img/renewal 2.png";
+
 import "./partner.css";
 import PartnerModal from "./PartnerModal";
-import PartnerFeedback from "./PartnerFeedback";
+
 import { Link } from "react-router-dom";
+import OtherOpportunities from "./OtherOpportunities";
 
 const Partner = () => {
   const [size, setSize] = React.useState(null);
 
   const handleOpen = (value) => setSize(value);
-  const [lastSlideIndex, setLastSlideIndex] = useState(0);
-  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
-    <img src={LeftArrow} alt="prevArrow" {...props} />
-  );
 
-  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
-    <img src={RightArrow} alt="nextArrow" {...props} />
-  );
-  const settings = {
-    dots: false,
-
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    afterChange: (index) => {
-      setLastSlideIndex(index);
-    },
-    infinite: false,
-    speed: 400,
-    // arrows: publishedData?.length > 5 ? true : false,
-    autoplay: false,
-    autoplaySpeed: 3000,
-    prevArrow: <SlickArrowLeft />,
-    nextArrow: <SlickArrowRight />,
-    className: "mx-[-15px]",
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          dots: false,
-          infinite: true,
-
-          autoplaySpeed: 3000,
-          arrows: true,
-        },
-      },
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 2,
-          infinite: true,
-
-          autoplaySpeed: 3000,
-          arrows: true,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          className: `center ms-5 ${
-            lastSlideIndex >= 1 ? "only-forMobile" : ""
-          }`,
-          afterChange: (index) => {
-            setLastSlideIndex(index);
-          },
-          centerMode: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: false,
-          speed: 1000,
-          autoplaySpeed: 1000,
-          arrows: false,
-        },
-      },
-    ],
-  };
   return (
     <div>
       <div className="banner-left ">
-        <div className="grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16 ">
-          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6">
-            <div className="2xl:ms-72">
+        <div className="grid grid-cols-12  gap-x-8 gap-y-16 ">
+          <div className="flex col-span-12 lg:col-span-6 sm:col-span-12 md:col-span-6 relative">
+            <div className="absolute left-24 ">
               <div
                 className="flex justify-center items-center"
                 style={{ height: "100vh" }}
               >
                 <div className="">
-                  <h1 className="banner_h1">What we do?</h1>
-                  <p className=" text-sm text-white">
+                  <h1 className="banner_h1 text-white mb-5">What we do?</h1>
+                  <p className=" text-sm text-white text-xl ">
                     PSH women dormitory which is working on women accommodation,
                     safety and security who come from outside to Dhaka for
                     Study, Job and Treatment purpose etc.
                   </p>
-                  <p className="text-sm mb-4 text-white">
+                  <p className="text-sm mb-4 text-white text-xl mt-2">
                     As well we are here to manage and give you potential
                     property counseling, Business Collaboration opportunities
                     and carrying your property maintenance issues.
@@ -154,7 +90,7 @@ const Partner = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6 ">
+          <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6 w-full">
             <img
               src={partnerImg}
               alt=""
@@ -163,7 +99,94 @@ const Partner = () => {
           </div>
         </div>
       </div>
-      <div className="custom-container">
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 custom-container mt-16 mb-20">
+        <div>
+          <img src={partnerImg2} alt="" />
+        </div>
+        <div className="mt-2">
+          <h3 className="font-bold">What do we offer? </h3>
+          <h5 className="mt-8 font-bold">Lease for Property </h5>
+          <p className="mt-5">
+            <span className="font-bold">PSH</span> Directly engage with property
+            (Building or Apartment) related work that we can create win-win and
+            long term relationship with property owners so that you can turn
+            your inactive or lazy assets into a profitable property business
+            effectively by generating growths.
+          </p>
+          <button className="mt-14 border-2 border-black rounded px-5 py-2">
+            Contact with us
+          </button>
+        </div>
+      </div>
+      <h2 className="custom-container font-bold mb-3 text-xl">
+        AS A LEASSOR :
+      </h2>
+      <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 custom-container gap-5 mb-5">
+        <div className="flex gap-x-5 items-center bg-[#4CC0B8] rounded-lg">
+          <img
+            src={fixedRentImg}
+            style={{ width: "60px" }}
+            className="py-2 ps-3"
+            alt=""
+          />
+          <p className="text-white text-[20px]">Fixed Rent</p>
+        </div>
+        <div className="flex gap-x-5 items-center bg-[#4CC0B8] rounded-lg">
+          <img
+            src={frameWorkImg}
+            style={{ width: "60px" }}
+            className="py-2 ps-3"
+            alt=""
+          />
+          <p className="text-white text-[20px]">Legal Framework</p>
+        </div>
+        <div className="flex gap-x-5 items-center bg-[#4CC0B8] rounded-lg">
+          <img
+            src={maintainceImg}
+            style={{ width: "60px" }}
+            className="py-2 ps-3"
+            alt=""
+          />
+          <p className="text-white text-[20px]">Property Maintenance </p>
+        </div>
+        <div className="flex gap-x-5 items-center bg-[#4CC0B8] rounded-lg">
+          <img
+            src={strongLegalImg}
+            style={{ width: "60px" }}
+            className="py-2 ps-3"
+            alt=""
+          />
+          <p className="text-white text-[20px]">Strong Legal Framework </p>
+        </div>
+        <div className="flex gap-x-5 items-center bg-[#4CC0B8] rounded-lg">
+          <img
+            src={safelyImg}
+            style={{ width: "60px" }}
+            className="py-2 ps-3"
+            alt=""
+          />
+          <p className="text-white text-[20px]">Safely Handover </p>
+        </div>
+        <div className="flex gap-x-5 items-center bg-[#4CC0B8] rounded-lg">
+          <img
+            src={renewableImg}
+            style={{ width: "60px" }}
+            className="py-2 ps-3"
+            alt=""
+          />
+          <p className="text-white text-[20px]">Renewable opportunities </p>
+        </div>
+      </div>
+      {/* Other Opportunities */}
+      <OtherOpportunities />
+    </div>
+  );
+};
+
+export default Partner;
+
+{
+  /* <div className="custom-container">
         <h2 className="text-xl font-bold mb-5 mt-12">
           PSH's choice of Housing for companies
         </h2>
@@ -245,9 +268,89 @@ const Partner = () => {
           </Slider>
         </div>
       </div>
-      <PartnerService />
+        <div className="all_promo slider_margin card-slider ">
+          <Slider {...settings}>
+            <div className="group relative">
+              <div className="overflow-hidden">
+                <div className="m-0 rounded-none">
+                  <img
+                    src="assets/img2/jadi_partner_rukita.png (1).png"
+                    alt="ui/ux review check"
+                    style={{ height: 269, width: "100%" }}
+                  />
+                </div>
+                <div className="md:p-4 sm:p-2  ">
+                  <p className="business font-bold">Partnership with PSH</p>
+                  <p className="content my-3">
+                    Introducing and Registering your Ideal money, Co-living or
+                    Apartment Business to be a part of Project Second Home
+                  </p>
+                  <button className="partner_btn">
+                    Register your property{" "}
+                  </button>
+                </div>
+              </div>
+            </div>
 
-      <div className="banner2 mt-5">
+            <div className="group relative">
+              <div className="overflow-hidden ">
+                <div color="transparent" className="m-0 rounded-none">
+                  <img
+                    src="assets/img/build_for_rent.png.png"
+                    alt="ui/ux review check"
+                    style={{ height: 269, width: "100%" }}
+                  />
+                </div>
+                <div className="md:p-4 sm:p-2 ">
+                  <p className="business font-bold">Lease for Property</p>
+
+                  <p className="content my-3" style={{ width: "90%" }}>
+                    Turn Your Inactive / Lazy assets into a profitable Property
+                    Business effectively by generating growths
+                  </p>
+                  <button
+                    className="partner_btn"
+                    onClick={() => handleOpen("sm")}
+                  >
+                    connect with us
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative">
+              <div className="overflow-hidden">
+                <div color="transparent" className="m-0 rounded-none">
+                  <img
+                    src="assets/img/rufinance.png.png"
+                    alt="ui/ux review check"
+                    style={{ height: 269, width: "100%" }}
+                  />
+                </div>
+                <div className="md:p-4 sm:p-2  ">
+                  <p className="business font-bold ">PSH Finance</p>
+
+                  <p className="content my-3">
+                    PSH Finance is ready to assist in potential financing,
+                    Constructing, Renovating Business and operating efficient
+                    ideas
+                  </p>
+                  <Link to={"/psh-finance"}>
+                    <button className="partner_btn">
+                      Investment opportunities
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Slider>
+        </div>
+      </div>
+      <PartnerService /> */
+}
+
+{
+  /* <div className="banner2 mt-5">
         <div className="custom-container">
           <h2 className="text-xl font-bold mb-5 pt-16">
             Why do you need to be PSH's as a partner?
@@ -429,8 +532,10 @@ const Partner = () => {
             </Slider>
           </div>
         </div>
-      </div>
-      <div className="custom-container">
+      </div> */
+}
+{
+  /* <div className="custom-container">
         <h2 className="text-xl font-bold mb-5 mt-12">
           3 Steps to Become a Project Second Home Partner
         </h2>
@@ -489,12 +594,18 @@ const Partner = () => {
             </div>
           </Slider>
         </div>
-      </div>
-      {/* <div className="w-full">
+      </div> */
+}
+{
+  /* <div className="w-full">
         <PartnerLastCard />
-      </div> */}
-      <PartnerFeedback />
-      <div>
+      </div> */
+}
+{
+  /* <PartnerFeedback /> */
+}
+{
+  /* <div>
         <Card shadow={false} className="overflow-hidden text-center">
           <CardHeader
             floated={false}
@@ -529,9 +640,5 @@ const Partner = () => {
             </div>
           </CardBody>
         </Card>
-      </div>
-    </div>
-  );
-};
-
-export default Partner;
+      </div> */
+}

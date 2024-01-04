@@ -38,7 +38,7 @@ const PersonalInfo = () => {
   //cart
   const { user } = useContext(AuthContext);
   const MySwal = withReactContent(Swal);
-
+  console.log(user);
   const [showMobile, setShowMobile] = useState(true);
   const [showPaymentArrive, setShowPaymentArrive] = useState(false);
   const [showCreditCard, setShowCreditCard] = useState(false);
@@ -254,7 +254,7 @@ const PersonalInfo = () => {
 
     // save order information to the database
     try {
-      await axios.post("https://api.psh.com.bd/api/order", formData);
+      await axios.post("http://localhost:8000/api/order", formData);
       MySwal.fire({
         icon: "success",
         title: "Booking successfully done",
@@ -270,7 +270,7 @@ const PersonalInfo = () => {
     }
     e.target.reset();
   };
-
+  console.log(user);
   // const [apiKey] = useState('YOUR_IMG_BB_API_KEY');
 
   // const handleImageUpload = async (file) => {

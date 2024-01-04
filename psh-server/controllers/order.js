@@ -1,5 +1,6 @@
 import OrderModel from "../models/Order.js";
 import Property from "../models/Property.js";
+import User from "../models/User.js";
 import Transaction from "../models/Transaction.js";
 import nodemailer from "nodemailer";
 
@@ -115,6 +116,38 @@ export const createOrder = async (req, res) => {
     });
 
     const result = await newOrder.save();
+    const userUpdate = {
+      firstName: fullName,
+      fatherName: fatherName,
+      motherName: motherName,
+      email: email,
+      phone: phone,
+      userAddress: address,
+      passport: passport,
+      dateOfBirth: birthDate,
+      gender: gender,
+      nationalId: nid,
+
+      cardImage: image,
+      gardianImg: gardianImg,
+
+      employmentStatus: {
+        workAs: employeeStatus,
+        monthlyIncome: emplyeeIncome,
+      },
+      emergencyContact: {
+        contactName: emergencyContactName,
+        relation: emergencyRelationC,
+        phoneNumber: emergencyContact,
+      },
+    };
+
+    await User.updateOne(
+      { email: email },
+      { $set: userUpdate },
+      { runValidators: true }
+    );
+
     const currentDate = new Date().toISOString().split("T")[0];
     // Create Transaction whent First Order
     const transaction = new Transaction({

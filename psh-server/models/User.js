@@ -5,6 +5,12 @@ const UserSchema = new mongoose.Schema(
     firstName: {
       type: String,
     },
+    fatherName: {
+      type: String,
+    },
+    motherName: {
+      type: String,
+    },
     email: {
       type: String,
     },
@@ -33,6 +39,12 @@ const UserSchema = new mongoose.Schema(
     },
 
     nationality: {
+      type: String,
+    },
+    userAddress: {
+      type: String,
+    },
+    passport: {
       type: String,
     },
     password: {
@@ -95,6 +107,9 @@ const UserSchema = new mongoose.Schema(
     cardImage: {
       type: String,
     },
+    gardianImg: {
+      type: String,
+    },
     // Employment Status
     employmentStatus: {
       workAs: {
@@ -110,6 +125,9 @@ const UserSchema = new mongoose.Schema(
         type: String,
       },
       relation: {
+        type: String,
+      },
+      contactNumber: {
         type: String,
       },
     },

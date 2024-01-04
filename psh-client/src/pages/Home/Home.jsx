@@ -25,6 +25,9 @@ function Home() {
         <PromoOffer />
         <Recommended />
         <AllBranch />
+        <h2 className="text-xl font-bold mt-10">
+          Why this platform better then others?
+        </h2>
         <Platform />
         <Review />
       </div>
