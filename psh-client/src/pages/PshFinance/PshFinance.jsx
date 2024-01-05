@@ -21,7 +21,6 @@ import tickSvg from "../../../src/assets/img/tik-svg.png";
 import "./PshFinance.css";
 import { Link } from "react-router-dom";
 import { Dialog, DialogBody, DialogHeader } from "@material-tailwind/react";
-import PartnerModal from "../new/PartnerModal";
 import ExtraForm from "../ExtraForm/ExtraForm";
 import partnerImg from "../../assets/img/partner-img1.jpeg";
 import PartnerService from "../new/PartnerService";
@@ -46,7 +45,7 @@ const PshFinance = () => {
                   <h1 className="banner_h1 text-white mb-10">
                     Invest and Grow with Project Second Home
                   </h1>
-                  <p className=" text-sm text-white text-xl mb-5">
+                  <p className="text-sm text-white text-xl mb-5">
                     Become a PSH angel Investor, Project Director, Franchise
                     Partner or Share holder to maximize your idle money and
                     Increase your property valuation to great a social
@@ -54,15 +53,15 @@ const PshFinance = () => {
                   </p>
 
                   <div className="md:flex  gap-4">
-                    {/* <div className="sm:mb-3 md:mb-0">
+                    <div className="">
                       <button
                         className="text-neutral-800 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch bg-white  px-4 py-4 rounded-lg"
                         style={{ width: 220 }}
                         onClick={() => handleOpen("sm")}
                       >
-                        List Your Property
+                        From now on
                       </button>
-                    </div> */}
+                    </div>
                     <div
                       className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white"
                       style={{ width: 220 }}
@@ -93,7 +92,7 @@ const PshFinance = () => {
                       </div>
                     </DialogHeader>
                     <DialogBody className="p-2">
-                      <PartnerModal />
+                      <ExtraForm />
                     </DialogBody>
                   </Dialog>
                 </div>

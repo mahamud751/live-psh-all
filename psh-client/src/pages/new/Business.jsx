@@ -13,6 +13,7 @@ import choiceImg3 from "../../assets/img/choiceImg3.png";
 import Benefit from "./Benefit";
 import Platform from "../../components/home/Platform";
 import OtherOpportunities from "./OtherOpportunities";
+import RentRequestModal from "./RentRequestModal";
 // import RentRequestModal from "./RentRequestModal";
 
 const Business = () => {
@@ -114,7 +115,7 @@ const Business = () => {
                         style={{ width: 220 }}
                         onClick={() => handleOpen("sm")}
                       >
-                        List Your Property
+                        I am interested in
                       </button>
                     </div>
                     <div
@@ -147,7 +148,7 @@ const Business = () => {
                       </div>
                     </DialogHeader>
                     <DialogBody className="p-2">
-                      {/* <PartnerModal /> */}
+                      <RentRequestModal />
                     </DialogBody>
                   </Dialog>
                 </div>
