@@ -56,13 +56,13 @@ export default function WishList() {
               </tr>
             </thead>
             <tbody>
-              {main?.map((item) => {
+              {main?.map((item, i) => {
                 const formattedDate = new Date(
                   item?.createdAt
                 ).toLocaleString();
 
                 return (
-                  <tr className="even:bg-blue-gray-50/50  border ">
+                  <tr className="even:bg-blue-gray-50/50  border " key={i}>
                     <td className="p-2 border">
                       <img
                         src={item?.property?.photos[0]}

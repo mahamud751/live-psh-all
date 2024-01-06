@@ -27,9 +27,8 @@ export const UserProvider = ({ children }) => {
 
       if (response.status === 200) {
         const { data } = response;
-        console.log("mainData", data);
-        setUser(data.user);
-        setToken(data.token);
+        setUser(data?.user);
+        setToken(data?.token);
 
         setLoading(false);
       } else {

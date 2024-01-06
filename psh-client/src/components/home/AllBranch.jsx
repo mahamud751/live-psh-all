@@ -167,8 +167,8 @@ const AllBranch = () => {
               {/* For Mobile */}
 
               <Slider {...settings}>
-                {data?.map((item) => (
-                  <div className="items-start ">
+                {data?.map((item, i) => (
+                  <div className="items-start" key={i}>
                     <Link to={`/branch/${item._id}`}>
                       <Card
                         shadow={false}

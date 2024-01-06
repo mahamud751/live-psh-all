@@ -144,6 +144,7 @@ const TicketCreate = ({ handleOpen, open }) => {
                           setIssuSubValue(index);
                           setSelectedSubCategory(issue); // Update the selected sub-category
                         }}
+                        key={index}
                       >
                         <span
                           className={`${
@@ -169,6 +170,7 @@ const TicketCreate = ({ handleOpen, open }) => {
                           setIssuSubValue(index);
                           setSelectedSubCategory(issue); // Update the selected sub-category
                         }}
+                        key={index}
                       >
                         <span
                           className={`${

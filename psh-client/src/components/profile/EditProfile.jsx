@@ -9,7 +9,6 @@ import "./Personal.css";
 
 function EditProfile() {
   const { user } = useContext(AuthContext);
-  console.log("user", user);
   const MySwal = withReactContent(Swal);
   const [image, setImage] = useState([]);
   const [files, setFiles] = useState("");

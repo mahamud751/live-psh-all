@@ -74,7 +74,7 @@ const Banner = () => {
             }}
           >
             {data?.map((pd, i) => (
-              <SplideSlide>
+              <SplideSlide key={i}>
                 <img
                   key={i}
                   src={pd.photos[0]}

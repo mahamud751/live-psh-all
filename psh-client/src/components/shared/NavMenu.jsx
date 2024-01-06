@@ -27,8 +27,7 @@ import UseFetch from "../../hooks/useFetch";
 import SearchBoxWithNav from "../home/SearchBoxWithNav";
 import { HiOutlineUserCircle } from "react-icons/hi";
 
-function ProfileMenu(id) {
-  const { data } = UseFetch(`users/${id}`);
+function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
   const { user, logoutUser } = useContext(AuthContext);

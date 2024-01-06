@@ -144,8 +144,8 @@ const Recommended = () => {
           </Splide> */}
 
           <Slider {...settings}>
-            {publishedData?.map((item) => (
-              <SingleCard item={item} />
+            {publishedData?.map((item, i) => (
+              <SingleCard item={item} key={i} />
             ))}
           </Slider>
         </div>

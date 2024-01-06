@@ -6,7 +6,7 @@ const useUser = () => {
   const [singleUser, setSingleUser] = useState({});
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`https://api.psh.com.bd/api/users/${user._id}`)
+    fetch(`https://api.psh.com.bd/api/users/${user?._id}`)
       .then((res) => res.json())
       .then((data) => setSingleUser(data));
   }, []);

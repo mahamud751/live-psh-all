@@ -126,7 +126,7 @@ export default function Booking() {
               </tr>
             </thead>
             <tbody>
-              {userOrder.map((order) => {
+              {userOrder.map((order, i) => {
                 const findOrderBranch = branch.find(
                   (branch) => branch?._id === order?.bookingInfo?.branch
                 );
@@ -135,7 +135,7 @@ export default function Booking() {
                   ?.split(",")[0];
 
                 return (
-                  <tr className="border ">
+                  <tr className="border " key={i}>
                     <td className="p-3 border">
                       <Typography className="font-normal">
                         {order._id?.slice(19)}

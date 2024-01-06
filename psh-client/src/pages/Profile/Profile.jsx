@@ -43,7 +43,7 @@ import "./Profile.css";
 export default function Profile() {
   const { user, logoutUser } = useContext(AuthContext);
   const [activeTab, setActiveTab] = useState("booking");
-  const { data, loading, error, reFetch } = UseFetch(`wishlist`);
+  const { data } = UseFetch(`wishlist`);
   const isProfileMenu = useSelector(
     (state) => state?.profileMenu?.isProfileMenu
   );
@@ -226,9 +226,11 @@ export default function Profile() {
                   )}
 
                   {data2.map((tab, idx) => (
-                    <span onClick={tab.label === "Log-out" ? handleLogOut : ""}>
+                    <span
+                      onClick={tab.label === "Log-out" ? handleLogOut : ""}
+                      key={idx}
+                    >
                       <Tab
-                        key={idx}
                         onClick={() => {
                           setActive(idx);
                           dispatch(placeProfileMenu(false));
