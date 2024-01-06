@@ -109,7 +109,7 @@ export const loginUser = async (req, res) => {
       dateOfBirth: user?.dateOfBirth,
       gender: user?.gender,
       nationalId: user?.nationalId,
-
+      role: user.role,
       cardImage: user?.cardImage,
       gardianImg: user?.gardianImg,
 
