@@ -13,6 +13,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
+  console.log(user);
   const location = useLocation();
   const navigate = useNavigate();
   const [isActive1, setIsActive1] = useState(false);
@@ -151,7 +152,7 @@ const Navbar = () => {
                     </a>
                   </li>
                 </Link>
-                {user && user.role === "user" ? (
+                {user && user?.role === "user" ? (
                   <>
                     <Link to={"/order"}>
                       <li className="main_nav-link">
@@ -176,8 +177,8 @@ const Navbar = () => {
                   ""
                 )}
 
-                {(user && user.role === "SuperAdmin") ||
-                user.role === "admin" ? (
+                {(user && user?.role === "SuperAdmin") ||
+                user?.role === "admin" ? (
                   <>
                     <li className={`nav-item`}>
                       <span
@@ -341,9 +342,9 @@ const Navbar = () => {
                       isActive3 ? "custom-drop-show" : ""
                     }`}
                   >
-                    {(user && user.role === "SuperAdmin") ||
-                    user.role === "manager" ||
-                    user.role === "partner" ? (
+                    {(user && user?.role === "SuperAdmin") ||
+                    user?.role === "manager" ||
+                    user?.role === "partner" ? (
                       <>
                         <Link to={"/add_property"}>
                           <li className="main_nav-link">
@@ -358,8 +359,8 @@ const Navbar = () => {
                     ) : (
                       ""
                     )}
-                    {(user && user.role === "SuperAdmin") ||
-                    user.role === "admin" ? (
+                    {(user && user?.role === "SuperAdmin") ||
+                    user?.role === "admin" ? (
                       <Link to={"/property_list"}>
                         <li className="main_nav-link">
                           <span className="nav-link">
@@ -372,7 +373,7 @@ const Navbar = () => {
                     ) : (
                       ""
                     )}
-                    {user && user.role === "manager" ? (
+                    {user && user?.role === "manager" ? (
                       <Link to={"/property_list_m"}>
                         <li className="main_nav-link">
                           <span className="nav-link">
@@ -385,7 +386,7 @@ const Navbar = () => {
                     ) : (
                       ""
                     )}
-                    {user && user.role === "partner" ? (
+                    {user && user?.role === "partner" ? (
                       <Link to={"/property_list_p"}>
                         <li className="main_nav-link">
                           <span className="nav-link">
@@ -401,8 +402,8 @@ const Navbar = () => {
                   </ul>
                 </li>
 
-                {(user && user.role === "SuperAdmin") ||
-                user.role === "manager" ? (
+                {(user && user?.role === "SuperAdmin") ||
+                user?.role === "manager" ? (
                   <>
                     <li className="nav-item">
                       <span
@@ -758,8 +759,8 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-                {(user && user.role === "SuperAdmin") ||
-                user.role === "admin" ? (
+                {(user && user?.role === "SuperAdmin") ||
+                user?.role === "admin" ? (
                   <>
                     <Link to={"/issues"}>
                       <li className="main_nav-link">
@@ -783,7 +784,7 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-                {user && user.role === "manager" ? (
+                {user && user?.role === "manager" ? (
                   <>
                     <Link to={"/issues_m"}>
                       <li className="main_nav-link">
@@ -814,8 +815,8 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-                {(user && user.role === "SuperAdmin") ||
-                user.role === "admin" ? (
+                {(user && user?.role === "SuperAdmin") ||
+                user?.role === "admin" ? (
                   <>
                     <Link to={"/leaseProperty"}>
                       <li className="main_nav-link">
@@ -830,8 +831,8 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-                {(user && user.role === "SuperAdmin") ||
-                user.role === "admin" ? (
+                {(user && user?.role === "SuperAdmin") ||
+                user?.role === "admin" ? (
                   <>
                     <Link to={"/extraCharge"}>
                       <li className="main_nav-link">
@@ -846,8 +847,8 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-                {(user && user.role === "SuperAdmin") ||
-                user.role === "admin" ? (
+                {(user && user?.role === "SuperAdmin") ||
+                user?.role === "admin" ? (
                   <>
                     <Link to={"/transaction"}>
                       <li className="main_nav-link">
@@ -860,8 +861,8 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-                {(user && user.role === "SuperAdmin") ||
-                user.role === "admin" ? (
+                {(user && user?.role === "SuperAdmin") ||
+                user?.role === "admin" ? (
                   <>
                     <Link to={"/finance"}>
                       <li className="main_nav-link">
@@ -874,8 +875,8 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-                {(user && user.role === "SuperAdmin") ||
-                user.role === "admin" ? (
+                {(user && user?.role === "SuperAdmin") ||
+                user?.role === "admin" ? (
                   <>
                     <Link to={"/user-manage"}>
                       <li className="main_nav-link">
@@ -888,8 +889,8 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-                {(user && user.role === "SuperAdmin") ||
-                user.role === "admin" ? (
+                {(user && user?.role === "SuperAdmin") ||
+                user?.role === "admin" ? (
                   <>
                     <Link to={"/pages"}>
                       <li className="main_nav-link">

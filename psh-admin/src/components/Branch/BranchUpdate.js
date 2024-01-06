@@ -54,7 +54,7 @@ const Branch = ({ data }) => {
       MySwal.fire("Something Error Found.", "warning");
     }
   };
-  console.log(data);
+
   return (
     <div>
       <form ref={formRef} onSubmit={handleSubmit}>
