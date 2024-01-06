@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
+
 import cod from "../../assets/img/cod.png";
+
 const CashOn = () => {
   const [showCashOn, setShowCashOn] = useState(true);
   const [isActive1, setIsActive1] = useState(true);

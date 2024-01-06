@@ -34,6 +34,7 @@ import PromoDetails from "../pages/Promo/PromoDetails";
 import Community from "../pages/Community/Community";
 import Stories from "../pages/Stories/Stories";
 import NotFound from "../pages/NotFound/NotFound";
+import EventDetails from "../pages/Details/EventDetails";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: "/:room/:id",
         element: <Room></Room>,
+      },
+      {
+        path: "/event/:id",
+        element: <EventDetails></EventDetails>,
       },
       {
         path: "/promo",
@@ -145,12 +150,11 @@ export const router = createBrowserRouter([
         path: "/extra-form",
         element: <ExtraForm />,
       },
-      
     ],
   },
   {
-    path:'*',
-    element:<NotFound/>
+    path: "*",
+    element: <NotFound />,
   },
 
   {

@@ -3,11 +3,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import React, { useRef, useContext } from "react";
 import Swal from "sweetalert2";
+
 import withReactContent from "sweetalert2-react-content";
 import UseFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../contexts/UserProvider";
-
 import "./business.css";
+
 const RentRequestModal = () => {
   const MySwal = withReactContent(Swal);
   const formRef = useRef(null);

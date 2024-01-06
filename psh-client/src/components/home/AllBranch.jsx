@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import "./AllBranch.css";
-import UseFetch from "../../hooks/useFetch";
 import { Link } from "react-router-dom";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import {
   Card,
   CardHeader,
   CardBody,
   Typography,
 } from "@material-tailwind/react";
+import Slider from "react-slick";
+
+import UseFetch from "../../hooks/useFetch";
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
-import Slider from "react-slick";
+import "./AllBranch.css";
+
 const AllBranch = () => {
   const { data } = UseFetch(`branch`);
 

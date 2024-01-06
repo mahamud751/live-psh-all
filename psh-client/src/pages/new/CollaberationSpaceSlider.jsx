@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import Slider from "react-slick";
 
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
-import Slider from "react-slick";
 
 const CollaberationSpaceSlider = () => {
   const [lastSlideIndex, setLastSlideIndex] = useState(0);

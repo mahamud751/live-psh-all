@@ -1,14 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import AddCardModal from "./AddCardModal";
-import { Card, Typography } from "@material-tailwind/react";
-import userEndOrder from "../../hooks/userEndOrder";
-import useBranch from "../../hooks/useBranch";
-import { AuthContext } from "../../contexts/UserProvider";
-import { format } from "date-fns";
-import PaymentDetaislModal from "./PaymentDetaislModal";
 import axios from "axios";
+import { Card, Typography } from "@material-tailwind/react";
+
+import userEndOrder from "../../hooks/userEndOrder";
+import { AuthContext } from "../../contexts/UserProvider";
+import PaymentDetaislModal from "./PaymentDetaislModal";
 import useUserTransactions from "../../hooks/useUserTransactions";
-import MenuList from "./MenuList";
 
 const Payment = () => {
   const { user } = useContext(AuthContext);

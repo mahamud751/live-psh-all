@@ -1,29 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  Tabs,
-  TabsHeader,
-  TabsBody,
-  Tab,
-  TabPanel,
-  Spinner,
-} from "@material-tailwind/react";
+import React, { useEffect, useState } from "react";
+import { Tabs, TabsHeader, Tab, Spinner } from "@material-tailwind/react";
 import Slider from "react-slick";
-
-// import { Card, CardHeader, CardBody } from "@material-tailwind/react";
+import axios from "axios";
 
 import UseFetch from "../../hooks/useFetch";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Header from "./Header";
-import axios from "axios";
 import SingleCard from "./SingleCard";
-import { settings } from "../../slider/Slider";
-import SearchBoxSm from "./SearchBoxSm";
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
 
 export default function Categories() {
-  const { data, loading, error, reFetch } = UseFetch(`property`);
-
+  const { data, error } = UseFetch(`property`);
   const [categories, setCategories] = useState({});
   const [activeTab, setActiveTab] = useState("All");
   const [isLoaded, setIsLoaded] = useState(false); // Track the loading status

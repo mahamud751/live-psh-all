@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import Navmenu from "../../components/shared/NavMenu";
 import Footer from "../../components/shared/Footer";
 import "./NotFound.css";
-import { Link } from "react-router-dom";
+
 const NotFound = () => {
   return (
     <>

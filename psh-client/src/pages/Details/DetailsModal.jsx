@@ -1,24 +1,14 @@
-import React from "react";
-
-import cardImg from "../../assets/img/img1.png";
-import "./DetailsModal.css";
-
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-  Carousel,
-} from "@material-tailwind/react";
+import React, { useRef } from "react";
+import { Dialog, DialogBody, DialogFooter } from "@material-tailwind/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-
 import "@splidejs/react-splide/css";
 import "@splidejs/react-splide/css/skyblue";
 import "@splidejs/react-splide/css/sea-green";
 import "@splidejs/react-splide/css/core";
-import { useRef } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+
+import "./DetailsModal.css";
+
 const DetailsModal = ({ size, handleOpen, data }) => {
   const mainOptions = {
     type: "loop",

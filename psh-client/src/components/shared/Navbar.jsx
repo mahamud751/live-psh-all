@@ -1,6 +1,15 @@
 import React, { useContext } from "react";
 import { useState, useEffect } from "react";
-import "./Custom.css";
+import {
+  CubeTransparentIcon,
+  UserCircleIcon,
+  CodeBracketSquareIcon,
+  Square3Stack3DIcon,
+  ChevronDownIcon,
+  RocketLaunchIcon,
+  Bars2Icon,
+} from "@heroicons/react/24/outline";
+import { Link, NavLink } from "react-router-dom";
 import {
   Navbar,
   Typography,
@@ -13,23 +22,10 @@ import {
   Card,
   IconButton,
   Collapse,
-  // Dialog,
-  // DialogHeader,
-  // DialogBody,
-  // DialogFooter,
 } from "@material-tailwind/react";
 
-import {
-  CubeTransparentIcon,
-  UserCircleIcon,
-  CodeBracketSquareIcon,
-  Square3Stack3DIcon,
-  ChevronDownIcon,
-  RocketLaunchIcon,
-  Bars2Icon,
-} from "@heroicons/react/24/outline";
-import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/UserProvider";
+import "./Custom.css";
 
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);

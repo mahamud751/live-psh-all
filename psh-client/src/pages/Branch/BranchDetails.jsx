@@ -1,16 +1,9 @@
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Typography,
-  CardFooter,
-} from "@material-tailwind/react";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import UseFetch from "../../hooks/useFetch";
-import SingleCard from "../../components/home/SingleCard";
-import BranchProperty from "./BranchProperty";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+
+import UseFetch from "../../hooks/useFetch";
+import BranchProperty from "./BranchProperty";
 
 // import BranchDetails from "./BrachList";
 

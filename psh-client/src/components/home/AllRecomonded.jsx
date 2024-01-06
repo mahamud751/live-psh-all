@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./SingleCard.css";
-
 import { Link } from "react-router-dom";
 
 import UseFetch from "../../hooks/useFetch";
 import AllRecoondedSingle from "./AllRecoondedSingle";
+import "./SingleCard.css";
 
 const AllRecomonded = ({ item }) => {
   const [page, setPage] = useState(1);

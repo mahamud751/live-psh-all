@@ -7,18 +7,17 @@ import {
 } from "@material-tailwind/react";
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import UseFetch from "../../hooks/useFetch";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { IoIosArrowDown, IoMdCopy } from "react-icons/io";
 import toast, { Toaster } from "react-hot-toast";
+
+import UseFetch from "../../hooks/useFetch";
 
 const PromoDetails = () => {
   const { id } = useParams();
   const { data } = UseFetch(`promo/${id}`);
   const [isExpanded, setIsExpanded] = useState(false);
-
   const [isCopied, setIsCopied] = useState(false); // State to track whether the link is copied
-
   const handleCopy = () => {
     navigator.clipboard.writeText(data?.promoCode); // Copy invite link to clipboard
     setIsCopied(true);

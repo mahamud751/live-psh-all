@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 import Slider from "react-slick";
+
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
 import CollaberationService from "./CollaberationService";
-import "./Collaberation.css";
 import CollaberationService2 from "./CollaberationService2";
 import CollaberationSpaceSlider from "./CollaberationSpaceSlider";
-
+import "./Collaberation.css";
 const Collaberation = () => {
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
   const [isOffline, setIsOffline] = useState(false);

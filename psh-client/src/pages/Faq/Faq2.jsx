@@ -7,6 +7,7 @@ import {
 import { IoIosArrowDown } from "react-icons/io";
 import { HiArrowNarrowLeft } from "react-icons/hi";
 import { useDispatch } from "react-redux";
+
 import { placeFaqMenu } from "../../redux/reducers/smProfileMenuSlice";
 export default function Faq2() {
   const [open, setOpen] = useState(1);

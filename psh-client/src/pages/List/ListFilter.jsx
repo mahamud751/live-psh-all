@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import Slider from "react-slider";
-
-import "./ListFilter.css";
-import UseFetch from "../../hooks/useFetch";
 import { useEffect } from "react";
-import ReactSlider from "react-slider";
+
+import UseFetch from "../../hooks/useFetch";
+import "./ListFilter.css";
 
 const ListFilter = ({
   handleFacilityFilterChange,

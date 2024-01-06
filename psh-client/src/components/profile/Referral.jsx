@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "./Referral.css";
 import { Button, Input } from "@material-tailwind/react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import toast, { Toaster } from "react-hot-toast";
-import MenuList from "./MenuList";
+
+import "./Referral.css";
+
 const Referral = () => {
   const MySwal = withReactContent(Swal);
   const [inviteLink, setInviteLink] = useState(

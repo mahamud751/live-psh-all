@@ -1,9 +1,11 @@
 import { Avatar } from "@material-tailwind/react";
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
+import Slider from "react-slick";
+
 import commaIcon from "../../assets/img/comaIcon.png";
 import femaleIcon from "../../assets/img/woman.png";
-import Slider from "react-slick";
+
 const Review = () => {
   const settings = {
     dots: false,

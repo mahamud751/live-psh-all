@@ -1,7 +1,8 @@
-import React from "react";
-import "./PopUp.css";
-import { useState } from "react";
+import React, { useState } from "react";
+
 import ceoImg from "../../assets/img/CEO-Welcome.jpg";
+import "./PopUp.css";
+
 const PopUp = () => {
   const [load, setLoad] = useState(false);
   const [hide, sethide] = useState(true);

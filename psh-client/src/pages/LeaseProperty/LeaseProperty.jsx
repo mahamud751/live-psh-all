@@ -1,12 +1,13 @@
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
-import React, { useState, useRef, useContext } from "react";
-import { useEffect } from "react";
+import React, { useRef, useContext } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { Link } from "react-router-dom";
+
 import UseFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../contexts/UserProvider";
-import { Link } from "react-router-dom";
+
 const LeaseProperty = () => {
   const MySwal = withReactContent(Swal);
   const formRef = useRef(null);

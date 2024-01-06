@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Carousel } from "@material-tailwind/react";
 import Slider from "react-slick";
-import { Card, CardHeader, CardBody } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
+
+import UseFetch from "../../hooks/useFetch";
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
-import './Community.css'
+import "./Community.css";
 
 const Community = () => {
+  const { data } = UseFetch(`event`);
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <img src={LeftArrow} alt="prevArrow" {...props} />
@@ -26,7 +29,6 @@ const Community = () => {
     },
     infinite: false,
     speed: 400,
-    // arrows: publishedData?.length > 5 ? true : false,
     autoplay: false,
     autoplaySpeed: 3000,
     prevArrow: <SlickArrowLeft />,
@@ -83,28 +85,21 @@ const Community = () => {
         <div className="grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16 ">
           <div className="flex flex-col items-start col-span-12 space-y-3 sm:col-span-12 md:col-span-6">
             <div className="2xl:ms-12 ">
-              <div
-                className="flex justify-center items-center h-96"
-              >
+              <div className="flex justify-center items-center h-96">
                 <div className="">
-                  <h1 className="text-black">
-                  PSH Community Event
-                  </h1>
+                  <h1 className="text-black">PSH Community Event</h1>
                   <p className="community_p my-4">
-                  Di mana keceriaan jadi cerita baru. Temukan
-ragam acara pilihanmu di PSH!
+                    Di mana keceriaan jadi cerita baru. Temukan ragam acara
+                    pilihanmu di PSH!
                   </p>
                   <div className="md:flex  gap-4">
                     <button
                       className="text-neutral-800 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch text-white px-4 py-4 rounded-lg"
-                      style={{ width: 220,background:'black' }}
-                     
+                      style={{ width: 220, background: "black" }}
                     >
-                     Check the Event Schedule
+                      Check the Event Schedule
                     </button>
-                   
                   </div>
-                 
                 </div>
               </div>
             </div>
@@ -131,34 +126,46 @@ ragam acara pilihanmu di PSH!
         </div>
       </div>
       <div className="custom-container">
-        <h2 className="text-xl font-bold mb-5 mt-12">
-        Event choices for you
-        </h2>
+        <h2 className="text-xl font-bold mb-5 mt-12">Event choices for you</h2>
         <div className=" md:px-0 sm:px-6 ">
           <div className=" lg:py-2">
             <div className=" md:space-y-12 lg:grid lg:grid-cols-4 lg:gap-x-6 lg:space-y-0">
               <div className="md:h-32 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-24">
                 <div className="flex">
                   <div>
-                    <img src="/assets/img2/SVG (4).png"/>
+                    <img src="/assets/img2/SVG (4).png" />
                   </div>
                   <div className="ms-3">
-                    <h2 className="text-black font-bold text-[16px]">Workshop</h2>
-                    <p>
-                    Painting, drawing, photography and more
-                    </p>
+                    <h2 className="text-black font-bold text-[16px]">
+                      Workshop
+                    </h2>
+                    <p>Painting, drawing, photography and more</p>
                   </div>
                 </div>
               </div>
               <div className="md:h-32 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-24">
                 <div className="flex">
                   <div>
-                    <img src="/assets/img2/SVG (5).png"/>
+                    <img src="/assets/img2/SVG (5).png" />
                   </div>
                   <div className="ms-3">
                     <h2 className="text-black font-bold text-[16px]">Sport</h2>
+                    <p>Yoga, swimming, badminton and much more!</p>
+                  </div>
+                </div>
+              </div>
+              <div className="md:h-32 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-24">
+                <div className="flex">
+                  <div>
+                    <img src="/assets/img2/SVG (5).png" />
+                  </div>
+                  <div className="ms-3">
+                    <h2 className="text-black font-bold text-[16px]">
+                      Entertainment
+                    </h2>
                     <p>
-                    Yoga, swimming, badminton and much more!
+                      Hanging out at music events and watching films together at
+                      Rukita
                     </p>
                   </div>
                 </div>
@@ -166,105 +173,54 @@ ragam acara pilihanmu di PSH!
               <div className="md:h-32 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-24">
                 <div className="flex">
                   <div>
-                    <img src="/assets/img2/SVG (5).png"/>
+                    <img src="/assets/img2/SVG (5).png" />
                   </div>
                   <div className="ms-3">
-                    <h2 className="text-black font-bold text-[16px]">Entertainment</h2>
-                    <p>
-Hanging out at music events and watching films together at Rukita
-                    </p>
+                    <h2 className="text-black font-bold text-[16px]">
+                      Kegiatan Sosial
+                    </h2>
+                    <p>Cleaning, sharing food and raising funds</p>
                   </div>
                 </div>
               </div>
-              <div className="md:h-32 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-24">
-                <div className="flex">
-                  <div>
-                    <img src="/assets/img2/SVG (5).png"/>
-                  </div>
-                  <div className="ms-3">
-                    <h2 className="text-black font-bold text-[16px]">Kegiatan Sosial</h2>
-                    <p>Cleaning, sharing food and raising funds
-                    </p>
-                  </div>
-                </div>
-              </div>
-           
             </div>
           </div>
         </div>
       </div>
       <div className="custom-container">
-        <h2 className="text-xl font-bold mb-5 mt-12">
-        Event choices for you
-        </h2>
+        <h2 className="text-xl font-bold mb-5 mt-12">Event choices for you</h2>
         <div className="all_promo slider_margin card-slider">
           <Slider {...settings}>
-            <div className="group relative"   style={{ height: '160px', width: "270px",}}>
-              <div className="overflow-hidden">
-                <div className="m-0 rounded-none">
-                  <img
-                  src="assets/img2/Stories-Web@2x-100.jpg.png"
-                    alt="ui/ux review check"
-                    style={{ height: '160px', width: "100%" }}
-                  />
-                </div>
-                <div className="md:p-4 sm:p-2"  style={{boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'}}>
-                  <p className="business font-bold">     Ballin at PSH Night Hoops @ KYZN Kuningan (15 Dec 2023)</p>
-                 
-                </div>
+            {data?.map((item) => (
+              <div
+                className="group relative"
+                style={{ height: "160px", width: "270px" }}
+                key={item?._id}
+              >
+                <Link to={`/event/${item?._id}`}>
+                  <div className="overflow-hidden">
+                    <div className="m-0 rounded-none">
+                      <img
+                        src={item?.photos[0]}
+                        alt="ui/ux review check"
+                        style={{ height: "160px", width: "100%" }}
+                      />
+                    </div>
+                    <div
+                      className="md:p-4 sm:p-2"
+                      style={{
+                        boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                      }}
+                    >
+                      <p className="business font-bold"> {item?.name}</p>
+                    </div>
+                  </div>
+                </Link>
               </div>
-            </div>
-            <div className="group relative">
-              <div className="overflow-hidden">
-                <div className="m-0 rounded-none">
-                  <img
-                  src="assets/img2/Stories-Web-scaled.jpg.png"
-                    alt="ui/ux review check"
-                    style={{ height: '160px', width: "100%" }}
-                  />
-                </div>
-                <div className="md:p-4 sm:p-2">
-                  <p className="business font-bold">     Ballin at PSH Night Hoops @ KYZN Kuningan (15 Dec 2023)</p>
-                 
-                </div>
-              </div>
-            </div>
-            <div className="group relative">
-              <div className="overflow-hidden">
-                <div className="m-0 rounded-none">
-                  <img
-                  src="assets/img2/ezgif.com-gif-maker-2023-11-28T155459.834-scaled.webp.png"
-                    alt="ui/ux review check"
-                    style={{ height: '160px', width: "100%" }}
-                  />
-                </div>
-                <div className="md:p-4 sm:p-2  ">
-                  <p className="business font-bold">     Ballin at PSH Night Hoops @ KYZN Kuningan (15 Dec 2023)</p>
-                 
-                </div>
-              </div>
-            </div>
-            <div className="group relative">
-              <div className="overflow-hidden">
-                <div className="m-0 rounded-none">
-                  <img
-                  src="assets/img2/ezgif.com-gif-maker-2023-10-26T143538.876-scaled.webp.png"
-                    alt="ui/ux review check"
-                    style={{ height: '160px', width: "100%" }}
-                  />
-                </div>
-                <div className="md:p-4 sm:p-2  ">
-                  <p className="business font-bold">     Ballin at PSH Night Hoops @ KYZN Kuningan (15 Dec 2023)</p>
-                 
-                </div>
-              </div>
-            </div>
-
-            
+            ))}
           </Slider>
         </div>
       </div>
-
     </div>
   );
 };

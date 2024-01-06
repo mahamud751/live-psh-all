@@ -1,22 +1,19 @@
-import React, { useEffect, useRef } from "react";
-import "./SearchBox.css";
+import React, { useEffect, useRef, useContext } from "react";
+
 import { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { FaBed } from "react-icons/fa";
 import { BiBody } from "react-icons/bi";
-
+import { addDays, addMonths, addYears, subDays } from "date-fns";
 import { GiSofa } from "react-icons/gi";
 import DatePicker from "react-datepicker";
-
-import { useContext } from "react";
-import { SearchContext } from "../../contexts/SearchContext";
 import { useNavigate } from "react-router-dom";
-import Autosuggest from "react-autosuggest";
-
 import { useDispatch, useSelector } from "react-redux";
+
+import { SearchContext } from "../../contexts/SearchContext";
 import { leftDate, rightDate, toTalRent } from "../../redux/reducers/dateSlice";
-import { addDays, addMonths, addYears, subDays } from "date-fns";
 import UseFetch from "../../hooks/useFetch";
+import "./SearchBox.css";
 
 const SearchBox = () => {
   const reduxDispatch = useDispatch();

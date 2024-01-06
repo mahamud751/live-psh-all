@@ -1,26 +1,14 @@
-import {
-  Tabs,
-  TabsHeader,
-  TabsBody,
-  Tab,
-  TabPanel,
-  Button,
-  Option,
-  Select,
-} from "@material-tailwind/react";
 import { useEffect } from "react";
 import { useState } from "react";
 import userEndOrder from "../../hooks/userEndOrder";
 import { useContext } from "react";
-import { AuthContext } from "../../contexts/UserProvider";
 import axios from "axios";
 import { Card, Typography } from "@material-tailwind/react";
-import { format } from "date-fns";
-import { UserBooking } from "./UserBooking";
-import { CancelBooking } from "./CancelBooking";
 import { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
-import MenuList from "./MenuList";
+
+import { UserBooking } from "./UserBooking";
+import { AuthContext } from "../../contexts/UserProvider";
+import { CancelBooking } from "./CancelBooking";
 
 export default function Booking() {
   const { user } = useContext(AuthContext);

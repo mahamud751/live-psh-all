@@ -1,5 +1,3 @@
-import React, { useState, useRef, useContext } from "react";
-
 import UseFetch from "../../hooks/useFetch";
 const Privacy = () => {
   const { data } = UseFetch(`privacy`);

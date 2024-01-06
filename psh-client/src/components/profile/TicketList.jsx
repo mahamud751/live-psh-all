@@ -1,24 +1,13 @@
-import {
-  List,
-  ListItem,
-  ListItemPrefix,
-  Avatar,
-  Typography,
-  Rating,
-  Tab,
-  Card,
-} from "@material-tailwind/react";
-import UseFetch from "../../hooks/useFetch";
-import { useContext } from "react";
+import { Typography, Card } from "@material-tailwind/react";
+import React, { useState, useContext } from "react";
+
 import { AuthContext } from "../../contexts/UserProvider";
-import profilecon from "../../assets/img/profile.png";
 import TicketCreate from "./TicketCreate";
-import { useState } from "react";
 import { TicketDetails } from "./TicketDetails";
-import MenuList from "./MenuList";
+import UseFetch from "../../hooks/useFetch";
 
 export default function TicketList() {
-  const { data, loading, error, reFetch } = UseFetch(`issue`);
+  const { data } = UseFetch(`issue`);
   const { user } = useContext(AuthContext);
   const email = user?.email;
   const main = data?.filter((pd) => pd?.email === email);

@@ -5,9 +5,11 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import { IoIosArrowDown } from "react-icons/io";
-import { placeFaqMenu } from "../../redux/reducers/smProfileMenuSlice";
 import { useDispatch } from "react-redux";
 import { HiArrowNarrowLeft } from "react-icons/hi";
+
+import { placeFaqMenu } from "../../redux/reducers/smProfileMenuSlice";
+
 export default function Faq3() {
   const [open, setOpen] = useState(1);
   const dispatch = useDispatch();

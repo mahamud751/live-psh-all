@@ -7,13 +7,13 @@ import {
   TabPanel,
 } from "@material-tailwind/react";
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
-import UseFetch from "../../hooks/useFetch";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-
 import "@splidejs/react-splide/css";
 import "@splidejs/react-splide/css/skyblue";
 import "@splidejs/react-splide/css/sea-green";
 import "@splidejs/react-splide/css/core";
+
+import UseFetch from "../../hooks/useFetch";
 
 export default function Categories() {
   const [activeTab, setActiveTab] = React.useState("html");

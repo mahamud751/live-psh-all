@@ -5,15 +5,9 @@ import {
   TabsBody,
   Tab,
   TabPanel,
-  Avatar,
 } from "@material-tailwind/react";
-import "./Profile.css";
-import Booking from "../../components/profile/Booking";
-import Ticket from "../../components/profile/Ticket";
-import { AuthContext } from "../../contexts/UserProvider";
-
-import Personal from "../../components/profile/Personal";
-import Payment from "../../components/profile/Payment";
+import { useNavigate } from "react-router-dom";
+import { HiOutlineUserCircle } from "react-icons/hi";
 import { useState } from "react";
 import { MdPayment } from "react-icons/md";
 import { FaRegCalendarAlt } from "react-icons/fa";
@@ -26,6 +20,13 @@ import { AiOutlineShareAlt } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
 import { IoIosPeople } from "react-icons/io";
 import { AiOutlineLogout } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+
+import Booking from "../../components/profile/Booking";
+import Ticket from "../../components/profile/Ticket";
+import { AuthContext } from "../../contexts/UserProvider";
+import Personal from "../../components/profile/Personal";
+import Payment from "../../components/profile/Payment";
 import EditProfile from "../../components/profile/EditProfile";
 import TicketList from "../../components/profile/TicketList";
 import Setting from "../../components/profile/Setting";
@@ -35,11 +36,9 @@ import Community from "../../components/profile/Community";
 import UseFetch from "../../hooks/useFetch";
 import WishList from "../../components/profile/WishList";
 import userEndOrder from "../../hooks/userEndOrder";
-import { useDispatch, useSelector } from "react-redux";
 import { placeProfileMenu } from "../../redux/reducers/smProfileMenuSlice";
-import { useNavigate } from "react-router-dom";
-import { HiOutlineUserCircle } from "react-icons/hi";
 // import MenuList from "../../components/profile/MenuList";
+import "./Profile.css";
 
 export default function Profile() {
   const { user, logoutUser } = useContext(AuthContext);

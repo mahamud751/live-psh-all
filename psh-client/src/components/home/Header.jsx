@@ -1,14 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import { DateRange } from "react-date-range";
+import React, { useContext, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { format } from "date-fns";
-import Autosuggest from "react-autosuggest";
-import "./Header.css";
+
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../contexts/SearchContext";
-
 import SearchBox from "./SearchBox";
+import "./Header.css";
 
 function Header({ type }) {
   const handleFurnitureSelection = (index) => {

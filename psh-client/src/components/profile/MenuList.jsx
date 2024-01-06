@@ -2,10 +2,11 @@ import { Option, Select } from "@material-tailwind/react";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 import "./MenuList.css";
+
 const MenuList = () => {
   const [activeTab, setActiveTab] = useState("booking");
-
   const handleSelectChange = (value) => {
     setActiveTab(value);
   };

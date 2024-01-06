@@ -2,7 +2,6 @@ import React from "react";
 import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { AuthContext } from "../../contexts/UserProvider";
 import { useContext } from "react";
 import { useRef } from "react";
 import withReactContent from "sweetalert2-react-content";
@@ -11,6 +10,8 @@ import axios from "axios";
 import StarRatings from "react-star-ratings";
 import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+
+import { AuthContext } from "../../contexts/UserProvider";
 
 export function UserBooking({
   handleDetailsShow,

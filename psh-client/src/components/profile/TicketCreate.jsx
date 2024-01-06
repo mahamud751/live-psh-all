@@ -1,13 +1,14 @@
-import "./Ticket.css";
 import { Input, Radio } from "@material-tailwind/react";
 import React, { useState, useRef, useEffect, useContext } from "react";
 import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-import { AuthContext } from "../../contexts/UserProvider";
 import axios from "axios";
-
 import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
 import { AiOutlineClose } from "react-icons/ai";
+import withReactContent from "sweetalert2-react-content";
+
+import { AuthContext } from "../../contexts/UserProvider";
+import "./Ticket.css";
+
 const TicketCreate = ({ handleOpen, open }) => {
   const [issue, setIssue] = useState("Air Condition Problem");
   // const [allBranch] = useBranch();

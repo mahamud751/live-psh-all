@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
+import { BsArrowRight } from "react-icons/bs";
+import { useSelector } from "react-redux";
 import {
   Button,
   Dialog,
@@ -11,11 +13,9 @@ import {
 import UseFetch from "../../hooks/useFetch";
 import Header from "../../components/home/Header";
 import HotelsList from "../../components/Hotels/HotelsList";
-import "./List.css";
 import ListFilter from "./ListFilter";
-import { BsArrowRight } from "react-icons/bs";
-import { useSelector } from "react-redux";
 import SingleCard from "../../components/home/SingleCard";
+import "./List.css";
 
 function List({ type }) {
   const location = useLocation();

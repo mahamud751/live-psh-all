@@ -1,23 +1,14 @@
 import React, { useEffect } from "react";
 import {
-  Button,
   Dialog,
   DialogHeader,
   DialogBody,
-  DialogFooter,
   Typography,
   Card,
 } from "@material-tailwind/react";
-import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { format } from "date-fns";
-import { AuthContext } from "../../contexts/UserProvider";
-import { useContext } from "react";
-import { useRef } from "react";
-import withReactContent from "sweetalert2-react-content";
-import Swal from "sweetalert2";
-import axios from "axios";
-import StarRatings from "react-star-ratings";
+
 import profileIcon from "../../assets/img/profile.png";
 
 export function ReviewAll({ handleDetailsShow, detailsShow, activeReviews }) {

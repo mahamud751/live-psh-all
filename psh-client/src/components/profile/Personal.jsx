@@ -1,9 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../contexts/UserProvider";
-import "./Personal.css";
-import { Checkbox } from "@material-tailwind/react";
 import useUser from "../../hooks/userUser";
-import MenuList from "./MenuList";
+import "./Personal.css";
 
 function Personal() {
   const [singleUser] = useUser();

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Category.css";
+
 const Category = () => {
   return (
     <div className="mx-auto  px-4 sm:px-6 lg:px-8 text-gray-900">

@@ -1,5 +1,4 @@
 import React from "react";
-import "./HotelList.css";
 import { Link } from "react-router-dom";
 import {
   Card,
@@ -8,15 +7,16 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
+import { CiLocationOn } from "react-icons/ci";
+
 import whislistIcon from "../../assets/img/Wishlist.png";
-import startIcon from "../../assets/img/Star 1.png";
 import squareIcon from "../../assets/img/square.png";
 import doubleBedIcon from "../../assets/img/double-bed.png";
 import bathroomIcon from "../../assets/img/Bath.png";
-import { CiLocationOn } from "react-icons/ci";
-
 import personIcon from "../../assets/img/personIcon.png";
 import seatIcon from "../../assets/img/seatIcon.png";
+import "./HotelList.css";
+
 function HotelsList({ item }) {
   // Checking Booking Dates for privet room and apartment
   const currentDate = new Date().toISOString().split("T")[0];

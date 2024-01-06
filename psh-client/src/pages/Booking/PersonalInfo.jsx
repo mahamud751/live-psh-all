@@ -1,27 +1,25 @@
-import React, { useContext, useState } from "react";
-import "./PersonalInfo.css";
+import React, { useContext, useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
+import { Tooltip, Typography } from "@material-tailwind/react";
+import { FaArrowLeft } from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast";
+import { useLocation } from "react-router-dom";
+import DatePicker from "react-datepicker";
+
+import { AuthContext } from "../../contexts/UserProvider";
 import cashImg from "../../assets/img/Cash-1.png";
 import brachLocationIcon from "../../assets/img/branchLocationIcon.png";
-import promoIcon from "../../assets/img/coupon.png";
-import { Link, useNavigate } from "react-router-dom";
-import withReactContent from "sweetalert2-react-content";
-import { AuthContext } from "../../contexts/UserProvider";
-import Swal from "sweetalert2";
-import "../Payment/PaymentToggle.css";
 import MobileBanking from "../Payment/MobileBanking";
 import CashOn from "../Payment/CashOn";
 import CreditCard from "../Payment/CreditCard";
 import BankTransfer from "../Payment/BankTransfer";
-import axios from "axios";
-import { useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
-import { useLocation } from "react-router-dom";
-import DatePicker from "react-datepicker";
 import useBranch from "../../hooks/useBranch";
-import { Tooltip, Typography } from "@material-tailwind/react";
 import useExtraCharge from "../../hooks/useExtraCharge";
-import { MdKeyboardArrowLeft } from "react-icons/md";
-import { FaArrowLeft } from "react-icons/fa";
+import "../Payment/PaymentToggle.css";
+import "./PersonalInfo.css";
 
 const PersonalInfo = () => {
   const [bookingItem, setBookingItem] = useState({});

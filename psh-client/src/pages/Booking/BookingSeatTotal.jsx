@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useContext } from "react";
 import { Typography, Tooltip } from "@material-tailwind/react";
 import DatePicker from "react-datepicker";
 import { FaBed } from "react-icons/fa";
@@ -13,14 +14,12 @@ import brachLocationIcon from "../../assets/img/branchLocationIcon.png";
 import promoIcon from "../../assets/img/coupon.png";
 import { leftDate, rightDate, toTalRent } from "../../redux/reducers/dateSlice";
 import { placeBooking } from "../../redux/reducers/bookingSlice";
-
 import useBranch from "../../hooks/useBranch";
 import usePromos from "../../hooks/usePromos";
-import "../../components/shared/Custom.css";
-import "./BookingTotalBox.css";
-import { useContext } from "react";
 import { AuthContext } from "../../contexts/UserProvider";
 import LoginModal from "../../components/shared/LoginModal";
+import "./BookingTotalBox.css";
+import "../../components/shared/Custom.css";
 
 const BookingSeatTotal = ({ data, seats, extraCharge }) => {
   const { user } = useContext(AuthContext);

@@ -1,27 +1,14 @@
-import React from "react";
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-} from "@material-tailwind/react";
-
-import { useRef } from "react";
-import right from "../../assets/img/Right.png";
-import logo from "../../assets/img/logo.png";
-import "./invoice.css";
+import React, { useRef, useEffect, useState } from "react";
+import axios from "axios";
+import { AiOutlineClose } from "react-icons/ai";
 import ReactToPrint from "react-to-print";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import html2canvas from "html2canvas";
 import { useLocation } from "react-router-dom";
-import useBranch from "../../hooks/useBranch";
-import { useEffect } from "react";
 
-import { useState } from "react";
-import axios from "axios";
-import { AiOutlineClose } from "react-icons/ai";
+import logo from "../../assets/img/logo.png";
+import "./invoice.css";
 
 const InvoiceModal = ({ handleOpen, size }) => {
   const ref = useRef();

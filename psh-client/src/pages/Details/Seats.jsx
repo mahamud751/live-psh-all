@@ -1,6 +1,7 @@
 import React from "react";
 import { ImInfo } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   placeSeatBooking,
   removeSeatBooking,

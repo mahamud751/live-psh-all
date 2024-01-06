@@ -1,40 +1,29 @@
 import React, { useContext, useEffect, useState } from "react";
 import {
   Navbar,
-  MobileNav,
   Typography,
-  Dialog,
-  CardBody,
-  Input,
-  Checkbox,
-  CardFooter,
   Button,
   IconButton,
   MenuItem,
   Menu,
-  Avatar,
   MenuHandler,
   MenuList,
-  Card,
   Collapse,
 } from "@material-tailwind/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/UserProvider";
-import line from "../../assets/img/Line 127.png";
-import facebookIcon from "../../assets/img/facebook.svg";
-import googleIcon from "../../assets/img/google.png";
-import pshIcon from "../../assets/img/PSH-IconForNav.png";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import { BsTelephonePlus } from "react-icons/bs";
+import { FaHandsHelping } from "react-icons/fa";
+import { MdOutlineMapsHomeWork } from "react-icons/md";
+import { AiOutlineFileUnknown, AiOutlineHome } from "react-icons/ai";
+
+import { AuthContext } from "../../contexts/UserProvider";
 import { placeProfileMenu } from "../../redux/reducers/smProfileMenuSlice";
 import LoginModal from "./LoginModal";
-import { BsGift, BsTelephonePlus } from "react-icons/bs";
-import { FaHandsHelping } from "react-icons/fa";
-import { MdOutlineAddLocationAlt, MdOutlineMapsHomeWork } from "react-icons/md";
-import { AiOutlineFileUnknown, AiOutlineHome } from "react-icons/ai";
+
 import UseFetch from "../../hooks/useFetch";
-import SearchBoxSm from "../home/SearchBoxSm";
 import SearchBoxWithNav from "../home/SearchBoxWithNav";
 import { HiOutlineUserCircle } from "react-icons/hi";
 

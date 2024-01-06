@@ -1,12 +1,13 @@
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
 import React, { useRef, useContext } from "react";
-
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+
 import UseFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../contexts/UserProvider";
-import { Link } from "react-router-dom";
+
 const PartnerModal = () => {
   const MySwal = withReactContent(Swal);
   const formRef = useRef(null);

@@ -1,17 +1,16 @@
 import React from "react";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+
 import UseFetch from "../../hooks/useFetch";
-import Slider from "react-slick";
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "./Banner.css";
+
 const Banner = () => {
   const { data } = UseFetch(`banner`);
-
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <img src={LeftArrow} alt="prevArrow" {...props} />
   );
-
   const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
     <img src={RightArrow} alt="nextArrow" {...props} />
   );

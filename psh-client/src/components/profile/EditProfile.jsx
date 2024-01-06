@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
-import { AuthContext } from "../../contexts/UserProvider";
-import "./Personal.css";
-import { Checkbox } from "@material-tailwind/react";
 import axios from "axios";
 import withReactContent from "sweetalert2-react-content";
-
 import Swal from "sweetalert2";
 import { Toaster, toast } from "react-hot-toast";
-import MenuList from "./MenuList";
+
+import { AuthContext } from "../../contexts/UserProvider";
+import "./Personal.css";
+
 function EditProfile() {
   const { user } = useContext(AuthContext);
   console.log("user", user);

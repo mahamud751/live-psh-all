@@ -2,13 +2,13 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../contexts/UserProvider";
 import {
   Accordion,
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
-import MenuList from "./MenuList";
+
+import { AuthContext } from "../../contexts/UserProvider";
 
 function Setting() {
   const [open, setOpen] = useState(0);

@@ -1,36 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Button,
   Dialog,
   DialogHeader,
   DialogBody,
 } from "@material-tailwind/react";
-
-import { FaBed } from "react-icons/fa";
-import { BiBody } from "react-icons/bi";
-
-import { GiSofa } from "react-icons/gi";
 import DatePicker from "react-datepicker";
-
 import { useContext } from "react";
-import { SearchContext } from "../../contexts/SearchContext";
 import { useNavigate } from "react-router-dom";
-
 import { useDispatch, useSelector } from "react-redux";
-import { leftDate, rightDate, toTalRent } from "../../redux/reducers/dateSlice";
 import { addDays, addMonths, addYears, subDays } from "date-fns";
-import UseFetch from "../../hooks/useFetch";
-import { useRef } from "react";
 import { BsArrowRight } from "react-icons/bs";
+
+import { SearchContext } from "../../contexts/SearchContext";
+import { leftDate, rightDate, toTalRent } from "../../redux/reducers/dateSlice";
+import UseFetch from "../../hooks/useFetch";
 import durationImg from "../../assets/img/clock-01.png";
 import { AuthContext } from "../../contexts/UserProvider";
 
 const SearchBoxWithNav = () => {
-  const { user, logoutUser } = useContext(AuthContext);
-
+  const { user } = useContext(AuthContext);
   const reduxDispatch = useDispatch();
   const startDate = useSelector((state) => state.dateCount.startDate);
-
   const endDate = useSelector((state) => state.dateCount.endDate);
   const customerRent = useSelector((state) => state.dateCount.customerRent);
   const { data, loading, error, reFetch } = UseFetch(`category`);

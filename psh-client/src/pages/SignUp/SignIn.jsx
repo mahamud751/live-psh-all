@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-
 import { Link, redirect, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/UserProvider";
 import { Switch } from "@material-tailwind/react";
+
+import { AuthContext } from "../../contexts/UserProvider";
 import line from "../../assets/img/Line 127.png";
 import facebookIcon from "../../assets/img/facebook.svg";
 import googleIcon from "../../assets/img/google.png";

@@ -1,19 +1,11 @@
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
-import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+
 import UseFetch from "../../hooks/useFetch";
 import SinglePromo from "./SinglePromo";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 const PromoList = () => {
   const { data } = UseFetch(`promo`);
-
   return (
     <div className="custom-container mb-20 md:mx-0 sm:mx-5">
       <div className="flex items-center gap-x-3 md:mt-8 sm:mt-5">

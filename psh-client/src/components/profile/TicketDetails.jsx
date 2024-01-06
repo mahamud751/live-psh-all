@@ -1,6 +1,5 @@
 import React from "react";
 import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
-
 import { AiOutlineClose } from "react-icons/ai";
 
 export function TicketDetails({ handleDetailsShow, detailsShow, seeTicket }) {

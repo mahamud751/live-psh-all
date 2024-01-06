@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import brachLocationIcon from "../../assets/img/branchLocationIcon.png";
 import promoIcon from "../../assets/img/coupon.png";
-import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const BookingTotalBox = () => {
   const dmys = ["Daily", "Monthly", "Yearly"];

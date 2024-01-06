@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import "./Custom.css";
 import MessengerCustomerChat from "react-messenger-customer-chat";
 import { Link, useNavigate } from "react-router-dom";
-import UseFetch from "../../hooks/useFetch";
-
 import { AiOutlineMail } from "react-icons/ai";
 import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
+
+import UseFetch from "../../hooks/useFetch";
 import LoginModal from "./LoginModal";
+import "./Custom.css";
+
 const Footer = () => {
   const { data } = UseFetch(`dynamic`);
   const [size, setSize] = useState(null);

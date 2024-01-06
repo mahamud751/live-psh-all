@@ -1,31 +1,12 @@
 import React, { useState } from "react";
-import financeArrow from "../../../src/assets/img/arrow-finance.png";
-import financeArrow2 from "../../../src/assets/img/financeArrow2.svg";
-import uppArrow from "../../../src/assets/img/upp-arrow.svg";
-import placeHolder1 from "../../../src/assets/img/Placeholder.webp";
-import placeHolder2 from "../../../src/assets/img/Placeholder-1.webp";
-import placeHolder3 from "../../../src/assets/img/Placeholder-2.webp";
-import placeHolder4 from "../../../src/assets/img/Placeholder-3.webp";
-
-import step1 from "../../../src/assets/img/step5.png";
-import step2 from "../../../src/assets/img/step4.svg";
-import step3 from "../../../src/assets/img/step3.svg";
-import step4 from "../../../src/assets/img/step2.svg";
-import step5 from "../../../src/assets/img/step1.svg";
-import financeHome from "../../../src/assets/img/finance-home.png";
-import financeDeposit from "../../../src/assets/img/finace-deposit.png";
-import financeFunds from "../../../src/assets/img/finace-funds.png";
-import pshLogo from "../../../src/assets/img/PSH Favicon 1.png";
-import financeBanner from "../../../src/assets/img/finance.png";
-import tickSvg from "../../../src/assets/img/tik-svg.png";
-import "./PshFinance.css";
-import { Link } from "react-router-dom";
 import { Dialog, DialogBody, DialogHeader } from "@material-tailwind/react";
+
 import ExtraForm from "../ExtraForm/ExtraForm";
 import partnerImg from "../../assets/img/partner-img1.jpeg";
 import PartnerService from "../new/PartnerService";
 import OtherOpportunities from "../new/OtherOpportunities";
 import PartnerFeedback from "../new/PartnerFeedback";
+import "./PshFinance.css";
 
 const PshFinance = () => {
   const [size, setSize] = useState(null);
@@ -45,7 +26,7 @@ const PshFinance = () => {
                   <h1 className="banner_h1 text-white mb-10">
                     Invest and Grow with Project Second Home
                   </h1>
-                  <p className="text-sm text-white text-xl mb-5">
+                  <p className="text-sm text-white md:text-xl mb-5">
                     Become a PSH angel Investor, Project Director, Franchise
                     Partner or Share holder to maximize your idle money and
                     Increase your property valuation to great a social
@@ -63,7 +44,7 @@ const PshFinance = () => {
                       </button>
                     </div>
                     <div
-                      className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white"
+                      className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white md:mt-0 mt-3"
                       style={{ width: 220 }}
                     >
                       <img
@@ -110,10 +91,7 @@ const PshFinance = () => {
       </div>
 
       <PartnerService />
-      {/* Other Opportunities */}
-
       <OtherOpportunities />
-      {/* Partner FeadBack */}
       <PartnerFeedback />
     </div>
   );

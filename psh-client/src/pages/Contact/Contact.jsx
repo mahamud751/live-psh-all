@@ -1,6 +1,6 @@
 import React from "react";
-
 import { Typography } from "@material-tailwind/react";
+
 import "./Contact.css";
 
 const Contact = () => {

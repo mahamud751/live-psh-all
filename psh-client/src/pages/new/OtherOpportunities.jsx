@@ -1,12 +1,12 @@
 import React, { useState } from "react";
+import Slider from "react-slick";
+
 import DirectoshipImg from "../../assets/img/directorship.png";
 import FranchiseImg from "../../assets/img/franchise.png";
 import ShareHolderImg from "../../assets/img/share-holder.png";
-
-import Slider from "react-slick";
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
-import { Link } from "react-router-dom";
+
 const OtherOpportunities = () => {
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (

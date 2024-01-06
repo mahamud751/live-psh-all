@@ -1,10 +1,11 @@
 import React from "react";
 import { Card, Typography } from "@material-tailwind/react";
-import "./Voucher.css";
+
 import UseFetch from "../../hooks/useFetch";
+import "./Voucher.css";
 // import MenuList from "./MenuList";
 const Vouchers = () => {
-  const { data, loading, error, reFetch } = UseFetch(`promo`);
+  const { data } = UseFetch(`promo`);
 
   return (
     <div className="md:p-0 sm:p-2">

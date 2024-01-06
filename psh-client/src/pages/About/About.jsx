@@ -1,11 +1,7 @@
 import React from "react";
-import { Card, CardHeader, CardBody } from "@material-tailwind/react";
-import "./About.css";
-import aboutHero from "../../assets/img/aboutHero.webp";
-import PartnerFeedback from "../new/PartnerFeedback";
-import OurClientFeadBack from "./OurClientFeadBack";
-import footerImg from "../../assets/img/footer-img.webp";
 
+import aboutHero from "../../assets/img/aboutHero.webp";
+import "./About.css";
 const About = () => {
   return (
     <div>

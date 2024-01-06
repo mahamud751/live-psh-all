@@ -1,5 +1,4 @@
-import React from "react";
-import "./SingleCard.css";
+import React, { useContext, useState, useEffect } from "react";
 import {
   Card,
   CardHeader,
@@ -10,23 +9,17 @@ import {
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { AiFillHeart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 import whislistIcon from "../../assets/img/Wishlist.png";
-import whislistIcon2 from "../../assets/img/heart.png";
 import heart2 from "../../assets/img/Heart2.png";
 import locationIcon from "../../assets/img/branchLocationIcon.png";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { AuthContext } from "../../contexts/UserProvider";
-import { useState } from "react";
-import { useEffect } from "react";
 import UseFetch from "../../hooks/useFetch";
+import "./SingleCard.css";
 
-import { FaHeart } from "react-icons/fa";
 const SingleCard = ({ item }) => {
   const { user } = useContext(AuthContext);
-
   const userName = user?.firstName;
   const email = user?.email;
   const [data, setData] = useState([]);

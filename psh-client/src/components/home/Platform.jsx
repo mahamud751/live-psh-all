@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
-import forMobile1 from "../../assets/img/formobile1.png";
-import forMobile2 from "../../assets/img/formobile2.png";
-import forMobile3 from "../../assets/img/formobile3.png";
+import Slider from "react-slick";
 
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
-import Slider from "react-slick";
 
 const Platform = () => {
   const [lastSlideIndex, setLastSlideIndex] = useState(0);

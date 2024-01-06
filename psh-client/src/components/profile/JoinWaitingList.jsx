@@ -1,10 +1,11 @@
 import { Card, Typography } from "@material-tailwind/react";
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
+import axios from "axios";
+
 import JoinWaitingListModal from "./JoinWaitingListModal";
 import userEndOrder from "../../hooks/userEndOrder";
 import { AuthContext } from "../../contexts/UserProvider";
-import axios from "axios";
 
 const JoinWaitingList = () => {
   const { user } = useContext(AuthContext);

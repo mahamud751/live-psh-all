@@ -1,10 +1,4 @@
-import {
-  Tabs,
-  TabsHeader,
-  TabsBody,
-  Tab,
-  TabPanel,
-} from "@material-tailwind/react";
+import { Tabs, TabsHeader, TabsBody, TabPanel } from "@material-tailwind/react";
 import "./booking.css";
 
 import TicketCreate from "./TicketCreate";

@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect } from "react";
-import { AiFillHeart } from "react-icons/ai";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -13,17 +12,15 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import { useContext } from "react";
+
 import UseFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../contexts/UserProvider";
 import whislistIcon from "../../assets/img/Wishlist.png";
-import whislistIcon2 from "../../assets/img/heart.png";
 import heart2 from "../../assets/img/Heart2.png";
 import locationIcon from "../../assets/img/branchLocationIcon.png";
-import { FaHeart } from "react-icons/fa";
 
 const AllRecoondedSingle = ({ item, isSeatIntoDate, isAlreadySeatBook }) => {
   const { user } = useContext(AuthContext);
-  const [recomendedId, setRecomendId] = useState("");
   const userName = user?.firstName;
   const email = user?.email;
   const [data, setData] = useState({});

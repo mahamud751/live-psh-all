@@ -1,31 +1,24 @@
 import React, { useState } from "react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "@splidejs/react-splide/css/skyblue";
 import "@splidejs/react-splide/css/sea-green";
 import "@splidejs/react-splide/css/core";
+import Slider from "react-slick";
 import { IoIosArrowForward } from "react-icons/io";
+import { Link } from "react-router-dom";
+
 import UseFetch from "../../hooks/useFetch";
 import SingleCard from "./SingleCard";
-import { settings } from "../../slider/Slider";
-import "./Recommended.css";
-import AllRecomonded from "./AllRecomonded";
-import { Link } from "react-router-dom";
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
-import Slider from "react-slick";
+import "./Recommended.css";
 
 const Recommended = () => {
-  const { data, loading, error, reFetch } = UseFetch(
-    `property/properties/recommended`
-  );
-  // find Published Recommended Property
+  const { data } = UseFetch(`property/properties/recommended`);
   const publishedData = data.filter(
     (property) => property?.isPublished === "Published"
   );
-
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
-
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => {
     if (lastSlideIndex === 0) {
       return null;
@@ -105,11 +98,11 @@ const Recommended = () => {
 
   return (
     <div className="md:mt-5 sm:mt-2">
-        <h2 className="text-xl font-bold text-gray-900 mb-2">
-          Our Best Recommend
-        </h2>
+      <h2 className="text-xl font-bold text-gray-900 mb-2">
+        Our Best Recommend
+      </h2>
       <div className="flex justify-between items-center">
-      <span className="text-[1rem]">Our best rooms available for you</span>
+        <span className="text-[1rem]">Our best rooms available for you</span>
         <p>
           <Link
             to="/recomended"

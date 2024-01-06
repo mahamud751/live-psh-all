@@ -1,7 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { AiFillHeart } from "react-icons/ai";
+import { AiOutlineShareAlt } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
+import axios from "axios";
+import { Toaster } from "react-hot-toast";
 
-import "./Room.css";
-import { useLocation, useParams } from "react-router-dom";
 import UseFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../contexts/UserProvider";
 import DetailsModal from "./DetailsModal";
@@ -9,25 +15,14 @@ import homeIcon from "../../assets/img/home.png";
 import bedIcon from "../../assets/img/double-bed.png";
 import arroundIcon from "../../assets/img/arround.svg";
 import profileIcon from "../../assets/img/profile.png";
-import { AiFillHeart } from "react-icons/ai";
-import { AiOutlineShareAlt } from "react-icons/ai";
-import { AiFillStar } from "react-icons/ai";
-import { useState } from "react";
-
 import Map from "./Map";
-
-import { Toaster } from "react-hot-toast";
 import BookingTotalBox from "../Booking/BookingTotalBox";
-import { useEffect } from "react";
 import Seats from "./Seats";
 import BookingSeatTotal from "../Booking/BookingSeatTotal";
-import withReactContent from "sweetalert2-react-content";
-import Swal from "sweetalert2";
-import axios from "axios";
 import { ReviewAll } from "./ReviewAll";
 import useBranch from "../../hooks/useBranch";
-
 import useExtraCharge from "../../hooks/useExtraCharge";
+import "./Room.css";
 
 const RoomDetails = ({ id }) => {
   const { user } = useContext(AuthContext);

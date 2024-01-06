@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import { Carousel } from "@material-tailwind/react";
 import Slider from "react-slick";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Avatar,
-} from "@material-tailwind/react";
+
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
-import "./Stories.css";
 import Recommended from "../../components/home/Recommended";
+import "./Stories.css";
 
 const Stories = () => {
   const [lastSlideIndex, setLastSlideIndex] = useState(0);

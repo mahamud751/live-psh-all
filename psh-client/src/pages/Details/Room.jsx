@@ -1,12 +1,20 @@
-import React, { useContext } from "react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+import React, { useContext, useEffect } from "react";
 import "@splidejs/react-splide/css";
 import "@splidejs/react-splide/css/skyblue";
 import "@splidejs/react-splide/css/sea-green";
 import "@splidejs/react-splide/css/core";
 import { format } from "date-fns";
-import "./Room.css";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { AiFillHeart } from "react-icons/ai";
+import { AiOutlineShareAlt } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
+import { useState } from "react";
+import Slider from "react-slick";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
+import axios from "axios";
+import { Toaster } from "react-hot-toast";
 
 import UseFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../contexts/UserProvider";
@@ -15,30 +23,18 @@ import homeIcon from "../../assets/img/home.png";
 import bedIcon from "../../assets/img/double-bed.png";
 import arroundIcon from "../../assets/img/arround.svg";
 import profileIcon from "../../assets/img/profile.png";
-import { AiFillHeart } from "react-icons/ai";
-import { AiOutlineShareAlt } from "react-icons/ai";
-import { AiFillStar } from "react-icons/ai";
-import { useState } from "react";
 import "../../components/shared/Custom.css";
 import Map from "./Map";
-
-import { Toaster } from "react-hot-toast";
 import BookingTotalBox from "../Booking/BookingTotalBox";
-import { useEffect } from "react";
 import Seats from "./Seats";
 import BookingSeatTotal from "../Booking/BookingSeatTotal";
-import withReactContent from "sweetalert2-react-content";
-import Swal from "sweetalert2";
-import axios from "axios";
 import { ReviewAll } from "./ReviewAll";
 import useBranch from "../../hooks/useBranch";
-
 import useExtraCharge from "../../hooks/useExtraCharge";
 import SingleCard from "../../components/home/SingleCard";
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
-import Slider from "react-slick";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import "./Room.css";
 
 const Room = () => {
   const { id } = useParams();

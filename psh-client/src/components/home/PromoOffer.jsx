@@ -1,18 +1,16 @@
 import React, { useState } from "react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import { IoIosArrowForward } from "react-icons/io";
 
 import UseFetch from "../../hooks/useFetch";
-import "./AllPromo.css";
-import { IoIosArrowForward } from "react-icons/io";
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
-import Slider from "react-slick";
+import "./AllPromo.css";
+
 const PromoOffer = () => {
   const { data } = UseFetch(`promo`);
-
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
-
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => {
     if (lastSlideIndex === 0) {
       return null;
@@ -20,7 +18,6 @@ const PromoOffer = () => {
       return <img src={LeftArrow} alt="prevArrow" {...props} />;
     }
   };
-
   const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => {
     if (lastSlideIndex === data?.length - 3) {
       return null;

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "./PaymentToggle.css";
+
 import MobileBanking from "./MobileBanking";
 import CashOn from "./CashOn";
 import CreditCard from "./CreditCard";
 import BankTransfer from "./BankTransfer";
 import BookingReq from "./BookingReq";
+import "./PaymentToggle.css";
 
 const PaymentToggle = ({}) => {
   const [showMobile, setShowMobile] = useState(true);

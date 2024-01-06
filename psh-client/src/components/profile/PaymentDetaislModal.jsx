@@ -1,12 +1,5 @@
 import React, { useRef } from "react";
-import right from "../../assets/img/Right.png";
-import logo from "../../assets/img/logo.png";
-
-import ReactToPrint from "react-to-print";
-import jsPDF from "jspdf";
 import "jspdf-autotable";
-import html2canvas from "html2canvas";
-
 import { Dialog, DialogBody, DialogHeader } from "@material-tailwind/react";
 import { AiOutlineClose } from "react-icons/ai";
 

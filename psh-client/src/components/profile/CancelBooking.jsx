@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
 import {
   Button,
   Dialog,
@@ -9,16 +9,14 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { format, subDays } from "date-fns";
-import { AuthContext } from "../../contexts/UserProvider";
-import { useContext } from "react";
-import { useRef } from "react";
+import { subDays } from "date-fns";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 
 import toast, { Toaster } from "react-hot-toast";
+import { AuthContext } from "../../contexts/UserProvider";
 
 export function CancelBooking({
   handleCancelShow,

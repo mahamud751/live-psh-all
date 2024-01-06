@@ -9,18 +9,13 @@ import maintainceImg from "../../assets/img/maintenance 1.png";
 import strongLegalImg from "../../assets/img/legal-document 1.png";
 import safelyImg from "../../assets/img/give 2.png";
 import renewableImg from "../../assets/img/renewal 2.png";
-
-import "./partner.css";
 import PartnerModal from "./PartnerModal";
-
-import { Link } from "react-router-dom";
 import OtherOpportunities from "./OtherOpportunities";
+import "./partner.css";
 
 const Partner = () => {
   const [size, setSize] = React.useState(null);
-
   const handleOpen = (value) => setSize(value);
-
   return (
     <div>
       <div className="banner-left ">

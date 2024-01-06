@@ -1,32 +1,23 @@
-import React from "react";
-
+import React, { useState } from "react";
 import { Typography, Tooltip } from "@material-tailwind/react";
-
 import DatePicker from "react-datepicker";
-
 import { useNavigate } from "react-router-dom";
-
 import { useDispatch, useSelector } from "react-redux";
 
 import brachLocationIcon from "../../assets/img/branchLocationIcon.png";
 import promoIcon from "../../assets/img/coupon.png";
-
-import { useState } from "react";
-
 import { leftDate, rightDate, toTalRent } from "../../redux/reducers/dateSlice";
 import { useEffect } from "react";
 import { placeBooking } from "../../redux/reducers/bookingSlice";
-import "../../components/shared/Custom.css";
-import "./BookingTotalBox.css";
-
 import { addDays, addMonths, addYears, subDays } from "date-fns";
 import { toast } from "react-hot-toast";
-
 import useBranch from "../../hooks/useBranch";
 import usePromos from "../../hooks/usePromos";
 import LoginModal from "../../components/shared/LoginModal";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/UserProvider";
+import "../../components/shared/Custom.css";
+import "./BookingTotalBox.css";
 
 const BookingTotalBox = ({ data, seats, extraCharge }) => {
   const { user } = useContext(AuthContext);

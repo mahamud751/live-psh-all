@@ -1,22 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import "./SearchBtmSmModal.css";
 import { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { FaBed } from "react-icons/fa";
 import { BiBody } from "react-icons/bi";
-
 import { GiSofa } from "react-icons/gi";
 import DatePicker from "react-datepicker";
-
-import location from "../../assets/img/location.PNG";
-import { useContext } from "react";
-import { SearchContext } from "../../contexts/SearchContext";
 import { useNavigate } from "react-router-dom";
 import Autosuggest from "react-autosuggest";
-
 import { useDispatch, useSelector } from "react-redux";
-import { leftDate, rightDate, toTalRent } from "../../redux/reducers/dateSlice";
 import { addDays, addMonths, addYears, subDays } from "date-fns";
+
+import location from "../../assets/img/location.PNG";
+import { SearchContext } from "../../contexts/SearchContext";
+import { leftDate, rightDate, toTalRent } from "../../redux/reducers/dateSlice";
 import UseFetch from "../../hooks/useFetch";
 
 const SearchBtmSmModal = () => {

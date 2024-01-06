@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import axios from "axios";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
@@ -11,12 +10,13 @@ import "jspdf-autotable";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { BiSolidEdit } from "react-icons/bi";
 import { useQuery } from "react-query";
-// import BlogUpdate from "../../pages/edit/BlogUpdate";
-// import BlogDetails from "./BlogDetails";
 
-const Event_list = (props) => {
+import EventDetails from "./EventDetails";
+import EventUpdate from "../../pages/edit/EventUpdate";
+
+const Event_list = () => {
   const MySwal = withReactContent(Swal);
-  const { data, error } = useQuery("categoryData", async () => {
+  const { data, refetch, error } = useQuery("eventData", async () => {
     const response = await axios.get("https://api.psh.com.bd/api/event", {
       mode: "cors",
     });
@@ -80,7 +80,7 @@ const Event_list = (props) => {
                   </span>
                 </button>
 
-                {/* <BlogUpdate data={row} /> */}
+                <EventUpdate data={row} refetch={refetch} />
               </div>
               <div>
                 <button
@@ -95,7 +95,7 @@ const Event_list = (props) => {
                 </button>
 
                 {/* Modal Order Details */}
-                {/* <BlogDetails data={row} /> */}
+                <EventDetails data={row} />
               </div>
 
               <AiOutlineDelete

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Tabs,
   TabsHeader,
@@ -6,8 +6,6 @@ import {
   Tab,
   TabPanel,
 } from "@material-tailwind/react";
-
-import { useState } from "react";
 
 import Svg from "../../assets/img/SVG.svg";
 import Svg1 from "../../assets/img/SVG (1).svg";
@@ -21,13 +19,10 @@ import Svg8 from "../../assets/img/SVG (8).svg";
 import Svg9 from "../../assets/img/SVG (9).svg";
 import pshLogo from "../../assets/img/PSH Favicon 1.png";
 import footerImg from "../../assets/img/footer-img.webp";
-
-import "./FaqQuestion.css";
 import Faq1 from "./Faq1";
 import Faq2 from "./Faq2";
 import { useDispatch, useSelector } from "react-redux";
 import { placeFaqMenu } from "../../redux/reducers/smProfileMenuSlice";
-import { HiArrowNarrowLeft } from "react-icons/hi";
 import Faq3 from "./Faq.3";
 import Faq4 from "./Faq4";
 import Faq5 from "./Faq5";
@@ -37,7 +32,7 @@ import Faq8 from "./Faq8";
 import Faq9 from "./Faq9";
 import Faq10 from "./Faq10";
 import Faq11 from "./Faq11";
-import { Link } from "react-router-dom";
+import "./FaqQuestion.css";
 
 export default function FaqQuestions() {
   const [activeTab, setActiveTab] = useState("Search and Order");

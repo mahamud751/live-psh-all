@@ -1,13 +1,12 @@
 import { Typography, Card } from "@material-tailwind/react";
-import UseFetch from "../../hooks/useFetch";
 import { useContext } from "react";
-import { AuthContext } from "../../contexts/UserProvider";
-
 import { Link } from "react-router-dom";
 
-export default function WishList() {
-  const { data, loading, error, reFetch } = UseFetch(`wishlist`);
+import UseFetch from "../../hooks/useFetch";
+import { AuthContext } from "../../contexts/UserProvider";
 
+export default function WishList() {
+  const { data } = UseFetch(`wishlist`);
   const { user } = useContext(AuthContext);
   const email = user?.email;
   const main = data?.filter((pd) => pd?.email === email);

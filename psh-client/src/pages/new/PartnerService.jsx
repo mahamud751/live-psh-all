@@ -189,29 +189,31 @@ const PartnerService = () => {
             Property Rental Investment Proven to be More Profitable
           </h2>
 
-          <div className="grid grid-cols-4">
+          <div className="grid md:grid-cols-4 grid-cols-2 md:gap-y-0 gap-y-16">
             <div>
-              <p className=" text-black text-center text-xl font-bold ">
+              <p className=" text-black text-center md:text-xl font-bold ">
                 Angle Investment
               </p>
               <p className=" text-black text-center font-medium w-full mt-4">
-                <span className="text-sm text-xl">(50K to 1,000K)</span>
+                <span className="text-sm md:text-xl">(50K to 1,000K)</span>
               </p>
-              <p className=" text-black text-5xl text-center font-bold w-full mt-4">
+              <p className=" text-black md:text-5xl text-center font-bold w-full mt-4">
                 (12 - 18% )
               </p>
-              <p className=" text-black text-xl text-center font-medium w-full mt-4">
+              <p className=" text-black md:text-xl text-center font-medium w-full mt-4">
                 Returns per year
               </p>
             </div>
             <div>
-              <p className=" text-black text-center text-xl font-bold ">
+              <p className=" text-black text-center md:text-xl font-bold ">
                 Project Director
               </p>
               <p className=" text-black text-center font-medium w-full mt-4">
-                <span className="text-xl">(10 Lac to up to Project Value)</span>
+                <span className="md:text-xl">
+                  (10 Lac to up to Project Value)
+                </span>
               </p>
-              <p className=" text-black text-xl text-center font-bold w-full mt-4">
+              <p className=" text-black md:text-xl text-center font-bold w-full mt-4">
                 5% Net Profit on Particular Project
               </p>
               <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
@@ -219,13 +221,13 @@ const PartnerService = () => {
               </p>
             </div>
             <div>
-              <p className=" text-black text-center text-xl font-bold ">
+              <p className=" text-black text-center md:text-xl font-bold ">
                 Share Holder
               </p>
               <p className=" text-black text-center font-medium w-full mt-4">
-                <span className="text-xl">50 Lac per Share</span>
+                <span className="md:text-xl">50 Lac per Share</span>
               </p>
-              <p className=" text-black text-xl text-center font-bold w-full mt-4">
+              <p className=" text-black md:text-xl text-center font-bold w-full mt-4">
                 1% Net Profit of PSH
               </p>
               <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">
@@ -233,13 +235,13 @@ const PartnerService = () => {
               </p>
             </div>
             <div>
-              <p className=" text-black text-center text-xl font-bold ">
+              <p className=" text-black text-center md:text-xl font-bold ">
                 Franchise Partner
               </p>
               <p className=" text-black text-center font-medium w-full mt-4">
-                <span className="text-xl">Based on Branch Value</span>
+                <span className="md:text-xl">Based on Branch Value</span>
               </p>
-              <p className=" text-black text-xl text-center font-bold w-full mt-4">
+              <p className=" text-black md:text-xl text-center font-bold w-full mt-4">
                 Up to 90% profit on particular project
               </p>
               <p className=" text-stone-500 text-base text-center leading-6 self-center whitespace-nowrap mt-2">

@@ -1,11 +1,11 @@
 import React from "react";
+import { useState } from "react";
 
 import bkash from "../../assets/img/bkash.png";
 import nagad from "../../assets/img/Nagad-Logo.png";
 import dutch from "../../assets/img/dutch-logo.png";
 
 import "./MobileBanking.css";
-import { useState } from "react";
 
 const MobileBanking = () => {
   const [showBkash, setShowBkash] = useState(true);

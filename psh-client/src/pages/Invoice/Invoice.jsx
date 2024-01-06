@@ -1,19 +1,16 @@
-import React, { useRef } from "react";
-import right from "../../assets/img/Right.png";
-import logo from "../../assets/img/logo.png";
-import "./invoice.css";
+import React, { useRef, useEffect, useState } from "react";
+import axios from "axios";
 import ReactToPrint from "react-to-print";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import html2canvas from "html2canvas";
+
 import { useLocation } from "react-router-dom";
-import useBranch from "../../hooks/useBranch";
-import { useEffect } from "react";
-
-import { useState } from "react";
-import axios from "axios";
-
-import InvoiceModal from "./InvoiceModal";
+import right from "../../assets/img/Right.png";
+import logo from "../../assets/img/logo.png";
+// import useBranch from "../../hooks/useBranch";
+// import InvoiceModal from "./InvoiceModal";
+import "./invoice.css";
 
 const Invoice = () => {
   const ref = useRef();

@@ -1,12 +1,7 @@
-import React from "react";
-import PaymentToggle from "../Payment/PaymentToggle";
-import cashImg from "../../assets/img/Cash-1.png";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useQuery } from "react-query";
-import { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { AuthContext } from "../../contexts/UserProvider";
-import { useState } from "react";
-import { useEffect } from "react";
 import userEndOrder from "../../hooks/userEndOrder";
 const BookNow = () => {
   const { user } = useContext(AuthContext);
@@ -14,12 +9,10 @@ const BookNow = () => {
   const [userOrder] = userEndOrder();
 
   const navigate = useNavigate();
-  // console.log(endOrder);
 
   useEffect(() => {
     if (userOrder) {
       const lastOrder = userOrder[userOrder?.length - 1];
-
       setEndOrder(lastOrder);
     }
   }, [userOrder, user]);

@@ -1,7 +1,9 @@
 import React from "react";
-import "./Facility.css";
+
 import healthyMealIcon from "../../assets/img/healthy-meal.png";
 import security24 from "../../assets/img/security-24.svg";
+import "./Facility.css";
+
 const Facility = () => {
   return (
     <div style={{ background: "rgba(245, 245, 245, 1)" }} className="py-[20px]">

@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { Carousel } from "@material-tailwind/react";
 import Slider from "react-slick";
 import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
-import { Card, CardHeader, CardBody } from "@material-tailwind/react";
+
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
 import partnerImg from "../../assets/img/corporate-banner.png";
 import choiceImg1 from "../../assets/img/choiceImg1.png";
 import choiceImg2 from "../../assets/img/choiceImg2.png";
 import choiceImg3 from "../../assets/img/choiceImg3.png";
-
-import Benefit from "./Benefit";
 import Platform from "../../components/home/Platform";
 import OtherOpportunities from "./OtherOpportunities";
 import RentRequestModal from "./RentRequestModal";
