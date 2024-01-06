@@ -44,7 +44,7 @@ const PersonalInfo = () => {
   const [showCreditCard, setShowCreditCard] = useState(false);
   const [showBankTransfer, setShowBankTransfer] = useState(false);
   const [bookingExtend, setBookingExtend] = useState(false);
-  const [birthDay, setBirthDay] = useState(new Date(user?.dateOfBirth));
+  const [birthDay, setBirthDay] = useState(new Date());
 
   const [isActive1, setIsActive1] = useState(true);
   const [isActive2, setIsActive2] = useState(false);
