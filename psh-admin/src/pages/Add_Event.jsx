@@ -1,12 +1,14 @@
 import { Editor } from "@tinymce/tinymce-react";
 import { useRef, useState } from "react";
-import { TINY_MCE_EDITOR_INIT } from "../../utils/constants";
 import axios from "axios";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { TINY_MCE_EDITOR_INIT } from "../utils/constants";
 
 const Add_Event = () => {
   const [details, setDetails] = useState("");
+  const [files, setFiles] = useState("");
+  const [name, setName] = useState("");
   const MySwal = withReactContent(Swal);
   const formRef = useRef(null);
 
@@ -14,10 +16,29 @@ const Add_Event = () => {
     event.preventDefault();
     const data2 = {
       desc: details,
+      name: name,
     };
 
     try {
-      await axios.post("http://localhost:5001/api/event", data2);
+      const list = await Promise.all(
+        Object.values(files).map(async (file) => {
+          const data = new FormData();
+          data.append("file", file);
+          data.append("upload_preset", "upload");
+          const uploadRes = await axios.post(
+            "https://api.cloudinary.com/v1_1/dtpvtjiry/image/upload",
+            data
+          );
+
+          const { url } = uploadRes.data;
+          return url;
+        })
+      );
+      const product = {
+        ...data2,
+        photos: list,
+      };
+      await axios.post("https://api.psh.com.bd/api/event", product);
       MySwal.fire("Good job!", "successfully added", "success");
       formRef.current.reset();
     } catch (err) {
@@ -42,7 +63,9 @@ const Add_Event = () => {
                   type="text"
                   className="main_form w-100"
                   name="name"
-                  placeholder="Banner Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Event Name"
                 />
               </div>
 

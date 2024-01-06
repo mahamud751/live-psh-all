@@ -56,6 +56,8 @@ import Update_Privacy from "./components/Pages/Update_Privacy";
 import Add_Dynamic from "./pages/Add_Dynamic";
 import Dynamic from "./pages/Dynamic";
 import Finance from "./pages/Finance/Finance";
+import Add_Event from "./pages/Add_Event";
+import Event from "./pages/Event";
 
 function App() {
   return (
@@ -81,6 +83,8 @@ function App() {
           <Route path="branch_list" element={<Branch />} />
           <Route path="add_dynamic" element={<Add_Dynamic />} />
           <Route path="dynamic_list" element={<Dynamic />} />
+          <Route path="add_event" element={<Add_Event />} />
+          <Route path="event_list" element={<Event />} />
           <Route
             path="add_facility_category"
             element={<Add_Facility_Category />}

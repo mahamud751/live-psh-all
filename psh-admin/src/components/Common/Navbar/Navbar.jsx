@@ -24,6 +24,8 @@ const Navbar = () => {
   const [isActive6, setIsActive6] = useState(false);
   const [isActive7, setIsActive7] = useState(false);
   const [isActive8, setIsActive8] = useState(false);
+  const [isActive9, setIsActive9] = useState(false);
+  const [isActive10, setIsActive10] = useState(false);
 
   const handleLogOut = () => {
     logoutUser();
@@ -192,6 +194,8 @@ const Navbar = () => {
                           setIsActive6(false);
                           setIsActive7(false);
                           setIsActive8(false);
+                          setIsActive9(false);
+                          setIsActive10(false);
                         }}
                       >
                         <p className="span_text">
@@ -260,6 +264,8 @@ const Navbar = () => {
                           setIsActive6(false);
                           setIsActive7(false);
                           setIsActive8(false);
+                          setIsActive9(false);
+                          setIsActive10(false);
                         }}
                       >
                         <p className="span_text">
@@ -319,6 +325,8 @@ const Navbar = () => {
                       setIsActive6(false);
                       setIsActive7(false);
                       setIsActive8(false);
+                      setIsActive9(false);
+                      setIsActive10(false);
                     }}
                   >
                     <p className="span_text">
@@ -417,6 +425,8 @@ const Navbar = () => {
                           setIsActive6(false);
                           setIsActive7(false);
                           setIsActive8(false);
+                          setIsActive9(false);
+                          setIsActive10(false);
                         }}
                       >
                         <p className="span_text">
@@ -474,6 +484,8 @@ const Navbar = () => {
                           setIsActive6(false);
                           setIsActive7(false);
                           setIsActive8(false);
+                          setIsActive9(false);
+                          setIsActive10(false);
                         }}
                       >
                         <p className="span_text">
@@ -582,6 +594,8 @@ const Navbar = () => {
                           setIsActive6(!isActive6);
                           setIsActive7(false);
                           setIsActive8(false);
+                          setIsActive9(false);
+                          setIsActive10(false);
                         }}
                       >
                         <p className="span_text">
@@ -640,6 +654,8 @@ const Navbar = () => {
                           setIsActive6(false);
                           setIsActive7(!isActive7);
                           setIsActive8(false);
+                          setIsActive9(false);
+                          setIsActive10(false);
                         }}
                       >
                         <p className="span_text">
@@ -697,6 +713,8 @@ const Navbar = () => {
                           setIsActive6(false);
                           setIsActive7(false);
                           setIsActive8(!isActive8);
+                          setIsActive9(false);
+                          setIsActive10(false);
                         }}
                       >
                         <p className="span_text">
@@ -740,6 +758,65 @@ const Navbar = () => {
                                 <span className="span_text">
                                   Dynamic page List
                                 </span>
+                              </div>
+                            </span>
+                          </li>
+                        </Link>
+                      </ul>
+                    </li>
+                    <li className="nav-item">
+                      <span
+                        className="nav-link"
+                        onClick={() => {
+                          setIsActive1(false);
+                          setIsActive2(false);
+                          setIsActive3(false);
+                          setIsActive4(false);
+                          setIsActive5(false);
+                          setIsActive6(false);
+                          setIsActive7(false);
+                          setIsActive8(false);
+                          setIsActive9(!isActive9);
+                          setIsActive10(false);
+                        }}
+                      >
+                        <p className="span_text">
+                          Events
+                          <i
+                            className={`fas fa-angle-left right ${
+                              isActive9 ? "d-none" : "d-block"
+                            }`}
+                          />
+                          <span className="badge badge-info right">2</span>
+                          <BiSolidChevronDown
+                            style={{ width: "23px", height: "23px" }}
+                            className={`down-arrow ${
+                              isActive8 ? "d-block" : "d-none"
+                            }`}
+                          />
+                        </p>
+                      </span>
+                      <ul
+                        className={` custom-drop ${
+                          isActive9 ? "custom-drop-show" : ""
+                        }`}
+                      >
+                        <Link to={"/add_event"}>
+                          <li className="main_nav-link">
+                            <span className="nav-link">
+                              {/* <img style={{ width: 16 }} src={img7} alt="" /> */}
+                              <div className="menu_flex">
+                                <span className="span_text">Add Event</span>
+                              </div>
+                            </span>
+                          </li>
+                        </Link>
+                        <Link to={"/event_list"}>
+                          <li className="main_nav-link">
+                            <span className="nav-link">
+                              {/* <i className="fa-solid fa-grip-lines span_text2"></i> */}
+                              <div className="menu_flex">
+                                <span className="span_text">Event List</span>
                               </div>
                             </span>
                           </li>
