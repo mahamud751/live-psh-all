@@ -59,8 +59,7 @@ const SeeOrderDetails = ({
       (branch) => branch._id === data?.bookingInfo?.branch
     );
     setShareRoomBranch(shareRoomBranch);
-  }, []);
-  // }, [branchs, data?.bookingInfo?.data?.branch, data?.bookingInfo?.branch]);
+  }, [branchs, data?.bookingInfo?.data?.branch, data?.bookingInfo?.branch]);
 
   const formattedDate = new Date(data?.createdAt).toLocaleString();
 

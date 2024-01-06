@@ -45,6 +45,7 @@ const Add_Event = () => {
                   placeholder="Banner Name"
                 />
               </div>
+
               <div className="col-md-12 form_sub_stream">
                 <label
                   htmlFor="inputState"
