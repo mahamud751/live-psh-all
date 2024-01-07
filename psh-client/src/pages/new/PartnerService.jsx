@@ -189,7 +189,7 @@ const PartnerService = () => {
             Property Rental Investment Proven to be More Profitable
           </h2>
 
-          <div className="grid md:grid-cols-4 grid-cols-2 md:gap-y-0 gap-y-16">
+          <div className="grid md:grid-cols-4 grid-cols-1 md:gap-y-0 gap-y-16">
             <div>
               <p className=" text-black text-center md:text-xl font-bold ">
                 Angle Investment
