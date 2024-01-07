@@ -172,7 +172,7 @@ const AllBranch = () => {
                     <Link to={`/branch/${item._id}`}>
                       <Card
                         shadow={false}
-                        className="relative grid h-[7rem] items-end justify-center overflow-hidden text-center"
+                        className="relative grid h-[12rem] items-end justify-center overflow-hidden text-center"
                       >
                         <CardHeader
                           floated={false}

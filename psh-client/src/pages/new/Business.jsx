@@ -9,9 +9,9 @@ import partnerImg from "../../assets/img/corporate-banner.png";
 import choiceImg1 from "../../assets/img/choiceImg1.png";
 import choiceImg2 from "../../assets/img/choiceImg2.png";
 import choiceImg3 from "../../assets/img/choiceImg3.png";
-import Platform from "../../components/home/Platform";
 import OtherOpportunities from "./OtherOpportunities";
 import RentRequestModal from "./RentRequestModal";
+import BusinessPlatform from "./BusinessPlatform";
 
 // import RentRequestModal from "./RentRequestModal";
 
@@ -238,7 +238,7 @@ const Business = () => {
       {/* We Offer */}
       <div className="custom-container">
         <h2 className="text-xl font-bold mb-5 ">What do we offer?</h2>
-        <Platform />
+        <BusinessPlatform handleOpen={handleOpen} />
       </div>
       <OtherOpportunities />
       {/* <div>

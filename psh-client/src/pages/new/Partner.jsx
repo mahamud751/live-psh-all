@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 import partnerImg from "../../assets/img/partner-img1.jpeg";
 import partnerImg2 from "../../assets/img/partner-img2.png";
@@ -48,19 +49,21 @@ const Partner = () => {
                         List Your Property
                       </button>
                     </div>
-                    <div
-                      className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white"
-                      style={{ width: 220 }}
-                    >
-                      <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/5acafaceab7794f50dc75a52aade2c6ed5eabd94dd1236c337c5bddd85becb4d?apiKey=e4c55b3835e0471b869cabb50a0b8cd9&"
-                        className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                      />
-                      <div className="text-white text-center text-sm leading-5 self-center grow whitespace-nowrap my-auto">
-                        Contact the PSH Team
+                    <Link to={"/contact"}>
+                      <div
+                        className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-3 rounded-lg border-solid border-white"
+                        style={{ width: 220 }}
+                      >
+                        <img
+                          loading="lazy"
+                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/5acafaceab7794f50dc75a52aade2c6ed5eabd94dd1236c337c5bddd85becb4d?apiKey=e4c55b3835e0471b869cabb50a0b8cd9&"
+                          className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
+                        />
+                        <div className="text-white text-center text-sm leading-5 self-center grow whitespace-nowrap my-auto">
+                          Contact the PSH Team
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                   <Dialog
                     open={size === "sm"}
