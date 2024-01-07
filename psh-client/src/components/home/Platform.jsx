@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 import Slider from "react-slick";
+import { Dialog, DialogBody, DialogHeader } from "@material-tailwind/react";
 
 import LeftArrow from "../../assets/img/arrow2.png";
 import RightArrow from "../../assets/img/arrow1.png";
+import ExtraForm from "../../pages/ExtraForm/ExtraForm";
 
 const Platform = () => {
+  const [size, setSize] = useState(null);
+  const handleOpen = (value) => setSize(value);
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <img src={LeftArrow} alt="prevArrow" {...props} />
@@ -40,7 +44,6 @@ const Platform = () => {
           slidesToScroll: 1,
           dots: false,
           infinite: true,
-
           autoplaySpeed: 3000,
           arrows: true,
         },
@@ -79,9 +82,9 @@ const Platform = () => {
   };
   return (
     <div className="md:mt-5 sm:mt-5">
-      <div className="all_promo slider_margin card-slider ">
+      <div className="all_promo slider_margin card-slider">
         <Slider {...settings}>
-          <div className="group relative">
+          <div className="group relative mb-12">
             <Card className="overflow-hidden ">
               <CardHeader
                 floated={false}
@@ -293,22 +296,32 @@ const Platform = () => {
           </div>
         </Slider>
       </div>
-      <div className="mt-24">
+      <div className="mt-16">
         <div className="grid grid-cols-12 gap-x-8 gap-y-16">
           <div className=" text-center space-y-3 sm:col-span-12 lg:col-span-4">
             <div className="flex">
-              <img src="/images/Frame 3727.png" alt="" />
+              <img
+                src="/images/Frame 3727.png"
+                alt="project second home form"
+              />
               <div style={{ marginLeft: 40, marginTop: 120 }}>
                 <img src="/images/Line 1 (Stroke).png" alt="" />
               </div>
             </div>
             <div className="flex justify-center w-full">
-              <h2>Search on Maps</h2>
+              <h2>Fill up the form</h2>
             </div>
-            <p>
-              Explore and find your desired location on our interactive maps
-              feature, ensuring convenience and proximity to your desired area.
-            </p>
+
+            <p>Please fill up the form with required information and submit.</p>
+            <div className="sm:mb-3 md:mb-0">
+              <button
+                className="text-neutral-800 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch px-4 py-4 rounded-lg text-white"
+                style={{ width: 140, background: "black" }}
+                onClick={() => handleOpen("sm")}
+              >
+                I am interested in
+              </button>
+            </div>
           </div>
           <div className=" text-center space-y-3 sm:col-span-12 lg:col-span-4">
             <div className="flex">
@@ -318,11 +331,11 @@ const Platform = () => {
               </div>
             </div>
             <div className="flex justify-center w-full">
-              <h2>Select Your Perfect Room</h2>
+              <h2>Select Your options</h2>
             </div>
             <p>
-              Explore and find your desired location on our interactive maps
-              feature, ensuring convenience and proximity to your desired area.
+              One of your corporate housing representative will contact at the
+              earliest, discuss and share possible options with you.
             </p>
           </div>
           <div className=" text-center col-span-12 space-y-3 sm:col-span-12 lg:col-span-4">
@@ -339,6 +352,25 @@ const Platform = () => {
           </div>
         </div>
       </div>
+      <Dialog
+        open={size === "sm"}
+        size={size || "sm"}
+        handler={handleOpen}
+        style={{ height: "100vh", overflow: "scroll" }}
+      >
+        <DialogHeader>
+          {" "}
+          <div
+            className="flex justify-end text-3xl text-black"
+            onClick={() => handleOpen(null)}
+          >
+            <i className="fa-solid fa-circle-xmark cursor-pointer"></i>
+          </div>
+        </DialogHeader>
+        <DialogBody className="p-2">
+          <ExtraForm />
+        </DialogBody>
+      </Dialog>
     </div>
   );
 };

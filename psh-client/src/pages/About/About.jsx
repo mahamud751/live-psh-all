@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import aboutHero from "../../assets/img/aboutHero.webp";
 import "./About.css";
+
 const About = () => {
   return (
     <div>
@@ -13,16 +15,18 @@ const About = () => {
               Creating quality and affordable housing for everyone, at every
               phase of life.
             </p>
-            <div className="mt-8">
-              <button
-                className="text-white text-sm px-5 py-3 rounded-lg"
-                style={{
-                  background: "linear-gradient(to right, #000, #061c34)",
-                }}
-              >
-                Search for Housing Now
-              </button>
-            </div>
+            <Link to={"/"}>
+              <div className="mt-8">
+                <button
+                  className="text-white text-sm px-5 py-3 rounded-lg"
+                  style={{
+                    background: "linear-gradient(to right, #000, #061c34)",
+                  }}
+                >
+                  Search for Housing Now
+                </button>
+              </div>
+            </Link>
           </div>
           <div className=" ">
             <img
@@ -35,6 +39,22 @@ const About = () => {
       </div>
       <div className="bg-white mb-10 rounded-tl-[100px] mt-[-90px] product-ecosystem">
         <div className="custom-container">
+          <p className="text-[16px] font-bold pt-12">
+            দেশের বিভিন্ন প্রান্ত থেকে আগত হাজারো নারীকে নিরাপদ, আরামদায়ক এবং
+            সুরক্ষিত আবাসস্থল প্রদানের লক্ষে PSH/পি.এস.এইচ (Project Second Home/
+            প্রোজেক্ট সেকেন্ড হোম) শুরু করেছে তাদের নারী ডরমিটরি ব্যবস্থা। থাকা
+            খাওয়ার মৌলিক সুযোগ সুবিধার পাশাপাশি অত্যাধুনিক প্রযুক্তি সুবিধা থেকে
+            শুরু করে কর্মজীবী নারী, বিভিন্ন প্রতিষ্ঠানে পড়ুয়া নারী শিক্ষার্থী
+            এবং স্বাধীনচেতা নারীদের চলার পথকে সুগম এবং সহজতর করতে PSH দিচ্ছে
+            সাধ্যের মধ্যে সর্বোচ্চ নিরাপদ এবং আরামদায়ক আবাসন ব্যবস্থা। To
+            ensure a comfortable and safe place for the thousands of female who
+            come from various places for different purposes and for them Project
+            Second Home (PSH) has taken an initiative to create a safe
+            residence. Besides the basic needs like food and security, we are
+            going to provide house keeping and other necessary supports so that
+            female of different profession can cope with their daily lives with
+            full of comfort and safety.
+          </p>
           <h4 className="text-[32px] font-bold mb-10 pt-16">
             PSH Product Ecosystem
           </h4>

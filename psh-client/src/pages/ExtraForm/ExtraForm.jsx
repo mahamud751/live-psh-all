@@ -108,8 +108,10 @@ const ExtraForm = () => {
                   className="personal-info w-full h-[45px] rounded"
                   name="purpose"
                 >
-                  <option>Investment</option>
-                  <option>⁠Franchise</option>
+                  <option>Angle Investment</option>
+                  <option>⁠Franchise Partner</option>
+                  <option>Directorship</option>
+                  <option>Share Holder</option>
                 </select>
               </div>
               <div className="col-span-2">

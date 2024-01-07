@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
@@ -11,6 +12,7 @@ import choiceImg3 from "../../assets/img/choiceImg3.png";
 import Platform from "../../components/home/Platform";
 import OtherOpportunities from "./OtherOpportunities";
 import RentRequestModal from "./RentRequestModal";
+
 // import RentRequestModal from "./RentRequestModal";
 
 const Business = () => {
@@ -115,19 +117,21 @@ const Business = () => {
                         I am interested in
                       </button>
                     </div>
-                    <div
-                      className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white"
-                      style={{ width: 220 }}
-                    >
-                      <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/5acafaceab7794f50dc75a52aade2c6ed5eabd94dd1236c337c5bddd85becb4d?apiKey=e4c55b3835e0471b869cabb50a0b8cd9&"
-                        className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
-                      />
-                      <div className="text-white text-center text-sm leading-5 self-center grow whitespace-nowrap my-auto">
-                        Contact the PSH Team
+                    <Link to={"/contact"}>
+                      <div
+                        className="justify-between items-stretch border flex gap-px pl-3 pr-4 py-2 rounded-lg border-solid border-white"
+                        style={{ width: 220 }}
+                      >
+                        <img
+                          loading="lazy"
+                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/5acafaceab7794f50dc75a52aade2c6ed5eabd94dd1236c337c5bddd85becb4d?apiKey=e4c55b3835e0471b869cabb50a0b8cd9&"
+                          className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
+                        />
+                        <div className="text-white text-center text-sm leading-5 self-center grow whitespace-nowrap my-auto">
+                          Contact the PSH Team
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                   <Dialog
                     open={size === "sm"}

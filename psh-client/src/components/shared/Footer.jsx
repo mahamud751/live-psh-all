@@ -167,14 +167,14 @@ const Footer = () => {
                       PSH FOR Business
                     </h2>
                     <ul className="footer_li">
-                      <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
+                      {/* <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                         <Link
                           to={"/corporate-housing"}
                           className="hover:text-[#00bbb4]"
                         >
                           Corporate Housing{" "}
                         </Link>
-                      </li>
+                      </li> */}
 
                       <li className="mb-4 duration-200 hover:text-gray-800 dark:hover:text-white">
                         <Link
@@ -185,11 +185,11 @@ const Footer = () => {
                         </Link>
                       </li>
 
-                      <Link to={"/community"}>
+                      {/* <Link to={"/community"}>
                         <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                           <a>Community</a>
                         </li>
-                      </Link>
+                      </Link> */}
                     </ul>
                   </div>
                 </li>
@@ -215,11 +215,11 @@ const Footer = () => {
                           <a>Career</a>
                         </li>
                       </a>
-                      <Link to={"/stories"}>
+                      {/* <Link to={"/stories"}>
                         <li className="mb-4  duration-200 hover:text-gray-800 dark:hover:text-white">
                           <a>Stories</a>
                         </li>
-                      </Link>
+                      </Link> */}
                     </ul>
                   </div>
                 </li>

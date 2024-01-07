@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
+import { Dialog, DialogBody, DialogHeader } from "@material-tailwind/react";
 
 import DirectoshipImg from "../../assets/img/directorship.png";
 import FranchiseImg from "../../assets/img/franchise.png";
 import ShareHolderImg from "../../assets/img/share-holder.png";
 import LeftArrow from "../../assets/img/left-arrow.svg";
 import RightArrow from "../../assets/img/right-arrow.svg";
+import ExtraForm from "../ExtraForm/ExtraForm";
 
 const OtherOpportunities = () => {
+  const [size, setSize] = useState(null);
+  const handleOpen = (value) => setSize(value);
   const [lastSlideIndex, setLastSlideIndex] = useState(0);
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <img src={LeftArrow} alt="prevArrow" {...props} />
@@ -96,10 +100,15 @@ const OtherOpportunities = () => {
               </div>
               <div className="md:p-4 sm:p-2  ">
                 <p className="business font-bold ">Directorship</p>
-                <p className="content mt-3">
+                <p className="content my-5">
                   You can be a partner of PSH in your own Premises.
                 </p>
-                <button className="partner_btn mt-10">View More</button>
+                <button
+                  className="partner_btn"
+                  onClick={() => handleOpen("sm")}
+                >
+                  Apply Now
+                </button>
               </div>
             </div>
           </div>
@@ -122,9 +131,9 @@ const OtherOpportunities = () => {
                 </p>
                 <button
                   className="partner_btn"
-                  // onClick={() => handleOpen("sm")}
+                  onClick={() => handleOpen("sm")}
                 >
-                  View More
+                  Apply Now
                 </button>
               </div>
             </div>
@@ -142,7 +151,7 @@ const OtherOpportunities = () => {
               <div className="md:p-4 sm:p-2  ">
                 <p className="business font-bold ">Share Holder</p>
 
-                <p className="content my-6">
+                <p className="content my-3">
                   You can grab shares of Project Second Home by lease your
                   property.
                 </p>
@@ -150,12 +159,36 @@ const OtherOpportunities = () => {
                   <button className="partner_btn">View More</button>
                 </Link> */}
 
-                <button className="partner_btn">View More</button>
+                <button
+                  className="partner_btn"
+                  onClick={() => handleOpen("sm")}
+                >
+                  Apply Now
+                </button>
               </div>
             </div>
           </div>
         </Slider>
       </div>
+      <Dialog
+        open={size === "sm"}
+        size={size || "sm"}
+        handler={handleOpen}
+        style={{ height: "100vh", overflow: "scroll" }}
+      >
+        <DialogHeader>
+          {" "}
+          <div
+            className="flex justify-end text-3xl text-black"
+            onClick={() => handleOpen(null)}
+          >
+            <i className="fa-solid fa-circle-xmark cursor-pointer"></i>
+          </div>
+        </DialogHeader>
+        <DialogBody className="p-2">
+          <ExtraForm />
+        </DialogBody>
+      </Dialog>
     </div>
   );
 };
