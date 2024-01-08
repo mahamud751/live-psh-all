@@ -129,13 +129,13 @@ const PersonalInfo = () => {
     // Check Phone Number
 
     if (phone?.length !== 11 || phone?.substring(0, 2) !== "01") {
-      return toast.error("You gave me wrong phone number");
+      return toast.error("Sorry! you gave me wrong phone number");
     }
 
     // Check NID
     if (nid) {
       if (nid?.length !== 10 && nid?.length !== 13) {
-        return toast.error("You gave me the wrong NID number");
+        return toast.error("Sorry! you gave me the wrong NID number");
       }
     }
 
@@ -145,7 +145,7 @@ const PersonalInfo = () => {
       emergencyContact?.length !== 11 ||
       emergencyContact?.substring(0, 2) !== "01"
     ) {
-      return toast.error("You gave me wrong Gardian phone number");
+      return toast.error("Sorry! you gave me wrong Gardian phone number");
     }
     const formData = new FormData();
 
@@ -165,38 +165,42 @@ const PersonalInfo = () => {
     };
 
     // Customer Nid
-    if (image?.length > 1) {
-      return toast.error("please provide 1 Nid File");
-    }
-    const file = image[0];
-    if (file?.size > 5000000) {
-      return toast.error("NID size 5MB more than not allowed");
-    } else {
-      if (isValidFileUploaded(file)) {
-        Array.from(image).forEach((item) => {
-          formData.append("image", item);
-        });
+    if (image?.length > 0) {
+      if (image?.length > 1) {
+        return toast.error("please provide 1 Nid File");
+      }
+      const file = image[0];
+      if (file?.size > 5000000) {
+        return toast.error("NID size 5MB more than not allowed");
       } else {
-        return toast.error("NID is not valid");
+        if (isValidFileUploaded(file)) {
+          Array.from(image).forEach((item) => {
+            formData.append("image", item);
+          });
+        } else {
+          return toast.error("NID is not valid");
+        }
       }
     }
 
     // Gardian Image
-    if (gardianImg.length > 1) {
-      return toast.error("please provide one pdf file");
-    }
+    if (gardianImg.length > 0) {
+      if (gardianImg.length > 1) {
+        return toast.error("please provide one pdf file");
+      }
 
-    const gardinaNid = gardianImg[0];
+      const gardinaNid = gardianImg[0];
 
-    if (gardinaNid?.size > 5000000) {
-      return toast.error("File size 5MB more than not allowed");
-    } else {
-      if (isValidFileUploaded(gardinaNid)) {
-        Array.from(gardianImg)?.forEach((item) => {
-          formData.append("gardianImg", item);
-        });
+      if (gardinaNid?.size > 5000000) {
+        return toast.error("File size 5MB more than not allowed");
       } else {
-        return toast.error("Gardian file is not valid");
+        if (isValidFileUploaded(gardinaNid)) {
+          Array.from(gardianImg)?.forEach((item) => {
+            formData.append("gardianImg", item);
+          });
+        } else {
+          return toast.error("Gardian file is not valid");
+        }
       }
     }
 
@@ -252,7 +256,7 @@ const PersonalInfo = () => {
 
     // save order information to the database
     try {
-      await axios.post("https://api.psh.com.bd/api/order", formData);
+      await axios.post("http://localhost:8000/api/order", formData);
       MySwal.fire({
         icon: "success",
         title: "Booking successfully done",
@@ -268,30 +272,6 @@ const PersonalInfo = () => {
     }
     e.target.reset();
   };
-
-  // const [apiKey] = useState('YOUR_IMG_BB_API_KEY');
-
-  // const handleImageUpload = async (file) => {
-  //   const formData = new FormData();
-  //   formData.append('image', file);
-
-  //   try {
-  //     const response = await axios.post(`https://api.imgbb.com/1/upload?key=${apiKey}`, formData);
-  //     const uploadedImage = response.data.data.image;
-  //     // Handle the uploaded image URL as needed
-  //     console.log(uploadedImage.url);
-  //   } catch (error) {
-  //     // Handle errors
-  //     console.error(error);
-  //   }
-  // };
-
-  // const handleFileChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     handleImageUpload(file);
-  //   }
-  // };
 
   // handle Scrooled
   const [isScrolled, setIsScrolled] = useState(false);
@@ -540,7 +520,7 @@ const PersonalInfo = () => {
                   }}
                   type="file"
                   className=" personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full py-2 px-2"
-                  required
+                  required={user?.cardImage ? false : true}
                   name="image"
                   style={{ height: "45px" }}
                   id=""
@@ -622,7 +602,7 @@ const PersonalInfo = () => {
                 }}
                 type="file"
                 className=" personal-info rounded lg:w-[350px] md:w-[300px] sm:w-full px-2 py-2"
-                required
+                required={user?.gardianImg ? false : true}
                 name="gardianImg"
                 id=""
                 style={{ height: "45px" }}

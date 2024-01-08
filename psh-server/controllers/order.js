@@ -43,13 +43,19 @@ export const createOrder = async (req, res) => {
     bookingExtend,
   } = req.body;
   try {
-    // const user = await User.findOne({ email: email });
+    const user = await User.findOne({ email: email });
 
     const bookingInfo = JSON.parse(req.body?.bookingInfo);
-    const gardianImg = req?.files?.gardianImg[0].path;
-    const image = req?.files?.image[0].path;
-    const branch = bookingInfo?.branch;
 
+    const gardianImg = req?.files?.gardianImg?.length
+      ? req?.files?.gardianImg[0]?.path
+      : user?.gardianImg;
+
+    const image = req?.files?.image?.length
+      ? req?.files?.image[0]?.path
+      : user?.cardImage;
+    const branch = bookingInfo?.branch;
+    console.log(image);
     const newOrder = new OrderModel({
       // seat: seatId,
       bookingInfo,
@@ -117,7 +123,9 @@ export const createOrder = async (req, res) => {
       }
     });
 
+    // Booking Save to Database
     const result = await newOrder.save();
+    // User data Update
     const userUpdate = {
       firstName: fullName,
       fatherName: fatherName,
